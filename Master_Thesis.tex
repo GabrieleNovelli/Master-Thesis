@@ -1,0 +1,358 @@
+\documentclass[12pt,a4paper]{report}
+
+\usepackage[italian]{babel}
+\usepackage{newlfont}
+\usepackage{color}
+\usepackage{float}
+\usepackage{frontespizio}
+\usepackage{amsmath,amssymb}
+\usepackage{amsthm}
+\usepackage{geometry}
+\usepackage{tikz}
+\usepackage{biblatex}
+\usepackage{csquotes}
+\usepackage{pgfplots}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{comment}
+\usepackage[compat=1.0.0]{tikz-feynman}
+\usepackage{tikz-cd}
+\usepackage{mathtools}
+\usepackage{braket}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+	pdftitle={Overleaf Example},
+	pdfpagemode=FullScreen,
+}
+
+\textwidth=450pt\oddsidemargin=0pt
+\geometry{a4paper, top=3cm, bottom=3cm, left=3cm, right=3cm, % heightrounded, bindingoffset=5mm 
+}
+\theoremstyle{definition}
+\newtheorem{Def}{Definition}[chapter]
+
+\theoremstyle{Theorem}
+\newtheorem{Theo}[Def]{Theorem}
+\newtheorem{Prop}[Def]{Proposition}
+
+\newtheorem{Lm}[Def]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{Ex}[Def]{Example}
+
+\theoremstyle{definition}
+\newtheorem{Obs}[Def]{Observation}
+\begin{document}
+	\chapter{Preliminaries on differential geometry}
+		In this chapter we will introduce the topic of fiber bundles vector bundles and some basic notions that will be used afterwards. Those concepts will be fundamental for the study of Gauge Theories.\\
+		In what follows, we will assume that the reader has familiarity with basic notions of smooth manifold and Lie groups. To deepen those concepts, the reader is advised to consult REFERENZE
+		\section{Smooth manifolds}
+		In this chapter we introduce the notion of smooth manifolds, tangent sopaces and vector fields; with some examples. More details can be found in REFERENZA
+		\begin{Def}
+			A \textit{topological manifold} $M$ of dimension $n$ T2, second countable, locally euclidean topological space of dimension $n$. With locally euclidean we mean that for every point $p\in M$ there exists an open subset $U\subset M$ containing $p$, and an homeomprphism $\phi:U\rightarrow\mathbb{R}^n$. The couple $(U,\phi)$ is called \textit{chart}. 
+		\end{Def}
+		\begin{Ex}
+			The space $\mathbb{R}^n$ with $(\mathbb{R}^n, id)$ where $id:\mathbb{R}^n\rightarrow \mathbb{R}^n$ is the idenity map, is a topological manifold. 
+		\end{Ex}
+		\begin{Def}
+			Two charts $(U_1,\phi:U_1\rightarrow\mathbb{R}^n)$ and $(U_2,\varphi:U_2\rightarrow\mathbb{R}^n)$ on the same topological manifold $M$ are said to be \textit{compatible} if
+			$\phi\circ\varphi^{-1}:\varphi(U_1\cap U_2)\rightarrow \phi(U_1\cap U_2)$ and $\varphi\circ\phi^{-1}:\phi(U_1\cap U_2)\rightarrow \varphi(U_1\cap U_2)$ are $C^\infty$.\\
+			A collection of compatible charts $\mathbb{U}=\{(U_i,\phi_{i})\}$ on $M$ such that $M=\bigcup_i U_i$ is called \textit{atlas}. A topological manifold endowed with a maximal atlas is called \textit{smooth manifold}.
+		\end{Def}
+		It is possible to show that if two charts are compatible with some other charts of a given atlas, then they are also compatible with one another. For more details see (TU????)[1] (pag. 51, cap. 2).
+		\begin{Obs}\label{Obs:1.1.1}
+			Every open subset of a smooth manifold is still a smooth manifold. In fact if $\{(U_i,\phi_i)\}$ is an atlas for $M$, considering an open set $A\subset M$ the collection $\{(U_i\cap A,\phi_i|_{U_i\cap A})\}$ is an atlas for $A$.
+		\end{Obs}
+		We now give some important examples of smooth manifolds:
+		\begin{Ex}
+			The set $\mathbb{R}^n$ with the chart $(\mathbb{R}^n,\phi)$, where $\phi=(r^1,...,r^n)$ and $r^i$ are the standard coordinate of $\mathbb{R}^n$, is a smooth manifold.
+		\end{Ex}
+		\begin{Ex} [\textbf{The general linear group}]\label{Ex 1.1}
+			The set $GL_n(\mathbb{R})=\{A\in M_{n\times n}|det(A)\neq0\}$ si a smooth manifold. One can see this by considering the map $det:\mathbb{R}^{n^2}\rightarrow \mathbb{R}$, by definition $GL_n(\mathbb{R})=det^{-1}(\mathbb{R}-\{0\})$. Since the map $det$ is continuous, the pre-images of open sets are open as well, thus $GL_n(\mathbb{R})$ is an open subset of $\mathbb{R}^{n^2}$. By observation \ref{Obs:1.1.1}, $GL_n(\mathbb{R})$ is a smooth manifold.
+		\end{Ex}
+		\begin{Ex} [The circle]
+			Consider the unit circle $S^1=\{x^2+y^2=1\}\subset \mathbb{R}^2$. Let there be two charts: $$(U_1=\{x^2+y^2=1;y>0\},\phi_1) \, and \,  (U_2=\{x^2+y^2=1;y<0\},\phi_2)$$ like in figure FIGURA REFERENZA, where the coordinate maps are defined like: $\phi_1(x,y)=x$ e $\phi_2(x,y)=x$.
+			\begin{figure}[H]
+				\centering
+				\begin{tikzpicture}
+					\draw[->] (-2,0) -- (2,0) node[anchor=north west] {$x$};
+					\draw[->] (0,-2.) -- (0,2) node[anchor=south east] {$y$};
+					\draw[thick] (0,0) circle (1cm);
+					\draw (0.4,1.5) node{$U_1$};
+					\draw (-0.4,-1.5) node{$U_2$};
+					\draw[thick, ->] (0,1)--(0,0.2) ;
+					\draw (0.5,0.5) node{$\phi_1$};
+					\draw (-0.5,-0.5) node{$\phi_2$};
+					\draw[thick, ->] (0,-1)--(0,-0.2);
+				\end{tikzpicture}
+				\label{figura 1}
+				\caption{The two charts $U_1$ and $U_2$ on the unit circle.}
+			\end{figure}
+			To those charts we add analogously $$(U_3=\{x^2+y^2=1;x>0\},\phi_3)\, and \, (U_4=\{x^2+y^2=1;x<0\},\phi_4)$$ with $\phi_3(x,y)=y$ and $\phi_4(x,y)=y$. by construction, $\phi_i$ is an homeomorphism for every $i$. It remains to show that the charts are compatible.\\
+			Consider the composition $\phi_3\circ\phi_2^{-1}$, this is such that: $$(\phi_3\circ\phi_2^{-1})(x)=\phi_3(x,-\sqrt{1-x^2})=-\sqrt{1-x^2}$$ for $x\in ]0,1[$, which is $C^\infty$. The compatibility of the remaining charts follows by an analogous proof. This proves the circle is a smooth manifold.
+		\end{Ex}
+		\begin{Def}
+			A subset $S\subset M$ of a manifold $M$ is called \textit{regular submanifold} of dimension $k$ if for every $p\in M$ there exists a chart $(U,\phi)$ centered in $p$ such that $U\cap S$ is defined by the vanishing of $n-k$ coordinates.
+		\end{Def}
+		Thus if $\phi=(x^1,...,x^n)$ is a coordinate map on $M$, then on $U\cap S$ we will have $\phi=(x^1,...,x^k,0,0,...0)$.
+		\begin{Ex} [\textbf{$\mathbb{R}^k$ as a regular submanifold of $\mathbb{R}^n$}]
+			Consider the smooth manifold $\mathbb{R}^n$ and the space $\mathbb{R}^k\subset\mathbb{R}^n$ for $k<n$. Consider also the chart $(\mathbb{R}^n,\phi)=(\mathbb{R}^n,r^1,...,r^n)$ centered in $p$. Since $\mathbb{R}^n\cap \mathbb{R}^k=\mathbb{R}^k$ it immediatly follows that $\phi|_{\mathbb{R}^k}=(r^1,...,r^k,0,0,...0)$. This shows that $\mathbb{R}^k$ is a regular submanifold of $\mathbb{R}^n$.
+		\end{Ex}
+		\begin{Obs} \label{Obs:1.1.2}
+			In the definition of regular submanifold, the dimension of $S$ can coincide with the one of $M$. In this case $U\cap S=U$. By observation \ref{Obs:1.1.1}, every open subset $S$ of $M$ is a regular smooth submanifold of dimension equal to $M$.
+		\end{Obs}
+		\section{Mappe differenziabili}
+		In this section we define smooth maps between smooth manifolds and describe some important properties they enjoy. More details can be found in REFERENZA [1] cap. 2.
+		\begin{Def}
+			Let $M$ be a smooth manifold and $f:M\rightarrow\mathbb{R}$ a map. Then $f$ is said to be $C^\infty$ in $p\in M$ if there exists a chart $(U,\phi)$ centered in $p$ such that $f\circ \phi^{-1}$ is $C^\infty$.\\
+			The map $f:M\rightarrow \mathbb{R}$ is said to be $C^\infty$ on $M$ if it is on every $p\in M$.
+		\end{Def}
+		\begin{Obs}
+			The definition of smoothness we gave does not depend on the choice of the chart. In fact if $(U,\phi)$ and $(V,\psi)$ are two charts of $M$ and $f\circ\phi^{-1}$ is $C^\infty$, then $$f\circ\psi^{-1}=(f\circ\phi^{-1})\circ(\phi\circ\psi^{-1})$$ which is still $C^\infty$.
+		\end{Obs}
+		\begin{Obs}
+			If $f:M\rightarrow \mathbb{R}$ is $C^\infty$ then it is continuous. One can in fact write $f=(f\circ\phi^{-1})\circ \phi$ where $\phi$ and $f\circ\phi^{-1}$ are continuous: $f\circ\phi^{-1}$ is $C^\infty$ and $\phi$ is an homeomprphism. It follows that, by composition of continuous maps, that $f$ is continuous.\\
+		\end{Obs}
+		\begin{Def}
+			Let $N$ and $M$ be smooth manifolds of dimensions $n$ and $m$. a continuous map $f:N\rightarrow M$ is said to be $C^\infty$  $p\in N$ if there are two charts $(U,\phi)$ centered in $p\in N$ and $(V,\psi)$ centered in $f(p)\in M$ such that $\psi\circ f\circ \phi$ is $C^\infty$.
+		\end{Def}
+		The composition has as domain $\phi(f^{-1}(V))\cap U$ subset of $\mathbb{R}^n$. $$\psi\circ f\circ \phi:\phi(f^{-1}(V)\cap U)\rightarrow \mathbb{R}^m$$
+		The continuity of $f$ is requested to ensure that the pre-image of $f^{-1}(V)$ is an open subset of $N$. It is also possible to show that the composition of $C^\infty$ maps between smooth manifolds is still $C^\infty$. The proof can be found in REFERENZA [1] (pag. 62 cap.2). 
+		\begin{Def}
+			A map $f:M\rightarrow N$ between two smooth manifolds is called \textit{diffeomorphism} if it is bijective, $C^\infty$ and with a $C^\infty$ inverse.
+		\end{Def}
+		It is also possible to show that all coordinate maps of any given chart $(U,\phi)$ of a smooth manifold are diffeomorphisms. The proof can be found in REFERENZA [1] pag. 63 cap. 2.
+		\section{Spazio Tangente e Campi Vettoriali}
+		In this section we define the tangent space and the vector fields. From now on we will indicate with $M$ a generic smooth manifold of dimension $n$. 
+		\begin{Def}
+			Consider all couples $(f,U)$, where $U\subset M$ is an open set conaining $p\in M$ and $f:U\rightarrow \mathbb{R}$ is a $C^\infty$ map. We say that $(f,U)$ is in relation with $(g,V)$ if there exists an open set $W\subset U\cap V$ containing $p$, such that $f=g$ when restricted to $W$. We define the \textit{germ} of $f$ in $p$ as the equivalence class of $(f,U)$.
+			The set of all germs of $C^\infty$ functions at $p\in M$ is labelled with $C^\infty_p(M)$.
+		\end{Def}
+		It is not difficult to verify that the so defined relation is an equivalence relation: if $f\sim g$ then obviously $g\sim f$ at $p$. Moreover we clearly have that $f\sim f$ and if $f\sim g$, $g\sim h$, then $f\sim h$ since all of the above functions are equal in a neighbourhood of $p$.\\
+		\\
+		By generalizing the concept of derivation in $\mathbb{R}^n$, we call \textit{derivation} in $p\in M$ any linear map $D_p:C^\infty_p(M)\rightarrow\mathbb{R}$ which respects the Leibniz rule 
+		$$D_p(fg)=D_p(f)g(p)+f(p)D_p(g)$$
+		\begin{Def}
+			A derivation in $p\in M$ is called tangent vector in $p$. The set of all tangent vectors in $p$ is called \textit{tangent space} and will be referred to as $T_pM$.
+		\end{Def} 
+		Let $(U,\phi)$ be a chart of $M$ centered in $p\in M$, we set:
+		$${\partial\over \partial x^i}\bigg\rvert_p(f)={\partial\over \partial r^i}\bigg\rvert_{\phi(p)}(f\circ \phi^{-1})$$ where $r^i$ are the coordinates of $\mathbb{R}^n$. This definition makes ${\partial\over \partial x^i}$ a vector field since it follows Leibniz.\\
+		\\
+		An important result is the following: considering the tangent space $T_pM$ and a chart $(U,\phi)$ centered in $p$, then the vectors $\partial\over \partial x^i$ form a base for $T_pM$. This comes from the fact that the tangent vectors $\partial\over \partial r^i$ are a base for the tangent space in $x_0\in\mathbb{R}^n$, which has the same dimensions as $M$.\\
+		Thus, once we choose a chart, a generic tangent vector can be expressed as a linear combination: $$\vec{v}=\sum_{i=1}^{n}c_i{\partial\over \partial x^i}$$ 
+		\begin{Obs} \label{Obs 1.1.3}
+			Looking at the open subset $GL_n(\mathbb{R})$ of $M_{n\times n}$, by the previous opbservations \ref{Obs:1.1.1} and \ref{Obs:1.1.2}, $GL_n(\mathbb{R})$ is a smooth submanifold of $M_{n\times n}$ and its dimension is $n^2$, equal to the one of $M_{n\times n}$. However, the tangent space at the identity $T_\mathbb{I}M_{n\times n}$ has itself dimension $n^2$. From this, $T_\mathbb{I}GL_n(\mathbb{R})\simeq T_\mathbb{I}M_{n\times n}$.
+		\end{Obs}
+		\begin{Def}
+			Given a $C^\infty$ map between smooth manifolds like $F:N\rightarrow M$, we call \textit{differential} of $F$ in a point $p\in N$ the map $dF_p:T_pN\rightarrow T_{F(p)}M$ acting as follows: for any vector $X_p\in T_pN$ and for any map $f\in C_{F(p)}^\infty(M)$, it holds $dF_p(X_p)f=\\X_p(f\circ F)\in\mathbb{R}$.
+		\end{Def}
+		From the fact that tangent vectors are derivations, it follows that the differential is a derivation as well. It is possible to show that the differential of a composite function follows the \textit{chain rule:} 
+		$$d(F\circ G)_p=dF_{G(p)}\circ dG_p$$ 
+		For the full proof the reader can look at REFERENZA [1] (pag. 88 cap 3).
+		\begin{Ex}
+			Let $x^1,...,x^n$ be the coordiantes of $\mathbb{R}^n$ and $y^1,...,y^m$ the coordinates of $\mathbb{R}^m$. Let $F:\mathbb{R}^n\rightarrow \mathbb{R}^m$ be a $C^\infty$ map and $p\in \mathbb{R}^n$. Then, the differential of $F$ evaluated in $p$ is a map $dF_p:T_p\mathbb{R}^n\rightarrow T_{F(p)}\mathbb{R}^m$ such that, given any tangent vector at $p$ like $X_p\in T_p\mathbb{R}^n$ and a map $f\in C_{F(p)}^\infty(\mathbb{R}^m)$, the following relation holds $dF_p(X_p)f=X_p(f\circ F)$.\\
+			Recalling that a base for $T_p\mathbb{R}^n$ is made up by the vectors $\{{\partial\over\partial x^i}\}$, taking a vector $X_p\in T_p\mathbb{R}^n$ defined as $X_p={\partial\over \partial x^j}$, we can write $$dF_p\bigg{(}{\partial\over \partial x^j}\bigg{)}=\sum_{k=1}^{m}d_j^k{\partial\over \partial y^k}\bigg{\rvert}_p$$
+			The coefficients $d$ can be found by evaluating the following 
+			$$dF_p\bigg{(}{\partial\over \partial x^j}\bigg{)}y^i=\sum_{k=1}^{m}d_j^k{\partial\over \partial y^k}\bigg{\rvert}_{F(p)}y^i=d_j^i$$
+			Moreover, knowing that, by definition of differential, it holds $dF_p(X_p)f=X_p(f\circ F)$, we can further expand:
+			$$dF_p\bigg{(}{\partial\over \partial x^j}\bigg{)}y^i={\partial\over \partial x^j}\bigg{\rvert}_p(y^i\circ F)={\partial F^i\over \partial x^j}(p)=d^i_j$$
+			Thus, the matrix which defines the differential of $F$ in a point $p$ is exactly the jacobian matrix of $F$ evaluated at $p$.
+		\end{Ex}
+		We now define the concept of vector field.
+		\begin{Def}
+			We call \textit{vector field} on $M$ a map $X$ such taht to any point it associates a vector in the tangent space at that point: $X:p\mapsto X_p$. 
+		\end{Def}
+		\begin{Obs}
+			We saw that a vector can be identified with a map $\vec{v}:f\mapsto\sum_{i=1}^{n}c_i{\partial f\over \partial x^i}$ for a generic point $p$ inside a chart. Then a vector field can also be seen as a map $X:f\mapsto\vec{v}(f)$ such that $X(f)(p)=\sum_{i=1}^{n}c_i(p){\partial f(p)\over \partial x^i}$
+		\end{Obs}
+		\begin{Def}
+			A vector field $X$ on $M$ is said to be \textit{smooth} or $C^\infty$ if for every $f\in C^\infty(M)$, $X(f)$ is $C^\infty$.
+			\\
+			Equivalently, $X=\sum_{i=1}^{n}c_i{\partial\over \partial x^i}$ is said to be $C^\infty$ if the functions $c_i$ are all $C^\infty$.
+			\begin{Def}
+				A curve $c_p:]-\epsilon,\epsilon[\rightarrow M$ is said to be an \textit{integral curve} of a vector field $X$ on $M$ passing through $p\in M$ if $c_p(0)=p$ and $c_p'(0)=X_p$.
+			\end{Def}
+			From the theory of differential equations, given any point $p\in M$ and a vectori field $X$ defined in a neighbourhood of $p$, there always exists a unique integral curve of $X$ passing through $p$. The reader can find more details about this part in REFERENZA [1] pag. 154 cap.3.\\
+			\\
+			It is useful to define the concept of \textit{flow} of a vector field $X$ as the map $\Phi_X:\mathbb{R}\times M\rightarrow\mathbb{M}$ such taht $\Phi_X(0,p)=p$; $\Phi_X(t,p)=c_p(t)$ is the integral curve of $X$.\\
+			\\
+			More details on the flux of a vector field can be found in REFERENZA [1] pag. 155, 156 cap. 3.
+		\end{Def}
+		\subsection{The tangent bundle}
+		In this section we introduce the notion of tangent bundle of a smooth manifold.\\
+		\\
+		Let M be a manifold. At any point $p\in M$ we can construct the tangent space $T_pM\simeq \mathbb{R}^n$. We define the tangent bundle as the disjoint union of all the tangent spaces.
+		$$TM=\bigsqcup_{p\in M}T_pM=\bigcup_{p\in M} \{p\}\times T_pM$$
+		This set has a natural projection 
+		$$\pi:TM\rightarrow M\hbox{ acting like }\pi(p,v_p)=p \hbox{ where }v_p\in T_pM$$.  
+		We now endow the tangent bundle with a manifold structure.
+		\subsubsection{The topology of the tangent bundle}
+		Recall that a smooth manifold has a T2 and second countable topology. The idea is to induce a satisfying topological strucutre on $TM$ by using the one of $M$.\\
+		\\
+		Let $(U,\phi)$ be a chart on $M$ with $\phi:U\rightarrow \mathbb{R}^n$. Then, any vector in $p\in U$ can be written in local coordiantes: $v_p=v^i_p\partial_i|_p$.\\
+		Now we construct the following mapping:
+		$$\Phi:TU\rightarrow \phi(U)\times \mathbb{R}^n; \hbox{ like: }
+		\Phi(p,v_p)=(x^i_pe_i,v^i_p\partial_i|_p)$$
+		This mapping is 1-1 and surjective so it is a bijection inside $U$. Moreover, it is continuous. Thus, it is an homeomorphism.
+		\begin{Theo} \label{Theo_1.1}
+			The tangent bundle $TM$ has a second countable and Haussdorf topology
+		\end{Theo}
+		\begin{proof}
+			Proving this theorem would take us too far from the main topic of this thesis. The reader can find the complete proof in [1] Chap. 3 pag 132.
+		\end{proof}
+		\subsubsection{The smooth structure of the tangent bundle}
+		In the previus section, Theorem \ref{Theo_1.1} ensures that $TM$ has the topological qualities needed to be a topological manifold. We now need to show that it is locally Euclidean and that it possesses a smooth atlas.
+		\begin{Theo}
+			$TM$ is a smooth manifold.
+		\end{Theo}
+		\begin{proof}
+			Consider an Atlas $\mathfrak{A}_M=\{U_\alpha,\phi_\alpha\}$ for the manifold $M$. We want to show that the induced collection $\mathfrak{A}_{TM}=\{TU_\alpha,\Phi_\alpha\}$ is an atlas on $TM$, knowing that $TM=\bigcup TU_\alpha$ and $\Phi_\alpha:TU_\alpha\rightarrow U_\alpha\times \mathbb{R}^n$ is the map constructed in the previous section.\\
+			\\
+			As we have said previously, the maps $\Phi_\alpha$ are homeomorphisms between open sets of $TM$ and $\mathbb{R}^{2n}$. This makes $TM$ locally euclidean. It remains to check the compatibility between two overlapping charts.\\
+			\\
+			Consider two overlapping charts $\Phi_1,\Phi_2$ on $TU_1,TU_2$ open sets of the tangent bundle, with $TU_1\cap TU_2\neq \emptyset$. Then on the two corresponding charts $(U_1,\phi_1)$, $(U_2,\phi_2)$ on $M$, we can express tangent vectors in two different coordiante basis:
+			$$v=a^i{\partial\over \partial{x^i}}=b^j{\partial \over \partial y^j}$$
+			Clearly at any point:
+			$$a^i=b^j{\partial x^i\over\partial y^j} \hbox{ and } b^j=a^i{\partial y^j\over\partial x^i}$$
+			Now it only remains to show that the composition $\Phi_1\circ \Phi_2^{-1}$ is a diffeomorphism.\\
+			By definition:
+			$$\Phi_1\circ \Phi_2^{-1}:\phi_2(U_2\cap U_1)\times \mathbb{R}^n\rightarrow \phi_1(U_2\cap U_1)\times \mathbb{R}^n$$
+			This map, being a composition of heomeomorphisms, is still an homeomorphism. Now, taking a point $p\in U_2\cap U_1$ and a tangent vector $v_p$ we write:
+			$$\Phi_1\circ \Phi_2^{-1}(x^i_p,a^i_p)=(y^j_p,b^j_p)$$
+			where we have shortened the notation:
+			$$(x^i,a^i)=(x^1_p,...,x^n_p,a^1_p,...,a^n_p)$$
+			However, we can make the following substitution:
+			$$(y^j_p,b^j_p)=\bigg((\phi_2\circ \phi_1^{-1})(\phi_1(p)),a^i_p{\partial y^j\over\partial x^i}\bigg|_p\bigg)=\bigg((\phi_2\circ \phi_1^{-1})(\phi_1(p)),a^i_p{\partial (\phi_2\circ \phi_1^{-1})^j\over\partial r^i}\bigg|_p(\phi_1(p))\bigg)$$
+			Due to $\phi_2\circ \phi_1^{-1}$ being a diffeomorphism, $\Phi_1\circ \Phi_2^{-1}$ is also a diffeomorphism.\\
+			This completes the proof.
+		\end{proof}
+		Thus, the Tangent bundle $TM$ of a manifold of dimension $n$ is also a manifold, but of dimension $2n$, with an atlas given by:
+		$$\mathfrak{A}_{TM}=\{TU_\alpha,\Phi_\alpha\} \hbox{ where } \Phi_\alpha:TU_\alpha\rightarrow U_\alpha\times \mathbb{R}^n$$
+		\section{Lie groups}
+		\section{Fiber Bundles}
+		In this section we will introduce fiber and vector bundles and give some important examples.
+			\begin{Def}
+				Let $M, E$ and $F$ be manifolds. Let $\pi: E\rightarrow M$ be a map such that:
+				\begin{itemize}
+					\item $\pi$ is smooth and continuous;
+					\item given any open set $U\subset M$ we can find a diffeomorphism $\varphi: \pi^{-1}(U)\rightarrow U\times F$ called \textit{local trivialization} such that the following diagram commutes:
+				\end{itemize}
+						\[
+				\begin{tikzcd}
+					\pi^{-1}(U) \arrow{r}{\varphi} \arrow[swap]{dr}{\pi} & U\times F \arrow{d}{Proj}\\
+					& U 
+				\end{tikzcd}
+				\]
+				Where $Proj: U\times F\rightarrow U$ is the standard projection. $Proj(x_M,x_F)=x_M$.\\
+				We call $(E,M,\pi,F)$ a \textit{fiber bundle}, $M$ \textit{base space}, $E$ \textit{total space} and $F$ \textit{fiber}.
+			\end{Def}
+			\begin{Ex}[\textbf{Product Bundle}]\label{Ex_1.1}
+				Let $M$, $F$ be manifolds. We will indicate with $p_M$ points in $M$ and with $p_F$ points in $F$.\\ 
+				We set $E=M\times F$ and construct a projection in the obvious way: 
+				$\pi:M\times F\rightarrow M$ like $\pi(p_M,p_F)=x_M$. This map is obviusly continuous and surjective since it is a projection. Moreover, it is also smooth since given two charts $(U_M,\phi_M:U_M\rightarrow \mathbb{R}^n)$ on $M$ and $(U_F,\phi_F:U_F\rightarrow \mathbb{R}^k)$ on $F$, we have:
+				$$\phi_M\circ \pi\circ (\phi_M^{-1}\times \phi_F^{-1}):\mathbb{R}^n\times\mathbb{R}^k\rightarrow\mathbb{R}^n,\hbox{ }\phi_M\circ \pi\circ (\phi_M^{-1}\times \phi_F^{-1})(x^i_M,x^j_F)=x^i_M$$
+				Now it remains to construct local trivializations. Considering any chart on $M$ like $(U_M,\phi_M:U_M\rightarrow \mathbb{R}^n)$ we set
+				$$\varphi:\pi^{-1}(U)\rightarrow U\times F$$
+				such that $\varphi(p_M,p_F)=(p_M,p_F)$ acts like the identity map. This map is clearly diffeomorphic.
+				This makes $M\times F$ the structure of a fiber bundle.
+			\end{Ex}
+			\begin{Ex}[\textbf{Cilinder}] \label{Ex_1.2}
+				An example of the product bundle is the cilinder. It can be constructed as a fiber bundle over the circle $S^1=\{z\in \mathbb{C}|z=e^{i\theta}, \theta\in[0,2\pi]\}$.\\
+				We define the cilinder as $C=S^1\times \mathbb{R}$, recalling that both $S^1$ and $\mathbb{R}$ are manifolds. We now repeat the same construction we did in the previous example: we define the projection as: $\pi:C\rightarrow S^1$ that sends $\pi(z,t)\rightarrow z$, where $z\in S^1$ and $t\in\mathbb{R}$. By the same arguments as above, this map is smooth and surjective.\\As for the local trivializations, we can take any subset of the circle $U$ and trivialize the bundle with the identity:
+				$\varphi:\pi^{-1}(U)\rightarrow U\times \mathbb{R}=\mathbb{I}_d$.\\
+				In this case the fiber of the cilinder is a line. Intuitively, each point has associated a line and the totality of those lines composes the cilinder.\\
+				\begin{figure}[H]
+					\begin{center}
+						\begin{tikzpicture}
+							%cilinder and circle
+							\draw (0,0) ellipse (1.5 and 0.5) node at (2,0) {$S^1$};
+							\draw (0,2) ellipse (1.5 and 0.5);
+							\draw (0,4) ellipse (1.5 and 0.5);
+							\draw (-1.5,2)--(-1.5,4);
+							\draw (+1.5,2)--(+1.5,4);
+							\draw node at (-2.5,3) {C};
+							%lines
+							\draw[->] (-2,+2)--(-2,0) node[midway,left] {$\pi$};
+							\draw (-1,2.372677996)--(-1,4.372677996) node at (-0.5,3) {]a,b[};
+							\draw (+0.5,1.51)--(+0.5,3.51) node at (+1,2.7) {]a,b[};
+						\end{tikzpicture}
+						\caption{The cilinder as a fiber bundle}
+					\end{center}	
+				\end{figure}
+			\end{Ex}
+			\begin{Ex}
+				MOBIUS STRIP???
+			\end{Ex}
+			\section{Vector bundles}
+			We now introduce the notion of vector bundles, which will be of great importance. A vector bundle can be thought of as a fiber bundle, but with a vector space as a fiber.
+			\begin{Def}\label{Def_5.2}
+				Let $E,M$ be manifolds. Let $\pi:E\rightarrow M$ be a smooth and surjective map such that:
+				\begin{itemize}
+					\item for every $p\in M$, the set $E_p=\pi^{-1}(p)$ is a vector space of dimension $k$;
+					\item for every point $p\in M$ there is an open set $U\in M$ containing $p$ and a diffeomorphic fiber-preserving local trivialization $\varphi:\pi^{-1}(U)\rightarrow u\times \mathbb{R}^k$ that reduces to a linear isomorphism on each fiber:
+					$$\varphi_p:E_p\rightarrow U\times \mathbb{R}^k$$
+				\end{itemize}
+				We call $(E,M,\pi,\mathbb{R}^k)$ a smooth vector bundle.
+			\end{Def}
+			\begin{Ex}[\textbf{The tangent bundle}]
+				Consider a manifold $M$ of dimension $n$ and it's tangent bundle $TM$ with the induced $2n$-manifold structure from $M$. We have a projection $\pi:TM\rightarrow M$ defined as $\pi(p,v_p)=p$ which is continuous and surjective. 
+				\\
+				Before constructing the local trivializations, we need to show that this projection is smooth. This is done via charts. Consider a chart $(U,\phi)$ on $M$ and the corresponding $(TU,\Phi:TU\rightarrow \phi(U)\times \mathbb{R}^n)$. Then we can look at the composition:
+				$$\phi\circ \pi\circ \Phi^{-1}:\phi(U)\times \mathbb{R}^n\rightarrow \mathbb{R}^n \hbox{ such that }$$ 
+				$$\phi(\pi(\Phi^{-1}(x^i,a^i)))=\phi(\pi(p,v_p))=\phi(p)=x^i$$
+				This is clearly smooth since $\phi$ and $\Phi$ are. This proves $\pi$ is smooth as well.\\
+				\\
+				Now we need to construct local trivializations. We wish for a deiffeomorphism $\varphi:\pi^{-1}(U)\rightarrow U\times F$ where the fiber at each point is the tangent space $T_pM$. We also wish for this map to reduce, on each fiber, to a linear isomorphism.\\
+				Given any chart on $TM$ like $(TU,\Phi)$, we take as our candidate for the local trivialization the map: 
+				$$\varphi:(\phi^{-1}\times \mathbb{I}_{\mathbb{R}^n})\circ \Phi:TU\rightarrow U\times \mathbb{R}^n$$
+				In particular we have the following succession:
+				$$\varphi:TU\xrightarrow{\text{$\Phi$}} \phi(U)\times \mathbb{R}^n\xrightarrow{\text{$\phi^{-1}\times \mathbb{I}_{\mathbb{R}^n}$}}U\times \mathbb{R}^n$$
+				This map is clearly an homeomorphism and a diffeomorphism since both the charts on manifolds and the identity are. As for the linear isomorphism reduction, consider the map:
+				$\varphi_p$ where we fix the first argument $p$. The induced map is the follwoing:
+				$$\varphi_p(v_p)=\varphi(p,v_p)=(p,v^i_p\partial_i|_p)$$
+				This is clearly a linear isomorphism between $\mathbb{R}^n$ and itself. This proves that $(TM,M,\pi,\mathbb{R}^n)$ is a smooth vector bundle.
+			\end{Ex}
+			\begin{Def}\label{Def_5.3}
+				A vector bundle is said to be trivial if it is isomorphic to $M\times F$ the product bundle.
+			\end{Def}
+			It clearly follows that the product bundle is trivial and so it is also called the \textit{trivial bundle}.
+			
+		
+		\section{Sections and frames}
+			In this section we introduce the notions of sections and frames of a vector bundle.
+		\begin{Def}\label{Def_5.5}
+			Let $(E,M,\pi,F)$ be a vector bundle. We say that a map \\$s:U\subset M\rightarrow E$ is a \textit{section} if $\pi\circ s=\mathbb{I}_d$. \\
+			We denote the space of all smooth sections $\Gamma(E)$.
+			%We say that a section is \textit{global} if it is defined over the entire manifold.
+		\end{Def}
+		\begin{Ex}
+			Consider the tangent bundle $TM$ of a manifold $M$. A section is a map that associates to each point a tangent vector. $s:M\rightarrow TM$. Note that every vector field is a section of the tangent bundle, since it acts in the same way: it takes a point and associates a vector to it. Thus, smooth vector fields are smooth sections of the tangent bundle and vice-versa. We call the space $\Gamma(TM)=\mathfrak{X}(M)$.
+		\end{Ex}
+		\begin{Def}\label{Def_5.6}
+			Let $(E,M,\pi,F)$ be a vector bundle. We define a \textit{frame} on an open set $U\subset M$ as a collection of sections $\{s_i\}$ such that $\{s_i(p)\}$ form a basis for the fiber $F$ at each $p$. 
+		\end{Def}
+		\begin{Prop}
+			A smooth vector bundle is trivial if and only if it has a smooth frame.
+		\end{Prop}
+		\begin{proof}
+			Let $E$ be trivial. This means there exists a diffeomorphic trivialization $\varphi:E\rightarrow M\times \mathbb{R}^k$. Let now $\{e_i\}$ be a base for $\mathbb{R}^k$. Then, $\{(p,e_i)\}$ forms a base of $\{p\}\times \mathbb{R}^k$.
+			\\\\
+			Now we check the contrary: suppose we have a smooth frame for $E$, indexed with $\{e_i\}$. This means that every point $e\in E$ can be expressed as a linear combination:
+			$$e=a^ie_i$$
+			Consider the mapping $\phi:E\rightarrow M\times\mathbb{R}^k$ acting like:
+			$$\phi(e)=(\pi(e),a^1,...,a^k)$$
+			This has a clear inverse: $\phi^{-1}(\pi(e),a^1,...,a^k)=a^ie_i$.
+			It is clear that at each point $p$ this map reduces to a linear isomorphism.
+		\end{proof}
+	\chapter{Connections on vector bundles}
+\chapter*{Bibliografia}
+\begin{itemize}
+	\item[$\circ$] [1] Loring W.Tu, An Introduction to Manifolds, Springer, 2011
+	\item 	\item[$\circ$] [2] Loring W.Tu, Differential Geometry, Springer, 2017
+\end{itemize}
+\addcontentsline{toc}{chapter}{Bibliografia}
+\end{document}
