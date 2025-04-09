@@ -105,7 +105,7 @@
 		\begin{Obs} \label{Obs:1.1.2}
 			In the definition of regular submanifold, the dimension of $S$ can coincide with the one of $M$. In this case $U\cap S=U$. By observation \ref{Obs:1.1.1}, every open subset $S$ of $M$ is a regular smooth submanifold of dimension equal to $M$.
 		\end{Obs}
-		\section{Mappe differenziabili}
+		\section{Differentiable maps}
 		In this section we define smooth maps between smooth manifolds and describe some important properties they enjoy. More details can be found in REFERENZA [1] cap. 2.
 		\begin{Def}
 			Let $M$ be a smooth manifold and $f:M\rightarrow\mathbb{R}$ a map. Then $f$ is said to be $C^\infty$ in $p\in M$ if there exists a chart $(U,\phi)$ centered in $p$ such that $f\circ \phi^{-1}$ is $C^\infty$.\\
@@ -126,7 +126,7 @@
 			A map $f:M\rightarrow N$ between two smooth manifolds is called \textit{diffeomorphism} if it is bijective, $C^\infty$ and with a $C^\infty$ inverse.
 		\end{Def}
 		It is also possible to show that all coordinate maps of any given chart $(U,\phi)$ of a smooth manifold are diffeomorphisms. The proof can be found in REFERENZA [1] pag. 63 cap. 2.
-		\section{Spazio Tangente e Campi Vettoriali}
+		\section{Tangent space and vector fields}
 		In this section we define the tangent space and the vector fields. From now on we will indicate with $M$ a generic smooth manifold of dimension $n$. 
 		\begin{Def}
 			Consider all couples $(f,U)$, where $U\subset M$ is an open set conaining $p\in M$ and $f:U\rightarrow \mathbb{R}$ is a $C^\infty$ map. We say that $(f,U)$ is in relation with $(g,V)$ if there exists an open set $W\subset U\cap V$ containing $p$, such that $f=g$ when restricted to $W$. We define the \textit{germ} of $f$ in $p$ as the equivalence class of $(f,U)$.
@@ -232,7 +232,166 @@
 		\end{proof}
 		Thus, the Tangent bundle $TM$ of a manifold of dimension $n$ is also a manifold, but of dimension $2n$, with an atlas given by:
 		$$\mathfrak{A}_{TM}=\{TU_\alpha,\Phi_\alpha\} \hbox{ where } \Phi_\alpha:TU_\alpha\rightarrow U_\alpha\times \mathbb{R}^n$$
+		\section{Topological groups}
+		In this section we introduce topological groups, group actions and quotients, with some examples. More information can be found in REFERENZA
+		\begin{Def}
+			We call \textit{group} a set $G$ endowed with a binary operation $\cdot:G\times G\rightarrow G$ called \textit{multiplication} such that it has the following properties:
+			\begin{itemize}
+				\item Associativity: $a\cdot (b\cdot c)=(a\cdot b)\cdot c$ $\forall a,b,c\in G$;
+				\item Existence of neutral element: $\exists e\in G$ such that $\forall a\in G$ it holds $a\cdot e=e\cdot a=a$;
+				\item Existence of inverse: $\forall a\in G$ $\exists a^{-1}$ such that $a\cdot a^{-1}=a^{-1}\cdot a=e$.
+			\end{itemize}
+			A group with a commutative multiplication so that $ab= b\cdot a$ for every $a,b\in G$, is called commutative or abelian.
+		\end{Def}
+		From now on, the multiplication will also be indicated by omitting the symbol $\cdot$ to simplify the notation.
+		\begin{Def}
+			A \textit{topological group} $G$ is a topologicla space with the group structure, such that the multiplication $\cdot:G\times G\rightarrow G$ and the inversion $i:G\rightarrow G$ defined as $i(g)=g^{-1}$ are botgh continuous.
+		\end{Def}
+		\begin{Ex}[The real numbers]
+			The set $\mathbb{R}$ with the euclidean topology is a topolocial abelian group with the usual sum.
+		\end{Ex}
+		We now define the concept of group action on a generic set $X$.
+		\begin{Def}
+			Consider a group $G$ and a set $X$. We say that $G$ \textit{acts} (on the left) on $X$ or that $X$ is a (left) \textit{$G$ set} if there exists a map, called (left) \textit{action} $a:G\times X\rightarrow X$ such that:
+			\begin{itemize}
+				\item 	$a(e,x)=x$ for all $x\in X$;
+				\item $a(gh,x)=a(g,a(h,x))$ for all $g,h\in G$ and $x\in X$.
+			\end{itemize} 
+			If $X$ is also a topological space and the map $x\longmapsto a(g,x)$ is continuous for every $g\in G$, then $X$ is called \textit{$G$ space}.
+			We will write $a(g,x)$ also as $g\cdot x$.
+		\end{Def}
+		\begin{Obs}
+			We defined the concept of left action, however we could have also defined in the same way a right action: $b:X\times G\rightarrow X$ such that $b(x,e)=x$ and $b(x,gh)=b(b(x,g),h)$. We can immediatly show that, given a left action, there is an induced right action: in fact: $a:G\times X\rightarrow X$ defined as $(g,x)\longmapsto a(g,x)$, we can build a map $b:X\times G\rightarrow X$ defined as $(x,g)\longmapsto a(g^{-1},x)=b(x,g)$. 
+			It is not difficult to show that this new action respects the needed properties:
+			$$b(x,e)=a(e,x)=x$$
+			In fact $e^{-1}=e$ since $G$ is a group. Recalling that $(gh)^{-1}=h^{-1}g^{-1}$, we have the chain of equalities:
+			$$b(x,gh)=a((gh)^{-1},x)=a(h^{-1}g^{-1},x)=$$$$=a(h^{-1},a(g^{-1},x))=a(h^{-1},b(x,g))=b(b(x,g),h)$$
+			This shows that the right map $(x,g)\longmapsto a(g^{-1},x)$ is well defined.
+		\end{Obs}
+		We now define the concepts of orbit and stabilizer of a G set.
+		\begin{Def}
+			Let $X$ be a $G$ set and $x\in X$. the set $O_x=\{a(g,x); \, \forall g\in G\}$ is called \textit{orbit} of $x\in X$. We define the $\textit{stabilizer}$ of $x\in X$ the set $G_x=\{g\in G|a(g,x)=x\}$. Sometimes we refer to the stabilizer of a point $x$ also with $Stab_x$.
+		\end{Def}
+		\begin{Obs} \label{Obs: 2.1}
+			One can easily verify that two orbits are either equal or disjoint. To see this, take $O_x$ and $O_y$ two orbits, and a point $z\in O_x\cap O_y$, we can write:
+			$$z=a(g,x)=a(g',y)$$
+			Then $x=a(g^{-1}g',y)$, so the orbits coincide.
+			From this it follows that $X$ is a disjoint union of the orbits of its points: $X=\bigsqcup O_x$.
+		\end{Obs}
+		\begin{Def}
+			The action of a group $G$ on a set $X$ is called \textit{transitive} if there is just only one orbit. This means that for $x,y\in X$ it exists $g\in G$ such that $x=a(g,y)$.
+		\end{Def}
+		This thesis will mainly study structures in which groups act on manifolds. We thus give the following definition:
+		\begin{Def}
+			A manifold $M$ with a Lie group $G$ (left) right-acting on it is called a \textbf{G-manifold}. We also say that a map $f:M\rightarrow N$ between $G-manifolds$ is equivariant if $f(x\cdot g)=f(x)\cdot g$.
+		\end{Def}		
 		\section{Lie groups}
+		In this section we give the definition of Lie groups and subgroups, with some important results. More informations can be found in REFERENZA [1] pag. 164-174 cap. 4 e [3] cap 1.
+		\begin{Def}
+			A \textit{Lie group} $G$ is a smooth manifold with a group structure, such that the operations $\cdot:G\times G\rightarrow G$ and inversion $i:G\rightarrow G$ are $C^\infty$.
+			A \textit{subgroup} $H$ of a Lie group $G$ is a regular submanifold of $G$ which is still a group under the induce operations from $G$.
+		\end{Def}
+		\begin{Ex}[\textbf{The eneral inear group}] 
+			Consider $GL_n(\mathbb{R})$, which was proven to be a smooth manifold. Given the row-column multiplication and the inverse $i$ which associates to a matrix its inverse, those make $GL_n(\mathbb{R})$ a group. Those operations can also be shown to be $C^\infty$ and so $GL_n(\mathbb{R})$ is a Lie group. To see the full proof consult REFERENZA
+		\end{Ex}
+		\begin{Ex}
+			Consider $SL_n(\mathbb{R})=\{A\in M_{n\times n}| det(A)=1\}$. since $SL_n(\mathbb{R})=det^{-1}(1)$ we have that $SL_n(\mathbb{R})$ is a closed subgroup of $GL_n(\mathbb{R})$. It is also possible to show that ([1] pag. 105 cap. 3, Theorem 9.9 REFERENZA) $SL_n(\mathbb{R})$ is a regular submanifold $GL_n(\mathbb{R})$ of dimension $n^2-1$. Since the operations of multiplication and inversion are still $C^\infty$ on $SL_n(\mathbb{R})$, we can say that this is a Lie subgroup of $GL_n(\mathbb{R})$.\\
+			\\
+			To find more informations on this example the reader can see [1] pag. 105-107, 125, 165 cap. 3 e 4 REFERENZA.\\
+			\\
+			It is possible to show that (indicating with $^+$ the adjoint and with $T$ the transposition):\\\\
+			$O_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^TA=AA^T=\mathbb{I}\};$\\\\
+			$SO_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^TA=AA^T=\mathbb{I};\, det(A)=1\};$\\\\
+			$U_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^+A=AA^+=\mathbb{I}\};$\\\\
+			$SU_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^+A=AA^+=\mathbb{I};\,det(A)=1\};$\\\\
+			are all real Lie groups (risp. complessi). 
+			For the full proofs the reader is advised to check REFERENZA [2] pag. 41-51 cap. 2.
+		\end{Ex}
+		\begin{Def}
+			We call \textit{homomorphism between Lie groups} $G$ and $H$ a smooth map $f:G\rightarrow H$ such that $f(gh)=f(g)f(h)$.
+		\end{Def}
+		We note that an homomorphism between groups sends the identity into the identity. In fact $f(eg)=f(e)f(g)$ ed $f(g)=f(eg)$.\\\\
+		We indicate with $l_g:G\rightarrow G$ where $l_g(x)=gx$ is the left multiplication on $G$ Lie group.
+		\begin{Obs}
+			$l_g$ is $C^\infty$ since it corresponds to the multiplication of a Lie group. Since this has a clear smooth inverse $l_{g^-1}$, it is a diffeomorphism.
+		\end{Obs}
+		\section{Lie algebras}
+		In this section we define Lie lagebras and left invariant vector fields, with some examples. For more details see REFERENZA [1] cap. 4, [2] cap. 2 pag. 46.
+		\begin{Def}
+			We call \textit{Lie algebra} a vector space $\mathfrak{g}$ endowed with a binary operation called Lie bracket $[,]:\mathfrak{g}\times\mathfrak{g}\rightarrow\mathfrak{g}$ such that it respects:
+			\begin{itemize}
+				\item Skew-symmetry: $[x,y]=-[y,x]$, $\forall x,y\in\mathfrak{g}$;
+				\item Jacobi identity: $[x,[y,z]]+[y,[z,x]]+[z,[x,y]]=0$, $\forall x,y,z\in \mathfrak{g}$ 
+			\end{itemize}
+			We call \textit{Lie subalgebra} of $\mathfrak{g}$ a subspace $\mathfrak{h}\subset\mathfrak{g}$ closed with respect to $[,]$.\\
+			We define an \textit{homomorphism between lie algebras} as a linear map $f:\mathfrak{g}\rightarrow\mathfrak{h}$ such that $f([x,y])=[f(x),f(y)]$ for all $x,y\in\mathfrak{g}$.
+		\end{Def}
+		In general, we will only consider finite-dimensional Lie algebras.
+		\begin{Ex} [\textbf{The real matrix space}]\label{Obs: bracket Mnn}
+			Consider $M_{n\times n}(\mathbb{R})$ vector space of $n\times n$ matrices on $\mathbb{R}$. We define a bracket in the follwoing way: given $A,B\in M_{n\times n}(\mathbb{R})$, $[A,B]\equiv AB-BA$. Clearly, this definition makes $[,]$ bilinear and skew-symmetric. As for the Jacobi identity, it is a straightforward calculation to verify it. This makes $M_{n\times n}(\mathbb{R})$ a Lie algebra. 
+		\end{Ex}
+		\begin{Ex}
+			Let $V$ be a generic real vector space. If we define $[,]:V\times V\rightarrow V$ like $[x,y]=0$, $V$ clearly becomes a Lie algebra.
+		\end{Ex}
+		\begin{Def}
+			A vector field $X$ on a Lie group $G$ is called \textit{left invariant} if $dl_g(X)=X$ for all $g\in G$.
+		\end{Def}
+		A vector field is left invariant if it's translation induced by the left multiplication leaves it invariant: whoch means $dl_g(X_h)=X_{gh}$ for all $g,h\in G$.
+		It follows that $X_g=dl_g(X_e)$, this means that a left invariant vector field is completely determined by its value at the identity. It is also possible to show that any left invariant vector field is smooth. (REFERENZA [1] pag. 181 cap.4).
+		\section{Lie algebras of Lie groups}
+		In this section we define the concept of Lie algebra of a Lie group. We are going to see that it is possible to identify the Lie algebra of any Lie group with it's tangent space at the identity. For more details the reader is advised to see REFERENZA [1] pag 178-182 cap.4, [3] cap. 1 e [4] parte 1 cap.3.
+		\begin{Obs} \label{Obs: 2.2}
+			Dato un gruppo di Lie $G$ ed un vettore $A\in T_eG$ tangente nell'identità, si può definire un campo vettoriale $X^A:G\rightarrow T_eG$ ponendo $X^A_g=dl_g(A)$. Questo campo è invariante a sinistra in quanto: $$dl_g(X^A_h)=dl_g(dl_h(X^A_e))=dl_{gh}(X^A_e)=dl_{gh}(A)=X^A_{gh}$$
+			In questo caso diciamo che $X^A$ è generato da $A\in T_eG$ e chiamiamo $Lie(G)$ l'insieme di tutti gli $X^A$ generati dai vettori tangenti nell'identità in $G$.	
+		\end{Obs}
+		Dati due campi vettoriali $X$ e $Y$, definiamo la loro Lie Bracket in un punto $p$:
+		$$[X,Y]_pf=(X_pY-Y_pX)f$$
+		E' possibile dimostrare che se $X$ e $Y$ sono campi vettoriali lisci su $M$, allora anche $[X,Y]$ è liscio su $M$. Per dettagli sulla dimostrazione si veda [1] pag. 157 cap. 4.
+		Vale inoltre il seguente risultato:
+		\begin{Prop}
+			Se $X$ e $Y$ sono invarianti a sinistra allora anche $[X,Y]$, $cX$ e $X+Y$ lo sono. Inoltre, $[X,Y]$ rispetta l'identità di Jacobi. Quindi $Lie(G)$ è un'algebra di Lie.
+		\end{Prop}
+		\begin{proof}
+			Dalla linearità della mappa differenziale segue che se $X,Y$ sono invarianti a sinistra anche le loro combinazioni lineari lo saranno.
+			Per provare l'invarianza della bracket invece: si consideri un punto $p\in G$ ed una funzione $f\in C^\infty_p(G)$, si vuole far vedere che $dl_g([X,Y])=[X,Y]$.
+			Applicando la definizione di differenziale: $$dl_g([X,Y]_p)f=[X,Y]_p(f\circ l_g)=$$$$=X_pY(f\circ l_g)-Y_pX(f\circ l_g)=$$$$=X_p(dl_g(Y)f)-Y_p(dl_g(X)f)=$$
+			$$=X_p(Y(f)\circ l_g)-Y_p(X(f)\circ l_g)=$$
+			$$=dl_g(X_p)Y(f)-dl_g(Y_p)X(f)=[X,Y]_{gp}f$$ 
+			Per mostrare che è soddisfatta l'identità di Jacobi invece, presa una generica funzione $f\in C^\infty$ su $M$, si calcola:
+			$$[X,[Y,Z]]f+[Y,[Z,X]]f+[Z,[X,Y]]f=$$
+			$$=[X,YZ-ZY]f+[Y,ZX-XZ]f+[Z,XY-YX]f=$$
+			$$=(XYZ-XZY-YZX+ZYX)f+(YZX-YXZ-ZXY+XZY)f+$$$$+(ZXY-ZYX-XYZ+YXZ)f=0$$
+		\end{proof}
+		Da ciò, $Lie(G)$ è un'algebra di Lie detta \textit{algebra di Lie di $G$} e si indica con $\mathfrak{g}$.
+		\begin{Theo}
+			Dato un gruppo di Lie $G$, esiste un isomorfismo tra $Lie(G)$ e $T_eG$, cioè $Lie(G)\cong T_eG$.
+		\end{Theo}
+		Di seguito un cenno di dimostrazione. Per maggiori dettagli si veda: [2] pag. 51 cap. 2.
+		\begin{proof}
+			Si consideri l'applicazione $f:X^A\mapsto A$ dove $X^A$ è un campo vettoriale invariante a sinistra e $A=X^A_e$, ovvero il vettore tangente di $X^A$ nell'identità.
+			Si vuole provare che la mappa $g:A\mapsto X^A$, con $X^A$ generato da $A$, è l'inversa di $f$. Per verificare ciò è sufficiente mostrare che, dato $A$, $g(A)$ è invariante a sinistra. Ciò è vero per l'osservazione \ref{Obs: 2.2}.
+		\end{proof}
+		\begin{Obs}\label{Obs: bracket T}
+			Possiamo definire un prodotto $[,]$ sullo spazio tangente all'identità in questo modo: presi due vettori $A,B\in T_eG$, definiamo $[A,B]=[X^A,X^B]_e$, dove $X^A$ e $X^B$ sono i campi invarianti a sinistra generati dai vettori scelti. E' possibile dimostrare che $X^{[A,B]}=[X^A,X^B]$. Per la dimostrazione si veda [1] pag. $183$ cap. $4$.
+		\end{Obs}
+		\begin{Ex}
+			La varietà differenziabile $\mathbb{R}^n$ è un gruppo di Lie con l'operazione\\ $+:\mathbb{R}^n\rightarrow\mathbb{R}^n$ definita come: $(x_1,...,x_n)+(y_1,...,y_n)=(x_1+y_1,...,x_n+y_n)$. Lo stesso vale per $\mathbb{C}^n$.
+			Considerando allora $\mathbb{C}^n$ e $\mathbb{R}^n$, le algebre di Lie associate sono rispettivamente $\mathbb{C}^n$ e $\mathbb{R}^n$ con le bracket banali $[X,Y]=0$. In $\mathbb{R}^2$, ciò equivale a chiedere che valga il lemma di Schwarz: ${\partial\over\partial y}{\partial\over\partial x}f(p)={\partial\over\partial x}{\partial\over\partial y}f(p)$.
+		\end{Ex}
+		Diamo ora alcuni esempi di spazi tangenti nell'identià per gruppi di matrici, ricordando che possiamo identificare questi spazi con l'algebra di Lie dei gruppi stessi.
+		\begin{Ex}
+			Indichiamo con $\mathfrak{gl_n(\mathbb{R})}$ l'algebra di Lie di $GL_n(\mathbb{R})$.
+			Per l'osservazione \ref{Obs 1.1.3}, si ha $T_\mathbb{I}GL_n(\mathbb{R})=T_\mathbb{I}M_{n\times n}=M_{n\times n}$. Da ciò, $$\mathfrak{gl_n(\mathbb{R})}\cong M_{n\times n}= T_\mathbb{I}GL_n(\mathbb{R})$$
+			Inoltre è possibile verificare che la bracket dell'osservazione \ref{Obs: bracket Mnn} coincide con quella dell'osservazione \ref{Obs: bracket T}.
+		\end{Ex}
+		\begin{Ex}
+			Indichiamo con $\mathfrak{sl_n(\mathbb{R})}$ l'algebra di Lie di $SL_n(\mathbb{R})=\{A\in M_{n\times n}|det(A)=1\}$.
+			Consideriamo una curva $\gamma:]-\epsilon,\epsilon[\rightarrow M_{n\times n}$ tale che $\gamma(t)=\mathbb{I}+tB+O(t^2)$, è necessario che $det(\mathbb{I}+tB+O(t^2))=1$. Ma $det(\mathbb{I}+tB+O(t^2))=1+tr(B)+O(t^2)$ da cui: $$T_\mathbb{I}SL_n(\mathbb{R})\cong \mathfrak{sl_n(\mathbb{R})}=\{A\in M_{n\times n}|trA=0\}$$ 
+		\end{Ex}
+		\begin{Ex}
+			Sia lo spazio $GL(V)=\{f:V\rightarrow V|\, \textnormal{$f$\,  è \, lineare \, e \, invertibile}\}$ dove $V$ è uno spazio vettoriale a dimensione finita. Indichiamo con $\mathfrak{gl}(V)$ l'algebra di Lie di $GL(V)$.  Allora, fissata una base di $V$, si ha l'identificazione $GL(V)\cong GL_n(\mathbb{R})$. Lo spazio tangente a $GL_n(\mathbb{R})$ è stato provato essere $M_{n\times n}(\mathbb{R})\cong End(V)=\{f:V\rightarrow V|\textnormal{\, $f$\, è \, lineare}\}$. Da cui: 
+			$$\mathfrak{gl}(V)\cong T_{id}GL(V)\cong End(V)$$ 
+		\end{Ex}
 		\section{Fiber Bundles}
 		In this section we will introduce fiber and vector bundles and give some important examples.
 			\begin{Def}
@@ -258,7 +417,7 @@
 				Now it remains to construct local trivializations. Considering any chart on $M$ like $(U_M,\phi_M:U_M\rightarrow \mathbb{R}^n)$ we set
 				$$\varphi:\pi^{-1}(U)\rightarrow U\times F$$
 				such that $\varphi(p_M,p_F)=(p_M,p_F)$ acts like the identity map. This map is clearly diffeomorphic.
-				This makes $M\times F$ the structure of a fiber bundle.
+				This gives $M\times F$ the structure of a fiber bundle.
 			\end{Ex}
 			\begin{Ex}[\textbf{Cilinder}] \label{Ex_1.2}
 				An example of the product bundle is the cilinder. It can be constructed as a fiber bundle over the circle $S^1=\{z\in \mathbb{C}|z=e^{i\theta}, \theta\in[0,2\pi]\}$.\\
@@ -348,7 +507,365 @@
 			This has a clear inverse: $\phi^{-1}(\pi(e),a^1,...,a^k)=a^ie_i$.
 			It is clear that at each point $p$ this map reduces to a linear isomorphism.
 		\end{proof}
+		\section{Principal Bundles}
+		In this section we define the notion of principal bunldes, look at some properties that they have and make some examples. The interested reader can find more details in REFERENZA:::::
+		\begin{Def}
+			Let $(E,M,\pi,G)$ be a fiber bundle, where $G$ is a Lie group and $M$ and $E$ are manifolds. Let $\pi$ be smooth and the trivializations diffeomorphic; let $G$ be acting on $E$ such that:
+			\begin{itemize}
+				\item $G$ acts on $E$: $Stab(E)=\{e\in G\}$;
+				\item Let $U\in M$ be a local trivializing set and $\phi:\pi^{-1}(U)\rightarrow U\times M$  the corresponding trivialization, then $\phi$ is equivariant: $\phi(x,h)\cdot g=\phi(x,hg)$
+			\end{itemize} 
+			Then we say that this fiber bundle is a \textit{principal $G$-bundle}.
+		\end{Def}
+		\begin{Ex}[\textbf{The product bundle}]
+			Consider the product bundle as usual, but let $E$ and $M$ be manifolds and $G$ be a Lie group. Then $E=M\times G$. We can give this the fiber bundle structure in the usual way: we first of all define a projection:
+			$$\pi:M\times G\rightarrow M\hbox{ like }\pi(x,g)=x$$
+			This map is clearly continuous and surjective. Also, it can be shown to be smooth through the use of charts (it is just a matter of substituting coordinates, since both $M$ and $G$ have the structure of a manifold). The local trivializations will just be the identity map, which is clearly diffeomorphic. Now, we need to ask for a $G$ action of $G$ on $M\times G$. But the action is abvious:
+			$$(x,g)\cdot h=(x,gh)$$
+			Also, the identity map clearly preserves this action in an equivariant way.
+		\end{Ex}
+		\begin{Prop}
+			Let $(E,M,\pi,G)$ be a principal $G-$bundle, then $G$ acts transitively on each fiber. Also, for any group $G$, any right-equivariant map is a left translation.
+		\end{Prop}
+		\begin{proof}
+			$G$ acts transitively on $\{p\} \times G$, obviously. Looking at the fiber diffeomorphism $\phi:\pi^{-1}\rightarrow U\times G$, it can be reduced to $\phi_p:E_p\rightarrow \{p\}\times G$, which is equivariant. Thus, on each fiber, $G$ acts transitively.\\
+			\\
+			As for the second proposition, it is just an easy result of group theory: if $f(gh)=f(g)h$, setting $g=e$ we get: $f(h)=f(e)h=l_{f(e)}h$.
+		\end{proof}
+		\section{The frame bundle}
+		\subsection{The frame bundle of a vector space}
+		\begin{Def}\label{Def_6.5}
+			Consider a vector space $V$ of finite dimension. We define $Fr(V)$ as the set made of all ordered bases of $V$. This means that $Fr(V)$ contains all of the possible ways of choosing a base for $V$.
+		\end{Def}
+		\begin{Obs}
+			There is a natural action of the general linear group on $Fr(V)$. The idea is the following: since $Fr(V)$ contains all of the possible basis of $V$, we get that, having choosen a base, we can re-order the elements of it and obtain the same base. We can also linearly combine those elements to obtain another base. Thus, all of the elements of $Fr(V)$ will be reached by matrices in $GL(n,\mathbb{R})$, where $n$ is the dimension of the vector space.\\
+			\\
+			In particular, identifying an element of $Fr(V)$ with a row vector $\vec{e}=(e_1,...,e_n)$, we have a right-action of the Lie group $GL(n,\mathbb{R})$ of the form:
+			$$\vec{e}A=(e_1,...,e_n)\begin{pmatrix}
+				a_{11}&a_{12}&...&a_{1n}\\
+				a_{21}&a_{12}&...&a_{2n}\\
+				.     &.     &.   &     \\
+				.     &.     &.   &     \\
+				a_{n1}&.     &...&a_{nn}\\
+			\end{pmatrix}$$
+			We also note that the stabilizer of any $\vec{e}\in Fr(V)$ is just $\mathbb{I}_n\in GL(n,\mathbb{R})$, so that the group acts freely on $Fr(V)$. Moreover, the orbit of any element is the whole space: 
+			$$O(\vec{e}\in Fr(V))=Fr(V)$$
+			This last result is obvious: given any two basis ont can always find one as a linear combination of the other and so the two will be related by a matrix of $GL(n\mathbb{R})$.
+			Now, by the orbit-stabilzer theorem, having fixed an element $\vec{e}\in Fr(V)$, we have a bijection:
+			$$\phi_{\vec{e}}:{GL(n,\mathbb{R})\over Stab(\vec{e})}=GL(n,\mathbb{R})\rightarrow O(\vec{e})=Fr(V);\hbox{ such that } \phi_{\vec{e}}([A])=\vec{e}A$$
+			The idea now is to put a manifold structure on $Fr(V)$ such that the above map becomes a diffeomorphism. Note also that the stabilizer of any element is just the identity group. Thus, not only the image, but also the domain of $\phi_{\vec{e}}$ will be independent of the choiche of $\vec{e}$. \\
+			\\
+			We now aim at giving $Fr(V)$ a manifold structure. To do this, we first need to show it is a topological manifold and then show that it is also a smooth manifolds.
+		\end{Obs}
+		\subsection{The topological structure of $Fr(V)$}
+		In this subsection we will prove that $Fr(V)$ is a topological manifold. This amounts to show it is T2, second countable and locally euclidean.
+		\begin{Theo}
+			Given any vector space $V$, $Fr(V)$ is a topological manifold.
+		\end{Theo}
+		\begin{proof}
+			Suppose $dim V=n$. Having fixed any element $\vec{e}\in Fr(V)$, we know that there is a bijection 
+			$$\phi_{\vec{e}}:GL(n,\mathbb{R})\rightarrow Fr(V); \hbox{ acting like: }\vec{e}\mapsto\vec{e}A$$
+			We use this bijection to induce a topology on $Fr(V)$ from the one of $GL(n,\mathbb{R})$. We say that a set $U\in Fr(V)$ is open if and only if $\phi^{-1}(U)$ is open in $GL(n,\mathbb{R})$. This automatically makes the map $\phi_{\vec{e}}$ homeomorphic and endows $Fr(V)$ with the same topological qualities as $GL(n,\mathbb{R})$. Moreover, since $GL(n,\mathbb{R})$ is a topological manifold, it is T2 and second countable and thus by this mapping also $Fr(V)$ is.
+			It remains to make $Fr(V)$ locally euclidean. Consider any chart $(V,\Phi)$ on $GL(n,\mathbb{R})$. This induces a chart on $Fr(V)$ like follows:
+			$$(\phi_{\vec{e}}(V),\Phi\circ\phi^{-1}_{\vec{e}})$$
+			This completes the proof.
+			Note also that if we were to choose any other element of $Fr(V)$ like $\vec{f}=\vec{e}A$, the map would still be still an homeomorphism since:
+			$$\phi_{\vec{f}}(B)=\vec{f}B=\vec{e}AB=\phi_{\vec{e}}\circ l_A(B)$$
+			And the left translation is a diffeomorphism.
+		\end{proof}
+		\subsection{The smooth structure of the frame bundle}
+		In the previous subsection we showed that the frame bundle of a vector space is a topological manifold. Now we show that it is also a smooth manifold. 
+		\begin{Theo}
+			Given any vector space $V$, $Fr(V)$ is a smooth manifold.
+		\end{Theo}
+		\begin{proof}
+			In the previous subsection we have endowed $Fr(V)$ with a topological manifold structure. It only remains to show that two arbitrary charts are compatible. Consider two overlapping charts: $(U,\Phi_1\circ\phi^{-1}_{\vec{e}})$ and $(U,\Phi_2\circ\phi^{-1}_{\vec{e}})$ induced from $GL(n,\mathbb{R})$. Then we can write explicitly:
+			$$\Phi_1\circ\phi^{-1}_{\vec{e}}\circ (\Phi_2\circ\phi^{-1}_{\vec{e}})^{-1}=
+			\Phi_1\circ \Phi_2^{-1}$$ 
+			This is clearly a diffeomorphism since the maps $\Phi_i$ are.
+		\end{proof}
+		\subsection{The frame bundle}
+		Suppose to have a smooth vector bundle $(E,M,\pi,F)$. Our idea is now to associate to $M$ a smooth principal $GL(n,\mathbb{R})-bundle$. We first of all need a projection: define the Frame Bundle as the following space:
+		$$Fr(E)=\bigsqcup_{p\in M}Fr(E_p)$$
+		The disjoint union of the fibers at each point. There is a natural projection that we can use:
+		$$\pi_G:Fr(E)\rightarrow M\hbox{ such that } \pi_G(\vec{e_p}\in Fr(E_p))=p$$
+		Now we need to find local trivializations. The idea is quite simple but somewhat elaborate.\\
+		\\
+		Since we arer starting with a smooth vecotr bundle, the fiber has in each point the structure of a vector space of finite dimension $k$. Thus, we can construct for each $p$ the manifold $Fr(E_p=F_p)$ and then consider the disjoint union $Fr(E)$, which will be a manifold as well. Now, suppose to have a chart on $Fr(E)$ like $(U_{M},\psi:U_{Fr(E)}\rightarrow \mathbb{R}^n\times\mathbb{R}^k)$. Due to the existence of the projection $\pi_G$ we can induce a chart on $M$ by finding the corresponding open set on it $U_M$ and it's map $\phi:U_M\rightarrow \mathbb{R}^n$. We choose as trivializtion the same map we had choosen to trivialize the tangent bundle:
+		$$\varphi\equiv(\phi^{-1}\circ \mathbb{I}_{\mathbb{R}^k})\circ \psi: U_{Fr(E)}\xrightarrow{\psi}\phi(U_M)\times\mathbb{R}^k\xrightarrow{\phi^{-1}\times\mathbb{I}_{\mathbb{R}^k}}U_m\times\mathbb{R}^k$$
+		This is clearly a diffeomorphism.\\
+		\\
+		Note that at every point there is an identification of $Fr(E_p)$ with the general lienar group $GL(k,\mathbb{R})$. To make this bundle structure into a principal bundle we need to verify that $GL(k,\mathbb{R})$ acts freely on $Fr(E)$ and that the trivializations are equivariant under the action of the group.\\
+		\\
+		Now, the action of $GL(k,\mathbb{R})$ on the fiber is just given by the product of matrices and so it is free. In particular, $GL(k,\mathbb{R})$ acts on $Fr(E)$ like this:
+		$$(p\in M,\vec{e_p}\in Fr(E_p))\longrightarrow(p,\vec{e_p}A)$$
+		This action is evidently free. Moreover, considering the chart $\varphi$, it is equivariant under this action. Thus, we have a principal $GL(k,\mathbb{R})$-bundle $(Fr(E),M,\pi_G,GL(k,\mathbb{R}))$.\\
+		\\
+		\begin{Obs} [\textbf{An intuition for the frame bundle}]
+			The frame bundle is nothing more than the union of all of the frame manifolds of the fibers. Basically, once we have a smooth fiber bundle on $M$, constructing the frame bundle means associating another bundle to $M$. This new bundle will be a principal bundle and at any point the fiber will be $Fr(F)$ the frame manifold of the fiber, which is 1 to 1 with $GL(k,\mathbb{R})$.
+		\end{Obs}
+		\subsection{Fundamental vector fields}
+		Suppose to have a Lie group $G$ that right-acts smoothly on a manifold $M$. Then, consider any element $A\in\mathfrak{g}$ inside the Lie Algebra of $G$. Define:
+		$$\bar{A}={d\over dt}\bigg|_{t=0}p\cdot e^{tA}\in T_pM$$
+		This, at any point is called \textbf{fundamental vector field associated to $A$}.\\
+		\begin{center}
+			\includegraphics[scale=0.3]{fundamental_vector.pdf}
+		\end{center}
+		The idea is to take a point $p\in M$ and a curve passing through it like $c_p(t)=p\cdot e^{tA}$. This is a smooth curve and so it can be derived. The fundamental vector field in $p$ is the initial tangent vector of this curve (initial in the sense that for $t=0$ the curve goes through $p$).
+		\begin{Prop}
+			The fundamentale vector field associated to $A$ is always smooth.
+		\end{Prop}
+		\begin{proof}
+			Non ne ho voglia ma è una cazzata di conti.
+		\end{proof}
+		There is an alternative mathematical construction for the same concept: define the map $j_p:G\rightarrow M$ like follows:
+		$$j_p(g)=p\cdot g$$
+		Its differential is defined as:
+		$$dj_p(A\in\mathfrak{g})={d\over dt}\bigg|_{t=0}j_p(e^{tA})={d\over dt}\bigg|_{t=0}p\cdot e^{tA}$$
+		\begin{Ex}
+			Consider the flat Euclidean manifold $\mathbb{R}^2$ and the Lie group $U(1)$ of complex modulo 1 numbers. The Lie algebra of the group is $\mathfrak{u}(1)={i\theta;\theta\in\mathbb{R}}$ made up of all multiples of $i$. We set the following action of $U(1)$ on $\mathbb{R}^2$ given by: $e^{i\theta}(x,y)=(xcos(\theta)-ysin\theta,ycos(\theta)+xsin(\theta))$.
+			Then, choosing the point $p=(1,1)\in\mathbb{R}^2$ and the generic element $e^{i\theta}\in U(1)$, we can compute the fundamental vector field in $p$. Consider the curve $c_p(t)=p\times e^{it\theta}$ and the fundamental vector field in $(1,1)$ is given by:
+			$$\bar{\theta}={d\over dt}\bigg|_{t=0}j_p(e^{it\theta})$$
+			To make things more explicit:
+			$${d\over dt}\bigg|_{t=0}(1,1)\cdot (cos(t\theta))+sin(t\theta)=
+			{d\over dt}\bigg|_{t=0}(cos(t\theta)-sin(t\theta),cos(t\theta)+sin(t\theta))=(-1,1)\theta$$
+		\end{Ex}
+		\begin{Prop}
+			Let $G$ be a Lie group right-acting smoothly on a manifold $M$ and let $r_g(p)=p\cdot g$ the right translation. For $A\in\mathfrak{g}$, it's fundamental vector field $\bar{A}$ satisfies:
+			$$dr_g(\bar{A})=\overline{Ad(g^{-1})(A)}$$
+		\end{Prop}
+		\begin{proof}
+			Recall that the adjoint representation is given by the differential of the conjugation map:
+			$$Ad(g)=dc_g:\mathfrak{g}\rightarrow\mathfrak{g};\hbox{ in particular }Ad(g)(A)=gAg^{-1}$$
+			Now, consider $(r_g\circ j_p)(h)=p\cdot hg=p\cdot gg^{-1}hg=p\cdot g c_{g^{-1}}(h)=(j_{pg}\circ c_{g^{-1}})(h)$
+			By the chain rule:
+			$$dr_g(\bar{A}_p)=dr_gdj_p(A)=dj_{pg}dc_{g^{-1}}(A)=dj_{pg}(Ad(g^{-1})(A))=\overline{Ad(g^{-1})(A_{pg})}$$
+		\end{proof}
+		This means that the push-forward of the fundamental vector field under the right action "transofrms" under the adjoint representation. Let us make an example to better interiorize this:
+		\begin{Ex}
+			Consider again the space $\mathbb{R}^2$ acted on by $U(1)$ like the previous example. Then, suppose $A=i\theta$ and $g=e^{iB}$. We saw that the fundamental vector field associated to $(x,y)$ was:
+			$$\bar{A}_{x,y}=(-\partial_y,\partial_x)\theta$$
+			Now, the push-forward of this vector field under $g$ will be the fundamental vector field of:
+			$$Ad(g^{-1})(A)=g^{-1}Ag=e^{-iB}Ae^{iB}$$
+			However, $U(1)$ is a commutative group, so that $Ad(g)A=A$. Thus, the push forward of the fundamental vector field is the same fundamental vector field.
+		\end{Ex}
+		\subsection{The integral curves of the fundamental vector fields}
+		\begin{Prop}
+			The curve $c_p(t)=p\cdot e^{tA}$ is the integral curve of the fundamental vector field $\bar{A}$ passing through $p\in M$.
+		\end{Prop}
+		\begin{proof}
+			It suffices to differentiate:
+			$$c'_p(t)={d\over dt}\bigg|_{s=0}c_p(t+s)=
+			{d\over dt}\bigg|_{s=0}p\cdot e^{tA}e^{sA}=\bar{A}_{pe^{tA}}=
+			\bar{A}_{c_p(t)}$$
+		\end{proof}
+		\begin{Prop}
+			The fundamental vector field $\bar{A}$ vanishes at $p$ if and only if $A$ is in the Lie algerba of $Stab(p)$.
+		\end{Prop}
+		\begin{proof}
+			If $\bar{A}_p=0$ it means that the constant map $c_p(t)=p\in M$ is an integral curve of this vecotr field. By the previous proposition, we have the equivalence:
+			$p=p\cdot e^{tA}$ from which we see that $A$ must be in the Lie algebra of $Stab(p)$ since $e^{tA}\in Stab(p)$.\\
+			\\
+			On the contrary, if $A\in Stab(p)$ then we ge that:
+			$$\bar{A}_p={d\over dt}\bigg|_{t=0}p\cdot e^{tA}=
+			{d\over dt}\bigg|_{t=0}p=0$$
+		\end{proof}
+		\begin{Obs}
+			As a corollary of the previous statement we can say that $Ker(dj_p)$ at the identity is the stabilizer $Stab(p)$. This is pretty esay to see and pretty obvious to think about:
+			$$Ker dj_p=\{A\in \mathfrak{g}|dj_p(A)=0\}=Stab(p)\hbox{ By the previous result}$$
+		\end{Obs}
+		\subsection{The vertical subbundle of the tangent bundle}
+		Let $(E,M,\pi,G)$ be a principal $G$-bundle on a manifold $M$. By construction, the projection $\pi:E\rightarrow M$ is smooth, so it can be differentiated. The differential $d\pi_{(p,g)}:T_{(p,g)}E\rightarrow T_{\pi(p,g)}M$ is surjective since the projection is. We now define the \textbf{vertical tangent subspace} $\mathcal{V}_{(p,g)}\subset T_{(p,g)}E$ as the Kernel of the differential of the projection:
+		$$\mathcal{V}_{(p,g)}\equiv Ker(d\pi_{(p,g)})$$
+		\begin{Obs}
+			Since, by the theorem of dimension, 
+			$$dim \bigg(Ker(d\pi_{(p,g)})\bigg)+dim\bigg(Im(d\pi_{(p,g)})\bigg)=dim\bigg(T_{(p,g)}E\bigg)$$
+			Moreover, the map $d\pi$ is surjective and so the image corresponds to the full space $T_{\pi(p,g)}M$, we get:
+			$$dim \bigg(Ker(d\pi_{(p,g)})\bigg)=dim\mathcal{V}_{(p,g)}=dim\bigg(T_{(p,g)}E\bigg)-dim\bigg(T_{\pi_{(p,g)}}M\bigg)=dim G$$
+		\end{Obs}
+		\begin{Prop}
+			For every element of $E$, the corresponding fundamental tangent vector is vertical.
+		\end{Prop}
+		\begin{proof}
+			We just need to prove that the fundamental tangent vector is in the Kernel of the differential. Recall that the fundamental vecotr field can be seen as the differential of the map $j_{(p,g)}:G\rightarrow E$ defined as 
+			$$j_{(p,g)}(h)=(p,g)\cdot h $$
+			Taking now the composition with the projection:
+			$$(\pi\circ j_{(p,g)})(h)=\pi((p,g)\cdot h)=\pi(p,g)$$
+			This result is independent of the choice of $h\in G$, thus the composition $\pi\circ j_{(p,g)}$ is the constant map and hao it's differential the null map.\\
+			Recalling that $\bar{A}_{(p,g)}=dj_{(p,g)}(A)$ we clearly see that:
+			$$d\pi_{(p,g)}(\bar{A}_{(p,g)})=
+			(d\pi_{(p,g)}\circ dj_{(p,g)})(A)=
+			d(\pi\circ j_{(p,g)})(A)=0$$
+		\end{proof}
+		We can now generalize proposiotion REFERENZA for a principal $G$-bundle:
+		\begin{Prop}
+			Let $(E,M,\pi,G)$ be a principal $G-$bundle and $(p,g)$ a point in $E$. Then: 
+			$$dj_{(p,g),e}:\mathfrak{g}\rightarrow \mathcal{V}_{(p,g)}$$ is an isomorphism.
+		\end{Prop}
+		\begin{proof}
+			By proposition REFERENZA we know that the Kernel of the differential at the identity is the Stabilizer of $(p,g)$. However, for a principal $G-$bundle, the group acts freely on the manifold $E$ and so the stabilizer is trivial $Stab(p,g))=\{e\}$. Thus, $Ker dj_{(p,g),e}=0$ and the map is injective. By the prpevious propositon REFERENZA the image of the differential lies in the vertical subspace. Moreover, $dim\mathcal{V}_{(p,g)}=dim G$ and so the map must be an isomorphism of vector spaces.			
+		\end{proof}
+		\begin{Obs}
+			As a consequence of the last result, all the vertical vectors are the fundamental vectors and all the fundamental vectors are the vertical vectors.\\
+			Let $T^a$ be a base for the Lie algebra $\mathfrak{g}$, then, at any point, by the isomorphism in the previous result, we get that they also form a base of $\mathcal{V}_{(p,g)}$ (under the action of the diffeomorphism). This defines the \textbf{Vertical Subbundle} $$\mathcal{V}=\bigsqcup_{(p,g)\in E}\mathcal{V}_{(p,g)}$$
+		\end{Obs}
+		\begin{Obs}
+			The name "vertical" comes from the definition $\mathcal{V}=Ker(d\pi)$. The basi idea is that, if we take any smooth vector field $X_E\in\mathfrak{X}(E)$, then the differential of the projection $d\pi:TE\rightarrow TM$ induces a new smooth vector field $X_M=d\pi X_E$ on the base space. The "vertical vector fields" are the ones who get annihilated when projected, since they belong to the Ker of $d\pi$. They are not to be though as vertical with respect to $E$, but to $M$.
+		\end{Obs}
+		\subsection{The horizontal subbundle}
+		We have seen that on a principal $G$-bundle there is a well defined vertical subbundle $\mathcal{V}$ of the tangent bundle $TE$. We say thet there is an \textbf{horizontal distribution} $\mathcal{H}$ if $TE=\mathcal{H}\oplus\mathcal{V}$. This means that for every point $(p,g)\in TE$ we have $T_{(p,g)}E=\mathcal{H}_{(p,g)}\oplus\mathcal{V}_{(p,g)}$ with $\mathcal{H}_{(p,g)}\cap\mathcal{V}_{(p,g)}=0$.\\
+		\\
+		In general, there is no canonically defined horizontal distribution on a principal $G$-bundle.
+		COSE CBE DEVO METTERE????
+		\section{Connections on principal bundles}
+		Let $(E,M,\pi,G)$ be a principal $G$-bundle with a vertical and horizontal distribution, so that $TE=\mathcal{H}\oplus\mathcal{V}$. Let $\nu_{(p,g)}:\mathcal{H}_{(p,g)}\oplus\mathcal{V}_{(p,g)}\rightarrow \mathcal{V}_{(p,g)}$ be the standard projection on the vertical subbundle. Obiouvly, if $X_{(p,g)}\in T_{(p,g)}E$ is a vector field on $E$ at a point $(p,g)$, we call $\nu_{(p,g)}(X_{(p,g)})$ its \textbf{vertical component}.
+		\begin{Def}\label{Def_6.6}
+			We call an \textbf{Ehresmann connection}, or \textbf{connection on a principal bundle} a $\mathfrak{g}$-valued 1-form $\omega:TE\rightarrow \mathfrak{g}$ that respects the following properties:
+			\begin{itemize}
+				\item Given any $A\in\mathfrak{g}$ and $(p,g)\in E$ we have $\omega_{(p,g)}(\bar{A}_{(p,g)})=A$;
+				\item $(G-equivariance)$ for $g\in G$ we have $r^*_g\omega=Ad(g^{-1})\omega$;
+				\item $\omega$ is $C^\infty$.
+			\end{itemize}
+		\end{Def}
+		Now it is just a matter to find a map that satisfies those conditions. A good candidate is the following composition:
+		$$\omega_{(p,g)}=dj_{(p,g)}^{-1}\circ \nu:T_{(p,g)}E\xrightarrow{\nu} \mathcal{V}_{(p,g)}\xrightarrow{dj_{(p,g)}}\mathfrak{g}$$
+		\begin{Theo}
+			If $\mathcal{H}$ is a smooth right-invariant horizontal distribution on a principal $G$-bundle $(E,M,\pi,G)$, then 1-form $\omega_{(p,g)}=dj_{(p,g)}^{-1}\circ \nu$ respects the following properties:
+			\begin{itemize}
+				\item Given any $A\in\mathfrak{g}$ and $(p,g)\in E$ we have $\omega_{(p,g)}(\bar{A}_{(p,g)})=A$;
+				\item $(G-equivariance)$ for $g\in G$ we have $r^*_g\omega=Ad(g^{-1})\omega$;
+				\item $\omega$ is $C^\infty$.
+			\end{itemize}
+		\end{Theo}
+		\begin{proof}
+			Consider any $A\in\mathfrak{g}$. Then its fundamental vector field is in the vertical sub-bundle and so the projection $\nu$ leaves it invariant:
+			$$\omega_{(p,g)}(\bar{A}_{(p,g)})=(dj_{(p,g)}^{-1}\circ \nu)(\bar{A}_{(p,g)})=dj_{(p,g)}^{-1}(\bar{A}_{(p,g)})=
+			dj_{(p,g)}^{-1}(dj_{(p,g)}(A))=A$$
+			This proves the first property.\\
+			\\
+			As for the second property, we recall that in proposition PROPOSIZIONE we proved that for a fundamental vector field  we have:
+			$$dr_g(\bar{A})=\overline{Ad(g^{-1})(A)}$$
+			Now, we can directly prove this for fundamental vector fields, since they are the vertical ones and the horizontal ones would be annihilated by the projection $\nu$ contained inside $\omega$. \\
+			Recalling that on principal bundles the pullback of a 1 form gives:
+			$$r^*_h\circ \omega_{(p,g)}(\overline{X_{(p,g)\cdot h}})=\omega_{(p,g)\cdot h}(dr_h(\overline{X_{(p,g)}}))$$
+			We need to prove that:
+			$$r^*_h\circ \omega_{(p,g)}(\overline{X_{(p,g)}})=(Adh^{-1})\omega_{(p,g)}(\overline{X_{(p,g)}})$$
+			If $X_{(p,g)}\in\mathcal{V}$ is vertical then it will be a fundamental vector field of an element $X\in\mathfrak{g}$ and so by proposition PROPOSIZIONE we get:
+			$$\omega_{(p,g)\cdot h}(dr_h(\overline{X_{(p,g)}}))=\omega_{(p,g)\cdot h}\overline{(Ad(h^{-1})(X_{(p,g)\cdot h}))}$$
+			Now by the previous property applied 2 times::
+			$$\omega_{(p,g)\cdot h}\overline{(Ad(h^{-1})(X_{(p,g)\cdot h}))}=Ad(h^{-1})(X)=Ad(h^{-1})\omega_{(p,g)}(\overline{X_{(p,g)}})$$
+			If instead $X_{(p,g)}$ is horizontal then by the invariance horizontal distribution the field $dr X$ will still be horizontal ad so it will be annihilated by $\omega$ since it contains the projection on the vertical subbundle. Thus proving:
+			$$r^*_h\circ \omega_{(p,g)}(X_{(p,g)})=(Adh^{-1})\omega_{(p,g)}X_{(p,g)}=0$$
+			As for the last property, we need to prove that $\omega$ is smooth in a neighbourhood of an arbitrary point $(p,g)\in E$. Since $E$ is a manifold, we choose a chart $(U_E,\phi_E)$ centered in a point $(p,g)\in E$. Let $\{T^i\}$ be a base of the Lie algebra $\mathfrak{g}$ and $\{\bar{T^i}\}$ the associated fundamental vectors. Those fundamental vectors are all smooth by proposition PROPOSIZIONE. By the previous isomorphism, those span the whole vertical sub-bundle at any point. Furthermore, since by hypothesis $\mathcal{H}$ is a smooth distribution  of horizontal vectors, there is a base of smooth vector fields $X^i$ in any point that spans the whole space. Thus, since $TE=\mathcal{H}\oplus\mathcal{V}$, we can expand any element of $TE$ as a linear combination:
+			$$V=a_i \bar{T^i}+b_iX^i;\hbox{ with } V\in TE, a_i,b_i\in \mathcal{F}$$
+			The coefficeints $a_i,b_i$ aare smooth by the previous observations. Now, applying $\omega$, we get that the horizontal components are annihilated:
+			$$\omega(a_i \bar{T^i}+b_iX^i)=\omega(a_i \bar{T^i})=a_i T^i$$
+		\end{proof}
+		Basically an Ehresmann connection arises on a principal bundle if one can find an horizontal smooth right-invariant distribution on it. One simply uses it to construct the 1-form as above.\\
+		\\
+		There is another equivalent manifestation of a connection: if one can find a smooth $G$-equivariant 1-form that takes value on the lie algebra $\mathfrak{g}$ of $G$ such that $\omega(\bar{A})=A$, then one can construce the horizontal distribution. Naively, one defines $$\mathcal{H}_{(p,g)}=Ker(\omega_{(p,g)})$$
+		We are going to see later how this second definition is completely equivalent to the first one. In order to achieve this, it is useful to see something about sequences.
+		\subsection{Sequences of vector bundles}
+		Consider a short exact sequence of vector bundles over a manifold $M$:
+		$$0\rightarrow A\xrightarrow{i}B\xrightarrow{j}B\rightarrow C\rightarrow0$$
+		We call \textbf{splitting} a map $k:C\rightarrow B$ such that $j\circ K=\mathbb{I}_C$.
+		\begin{Theo}
+			Let
+			$$0\rightarrow A\xrightarrow{i}B\xrightarrow{j}B\rightarrow C\rightarrow0$$
+			be a short exact sequence of vector bundles on a manifold $M$. Then there is a $1-1$ correspondence between the following sets:
+			$$\{\hbox{subbundles } H\in B;B=i(A)\oplus H\}\longleftrightarrow\{splittings: k:C\rightarrow B\}$$
+		\end{Theo}
+		\begin{proof}
+			Consider NON HO VOGLIA
+		\end{proof}
+		\subsection{Horizontal sub-bundle and connections}
+		\begin{Prop}
+			If $\mathcal{H}$ is a smooth right-invariant distribution on a principal $G$-bundle, then $\forall g\in G$, the differential of the right-action $dr_g:TE\rightarrow TE$ commutes with the horizontal and the vertical projection operators.
+		\end{Prop}
+		\begin{proof}
+			The result is pretty obvious. Let $Hor:TE\rightarrow\mathcal{H}$ be the horizontal projection. Since both the horizontal and the vertical distributions are right-invariant, it means that for any $X_{(p,g)}\in TE$ we have $dr_h X_{(p,g)}=dr_h \nu(X_{(p,g)})+dr_hHor(X_{(p,g)})$ and each of the two terms is still vertical/horizontal, so that:
+			$$dr_h X_{(p,g)}=dr_h \nu(X_{(p,g)})+dr_hHor(X_{(p,g)})=
+			\nu dr_h(X_{(p,g)})+Hordr_h(X_{(p,g)})$$
+		\end{proof}
+		We are now going to show that given any 1-form $\omega$ with certain oproperties, we can always construct an horizontal distribution. The proof is pretty lenghty.
+		\begin{Theo}
+			Consider a principal $G$-bundle $(E,M,\pi,G)$ where we can find a smooth $\mathfrak{g}$-valued and $G$-equivariant 1-form on it, such that $\omega(\bar{A})=A$ for every fundamental vector field. Then $Ker(\omega)=\mathcal{H}$ is a smooth right-invariant horizontal distribution on $TE$.
+		\end{Theo}
+		\begin{proof}
+			We need to prove 3 basic properties:
+			\begin{itemize}
+				\item for every point $(p,g)\in E$, the tangent space of this manifold decomposes as:
+				$$TE=\mathcal{H}_{(p,g)}\oplus \mathcal{V}_{(p,g)}$$
+				\item $\mathcal{H}_{(p,g)}$ is right-invariant: for every $h\in G$ we have $dr_h \mathcal{H}_{(p,g)}\subset \mathcal{H}_{(p,g)\cdot h}$;
+				\item $\mathcal{H}_{(p,g)}$ is a smooth sub-bundle of $TE$.
+			\end{itemize}
+			There is a short exact sequence of vector spaces for every $(p,g)$:
+			$$0\rightarrow \mathcal{H}_{(p,g)}\xrightarrow{\mathbb{I}???} T_{(p,g)}E\xrightarrow{\omega_{(p,g)}} \mathfrak{g}\rightarrow0$$
+			Furthermore, we have a splitting of this exact sequence: 
+			$$dj_{(p,g)}^{-1}:\mathfrak{g}\rightarrow \mathcal{V}_{(p,g)}$$
+			Thus, by proposition PROPOSIZIONE, there is a sequence of isomorphisms:
+			$$T_{(p,g)}E\simeq\mathfrak{g}\oplus\mathcal{H}\simeq\mathcal{V}\oplus\mathcal{H}$$
+			This proves the first requirement.\\
+			\\
+			As for the second property, we just evalue with a simple calculation the right-equivariance. Let $X\in\mathcal{H}$:
+			$$\omega_{(p,g)\cdot h}(dr_hX_{(p,g)})=Ad(h^{-1})\omega{(p,g)}X_{(p,g)}=0$$
+			This means that $\omega$ acting on a right-transalted vector of $\mathcal{H}$ is 0, so that this vector is still in $\mathcal{H}$, thus proving the second property.\\
+			\\
+			As for the third property NON HO VOGLIA
+		\end{proof}
+		\subsection{The Horizontal Lift of a vector field}
+		Suppose that $\mathcal{H}$ is an horizontal distribution on a principal bundle $(E,M,\pi,G)$. Let $X\in\mathfrak{X}(M)$ be a vector field on $M$. Then for every point $(p,g)\in E$, we have $\mathcal{V}_{(p,g)}=Ker(d\pi_{(p,g)})$ and so we have some induced isomorphisms:
+		$${T_{(p,g)}E\over \mathcal{V}_{(p,g)}}\simeq \mathcal{H}_{(p,g)}\simeq T_{\pi(p,g)}M$$
+		Note that the horizontal lift is up to a vertical vector field so it is not unique, the equivalence class is. However, we can find a unique vector field lying in $\mathcal{H}$ that is the lift of $X$, which corresponds to the lift with a 0 vertical component.
+		Thus, there is a unique horizontal vector $\mathcal{X}_{(p,g)}\in\mathcal{H}_{(p,g)}$ such that:
+		$$d\pi(\mathcal{X}_{(p,g)})=X_{\pi(p,g)}\in T_{\pi(p,g)}M$$
+		We call this unique vecotr the Horizontal Lift of $X$ to $E$.
+		\begin{Obs}
+			Basically, when we have a principal $G$-bundle with an horizontal distribution, we see from the previous series of isomorphisms that the tangent space of the base manifold can  be identified with the horizontal tangent space of the principal bundle.\\
+			\\
+			Note that in our construction we have not assumed smoothness nor right-invariance. We are now going to prove that if $\mathcal{H}$ is smooth and right-invariant so will be the lift. (This is, honestly, pretty useless as a concept since it fucking obvious, yet it is useful to learn how to calculate stuff).
+		\end{Obs}
+		\begin{Prop}
+			Let $(E,M,\pi,G)$ be a principal bundle with a smooth right-invariant horizontal distribution $\mathcal{H}$. Then the horizontal lift $\mathcal{X}$ of any vector field $X\in\mathfrak{X}(M)$ is smooth and right-invariant as well.
+		\end{Prop}
+		\begin{proof}
+			Suppose that $p\in M$ and $(p,g)\in\pi^{-1}(p)$. Then we must have by definition of lift: $d\pi(\mathcal{X}_{(p,g)})=X_p$. Suppose now to take any other point of $\pi^{-1}(x)$ like $(p,h)$. Then, we must have, by the cosntruction of the principal bundle, that $(p,h)=dr_{g'}(p,g)=(p,g)\cdot g'$. Recalling that $\pi\circ r_{g'}=\pi$ we have:
+			$$d\pi(dr_{g'}\mathcal{X}_{(p,g)})=d\pi\circ dr_{g'}(\mathcal{X}_{(p,g)})=d\pi\mathcal{X}_{(p,g)}=d\pi\mathcal{X}_{(p,h)}$$
+			By uniqueness of the horizontal lift, $\mathcal{X}_{(p,g)}=\mathcal{X}_{(p,h)}$ and this proves right-invariance.\\
+			\\
+			As for the smoothness, we simply choose a trivializing chart on $M$ like $(U,\phi)$ and construct a trivialization 
+			$$\varphi_U:\pi^{-1}(U)\rightarrow U\times G$$
+			Now we define the vector field:
+			$$Z_{(p,g)}=(X_p,0)\in T_{(p,g)}(U\times G)$$
+			Clearly $Z$ is a smooth vector field on $U\times G$. Given the projection $\eta:U\times G\rightarrow U$ we have:
+			$$d\eta Z_{(p,g)}=X_p$$
+			To see this, note that $d\eta:T(U\times G)\rightarrow TU$ and so we get: $d\eta(Z)\in TU$ is a vector field. In particular, by definition of differential, we must have for any $(p,g)\in U\times G$:
+			$$d\eta_{(p,g)}(Z_{(p,g)})f=Z_{(p,g)}(f\circ \eta_{(p,g)})$$
+			And since $\eta$ projects the points from $U\times G$ to $U$, we get:
+			$$d\eta_{(p,g)}(Z_{(p,g)})=X_p$$
+			This implies that
+			We can also define a smooth vector field on $\pi^{-1}(U)$ like:
+			$$Y=d\varphi^{-1}(Z):U\times G \rightarrow T_{\pi^{-1}(U)}E$$
+			For the same reason as before, given that $\pi$ is a projection, we must have:
+			$$d\pi(Y_{(p,g)})=X_{\pi(p,g)}$$
+			We know that the projection $Hor(Y)$ is smooth by hypothesis, If now we decompose $Y_{(p,g)}=\nu(Y_{(p,g)})+Hor(Y_{(p,g)})$ and apply the differential of the projection, recalling that $\mathcal{V}=Ker(d\pi)$, we get:
+			$$d\pi(Y_{(p,g)})=d\pi(Hor(Y_{(p,g)}))=Hor(d\pi(Y_{(p,g)}))=X_{\pi(p,g)}$$
+			This means that $Hor(Y)$ is the lift of $X$. By uniqueness, $X$ is smooth on $M$.
+		\end{proof}
 	\chapter{Connections on vector bundles}
+	\section{Connections}
+	\begin{Def}\label{Def_5.7}
+		Let $(E,M,\pi,F)$ be a vector bundle. We call \textbf{connection} a map $\nabla:\mathfrak{X}(M)\times\Gamma(E)\rightarrow\Gamma(E)$ such that:
+		\begin{itemize}
+			\item $\nabla$ is $\mathfrak{F}$-linear in $\mathfrak{X}(M)$ and $\mathbb{R}$ linear in $\Gamma(E)$: $\nabla_{fX}(\lambda s)=\lambda f\nabla_X s$ for $f:M\rightarrow \mathbb{R}, s\in\Gamma(E),\lambda\in\mathbb{R}$;
+			\item $\nabla$ respects Leibniz: $\nabla_X (fs)=(Xf)s+f\nabla_X s$.
+		\end{itemize}
+		If $E=TM$ we say that the connection is affine.
+	\end{Def}
+	Note that since $X$ is a smooth vector field on $M$, we have that $Xf=df(X)$ is the differential of $f$ applied to $X$.
+	\begin{Def}\label{Def_5.8}
+		We say that a section $s$ is flat if $\nabla_X s=0$ for every $X\in \mathfrak{X}(M)$.
+	\end{Def}
 \chapter*{Bibliografia}
 \begin{itemize}
 	\item[$\circ$] [1] Loring W.Tu, An Introduction to Manifolds, Springer, 2011
