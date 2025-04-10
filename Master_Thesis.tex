@@ -341,7 +341,7 @@
 		\section{Lie algebras of Lie groups}
 		In this section we define the concept of Lie algebra of a Lie group. We are going to see that it is possible to identify the Lie algebra of any Lie group with it's tangent space at the identity. For more details the reader is advised to see REFERENZA [1] pag 178-182 cap.4, [3] cap. 1 e [4] parte 1 cap.3.
 		\begin{Obs} \label{Obs: 2.2}
-			Dato un gruppo di Lie $G$ ed un vettore $A\in T_eG$ tangente nell'identità, si può definire un campo vettoriale $X^A:G\rightarrow T_eG$ ponendo $X^A_g=dl_g(A)$. Questo campo è invariante a sinistra in quanto: $$dl_g(X^A_h)=dl_g(dl_h(X^A_e))=dl_{gh}(X^A_e)=dl_{gh}(A)=X^A_{gh}$$
+			Given a Lie group $G$ ed un vettore $A\in T_eG$ tangente nell'identità, si può definire un campo vettoriale $X^A:G\rightarrow T_eG$ ponendo $X^A_g=dl_g(A)$. Questo campo è invariante a sinistra in quanto: $$dl_g(X^A_h)=dl_g(dl_h(X^A_e))=dl_{gh}(X^A_e)=dl_{gh}(A)=X^A_{gh}$$
 			In questo caso diciamo che $X^A$ è generato da $A\in T_eG$ e chiamiamo $Lie(G)$ l'insieme di tutti gli $X^A$ generati dai vettori tangenti nell'identità in $G$.	
 		\end{Obs}
 		Dati due campi vettoriali $X$ e $Y$, definiamo la loro Lie Bracket in un punto $p$:
@@ -532,10 +532,12 @@
 			\\
 			As for the second proposition, it is just an easy result of group theory: if $f(gh)=f(g)h$, setting $g=e$ we get: $f(h)=f(e)h=l_{f(e)}h$.
 		\end{proof}
+		We are now going to construct one of the most important principal bundles: the frame bundle. This is a principal bundle constructed from a opre-existing vector bundle.
 		\section{The frame bundle}
-		\subsection{The frame bundle of a vector space}
+		In this section we will introduce the notion of frame manifold of a vector space and of frame bundle of a vector bundle. We will show that the frame manifold is indeed a smooth manifold and then we will explicitly construct the principal bundle structure. For more information the reader is advised to look at: REFERENZA
+		\subsection{The frame manifold of a vector space}
 		\begin{Def}\label{Def_6.5}
-			Consider a vector space $V$ of finite dimension. We define $Fr(V)$ as the set made of all ordered bases of $V$. This means that $Fr(V)$ contains all of the possible ways of choosing a base for $V$.
+			Consider a vector space $V$ of finite dimension. We define the frame manifold $Fr(V)$ as the set made of all ordered bases of $V$. This means that $Fr(V)$ contains all of the possible ways of choosing a base for $V$.
 		\end{Def}
 		\begin{Obs}
 			There is a natural action of the general linear group on $Fr(V)$. The idea is the following: since $Fr(V)$ contains all of the possible basis of $V$, we get that, having choosen a base, we can re-order the elements of it and obtain the same base. We can also linearly combine those elements to obtain another base. Thus, all of the elements of $Fr(V)$ will be reached by matrices in $GL(n,\mathbb{R})$, where $n$ is the dimension of the vector space.\\
@@ -574,7 +576,7 @@
 			And the left translation is a diffeomorphism.
 		\end{proof}
 		\subsection{The smooth structure of the frame bundle}
-		In the previous subsection we showed that the frame bundle of a vector space is a topological manifold. Now we show that it is also a smooth manifold. 
+		In the previous subsection we showed that the frame manifold of a vector space is a topological manifold. Now we show that it is also a smooth manifold. 
 		\begin{Theo}
 			Given any vector space $V$, $Fr(V)$ is a smooth manifold.
 		\end{Theo}
@@ -585,26 +587,90 @@
 			This is clearly a diffeomorphism since the maps $\Phi_i$ are.
 		\end{proof}
 		\subsection{The frame bundle}
-		Suppose to have a smooth vector bundle $(E,M,\pi,F)$. Our idea is now to associate to $M$ a smooth principal $GL(n,\mathbb{R})-bundle$. We first of all need a projection: define the Frame Bundle as the following space:
-		$$Fr(E)=\bigsqcup_{p\in M}Fr(E_p)$$
+		Suppose to have a smooth vector bundle $(E,M,\pi,F)$. Our idea is now to associate to $M$ a smooth principal $GL(n,\mathbb{R})-bundle$. At any point $p\in M$, the fiber $F_p$ is a vector space. Thus, we can construct $Fr(F_p)$ the frame manifold of each fiber. Define the Frame Bundle as the following space:
+		$$Fr(E)=\bigsqcup_{p\in M}Fr(F_p)$$
 		The disjoint union of the fibers at each point. There is a natural projection that we can use:
-		$$\pi_G:Fr(E)\rightarrow M\hbox{ such that } \pi_G(\vec{e_p}\in Fr(E_p))=p$$
+		$$\pi_G:Fr(E)\rightarrow M\hbox{ such that } \pi_G(\vec{e_p}\in Fr(F_p))=p$$
 		Now we need to find local trivializations. The idea is quite simple but somewhat elaborate.\\
 		\\
-		Since we arer starting with a smooth vecotr bundle, the fiber has in each point the structure of a vector space of finite dimension $k$. Thus, we can construct for each $p$ the manifold $Fr(E_p=F_p)$ and then consider the disjoint union $Fr(E)$, which will be a manifold as well. Now, suppose to have a chart on $Fr(E)$ like $(U_{M},\psi:U_{Fr(E)}\rightarrow \mathbb{R}^n\times\mathbb{R}^k)$. Due to the existence of the projection $\pi_G$ we can induce a chart on $M$ by finding the corresponding open set on it $U_M$ and it's map $\phi:U_M\rightarrow \mathbb{R}^n$. We choose as trivializtion the same map we had choosen to trivialize the tangent bundle:
+		Suppose now to have a chart on $Fr(E)$ like $(U_{M},\psi:U_{Fr(E)}\rightarrow \mathbb{R}^n\times\mathbb{R}^k)$. Due to the existence of the projection $\pi_G$ we can induce a chart on $M$ by finding the corresponding open set on it $U_M$ and it's map $\phi:U_M\rightarrow \mathbb{R}^n$. We choose as trivializtion the same map we had choosen to trivialize the tangent bundle:
 		$$\varphi\equiv(\phi^{-1}\circ \mathbb{I}_{\mathbb{R}^k})\circ \psi: U_{Fr(E)}\xrightarrow{\psi}\phi(U_M)\times\mathbb{R}^k\xrightarrow{\phi^{-1}\times\mathbb{I}_{\mathbb{R}^k}}U_m\times\mathbb{R}^k$$
 		This is clearly a diffeomorphism.\\
 		\\
-		Note that at every point there is an identification of $Fr(E_p)$ with the general lienar group $GL(k,\mathbb{R})$. To make this bundle structure into a principal bundle we need to verify that $GL(k,\mathbb{R})$ acts freely on $Fr(E)$ and that the trivializations are equivariant under the action of the group.\\
+		Note that at every point there is an identification of $Fr(E_p)$ with the general lienar group $GL(k,\mathbb{R})$. To make into a principal bundle we need to verify that $GL(k,\mathbb{R})$ acts freely on $Fr(E)$ and that the trivializations are equivariant under the action of the group.\\
 		\\
-		Now, the action of $GL(k,\mathbb{R})$ on the fiber is just given by the product of matrices and so it is free. In particular, $GL(k,\mathbb{R})$ acts on $Fr(E)$ like this:
+		The action of $GL(k,\mathbb{R})$ on the fiber is just given by the product of matrices and so it is free. In particular, $GL(k,\mathbb{R})$ acts on $Fr(E)$ like this:
 		$$(p\in M,\vec{e_p}\in Fr(E_p))\longrightarrow(p,\vec{e_p}A)$$
-		This action is evidently free. Moreover, considering the chart $\varphi$, it is equivariant under this action. Thus, we have a principal $GL(k,\mathbb{R})$-bundle $(Fr(E),M,\pi_G,GL(k,\mathbb{R}))$.\\
-		\\
+		This action is evidently free. Moreover, considering the chart $\varphi$, it is equivariant under this action. Thus, we have a principal $GL(k,\mathbb{R})$-bundle $(Fr(E),M,\pi_G,GL(k,\mathbb{R}))$.
 		\begin{Obs} [\textbf{An intuition for the frame bundle}]
 			The frame bundle is nothing more than the union of all of the frame manifolds of the fibers. Basically, once we have a smooth fiber bundle on $M$, constructing the frame bundle means associating another bundle to $M$. This new bundle will be a principal bundle and at any point the fiber will be $Fr(F)$ the frame manifold of the fiber, which is 1 to 1 with $GL(k,\mathbb{R})$.
 		\end{Obs}
-		\subsection{Fundamental vector fields}
+\chapter{Connections on vector bundles}
+	In this chapter we will introduce connections on vector bundles and the notion of parallel transport. For more details see REFERENZA
+	\section{Connections}
+	In this section we will give the definition of a connection on a generic vector bundle and look at some examples and interesting properties.
+	\begin{Def}\label{Def_5.7}
+		Let $(E,M,\pi,F)$ be a vector bundle. We call \textbf{connection} a map $\nabla:\mathfrak{X}(M)\times\Gamma(E)\rightarrow\Gamma(E)$ such that:
+		\begin{itemize}
+			\item $\nabla$ is $\mathfrak{F}$-linear in $\mathfrak{X}(M)$ and $\mathbb{R}$ linear in $\Gamma(E)$: $\nabla_{fX}(\lambda s)=\lambda f\nabla_X s$ for $f:M\rightarrow \mathbb{R}, s\in\Gamma(E),\lambda\in\mathbb{R}$;
+			\item $\nabla$ respects Leibniz: $\nabla_X (fs)=(Xf)s+f\nabla_X s$.
+		\end{itemize}
+		If $E=TM$ we say that the connection is affine.
+	\end{Def}
+	Note that since $X$ is a smooth vector field on $M$, we have that $Xf=df(X)$ is the differential of $f$ applied to $X$.
+	\begin{Def}\label{Def_5.8}
+		We say that a section $s$ is flat if $\nabla_X s=0$ for every $X\in \mathfrak{X}(M)$.
+	\end{Def}
+	\begin{Ex}[A connection on $\mathbb{R}^n$]
+		Consider the smooth manifold $\mathbb{R}^n$ and it's tangent bundle. Then, a connection will be a map like:
+		$$\nabla:\mathfrak{X}(M)\times\mathfrak{X}(M)\rightarrow\mathfrak{X}(M)$$
+		We define $\nabla_XY$ to be the directional derivative: if $X_p$ is a vector at $p\in\mathbb{R}^n$ and $Y=Y^i\partial_i$ is a vector field, then:
+		$$\nabla_XY=(X_pY^i)\partial_i$$
+		This is an affine connection.
+	\end{Ex}
+	\begin{Obs}
+		Given any connection $\nabla:\mathfrak{X}(M)\times\Gamma(E)\rightarrow\Gamma(E)$ on a vector bundle $(E,M,\pi,F)$ and a frame $\{e_i\}$ on a set $U\subset M$, we can expand any generic section into a linear combination:
+		$$s=h^ie_i$$
+		where the maps $h^i:U\rightarrow \mathbb{R}$ depend on the points. If we apply the connection to this section we find, by the defining properties:
+		$$\nabla_Xs=(Xh^i)e_i+h^i\nabla_Xe_i$$
+		The second term must be a section as well, so that $\nabla_Xe_i=\omega^j_i(X)e_j$. We call $\omega^j_i$ connection forms and the \textit{corresponding matrix} $[\omega^j_i]$ \textit{connection matrix}. 
+	\end{Obs}
+		\begin{Prop}
+			If $(E,M,\pi,F)$ is a smooth vector bundle, it is always possible to find a connection on it.
+		\end{Prop}
+		\begin{proof}
+			The proof of this proposition can be found in REFERENZA
+		\end{proof}
+	\section{The pullback bundle}
+	In this section we will briefly define the pullback bundle and look at some of its properties. This construction will be useful to construct the notion of parallel transport along a given curve. To see more details the reader is advised to see REFERENZA
+	\begin{Def}
+		Let $(E,M,\pi,F)$ be a vector bundle and $f:N\rightarrow M$ be a smooth map between manifolds. We define the \textit{pullnack bundle} as the set:
+		$$f^*E=\{(x_N,x_E)\in N\times E|f(x_N)=\pi(E)\}$$
+	\end{Def}
+	We can define a projection like: $\pi_N:f^*E\rightarrow N$ in the obvious way: $\pi_f(x_N,x_E)=x_N$. 
+	\begin{Prop}
+		Given any smooth vector bundle $(E,M,\pi,F)$ and $f:N\rightarrow M$ smooth map between manifolds, then $(f^*E,N,\pi_f,F)$ is a smooth vector bundle.
+	\end{Prop}
+	\begin{proof}
+		The full proof of this proposition can be found at REFERENZA
+	\end{proof}
+	In general, we will denote with $\Gamma(f^*E)$ the space of all smooth sections of this new vector bundle.
+	\begin{Ex}[\textbf{Vector fields along a curve}]
+		Consider a manifold $M$ and it's tangent bundle $(TM,M,\pi,\mathbb{R}^n)$. Consider then a smooth curve $\gamma:]a,b[\subset \mathbb{R}\rightarrow M$. This curve is a smooth map between manifolds and induces a new vector bundle, namely: $(\gamma^*TM,]a,b[,\pi_\gamma,\mathbb{R}^n)$. If now we look at the sections of this new bundle, they are maps like $s_\gamma:]a,b[\rightarrow\mathbb{R}^n$ which associate to each point of the curve a vector. Thus, smooth sections of this pullback bundle are just smooth vector fields along a curve.
+	\end{Ex}
+	\section{The parallel transport on vector bundles}
+	In this section we are going to define the notion of parallel transportation along a smooth curve on a manifold. We will see that this definition relies strongly on the notion of connection. For more information the reader is advised to see REFERENZA
+	\begin{Theo}
+		Let $(E,M,\pi,F)$ be a smooth vector bundle with a connection $\nabla$ on it. Let $\gamma:]a,b[\rightarrow M$ be a smooth curve on $M$ and consider the pullback bundle $\gamma^*E$ induced by it. Then, there is a unique linear map ${D\over dt}:\Gamma(\gamma^*E)\rightarrow \Gamma(\gamma^*E)$ called \textit{covariant derivative along $\gamma$}, such that:
+		\begin{itemize}
+			\item ${D\over dt}$ is linear;
+			\item ${D\over dt}$ satisfies the Leibniz rule;
+			\item if $s\in \Gamma(\gamma^*E)$ is induced from a global section $S\in\Gamma(E)$ restricted to $\gamma$, then ${D\over dt}s(t)=\nabla_{\gamma'(t)}S$.
+		\end{itemize}
+	\end{Theo}
+	\begin{comment}
+		\chapter{Connections on Principal bundles}
+		\section{Fundamental vector fields}
 		Suppose to have a Lie group $G$ that right-acts smoothly on a manifold $M$. Then, consider any element $A\in\mathfrak{g}$ inside the Lie Algebra of $G$. Define:
 		$$\bar{A}={d\over dt}\bigg|_{t=0}p\cdot e^{tA}\in T_pM$$
 		This, at any point is called \textbf{fundamental vector field associated to $A$}.\\
@@ -649,7 +715,7 @@
 			$$Ad(g^{-1})(A)=g^{-1}Ag=e^{-iB}Ae^{iB}$$
 			However, $U(1)$ is a commutative group, so that $Ad(g)A=A$. Thus, the push forward of the fundamental vector field is the same fundamental vector field.
 		\end{Ex}
-		\subsection{The integral curves of the fundamental vector fields}
+		\section{The integral curves of the fundamental vector fields}
 		\begin{Prop}
 			The curve $c_p(t)=p\cdot e^{tA}$ is the integral curve of the fundamental vector field $\bar{A}$ passing through $p\in M$.
 		\end{Prop}
@@ -674,7 +740,7 @@
 			As a corollary of the previous statement we can say that $Ker(dj_p)$ at the identity is the stabilizer $Stab(p)$. This is pretty esay to see and pretty obvious to think about:
 			$$Ker dj_p=\{A\in \mathfrak{g}|dj_p(A)=0\}=Stab(p)\hbox{ By the previous result}$$
 		\end{Obs}
-		\subsection{The vertical subbundle of the tangent bundle}
+		\section{The vertical subbundle of the tangent bundle}
 		Let $(E,M,\pi,G)$ be a principal $G$-bundle on a manifold $M$. By construction, the projection $\pi:E\rightarrow M$ is smooth, so it can be differentiated. The differential $d\pi_{(p,g)}:T_{(p,g)}E\rightarrow T_{\pi(p,g)}M$ is surjective since the projection is. We now define the \textbf{vertical tangent subspace} $\mathcal{V}_{(p,g)}\subset T_{(p,g)}E$ as the Kernel of the differential of the projection:
 		$$\mathcal{V}_{(p,g)}\equiv Ker(d\pi_{(p,g)})$$
 		\begin{Obs}
@@ -712,7 +778,7 @@
 		\begin{Obs}
 			The name "vertical" comes from the definition $\mathcal{V}=Ker(d\pi)$. The basi idea is that, if we take any smooth vector field $X_E\in\mathfrak{X}(E)$, then the differential of the projection $d\pi:TE\rightarrow TM$ induces a new smooth vector field $X_M=d\pi X_E$ on the base space. The "vertical vector fields" are the ones who get annihilated when projected, since they belong to the Ker of $d\pi$. They are not to be though as vertical with respect to $E$, but to $M$.
 		\end{Obs}
-		\subsection{The horizontal subbundle}
+		\section{The horizontal subbundle}
 		We have seen that on a principal $G$-bundle there is a well defined vertical subbundle $\mathcal{V}$ of the tangent bundle $TE$. We say thet there is an \textbf{horizontal distribution} $\mathcal{H}$ if $TE=\mathcal{H}\oplus\mathcal{V}$. This means that for every point $(p,g)\in TE$ we have $T_{(p,g)}E=\mathcal{H}_{(p,g)}\oplus\mathcal{V}_{(p,g)}$ with $\mathcal{H}_{(p,g)}\cap\mathcal{V}_{(p,g)}=0$.\\
 		\\
 		In general, there is no canonically defined horizontal distribution on a principal $G$-bundle.
@@ -852,24 +918,6 @@
 			$$d\pi(Y_{(p,g)})=d\pi(Hor(Y_{(p,g)}))=Hor(d\pi(Y_{(p,g)}))=X_{\pi(p,g)}$$
 			This means that $Hor(Y)$ is the lift of $X$. By uniqueness, $X$ is smooth on $M$.
 		\end{proof}
-	\chapter{Connections on vector bundles}
-	\section{Connections}
-	\begin{Def}\label{Def_5.7}
-		Let $(E,M,\pi,F)$ be a vector bundle. We call \textbf{connection} a map $\nabla:\mathfrak{X}(M)\times\Gamma(E)\rightarrow\Gamma(E)$ such that:
-		\begin{itemize}
-			\item $\nabla$ is $\mathfrak{F}$-linear in $\mathfrak{X}(M)$ and $\mathbb{R}$ linear in $\Gamma(E)$: $\nabla_{fX}(\lambda s)=\lambda f\nabla_X s$ for $f:M\rightarrow \mathbb{R}, s\in\Gamma(E),\lambda\in\mathbb{R}$;
-			\item $\nabla$ respects Leibniz: $\nabla_X (fs)=(Xf)s+f\nabla_X s$.
-		\end{itemize}
-		If $E=TM$ we say that the connection is affine.
-	\end{Def}
-	Note that since $X$ is a smooth vector field on $M$, we have that $Xf=df(X)$ is the differential of $f$ applied to $X$.
-	\begin{Def}\label{Def_5.8}
-		We say that a section $s$ is flat if $\nabla_X s=0$ for every $X\in \mathfrak{X}(M)$.
-	\end{Def}
-\chapter*{Bibliografia}
-\begin{itemize}
-	\item[$\circ$] [1] Loring W.Tu, An Introduction to Manifolds, Springer, 2011
-	\item 	\item[$\circ$] [2] Loring W.Tu, Differential Geometry, Springer, 2017
-\end{itemize}
+	\end{comment}
 \addcontentsline{toc}{chapter}{Bibliografia}
 \end{document}
