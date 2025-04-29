@@ -1,6 +1,6 @@
 \documentclass[12pt,a4paper]{report}
 
-\usepackage[italian]{babel}
+\usepackage[english]{babel}
 \usepackage{newlfont}
 \usepackage{color}
 \usepackage{float}
@@ -63,7 +63,7 @@
 			$\phi\circ\varphi^{-1}:\varphi(U_1\cap U_2)\rightarrow \phi(U_1\cap U_2)$ and $\varphi\circ\phi^{-1}:\phi(U_1\cap U_2)\rightarrow \varphi(U_1\cap U_2)$ are $C^\infty$.\\
 			A collection of compatible charts $\mathbb{U}=\{(U_i,\phi_{i})\}$ on $M$ such that $M=\bigcup_i U_i$ is called \textit{atlas}. A topological manifold endowed with a maximal atlas is called \textit{smooth manifold}.
 		\end{Def}
-		It is possible to show that if two charts are compatible with some other charts of a given atlas, then they are also compatible with one another. For more details see (TU????)[1] (pag. 51, cap. 2).
+		It is possible to show that if two charts are compatible with some other charts of a given atlas, then they are also compatible with one another. For more details see [1] (pag. 51, cap. 2).
 		\begin{Obs}\label{Obs:1.1.1}
 			Every open subset of a smooth manifold is still a smooth manifold. In fact if $\{(U_i,\phi_i)\}$ is an atlas for $M$, considering an open set $A\subset M$ the collection $\{(U_i\cap A,\phi_i|_{U_i\cap A})\}$ is an atlas for $A$.
 		\end{Obs}
@@ -71,10 +71,10 @@
 		\begin{Ex}
 			The set $\mathbb{R}^n$ with the chart $(\mathbb{R}^n,\phi)$, where $\phi=(r^1,...,r^n)$ and $r^i$ are the standard coordinate of $\mathbb{R}^n$, is a smooth manifold.
 		\end{Ex}
-		\begin{Ex} [\textbf{The general linear group}]\label{Ex 1.1}
-			The set $GL_n(\mathbb{R})=\{A\in M_{n\times n}|det(A)\neq0\}$ si a smooth manifold. One can see this by considering the map $det:\mathbb{R}^{n^2}\rightarrow \mathbb{R}$, by definition $GL_n(\mathbb{R})=det^{-1}(\mathbb{R}-\{0\})$. Since the map $det$ is continuous, the pre-images of open sets are open as well, thus $GL_n(\mathbb{R})$ is an open subset of $\mathbb{R}^{n^2}$. By observation \ref{Obs:1.1.1}, $GL_n(\mathbb{R})$ is a smooth manifold.
+		\begin{Ex}\label{Ex 1.1}
+			The set $GL_n(\mathbb{R})=\{A\in M_{n\times n}|\det(A)\neq0\}$ si a smooth manifold. One can see this by considering the map $\det:\mathbb{R}^{n^2}\rightarrow \mathbb{R}$, by definition $GL_n(\mathbb{R})=\det^{-1}(\mathbb{R}-\{0\})$. Since the map $\det$ is continuous, the pre-images of open sets are open as well, thus $GL_n(\mathbb{R})$ is an open subset of $\mathbb{R}^{n^2}$. By observation \ref{Obs:1.1.1}, $GL_n(\mathbb{R})$ is a smooth manifold.
 		\end{Ex}
-		\begin{Ex} [The circle]
+		\begin{Ex}
 			Consider the unit circle $S^1=\{x^2+y^2=1\}\subset \mathbb{R}^2$. Let there be two charts: $$(U_1=\{x^2+y^2=1;y>0\},\phi_1) \, and \,  (U_2=\{x^2+y^2=1;y<0\},\phi_2)$$ like in figure \ref{figura 1}, where the coordinate maps are defined like: $\phi_1(x,y)=x$ e $\phi_2(x,y)=x$.
 			\begin{figure}[H]
 				\centering
@@ -99,7 +99,7 @@
 			A subset $S\subset M$ of a manifold $M$ is called \textit{regular submanifold} of dimension $k$ if for every $p\in M$ there exists a chart $(U,\phi)$ centered in $p$ such that $U\cap S$ is defined by the vanishing of $n-k$ coordinates.
 		\end{Def}
 		Thus if $\phi=(x^1,...,x^n)$ is a coordinate map on $M$, then on $U\cap S$ we will have $\phi=(x^1,...,x^k,0,0,...0)$.
-		\begin{Ex} [\textbf{$\mathbb{R}^k$ as a regular submanifold of $\mathbb{R}^n$}]
+		\begin{Ex}
 			Consider the smooth manifold $\mathbb{R}^n$ and the space $\mathbb{R}^k\subset\mathbb{R}^n$ for $k<n$. Consider also the chart $(\mathbb{R}^n,\phi)=(\mathbb{R}^n,r^1,...,r^n)$ centered in $p$. Since $\mathbb{R}^n\cap \mathbb{R}^k=\mathbb{R}^k$ it immediatly follows that $\phi|_{\mathbb{R}^k}=(r^1,...,r^k,0,0,...0)$. This shows that $\mathbb{R}^k$ is a regular submanifold of $\mathbb{R}^n$.
 		\end{Ex}
 		\begin{Obs} \label{Obs:1.1.2}
@@ -127,7 +127,7 @@
 		\end{Def}
 		It is also possible to show that all coordinate maps of any given chart $(U,\phi)$ of a smooth manifold are diffeomorphisms. The proof can be found in [1] pag. 63 cap. 2.
 		\section{Tangent space and vector fields}
-		In this section we define the tangent space and the vector fields. From now on we will indicate with $M$ a generic smooth manifold of dimension $n$. 
+		In this section we define the notions tangent space and vector fields. From now on we will indicate with $M$ a generic smooth manifold of dimension $n$. More informations can be found in [1] chap. 3 pag. 86-98.
 		\begin{Def}
 			Consider all couples $(f,U)$, where $U\subset M$ is an open set conaining $p\in M$ and $f:U\rightarrow \mathbb{R}$ is a $C^\infty$ map. We say that $(f,U)$ is in relation with $(g,V)$ if there exists an open set $W\subset U\cap V$ containing $p$, such that $f=g$ when restricted to $W$. We define the \textit{germ} of $f$ in $p$ as the equivalence class of $(f,U)$.
 			The set of all germs of $C^\infty$ functions at $p\in M$ is labelled with $C^\infty_p(M)$.
@@ -176,22 +176,20 @@
 			\begin{Def}
 				A curve $c_p:]-\epsilon,\epsilon[\rightarrow M$ is said to be an \textit{integral curve} of a vector field $X$ on $M$ passing through $p\in M$ if $c_p(0)=p$ and $c_p'(0)=X_p$.
 			\end{Def}
-			From the theory of differential equations, given any point $p\in M$ and a vectori field $X$ defined in a neighbourhood of $p$, there always exists a unique integral curve of $X$ passing through $p$. The reader can find more details about this part in [1] pag. 154 cap.3.\\
+			From the theory of differential equations, given any point $p\in M$ and a vector field $X$ defined in a neighbourhood of $p$, there always exists a unique integral curve of $X$ passing through $p$. The reader can find more details about this part in [1] pag. 154 cap.3.\\
 			\\
 			It is useful to define the concept of \textit{flow} of a vector field $X$ as the map $\Phi_X:\mathbb{R}\times M\rightarrow\mathbb{M}$ such taht $\Phi_X(0,p)=p$; $\Phi_X(t,p)=c_p(t)$ is the integral curve of $X$.\\
 			\\
 			More details on the flux of a vector field can be found in [1] pag. 155, 156 cap. 3.
 		\end{Def}
-		\subsection{The tangent bundle}
-		In this section we introduce the notion of tangent bundle of a smooth manifold.\\
+		\section{The tangent bundle}
+		In this section we introduce the notion of tangent bundle of a smooth manifold. For more details one can check [1] pag. 129-139.\\
 		\\
 		Let M be a manifold. At any point $p\in M$ we can construct the tangent space $T_pM\simeq \mathbb{R}^n$. We define the tangent bundle as the disjoint union of all the tangent spaces.
 		$$TM=\bigsqcup_{p\in M}T_pM=\bigcup_{p\in M} \{p\}\times T_pM$$
 		This set has a natural projection 
 		$$\pi:TM\rightarrow M\hbox{ acting like }\pi(p,v_p)=p \hbox{ where }v_p\in T_pM$$.  
-		We now endow the tangent bundle with a manifold structure.
-		\subsubsection{The topology of the tangent bundle}
-		Recall that a smooth manifold has a T2 and second countable topology. The idea is to induce a satisfying topological strucutre on $TM$ by using the one of $M$.\\
+		We now endow the tangent bundle with a manifold structure. To achieve this, we first of all need to give the tangent bundle a T2 and second countable topology. The idea is to induce this on $TM$ by using the one of the underlying manifold $M$.\\
 		\\
 		Let $(U,\phi)$ be a chart on $M$ with $\phi:U\rightarrow \mathbb{R}^n$. Then, any vector in $p\in U$ can be written in local coordiantes: $v_p=v^i_p\partial_i|_p$.\\
 		Now we construct the following mapping:
@@ -204,8 +202,7 @@
 		\begin{proof}
 			Proving this theorem would take us too far from the main topic of this thesis. The reader can find the complete proof in [1] Chap. 3 pag 132.
 		\end{proof}
-		\subsubsection{The smooth structure of the tangent bundle}
-		In the previus section, Theorem \ref{Theo_1.1} ensures that $TM$ has the topological qualities needed to be a topological manifold. We now need to show that it is locally Euclidean and that it possesses a smooth atlas.
+		Theorem (\ref{Theo_1.1}) ensures that $TM$ has the topological qualities needed to be a topological manifold. We now show that it is locally Euclidean and that it possesses a smooth atlas.
 		\begin{Theo}
 			$TM$ is a smooth manifold.
 		\end{Theo}
@@ -230,7 +227,7 @@
 			Due to $\phi_2\circ \phi_1^{-1}$ being a diffeomorphism, $\Phi_1\circ \Phi_2^{-1}$ is also a diffeomorphism.\\
 			This completes the proof.
 		\end{proof}
-		Thus, the Tangent bundle $TM$ of a manifold of dimension $n$ is also a manifold, but of dimension $2n$, with an atlas given by:
+		Thus, the tangent bundle $TM$ of a manifold of dimension $n$ is also a manifold, but of dimension $2n$, with an atlas given by:
 		$$\mathfrak{A}_{TM}=\{TU_\alpha,\Phi_\alpha\} \hbox{ where } \Phi_\alpha:TU_\alpha\rightarrow U_\alpha\times \mathbb{R}^n$$
 		\section{Topological groups}
 		In this section we introduce topological groups, group actions and quotients, with some examples. More information can be found in [1] chap. 1 pag. 66, [4] chap. 5 pag. 35,36,37. 
@@ -247,7 +244,7 @@
 		\begin{Def}
 			A \textit{topological group} $G$ is a topologicla space with the group structure, such that the multiplication $\cdot:G\times G\rightarrow G$ and the inversion $i:G\rightarrow G$ defined as $i(g)=g^{-1}$ are botgh continuous.
 		\end{Def}
-		\begin{Ex}[The real numbers]
+		\begin{Ex}
 			The set $\mathbb{R}$ with the euclidean topology is a topolocial abelian group with the usual sum.
 		\end{Ex}
 		We now define the concept of group action on a generic set $X$.
@@ -291,19 +288,19 @@
 			A \textit{Lie group} $G$ is a smooth manifold with a group structure, such that the operations $\cdot:G\times G\rightarrow G$ and inversion $i:G\rightarrow G$ are $C^\infty$.
 			A \textit{subgroup} $H$ of a Lie group $G$ is a regular submanifold of $G$ which is still a group under the induce operations from $G$.
 		\end{Def}
-		\begin{Ex}[\textbf{The eneral inear group}] 
+		\begin{Ex}
 			Consider $GL_n(\mathbb{R})$, which was proven to be a smooth manifold. Given the row-column multiplication and the inverse $i$ which associates to a matrix its inverse, those make $GL_n(\mathbb{R})$ a group. Those operations can also be shown to be $C^\infty$ and so $GL_n(\mathbb{R})$ is a Lie group. To see the full proof consult [1] chap. 1 pag. 66.
 		\end{Ex}
 		\begin{Ex}
-			Consider $SL_n(\mathbb{R})=\{A\in M_{n\times n}| det(A)=1\}$. since $SL_n(\mathbb{R})=det^{-1}(1)$ we have that $SL_n(\mathbb{R})$ is a closed subgroup of $GL_n(\mathbb{R})$. It is also possible to show that ([1] pag. 105 cap. 3, Theorem 9.9) $SL_n(\mathbb{R})$ is a regular submanifold $GL_n(\mathbb{R})$ of dimension $n^2-1$. Since the operations of multiplication and inversion are still $C^\infty$ on $SL_n(\mathbb{R})$, we can say that this is a Lie subgroup of $GL_n(\mathbb{R})$.\\
+			Consider $SL_n(\mathbb{R})=\{A\in M_{n\times n}| \det(A)=1\}$. since $SL_n(\mathbb{R})=\det^{-1}(1)$ we have that $SL_n(\mathbb{R})$ is a closed subgroup of $GL_n(\mathbb{R})$. It is also possible to show that ([1] pag. 105 cap. 3, Theorem 9.9) $SL_n(\mathbb{R})$ is a regular submanifold $GL_n(\mathbb{R})$ of dimension $n^2-1$. Since the operations of multiplication and inversion are still $C^\infty$ on $SL_n(\mathbb{R})$, we can say that this is a Lie subgroup of $GL_n(\mathbb{R})$.\\
 			\\
 			To find more informations on this example the reader can see [1] pag. 105-107, 125, 165 chap. 3 and 4.\\
 			\\
 			It is possible to show that (indicating with $^+$ the adjoint and with $T$ the transposition):\\\\
 			$O_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^TA=AA^T=\mathbb{I}\};$\\\\
-			$SO_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^TA=AA^T=\mathbb{I};\, det(A)=1\};$\\\\
+			$SO_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^TA=AA^T=\mathbb{I};\, \det(A)=1\};$\\\\
 			$U_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^+A=AA^+=\mathbb{I}\};$\\\\
-			$SU_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^+A=AA^+=\mathbb{I};\,det(A)=1\};$\\\\
+			$SU_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^+A=AA^+=\mathbb{I};\,\det(A)=1\};$\\\\
 			are all real Lie groups (risp. complessi). 
 			For the full proofs the reader is advised to check [5] pag. 41-51 chap. 2.
 		\end{Ex}
@@ -327,7 +324,7 @@
 			We define an \textit{homomorphism between lie algebras} as a linear map $f:\mathfrak{g}\rightarrow\mathfrak{h}$ such that $f([x,y])=[f(x),f(y)]$ for all $x,y\in\mathfrak{g}$.
 		\end{Def}
 		In general, we will only consider finite-dimensional Lie algebras.
-		\begin{Ex} [\textbf{The real matrix space}]\label{Obs: bracket Mnn}
+		\begin{Ex} \label{Obs: bracket Mnn}
 			Consider $M_{n\times n}(\mathbb{R})$ vector space of $n\times n$ matrices on $\mathbb{R}$. We define a bracket in the follwoing way: given $A,B\in M_{n\times n}(\mathbb{R})$, $[A,B]\equiv AB-BA$. Clearly, this definition makes $[,]$ bilinear and skew-symmetric. As for the Jacobi identity, it is a straightforward calculation to verify it. This makes $M_{n\times n}(\mathbb{R})$ a Lie algebra. 
 		\end{Ex}
 		\begin{Ex}
@@ -336,7 +333,7 @@
 		\begin{Def}
 			A vector field $X$ on a Lie group $G$ is called \textit{left invariant} if $dl_g(X)=X$ for all $g\in G$.
 		\end{Def}
-		A vector field is left invariant if it's translation induced by the left multiplication leaves it invariant: whoch means $dl_g(X_h)=X_{gh}$ for all $g,h\in G$.
+		A vector field is left invariant if it's translation induced by the left multiplication leaves it invariant: which means $dl_g(X_h)=X_{gh}$ for all $g,h\in G$.
 		It follows that $X_g=dl_g(X_e)$, this means that a left invariant vector field is completely determined by its value at the identity. It is also possible to show that any left invariant vector field is smooth. ([1] pag. 181 cap.4).
 		\section{Lie algebras of Lie groups}
 		In this section we define the concept of Lie algebra of a Lie group. We are going to see that it is possible to identify the Lie algebra of any Lie group with it's tangent space at the identity. For more details the reader is advised to see [1] pag 178-182 cap. 4, [6] cap. 1 e [7] parte 1 cap.3.
@@ -351,48 +348,176 @@
 			If $X$ and $Y$ are left invariant, then also $[X,Y]$, $cX$ and $X+Y$ are. Moreover, $[X,Y]$ respects the Jacobi identity. Thus, $Lie(G)$ is a Lie algebra.
 		\end{Prop}
 		\begin{proof}
-			Form the linearity of the differential it follows that if $X,Y$ are left-invariant then also their linear combination will be.
-			To show the invariance of the Lie bracket instead: consider a point $p\in G$ and a map $f\in C^\infty_p(G)$, we want to show that $dl_g([X,Y])=[X,Y]$.
-			By applying the definition of differential we obtain: $$dl_g([X,Y]_p)f=[X,Y]_p(f\circ l_g)=$$$$=X_pY(f\circ l_g)-Y_pX(f\circ l_g)=$$$$=X_p(dl_g(Y)f)-Y_p(dl_g(X)f)=$$
-			$$=X_p(Y(f)\circ l_g)-Y_p(X(f)\circ l_g)=$$
-			$$=dl_g(X_p)Y(f)-dl_g(Y_p)X(f)=[X,Y]_{gp}f$$ 
-			Instead, to show that the Jacobi isentity is satisfied, take a generic function $f\in C^\infty$ on $M$ and evalue:
-			$$[X,[Y,Z]]f+[Y,[Z,X]]f+[Z,[X,Y]]f=$$
-			$$=[X,YZ-ZY]f+[Y,ZX-XZ]f+[Z,XY-YX]f=$$
-			$$=(XYZ-XZY-YZX+ZYX)f+(YZX-YXZ-ZXY+XZY)f+$$$$+(ZXY-ZYX-XYZ+YXZ)f=0$$
+			The proof of this proposition is just a straightforward calculation and can be found in [1] chap. 4 pag. 182,183.
 		\end{proof}
-		From this, $Lie(G)$ is a Lie algebra called \textit{Lie algebra of $G$} and it is referred to as $\mathfrak{g}$.
+		Thus, $Lie(G)$ is a Lie algebra called \textit{Lie algebra of $G$} and it is referred to as $\mathfrak{g}$.
 		\begin{Theo}
-			Dato un gruppo di Lie $G$, esiste un isomorfismo tra $Lie(G)$ e $T_eG$, cioè $Lie(G)\cong T_eG$.
+			Given any Lie group $G$, there exists an isomorphism between $\mathfrak{g}$ and $T_eG$, so that $\mathfrak{g}\cong T_eG$.
 		\end{Theo}
-		What follows is an hint of demonstration. For more detail see: [5] pag. 51 chap. 2.
 		\begin{proof}
-			Consider the map $f:X^A\mapsto A$ where $X^A$ is a left-invariant vector field and $A=X^A_e$, which is the tangent vector of $X^A$ at the identity. We want to show that the map $g:A\mapsto X^A$, with $X^A$ generated by $A$, is the inverse of $f$. To prove this it is sufficient to show that, having $A$, $g(A)$ is left-invariant. This holds true due to observation \ref{Obs: 2.2}.
+			The proof of this theorem goes too far from the topic of this thesis. The interested reader can find it in [5] pag. 51 chap. 2.
 		\end{proof}
 		\begin{Obs}\label{Obs: bracket T}
 			We can define a product $[,]$ on the tangent space at the identity in the following way: given two vectors $A,B\in T_eG$, we set $[A,B]=[X^A,X^B]_e$, where $X^A$ and $X^B$ are the left-invariant vector fields generated by the choosen vectors. It is possible to prove that $X^{[A,B]}=[X^A,X^B]$. 
 			For the full proof see [1] pag. $183$ chap. $4$.
 		\end{Obs}
-		\begin{Ex}
-			The smooth manifold $\mathbb{R}^n$ is a Lie group with the operation $+:\mathbb{R}^n\rightarrow\mathbb{R}^n$ defined as: $(x_1,...,x_n)+(y_1,...,y_n)=(x_1+y_1,...,x_n+y_n)$. The same holds for $\mathbb{C}^n$.
-			Considering $\mathbb{C}^n$ and $\mathbb{R}^n$, the associated Lie algebras are, respectively $\mathbb{C}^n$ and $\mathbb{R}^n$ with trivial brackets $[X,Y]=0$. In $\mathbb{R}^2$ this means asking for the Schwarz lemma to hold: ${\partial\over\partial y}{\partial\over\partial x}f(p)={\partial\over\partial x}{\partial\over\partial y}f(p)$.
-		\end{Ex}
-		We now give some examples of tangent spaaces to the identity for matrix groups, recalling that we can identify theose spaces with the Lie algebra of the group itself.
+		\begin{Def}
+			We say that a Lie algebra $\mathfrak{g}$ is \textit{compact} if it is the Lie algebra of a compact Lie group.
+		\end{Def}
+		We now give some examples of tangent spaces to the identity for matrix groups, recalling that we can identify theose spaces with the Lie algebra of the group itself.
 		\begin{Ex}
 			We call $\mathfrak{gl_n(\mathbb{R})}$ the Lie algebra of $GL_n(\mathbb{R})$.
 			By observation \ref{Obs 1.1.3}, we have $T_\mathbb{I}GL_n(\mathbb{R})=T_\mathbb{I}M_{n\times n}=M_{n\times n}$. From this, $$\mathfrak{gl_n(\mathbb{R})}\cong M_{n\times n}= T_\mathbb{I}GL_n(\mathbb{R})$$
-			It is also possible to prove that the bracket defined in observation \ref{Obs: bracket Mnn} coincides with th one of observation \ref{Obs: bracket T}.
+			It is also possible to prove that the bracket defined in observation \ref{Obs: bracket Mnn} coincides with the one of observation \ref{Obs: bracket T}.
 		\end{Ex}
 		\begin{Ex}
-			We call $\mathfrak{sl_n(\mathbb{R})}$ the Lie algebra of $SL_n(\mathbb{R})=\{A\in M_{n\times n}|det(A)=1\}$.
-			Consider a curve $\gamma:]-\epsilon,\epsilon[\rightarrow M_{n\times n}$ such that $\gamma(t)=\mathbb{I}+tB+O(t^2)$, it is necessary that $det(\mathbb{I}+tB+O(t^2))=1$. However, $det(\mathbb{I}+tB+O(t^2))=1+tr(B)+O(t^2)$ from which it follows: $$T_\mathbb{I}SL_n(\mathbb{R})\cong \mathfrak{sl_n(\mathbb{R})}=\{A\in M_{n\times n}|trA=0\}$$ 
+			We call $\mathfrak{sl_n(\mathbb{R})}$ the Lie algebra of $SL_n(\mathbb{R})=\{A\in M_{n\times n}|\det(A)=1\}$.
+			Consider a curve $\gamma:]-\epsilon,\epsilon[\rightarrow M_{n\times n}$ such that $\gamma(t)=\mathbb{I}+tB+O(t^2)$, it is necessary that $\det(\mathbb{I}+tB+O(t^2))=1$. However, $\det(\mathbb{I}+tB+O(t^2))=1+\hbox{tr}(B)+O(t^2)$ from which it follows: $$T_\mathbb{I}SL_n(\mathbb{R})\cong \mathfrak{sl_n(\mathbb{R})}=\{A\in M_{n\times n}|\hbox{tr}A=0\}$$ 
 		\end{Ex}
 		\begin{Ex}
 			Let $GL(V)=\{f:V\rightarrow V|\, \textnormal{$f$\,  is \, linear \, and \, invertible}\}$ where $V$ is a finite dimensional vector space. We indicate with $\mathfrak{gl}(V)$ the Lie algebra of $GL(V)$.  Then, having fixed a basse for $V$, we have the identification $GL(V)\cong GL_n(\mathbb{R})$. The tangent space to $GL_n(\mathbb{R})$ was proven to be $M_{n\times n}(\mathbb{R})\cong End(V)=\{f:V\rightarrow V|\textnormal{\, $f$\, is \, linear}\}$. From this follows that: 
 			$$\mathfrak{gl}(V)\cong T_{id}GL(V)\cong End(V)$$ 
 		\end{Ex}
+		\begin{Obs}
+			Consider a Lie algebra $\mathfrak{g}$ with a base of generators indexed like $\{T^a\}$. Those generators will have some commutation relations of the form:
+			$$[T^a,T^b]=f^{ab}_{\hspace{9pt}c}T^c$$
+			where we have used Einstein's notation for the sum of contracted indices. We call the numbers $f^{ab}_{\hspace{9pt}c}$ \textit{structure constants}. Those completely define the commutators between all elements of the Lie algebra, since any element is a linear combination of the generators.
+		\end{Obs}
+		\section{Representations of Lie algebras and groups}
+		\section{Scalar products on Lie algebras}
+			In this section we will briefly study scalar products on Lie algebras, which will be fundamental in the further analysis on Gauge theories. For further references see [3] chap. 2.
+			\begin{Def}
+				A \textit{metric} on a manifold $M$ is a smooth assignment to any point $p\in M$ of an inner product $\braket{,}_p:T_pM\times T_pM\rightarrow \mathbb{R}$:
+				\begin{itemize}
+					\item $\braket{,}_p$ is bilinear;
+					\item $\braket{,}_p$ is non degenerate;
+					\item $\braket{,}_p$ is symmetric.
+				\end{itemize}
+			\end{Def}
+			In general one can consider metrics which are not positive definite. An example is the Minkowsky metric.
+			\begin{Def}
+				Let $\braket{,}$ be a metric on a Lie group $G$. We say that the metric is:
+				\begin{itemize}
+					\item \textit{left-invariant} if $l^*_g\braket{,}=\braket{,}$;
+					\item \textit{right-invariant} if $r^*_g\braket{,}=\braket{,}$;
+					\item \textit{bi-invariant} if it is both right and left invariant.
+				\end{itemize}
+			\end{Def}
+			It is clear that, given any metric $\braket{,}$ on $G$, we have an induced scalar product on $\mathfrak{g}$, given by the product of vector fields at the identity $\braket{,}_\mathfrak{g}=\braket{,}_e$. On the contrary, given a scalal product on the Lie algebra $\mathfrak{g}$, it is easy to construct:
+			\begin{itemize}
+				\item a left-invariant metric:
+				$$\braket{X_g,Y_g}_g=\braket{dl_{g^{-1}}X_g,dl_{g^{-1}}Y_g}_\mathfrak{g}$$
+				\item a right-invariant metric:
+				$$\braket{X_g,Y_g}_g=\braket{dr_{g^{-1}}X_g,dr_{g^{-1}}Y_g}_\mathfrak{g}$$
+			\end{itemize}
+			Where $X_g,Y_g\in T_gG$ are tangent vectors at $g$.
+			\begin{Prop}
+				Let $\braket{,}$ be a left-invariant metric on a Lie group $G$. Then $\braket{,}$ is bi-invariant if and only if the scalar product defined on $\mathfrak{g}$ is $Ad$-invariant:
+				$$\braket{X_e,Y_e}=\braket{Ad_g(X)_e,Ad_g(Y_e)}$$
+				For every $X_e,Y_e\in\mathfrak{g}$ and $g\in G$.
+			\end{Prop}
+			\begin{proof}
+				Let $X_g,Y_g\in T_gG$ be vectors tangent to $g\in G$. Suppose $\braket{,}$ is a left-invariant metric on $G$. Then:
+				$$r_h^*\braket{X_g,Y_g}=\braket{dl_{(gh)^{-1}}\circ dr_h(X_g),dl_{(gh)^{-1}}\circ dr_h(Y_g)}=$$
+				$$=\braket{Ad_{h^{-1}}\circ dl_{g^{-1}}(X_g),Ad_{h^{-1}}\circ dl_{g^{-1}}(Y_g)}$$
+				This is clearly equal to $\braket{X_g,Y_g}=\braket{dl_{g^{-1}}(X_g),dl_{g^{-1}}(Y_g)}$ if and only if the action of the adjoint leaves the product unchanged.
+			\end{proof}
+			\begin{Theo} \label{Scal_prod_theo_1}
+				On every compact Lie group $G$ there exists a bi-invariant positive definite metric.
+			\end{Theo}
+			\begin{proof}
+				The proof of this result requires tools which are not explained in this thesis and can be found in [3] chap. 2 pag. 106-108.
+			\end{proof}
+			We now introduce the concept of Killing form. Our aim is to find an inner product on $\mathfrak{g}$ which is non degenerate and positive definite. We will see that those requirements will be satisfied by the Killing form of a compact Lie algebra. This product, once found, will be used to define the Lagrangians.
+			\begin{Def}
+				Let $\mathfrak{g}$ be a finite dimensional Lie algebra on $\mathbb{K}=\mathbb{R},\mathbb{C}$. We define the \textit{Killing form} of $\mathfrak{g}$ as the map:
+				$$B_\mathfrak{g}:\mathfrak{g}\times \mathfrak{g}\rightarrow\mathbb{K}\hbox{ acting like } B_\mathfrak{g}(X,Y)=tr(\hbox{ad}_X\circ \hbox{ad}_Y)$$
+			\end{Def}
+			\begin{Obs}
+				By definition, this map is clearly bilinear and symmetric. Note that in the case $\mathbb{K}=\mathbb{C}$ the Killing form is still symmetric and not hermitian.
+			\end{Obs} 
+			Before looking at the key result of this section we need to give a couple more definitions about Lie algebras:
+			\begin{Def}
+				Let $\mathfrak{g}$ be a Lie algebra. We call \textit{ideal} of $\mathfrak{g}$ a subspace $\mathfrak{h}$ such that 
+				$$[\mathfrak{g},\mathfrak{h}]\subset\mathfrak{h}$$
+			\end{Def}
+			Equivalently, the above condition can also be rewritten like:
+			$$\hbox{ad}_\mathfrak{g}\mathfrak{h}\subset\mathfrak{h}$$
+			\begin{Def}
+				Let $\mathfrak{g}$ be a Lie algebra. We say that $\mathfrak{g}$ is:
+				\begin{itemize}
+					\item \textit{simple} if it is non abelian and has no non trivial ideals;
+					\item \textit{semisimple} if it has no non 0 abelian ideals.
+				\end{itemize}
+			\end{Def}
+			\begin{Theo}
+				A Lie algebra $\mathfrak{g}$ is simple if and only if it is non abelian and its adjoint representation is irreducible.
+			\end{Theo}
+			\begin{proof}
+				The proof is just a consequence of the definition of ideal.			
+			\end{proof}
+			\begin{Ex}
+					Consider the Lie algebra $\mathfrak{sl}(2,\mathbb{R})=\{A\in M_{2\times 2}|\hbox{tr} A=0\}$. This has the following base:
+					$$E=
+					\begin{pmatrix}
+						0 && 1\\
+						0 && 0
+					\end{pmatrix};
+					F=
+					\begin{pmatrix}
+						0 && 0\\
+						1 && 0
+					\end{pmatrix};
+					H=
+					\begin{pmatrix}
+						1 && 0\\
+						0 && -1
+					\end{pmatrix}$$
+					And the commutation relations between the generators are 
+					$$[E,F]=H, [H,F]=-2F,[H,E]=2E$$
+					The adjoint representation acts like:
+					$$\hbox{ad}_{(aH+bE+cF)}(Y)=[aH+bE+cF,Y]$$
+					The adjoint representation is of dimension equal to the generators of the group, so 3 in our case. One can show that the matrix corresponding to the element $X=aH+bE+cF$ is:
+					$$\hbox{ad}_X=
+					\begin{pmatrix}
+						0 && -c && b \\
+						-2b && 2a && 0 \\
+						2c && 0 && -2a \\
+					\end{pmatrix}$$
+					And this has no non-trivial invariant subspaces. Thus, the adjoint representation is irreducible and the Lie algebra $\mathfrak{sl_n}(\mathbb{R})$ is simple.
+			\end{Ex}
+			\begin{Theo}
+				Let $\mathfrak{g}$ be a compact Lie algebra. Then the Killing form is negative definite and non degenerate if and only if $\mathfrak{g}$ is semisimple.
+			\end{Theo}
+			\begin{proof}
+				The proof of this theorem can be found in [3] chap. 2, pag. 114,115.
+			\end{proof}
+			\begin{Obs}
+				Let $\mathfrak{g}$ be a compact semisimple Lie lagebra. Then, we know by the previous theorem, that the Killing form is negative definite. By simmetry of this inner product, we can choose an orthonormal base $\{T^a\}$ of vectors such that:
+				$$B_{\mathfrak{g}}(T^a,T^b)=-\delta^{ab}$$
+			\end{Obs}
+			\begin{Prop}
+				The structure constants of a compact semisimple Lie algebra for an orthonormal basis of $B_\mathfrak{g}$ are totally antisymmetric.
+			\end{Prop}
+			\begin{proof}
+				Let $\{T^a\}$ be an orthonormal base for the Killing form. Then, since $\{T^a\}$ are generators, $[T^a,T^b]=f^{ab}_{\hspace{9pt}c}T^c$ and the antisymmetry in the first two indices is a clear consequence of the antisymmetry of $[,]$. Now it remains to show that also the other index commutes. It is known that:
+				$$\hbox{ad}_{\hbox{ad}_X}(Y)=\hbox{ad}_X\circ \hbox{ad}_Y-\hbox{ad}_y\circ \hbox{ad}_X$$
+				From this property it directly follows that:
+				$$B_\mathfrak{g}(\hbox{ad}_X(Y),Z)=\hbox{tr}(\hbox{ad}_{\hbox{ad}_X(Y)}\circ \hbox{ad}_Z)=\hbox{tr}(\hbox{ad}_X\circ \hbox{ad}_Y\circ \hbox{ad}_Z-\hbox{ad}_Y\circ\hbox{ad}_X\circ \hbox{ad}_Z)$$
+				By linearity and ciclicity of the trace we find:
+				$$B_\mathfrak{g}(\hbox{ad}_X(Y),Z)=\hbox{tr}(\hbox{ad}_Y\circ \hbox{ad}_Z\circ \hbox{ad}_X-\hbox{ad}_Y\circ\hbox{ad}_X\circ \hbox{ad}_Z)=-B_\mathfrak{g}(Y,\hbox{ad}_X(Z))$$
+				Using this property we evalue:
+				$$B_\mathfrak{g}([T^a,T^b],T^c)=B_\mathfrak{g}(\hbox{ad}_{T^a}(T^b),T^c)=f^{ab}_{\hspace{9pt}d}B_\mathfrak{g}(T^d,T^c)=$$
+				$$=-B_\mathfrak{g}(T^b,\hbox{ad}_{T^a}(T^c))=-B_\mathfrak{g}(T^b,[T^a,T^c])=-f^{ac}_{\hspace{9pt}d}B_\mathfrak{g}(T^c,T^d)$$
+				By orthonormality of the choosen base we finally find:
+				$$f^{ab}_{\hspace{9pt}d}\delta^{dc}=-f^{ac}_{\hspace{9pt}d}\delta^{bd}$$
+				$$f^{abc}=-f^{acb}$$
+				This completes the proof.
+			\end{proof}
+		\chapter{Bundles on smooth manifolds}
+		In this chapter we will introduce fiber bundles, vector bundles and principal bundles, with some examples. We will see some basic results which will allow us to study connections in the following chapters. To find more informations about those topics one may check [2] chap. 1 pag. 49-59, chap. 2 pag. 71-86, chap. 3 pag. 95-110, chap. 5; [3] chap. 4 pag. 193-223.
 		\section{Fiber Bundles}
-		In this section we will introduce fiber and vector bundles and give some important examples.
+		In this section we will introduce fiber and vector bundles and give some important examples. For more datails on fiber bundles one can look at [2] chap. 6 pag. 242, [3] chap. 4 pag. 193-195.
 			\begin{Def}
 				Let $M, E$ and $F$ be manifolds. Let $\pi: E\rightarrow M$ be a map such that:
 				\begin{itemize}
@@ -408,7 +533,7 @@
 				Where $Proj: U\times F\rightarrow U$ is the standard projection. $Proj(x_M,x_F)=x_M$.\\
 				We call $(E,M,\pi,F)$ a \textit{fiber bundle}, $M$ \textit{base space}, $E$ \textit{total space} and $F$ \textit{fiber}.
 			\end{Def}
-			\begin{Ex}[\textbf{Product Bundle}]\label{Ex_1.1}
+			\begin{Ex}\label{Ex_1.1}
 				Let $M$, $F$ be manifolds. We will indicate with $p_M$ points in $M$ and with $p_F$ points in $F$.\\ 
 				We set $E=M\times F$ and construct a projection in the obvious way: 
 				$\pi:M\times F\rightarrow M$ like $\pi(p_M,p_F)=x_M$. This map is obviusly continuous and surjective since it is a projection. Moreover, it is also smooth since given two charts $(U_M,\phi_M:U_M\rightarrow \mathbb{R}^n)$ on $M$ and $(U_F,\phi_F:U_F\rightarrow \mathbb{R}^k)$ on $F$, we have:
@@ -418,7 +543,7 @@
 				such that $\varphi(p_M,p_F)=(p_M,p_F)$ acts like the identity map. This map is clearly diffeomorphic.
 				This gives $M\times F$ the structure of a fiber bundle.
 			\end{Ex}
-			\begin{Ex}[\textbf{Cilinder}] \label{Ex_1.2}
+			\begin{Ex} \label{Ex_1.2}
 				An example of the product bundle is the cilinder. It can be constructed as a fiber bundle over the circle $S^1=\{z\in \mathbb{C}|z=e^{i\theta}, \theta\in[0,2\pi]\}$.\\
 				We define the cilinder as $C=S^1\times \mathbb{R}$, recalling that both $S^1$ and $\mathbb{R}$ are manifolds. We now repeat the same construction we did in the previous example: we define the projection as: $\pi:C\rightarrow S^1$ that sends $\pi(z,t)\rightarrow z$, where $z\in S^1$ and $t\in\mathbb{R}$. By the same arguments as above, this map is smooth and surjective.\\As for the local trivializations, we can take any subset of the circle $U$ and trivialize the bundle with the identity:
 				$\varphi:\pi^{-1}(U)\rightarrow U\times \mathbb{R}=\mathbb{I}_d$.\\
@@ -443,10 +568,10 @@
 				\end{figure}
 			\end{Ex}
 			\begin{Ex}
-				MOBIUS STRIP???
+				FIBRAZIONE DI HOPF
 			\end{Ex}
 			\section{Vector bundles}
-			We now introduce the notion of vector bundles, which will be of great importance. A vector bundle can be thought of as a fiber bundle, but with a vector space as a fiber.
+			We now introduce the notion of vector bundles, which will be of great importance. A vector bundle can be thought of as a fiber bundle, but with a vector space as a fiber. More details on vector bundles are to be found in [2] chap. 1 pag. 49-59, [3] chap. 4 pag. 225.
 			\begin{Def}\label{Def_5.2}
 				Let $E,M$ be manifolds. Let $\pi:E\rightarrow M$ be a smooth and surjective map such that:
 				\begin{itemize}
@@ -456,7 +581,7 @@
 				\end{itemize}
 				We call $(E,M,\pi,\mathbb{R}^k)$ a smooth vector bundle.
 			\end{Def}
-			\begin{Ex}[\textbf{The tangent bundle}]
+			\begin{Ex}
 				Consider a manifold $M$ of dimension $n$ and it's tangent bundle $TM$ with the induced $2n$-manifold structure from $M$. We have a projection $\pi:TM\rightarrow M$ defined as $\pi(p,v_p)=p$ which is continuous and surjective. 
 				\\
 				Before constructing the local trivializations, we need to show that this projection is smooth. This is done via charts. Consider a chart $(U,\phi)$ on $M$ and the corresponding $(TU,\Phi:TU\rightarrow \phi(U)\times \mathbb{R}^n)$. Then we can look at the composition:
@@ -481,7 +606,7 @@
 			
 		
 		\section{Sections and frames}
-			In this section we introduce the notions of sections and frames of a vector bundle.
+			In this section we introduce the notions of sections and frames of a vector bundle. We will also find a criterion to check if a smooth vector bundle is trivial. More details can be found in [2] chap.1. pag. 51,52.
 		\begin{Def}\label{Def_5.5}
 			Let $(E,M,\pi,F)$ be a vector bundle. We say that a map \\$s:U\subset M\rightarrow E$ is a \textit{section} if $\pi\circ s=\mathbb{I}_d$. \\
 			We denote the space of all smooth sections $\Gamma(E)$.
@@ -493,7 +618,7 @@
 		\begin{Def}\label{Def_5.6}
 			Let $(E,M,\pi,F)$ be a vector bundle. We define a \textit{frame} on an open set $U\subset M$ as a collection of sections $\{s_i\}$ such that $\{s_i(p)\}$ form a basis for the fiber $F$ at each $p$. 
 		\end{Def}
-		\begin{Prop}
+		\begin{Prop}\label{prop_2.3.1}
 			A smooth vector bundle is trivial if and only if it has a smooth frame.
 		\end{Prop}
 		\begin{proof}
@@ -506,6 +631,16 @@
 			This has a clear inverse: $\phi^{-1}(\pi(e),a^1,...,a^k)=a^ie_i$.
 			It is clear that at each point $p$ this map reduces to a linear isomorphism.
 		\end{proof}
+		\begin{Ex}
+			Consider the smooth manifold $\mathbb{R}^2$ and it's tangent bundle $T\mathbb{R}^2$. At any point $(x,y)\in\mathbb{R}^2$ we can find a frame: $\partial_x,\partial_y$. This is a global smooth frame. By proposition $\label{prop_2.3.1}$, the tangent bundle of $\mathbb{R}^2$ is thus trivial.
+		\end{Ex}
+				\begin{Ex}
+					Consider a generic Lie group $G$. We can find a frame for the vector fields at the identity by choosing a base for the Lie algebra $\{T^a\}$ and considering the corresponding left-invariant vector fields $\{\tilde{T^a}\}$. Consider then the left-multiplication $l_g:G\rightarrow G$ on $G$. This is a diffeomorphism and so it induces an isomorphism of tangent spaces:
+					$$dl_g:T_eG\rightarrow T_gG$$
+					Any tangent vector at any $g\in G$ can be expressed as a linear combination of
+					$$dl_g\tilde{T^a}$$
+					This means that choosing a frame at the identity corresponds to choosing a global frame. Thus, every Lie group has a trivial tangent bundle. 
+		\end{Ex}
 		\section{Principal Bundles}
 		In this section we define the notion of principal bunldes, look at some properties that they have and make some examples. The interested reader can find more details in [2] chap. 6
 		\begin{Def}
@@ -516,12 +651,12 @@
 			\end{itemize} 
 			Then we say that this fiber bundle is a \textit{principal $G$-bundle}.
 		\end{Def}
-		\begin{Ex}[\textbf{The product bundle}]
+		\begin{Ex}
 			Consider the product bundle as usual, but let $E$ and $M$ be manifolds and $G$ be a Lie group. Then $E=M\times G$. We can give this the fiber bundle structure in the usual way: we first of all define a projection:
 			$$\pi:M\times G\rightarrow M\hbox{ like }\pi(x,g)=x$$
-			This map is clearly continuous and surjective. Also, it can be shown to be smooth through the use of charts (it is just a matter of substituting coordinates, since both $M$ and $G$ have the structure of a manifold). The local trivializations will just be the identity map, which is clearly diffeomorphic. Now, we need to ask for a $G$ action of $G$ on $M\times G$. But the action is abvious:
+			This map is clearly continuous and surjective. Also, it can be shown to be smooth through the use of charts (it is just a matter of substituting coordinates, since both $M$ and $G$ have the structure of a manifold). The local trivializations will just be the identity map, which is clearly diffeomorphic. Now, we need to ask for a $G$ action of $G$ on $M\times G$. There is an obvious choice:
 			$$(x,g)\cdot h=(x,gh)$$
-			Also, the identity map clearly preserves this action in an equivariant way.
+			Furthermore the identity map clearly preserves this action in an equivariant way.
 		\end{Ex}
 		\begin{Prop}
 			Let $(E,M,\pi,G)$ be a principal $G-$bundle, then $G$ acts transitively on each fiber. Also, for any group $G$, any right-equivariant map is a left translation.
@@ -531,10 +666,9 @@
 			\\
 			As for the second proposition, it is just an easy result of group theory: if $f(gh)=f(g)h$, setting $g=e$ we get: $f(h)=f(e)h=l_{f(e)}h$.
 		\end{proof}
-		We are now going to construct one of the most important principal bundles: the frame bundle. This is a principal bundle constructed from a opre-existing vector bundle.
-		\section{The frame bundle}
+		We are now going to construct one of the most important principal bundles: the frame bundle. This is a principal bundle constructed from a pre-existing vector bundle.
+		\section{The frame manifold}
 		In this section we will introduce the notion of frame manifold of a vector space and of frame bundle of a vector bundle. We will show that the frame manifold is indeed a smooth manifold and then we will explicitly construct the principal bundle structure. For more information the reader is advised to look at: [2] chap. 6 pag. 241-252.
-		\subsection{The frame manifold of a vector space}
 		\begin{Def}\label{Def_6.5}
 			Consider a vector space $V$ of finite dimension. We define the frame manifold $Fr(V)$ as the set made of all ordered bases of $V$. This means that $Fr(V)$ contains all of the possible ways of choosing a base for $V$.
 		\end{Def}
@@ -554,12 +688,9 @@
 			This last result is obvious: given any two basis ont can always find one as a linear combination of the other and so the two will be related by a matrix of $GL(n\mathbb{R})$.
 			Now, by the orbit-stabilzer theorem, having fixed an element $\vec{e}\in Fr(V)$, we have a bijection:
 			$$\phi_{\vec{e}}:{GL(n,\mathbb{R})\over Stab(\vec{e})}=GL(n,\mathbb{R})\rightarrow O(\vec{e})=Fr(V);\hbox{ such that } \phi_{\vec{e}}([A])=\vec{e}A$$
-			The idea now is to put a manifold structure on $Fr(V)$ such that the above map becomes a diffeomorphism. Note also that the stabilizer of any element is just the identity group. Thus, not only the image, but also the domain of $\phi_{\vec{e}}$ will be independent of the choiche of $\vec{e}$. \\
-			\\
-			We now aim at giving $Fr(V)$ a manifold structure. To do this, we first need to show it is a topological manifold and then show that it is also a smooth manifolds.
+			The idea now is to put a manifold structure on $Fr(V)$ such that the above map becomes a diffeomorphism. Note also that the stabilizer of any element is just the identity group. Thus, not only the image, but also the domain of $\phi_{\vec{e}}$ will be independent of the choiche of $\vec{e}$.
 		\end{Obs}
-		\subsection{The topological structure of $Fr(V)$}
-		In this subsection we will prove that $Fr(V)$ is a topological manifold. This amounts to show it is T2, second countable and locally euclidean.
+		We now aim at giving $Fr(V)$ a manifold structure. To do this, we first need to show it is a topological manifold and then show that it possesses a smooth atlas.
 		\begin{Theo}
 			Given any vector space $V$, $Fr(V)$ is a topological manifold.
 		\end{Theo}
@@ -574,18 +705,19 @@
 			$$\phi_{\vec{f}}(B)=\vec{f}B=\vec{e}AB=\phi_{\vec{e}}\circ l_A(B)$$
 			And the left translation is a diffeomorphism.
 		\end{proof}
-		\subsection{The smooth structure of the frame bundle}
-		In the previous subsection we showed that the frame manifold of a vector space is a topological manifold. Now we show that it is also a smooth manifold. 
+		We now briefly study the smooth structure of the frame bundle. 
 		\begin{Theo}
 			Given any vector space $V$, $Fr(V)$ is a smooth manifold.
 		\end{Theo}
 		\begin{proof}
-			In the previous subsection we have endowed $Fr(V)$ with a topological manifold structure. It only remains to show that two arbitrary charts are compatible. Consider two overlapping charts: $(U,\Phi_1\circ\phi^{-1}_{\vec{e}})$ and $(U,\Phi_2\circ\phi^{-1}_{\vec{e}})$ induced from $GL(n,\mathbb{R})$. Then we can write explicitly:
+			We have already endowed $Fr(V)$ with the structure of a topological manifold. It only remains to show that two arbitrary charts are compatible. Consider two overlapping charts: $(U,\Phi_1\circ\phi^{-1}_{\vec{e}})$ and $(U,\Phi_2\circ\phi^{-1}_{\vec{e}})$ induced from $GL(n,\mathbb{R})$. Then we can write explicitly:
 			$$\Phi_1\circ\phi^{-1}_{\vec{e}}\circ (\Phi_2\circ\phi^{-1}_{\vec{e}})^{-1}=
 			\Phi_1\circ \Phi_2^{-1}$$ 
 			This is clearly a diffeomorphism since the maps $\Phi_i$ are.
 		\end{proof}
-		\subsection{The frame bundle}
+		\section{The frame bundle}
+		In this section we will define the frame bundle of a smooth vector bundle. We will show that it is possible to use it to construct another bundle on the base manifold. More details are in [2] chap. 6 pag. 246 and [3] chap. 4 pag 223.\\
+		\\
 		Suppose to have a smooth vector bundle $(E,M,\pi,F)$. Our idea is now to associate to $M$ a smooth principal $GL(n,\mathbb{R})-bundle$. At any point $p\in M$, the fiber $F_p$ is a vector space. Thus, we can construct $Fr(F_p)$ the frame manifold of each fiber. Define the Frame Bundle as the following space:
 		$$Fr(E)=\bigsqcup_{p\in M}Fr(F_p)$$
 		The disjoint union of the fibers at each point. There is a natural projection that we can use:
@@ -596,20 +728,20 @@
 		$$\varphi\equiv(\phi^{-1}\circ \mathbb{I}_{\mathbb{R}^k})\circ \psi: U_{Fr(E)}\xrightarrow{\psi}\phi(U_M)\times\mathbb{R}^k\xrightarrow{\phi^{-1}\times\mathbb{I}_{\mathbb{R}^k}}U_m\times\mathbb{R}^k$$
 		This is clearly a diffeomorphism.\\
 		\\
-		Note that at every point there is an identification of $Fr(E_p)$ with the general lienar group $GL(k,\mathbb{R})$. To make into a principal bundle we need to verify that $GL(k,\mathbb{R})$ acts freely on $Fr(E)$ and that the trivializations are equivariant under the action of the group.\\
+		Note that at every point there is an identification of $Fr(E_p)$ with the general linear group $GL(k,\mathbb{R})$. To make into a principal bundle we need to verify that $GL(k,\mathbb{R})$ acts freely on $Fr(E)$ and that the trivializations are equivariant under the action of the group.\\
 		\\
 		The action of $GL(k,\mathbb{R})$ on the fiber is just given by the product of matrices and so it is free. In particular, $GL(k,\mathbb{R})$ acts on $Fr(E)$ like this:
 		$$(p\in M,\vec{e_p}\in Fr(E_p))\longrightarrow(p,\vec{e_p}A)$$
 		This action is evidently free. Moreover, considering the chart $\varphi$, it is equivariant under this action. Thus, we have a principal $GL(k,\mathbb{R})$-bundle $(Fr(E),M,\pi_G,GL(k,\mathbb{R}))$.
-		\begin{Obs} [\textbf{An intuition for the frame bundle}]
-			The frame bundle is nothing more than the union of all of the frame manifolds of the fibers. Basically, once we have a smooth fiber bundle on $M$, constructing the frame bundle means associating another bundle to $M$. This new bundle will be a principal bundle and at any point the fiber will be $Fr(F)$ the frame manifold of the fiber, which is 1 to 1 with $GL(k,\mathbb{R})$.
+		\begin{Obs}
+			The frame bundle is nothing more than the union of all of the frame manifolds of the fibers. Once we have a smooth fiber bundle on $M$, constructing the frame bundle means associating another bundle to $M$. This new bundle will be a principal bundle and at any point the fiber will be $Fr(F)$ the frame manifold of the fiber, which is 1 to 1 with $GL(k,\mathbb{R})$.
 		\end{Obs}
 \chapter{Connections on vector bundles}
 	In this chapter we will introduce connections on vector bundles and the notion of parallel transport. For more details see [2] chap. 3 pag. 95-102, chap. 6 pag. 262-269.
 	\section{Connections}
 	In this section we will give the definition of a connection on a generic vector bundle and look at some examples and interesting properties. For more details the reader is advised to consult [2] chap. 6 pag. 262-269.
 	\begin{Def}\label{Def_5.7}
-		Let $(E,M,\pi,F)$ be a vector bundle. We call \textbf{connection} a map $\nabla:\mathfrak{X}(M)\times\Gamma(E)\rightarrow\Gamma(E)$ such that:
+		Let $(E,M,\pi,F)$ be a vector bundle. We call \textit{connection} a map $\nabla:\mathfrak{X}(M)\times\Gamma(E)\rightarrow\Gamma(E)$ such that:
 		\begin{itemize}
 			\item $\nabla$ is $\mathfrak{F}$-linear in $\mathfrak{X}(M)$ and $\mathbb{R}$ linear in $\Gamma(E)$: $\nabla_{fX}(\lambda s)=\lambda f\nabla_X s$ for $f:M\rightarrow \mathbb{R}, s\in\Gamma(E),\lambda\in\mathbb{R}$;
 			\item $\nabla$ respects Leibniz: $\nabla_X (fs)=(Xf)s+f\nabla_X s$.
@@ -620,7 +752,7 @@
 	\begin{Def}\label{Def_5.8}
 		We say that a section $s$ is flat if $\nabla_X s=0$ for every $X\in \mathfrak{X}(M)$.
 	\end{Def}
-	\begin{Ex}[A connection on $\mathbb{R}^n$]
+	\begin{Ex}
 		Consider the smooth manifold $\mathbb{R}^n$ and it's tangent bundle. Then, a connection will be a map like:
 		$$\nabla:\mathfrak{X}(M)\times\mathfrak{X}(M)\rightarrow\mathfrak{X}(M)$$
 		We define $\nabla_XY$ to be the directional derivative: if $X_p$ is a vector at $p\in\mathbb{R}^n$ and $Y=Y^i\partial_i$ is a vector field, then:
@@ -654,7 +786,7 @@
 		The full proof of this proposition can be found at [2] chap.4 pag. 178.
 	\end{proof}
 	In general, we will denote with $\Gamma(f^*E)$ the space of all smooth sections of this new vector bundle.
-	\begin{Ex}[\textbf{Vector fields along a curve}]
+	\begin{Ex}
 		Consider a manifold $M$ and it's tangent bundle $(TM,M,\pi,\mathbb{R}^n)$. Consider then a smooth curve $\gamma:]a,b[\subset \mathbb{R}\rightarrow M$. This curve is a smooth map between manifolds and induces a new vector bundle, namely: $(\gamma^*TM,]a,b[,\pi_\gamma,\mathbb{R}^n)$. If now we look at the sections of this new bundle, they are maps like $s_\gamma:]a,b[\rightarrow\mathbb{R}^n$ which associate to each point of the curve a vector. Thus, smooth sections of this pullback bundle are just smooth vector fields along a curve.
 	\end{Ex}
 	\section{The parallel transport on vector bundles}
@@ -693,11 +825,15 @@
 		This proves the map is isomorphic.
 	\end{proof}
 	\begin{Obs}
-		Recall that frames are elements of the frame bundle. From the previous result we have basically shown that, given a smooth curve $\gamma$, a connection $\nabla$ on a vector bundle $(E,M,\pi,F)$ and an initial condition $\{e_i(a)\}\in Fr(E_\gamma(a))$, we can always find find a unique element of the frame bundle which is parallely transported along $\gamma$. In SEZIONE SUCCESSIVA we will see that this result will allow us to endow the frame bundle with a canonical notion of horizontality.
+		Recall that frames are elements of the frame bundle. From the previous result we have substantially shown that, given a smooth curve $\gamma$, a connection $\nabla$ on a vector bundle $(E,M,\pi,F)$ and an initial condition $\{e_i(a)\}\in Fr(E_\gamma(a))$, we can always find find a unique element of the frame bundle which is parallely transported along $\gamma$. In SEZIONE SUCCESSIVA we will see that this result will allow us to endow the frame bundle with a canonical notion of horizontality.
 	\end{Obs}
+	\begin{comment}
 	We now look at the notion of parallel transport on the tangent bundle of a manifold.
-	\subsection{The parallel transport on the tangeng bundle}
-	In this subsection we will use the previous results to study the notion of parallel transport on the tangent bundle of a smooth manifold. More information on this topic can be found in [2] chap.3 pag. 95-102.
+	\section{The parallel transport on the tangent bundle}
+	In this section we will use the previous results to study the notion of parallel transport on the tangent bundle of a smooth manifold. More information on this topic can be found in [2] chap.3 pag. 95-102.
+	\end{comment}
+	\section{Connections on principal bundles}
+		In this section we will introduce the notion of connection on principal bundles, together with some properties of them. Those will be the main object of Gauge field theories. More informations can be found in REFERENZA
 	\begin{comment}
 		\chapter{Connections on Principal bundles}
 		\section{Fundamental vector fields}
