@@ -47,6 +47,7 @@
 \theoremstyle{definition}
 \newtheorem{Obs}[Def]{Observation}
 \begin{document}
+	\tableofcontents
 	\chapter{Preliminaries on differential geometry}
 		In this chapter we will introduce the topic of fiber bundles vector bundles and some basic notions that will be used afterwards. Those concepts will be fundamental for the study of Gauge Theories.\\
 		In what follows, we will assume that the reader has familiarity with basic notions of smooth manifold and Lie groups. To deepen those concepts, the reader is advised to consult [1] chap. 1,2,3,4, and [2] chap. 1,2.
@@ -280,7 +281,7 @@
 		\end{Def}
 		This thesis will mainly study structures in which groups act on manifolds. We thus give the following definition:
 		\begin{Def}
-			A manifold $M$ with a Lie group $G$ (left) right-acting on it is called a \textbf{G-manifold}. We also say that a map $f:M\rightarrow N$ between $G-manifolds$ is equivariant if $f(x\cdot g)=f(x)\cdot g$.
+			A manifold $M$ with a Lie group $G$ (left) right-acting on it is called a \textit{G-manifold}. We also say that a map $f:M\rightarrow N$ between $G-manifolds$ is equivariant if $f(x\cdot g)=f(x)\cdot g$.
 		\end{Def}		
 		\section{Lie groups}
 		In this section we give the definition of Lie groups and subgroups, with some important results. More informations can be found in [1] pag. 164-174 chap. 4.
@@ -301,7 +302,7 @@
 			$SO_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^TA=AA^T=\mathbb{I};\, \det(A)=1\};$\\\\
 			$U_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^+A=AA^+=\mathbb{I}\};$\\\\
 			$SU_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^+A=AA^+=\mathbb{I};\,\det(A)=1\};$\\\\
-			are all real Lie groups (risp. complessi). 
+			are all real Lie groups. 
 			For the full proofs the reader is advised to check [5] pag. 41-51 chap. 2.
 		\end{Ex}
 		\begin{Def}
@@ -383,7 +384,80 @@
 			$$[T^a,T^b]=f^{ab}_{\hspace{9pt}c}T^c$$
 			where we have used Einstein's notation for the sum of contracted indices. We call the numbers $f^{ab}_{\hspace{9pt}c}$ \textit{structure constants}. Those completely define the commutators between all elements of the Lie algebra, since any element is a linear combination of the generators.
 		\end{Obs}
+		\section{The exponential map}
+		In this section we will give the definition of exponential map and look at some properties of it. We will focus on matrix Lie groups since those will be the main object of gauge theories.
+		To find more details the reader is advised to check [7] part 1, chap 2-2.4 and 3.7.
+		\begin{Def}
+			Given $G$ Lie group and $X\in\mathfrak{g}$, the \textit{exponential map} \\$exp:\mathfrak{g}\rightarrow G$ is defined as $exp(X)=\Phi_X(1,e)$ the flux of the field $X$.
+		\end{Def}
+		We will also refer to $exp(X)$ with $e^X$.
+		\begin{Def}
+			We call \textit{exponential} of a matric $X\in M_{n\times n}$ the serie \\$e^X=\sum_{n=0}^{\infty}{X^n\over n! }$ where $X^n$ is the $n^{th}$ product of $X$ with itself.
+		\end{Def}
+		It can be shown that this serie converges for all $X\in M_{n\times n}$ and that it is a continuous function of $X$. Moreover, the following holds:
+		\begin{itemize}
+			\item $e^0=I$;
+			\item $(e^X)^+=e^{X^+}$ where $^+$ indicates the adjoint;
+			\item $e^X$ is invertible and $(e^X)^{-1}=e^{-X}$;
+			\item $e^{(a+b)X}=e^{aX}e^{bX}$ for all $a,b\in\mathbb{R}$;
+			\item if $XY-YX=0$ then $e^{X+Y}=e^Xe^Y=e^Ye^X$ for all $X,Y$ matrices;\\
+			\item if $C$ is an invertible matrix, then $e^{CXC^{-1}}=Ce^XC^{-1}$
+		\end{itemize} 
+		However the most important results are: ${d\over dt}e^{tX}\bigg{\rvert}_0=X$ and ${d\over dt}e^{tX}\bigg{\rvert}_{t'}=Xe^{t'X}$.\\
+		In fact, this ensures that the exponential map coincides with the exponential of a matrix. For the proofs see [t] pag. 38-41 chap.2.\\
+		We now look at an important proposition, which will allow us to establish a relation between homomorphisms of Lie algebras and Lie groups.
+		\begin{Prop} \label{Prop: 2.4.1}
+			Let $G$ and $H$ be matrix Lie groups and $\mathfrak{g}$, $\mathfrak{h}$ their algebras. let $\rho:G\rightarrow H$ a Lie group homomorphism. Then there is a unique linear map $q:\mathfrak{g}\rightarrow\mathfrak{h}$ such that:
+			\begin{itemize}
+				\item $\rho(e^X)=e^{q(X)}$; 
+				\item $q(AXA^{-1})=\rho(A)q(X)\rho(A)^{-1}$;
+				\item $q([X,Y])=[q(X),q(Y)]$, is a Lie algebra homomorphism;
+				\item $q(X)={d\over dt}\bigg{\rvert}_0\rho(e^{tX})$.
+			\end{itemize}
+		\end{Prop}
+		\begin{proof}
+			For the full proof see [47] pag. 67 chap. 3.
+		\end{proof}
+		Thus, given a homomorphism between Lie groups it is always possible to construct a homomorphism between their Lie algebras.
 		\section{Representations of Lie algebras and groups}
+		In this section we define the concept of representations of Lie groups and algebras and look at some properties of them. We will also see how those two objects can be related to one another. For more details see [7] part 1, chap 4.
+		\begin{Def}
+			Given a group $G$ and a vector space $V$ of finite dimension, we call \textit{representation} a homomorphism between groups $\rho:G\rightarrow GL(V)$. In other words, we ask for $\rho(gh)=\rho(g)\circ\rho(h)$ for every $g,h\in G$.\\
+			If $G$ is a Lie group, we define a representation as a homomorphism between Lie groups $\rho:G\rightarrow GL(V)$. With \textit{dimension of the representation} we refer to the dimension of the vector space $V$.
+		\end{Def}Let us now see some easy examples:
+		\begin{Ex}
+			Let $G$ be a matrix Lie group. We define $\rho: G\rightarrow GL_n(\mathbb{C})$ such that $\rho(X)=I$, then $\rho$ is a representation, called \textit{trivial}. 
+		\end{Ex}
+		\begin{Ex}
+			Let $G$ be a matrix Lie group. By definition $G\subset GL_n(\mathbb{C})$. We define $\rho: G\rightarrow GL_n(\mathbb{C})$ as $\rho(X)=X$, then $\rho$ is a representation, called \textit{standard}. 
+		\end{Ex}
+		\begin{Def}
+			Given a Lie group representation $\rho$ acting on $V$, a subspace $W\subset V$ is called \textit{invariant} if $\rho(g)w\in W$ for all $w\in W$.
+			A representation in which all the invariant subspaces are trivial: $\{0\}$ and $V$; is called \textit{irreducibile}.
+		\end{Def}
+		Let us now look at the definition of Lie algebra representation. Later on, we shall see that the representation of a Lie group are strictly related to the ones of its Lie algebra.
+		\begin{Def}
+			Let $\mathfrak{g}$ be a Lie algebra. A representation of $\mathfrak{g}$ is a morphism of Lie algebras $\pi:\mathfrak{g}\rightarrow End(V)$; where $V$ is a finite dimensional vector space. Thus $\pi([X,Y])=[\pi(X),\pi(Y)]$.
+		\end{Def}
+		We now look at a theorem which establishes a strong connection between those representations.
+		\begin{Theo}
+			Let $G$ be a matrix Lie group with $\mathfrak{g}$ Lie algebra of $G$ and let $\rho:G\rightarrow GL(V)$ be a representation. Then, there exists a unique induced representation on $\mathfrak{g}$, namely $d\rho:\mathfrak{g}\rightarrow \mathfrak{gl}(V)\equiv End(V)$ such that $\rho(e^{tX})=e^{d\rho(X)}$ and $d\rho(X)={d\over dt}\rho(e^{tX})|_0$.\
+			Moreover: $d\rho(AXA^{-1})=\rho(A)d\rho(X)\rho(A)^{-1}$.	
+		\end{Theo}
+		\begin{proof} [Idea of proof]
+			After fixing a base, we can identify $GL(V)$ with $GL_n(\mathbb{C})$ (or $\mathbb{R}$), then, if we assume the hypothesis of the theorem, $\rho$ becomes a homomorphism between matrix Lie groups. By proposition \ref{Prop: 2.4.1} there exists a unique map $\varphi:\mathfrak{g}\rightarrow End(V)$ which coincides with $d\rho$ and respects all of the needed properties.
+		\end{proof}
+		\begin{Theo}\label{Theo: 3.1}
+			Let $G$ a connected matrix Lie group, $\mathfrak{g}$ its Lie algebra, $\rho:G\rightarrow GL(V)$ a representation of $G$ and $d\rho:\mathfrak{g}\rightarrow \mathfrak{gl}(V)$ the induced representation. Then $\rho$ is irreducible if and only if $d\rho$ is.
+		\end{Theo}
+		For the full proof see [7] pag. 87 chap. 4.\\
+		\\
+		Thus, given a connected matrix Lie group and a representation, not only it is always possible to find a prepresentation of its Lie algebra, but the irreducibility of one implies the irreducibility of the other.
+		\begin{Obs}
+			One could show that, for a simply connected matrix Lie group, there exists a bijection between representations of the group and of the associated algebra. More details in [7] pag. 106 cap. 4.
+		\end{Obs}
+		We now construct a very important representation: the adjoint representation. This will be the used very frequently in gauge theories since it controls the transformations of the gauge bosons.
+		THE ADJOINT REPRESENTATION
 		\section{Scalar products on Lie algebras}
 			In this section we will briefly study scalar products on Lie algebras, which will be fundamental in the further analysis on Gauge theories. For further references see [3] chap. 2.
 			\begin{Def}
@@ -1085,6 +1159,8 @@
 			This means that $Hor(Y)$ is the lift of $X$. By uniqueness, $X$ is smooth on $M$.
 		\end{proof}
 	\end{comment}
+	\chapter{The Yang-Mills Gauge theory}
+	In this chapter we will use the knowledge exposed previously to construct the famous Yang-Mills Lagrangian and look at some properties of it. More informations on this topic can be found in REFERENZA
 \chapter*{Bibliografia}
 \begin{itemize}
 	\item[$\circ$] [1] Loring W.Tu, An Introduction to Manifolds, Springer, 2011;
