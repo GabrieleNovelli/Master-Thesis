@@ -192,10 +192,13 @@
 			\item $\braket{,}_p$ is non degenerate;
 			\item $\braket{,}_p$ is symmetric.
 		\end{itemize}
-		We also refer to any manifold $M$ endowed with a metric with the name \textit{metric manifold}.
+		We also refer to any manifold $M$ endowed with a metric with the name \textit{metric manifold} and the notation $(M,g)$.
 	\end{Def}
 	One can think of a metric as a map $g$ that reduces to $\braket{,}_p$ at any point. By definition, $g$ is smooth and in local coordinates we identify its components with $g_{ij}$.
-	In general one can consider metrics which are not positive definite. An example is the Minkowski metric.
+	In general, one can consider metrics which are not positive definite. An example is the Minkowski metric.
+	\begin{Def}
+		We call \textit{Riemanniann manifold} a metric manifold in which the metric tensor is positive definite. If the metric is not positive definite we call the manifold \textit{pseudo-Riemannian}.
+	\end{Def}
 	\section{The tangent bundle}
 	In this section we introduce the notion of tangent bundle of a smooth manifold. For more details one can check [1] pag. 129-139.\\
 	\\
@@ -251,9 +254,14 @@
 		An element of $T_pM^*$ is called \textit{co-vector}. We call a function that assigns to any point of $M$ a co-vector a \textit{1-form}.
 	\end{Def}
 		\begin{Obs}
-		Once we choose a chart $(U,\phi)$ on $M$, with coordinates $\{x^i\}$, we know that we have an induced base of $T_pM$ of vectors $\{\partial_i|_p\}$ for any $p\in U$. We can then induce another base on the dual space $T_pM^*$, indexed with $\{dx^i_p\}$ defined by:
-		$$dx^i_p(\partial_j|_p)=\delta^i_j$$
+		Once we choose a chart $(U,\phi)$ on $M$, with coordinates $\{x^i\}$, we know that we have an induced base of $T_pM$ of vectors $\{{\partial\over \partial x^i}|_p\}$ for any $p\in U$. We can then induce another base on the dual space $T_pM^*$, indexed with $\{dx^i_p\}$ defined by:
+		$$dx^i_p\bigg({\partial\over \partial x^j}\bigg|_p\bigg)=\delta^i_j$$
 	\end{Obs}
+	\begin{Obs}
+		Note that on a metric manifold $(M,g)$, after choosing a chart, we can expand the metric tensor in local coordinates:
+		$$g=g_{ij}dx^i\otimes dx^j$$  
+	\end{Obs}
+	The most important example of a form is the differential:
 	\begin{Prop} \label{df_is_a_form}
 		Let $f$ be a $C^\infty$ function on $M$. Then it's differential is a 1-form.
 	\end{Prop}
@@ -265,16 +273,16 @@
 	\end{proof}
 	\begin{Obs}
 		Clearly, the differential of a coordinate function corresponds exactly to the dual basis:
-		$$dx^i_p(\partial_j|_p)=\partial_j|_px^i=\delta^i_j$$
+		$$dx^i_p\bigg({\partial\over \partial x^j}|_p\bigg)={\partial\over \partial x^j}\bigg|_px^i=\delta^i_j$$
 		One can then show that the coordinate chart $\phi^*(p)=(dx^1_p,...,dx^n_p)$ induced on the cotangent bundle is smooth. The proof can be found in [1] chap. 5 pag. 193-195.
 		We can use this result to find a local expression for the differential of a map:
 		knowing from proposition \ref{df_is_a_form} that $df$ is a 1-form, once we fix a chart $(U,\phi)$, we can expand locally like:
 		$$df_p=a_i(p)dx^i_p$$
 		Where $a^i(p)$ is a real number, depending on the point.
 		Then, by feeding this differential our coordinate functions we get:
-		$$df_p(\partial_j|_p)=a_i(p)\delta^i_j=\partial_j|_pf$$
+		$$df_p\bigg({\partial\over \partial x^j}\bigg|_p\bigg)=a_i(p)\delta^i_j={\partial\over \partial x^j}\bigg|_pf$$
 		So that we can expliticly write for any point inside $U$:
-		$$df=\partial_ifdx^i$$
+		$$df={\partial\over \partial x^i}\bigg|_pfdx^i=\partial_ifdx^i$$
 	\end{Obs}
 	We now look at the exterior algebra of the tangent space, in order to generalize the concept of 1-forms.\\
 	The dual tangent space is a vector space and so one can define it's exterior power $\bigwedge^k T_pM^*$. This set contains skew symmetric elements of the form:
@@ -316,33 +324,63 @@
 	\begin{Def}
 		We call \textit{pointwise orientation} on a manifold a map $\mu$ that assigns to each point $p\in M$ an orientation for $T_pM$. A manifold $M$ with a continuous pointwise orientation  is called \textit{orientable}.
 	\end{Def}
+	An orientation for the tangent space is the equivalence class of an ordered base: $[\{X^i\}]$. SO, an orientation for a manifold is a map that assigns to each point a class of an ordered base of the corresponding tangent space, in a continuous way:
+	$$\mu(p)=[\{X^i_p\}]$$
 	\begin{Obs}
-		Since every vector space has only 2 orientations, and at each point the tangent space is indeed a vector space, any orientable manifold has only 2 possible orientations.
+		Since every vector space has only 2 orientations, and at each point the tangent space is indeed a vector space, any connected orientable manifold has only 2 possible orientations. The full proof of this claim can be found in [1] chap. 6 pag. 241-242.
 	\end{Obs}
 	\begin{Ex}
 		NASTRO DI MOBIUS??? NON ORIENTABILE
 	\end{Ex}
-	VOLUME FORM
-	\section{Differential calculus on smooth manifolds}
+	\begin{Prop}
+		A pointwise orientation $\mu(p)=[\{X^i_p\}]$ on a manifold $M$ is continuous if and only if for any chart $(U,\phi)$ with coordinates $\{x^i\}$, the function:
+		$$dx^1\wedge...\wedge dx^n(X^1,...,X^n)$$
+		is positive everywhere.
+	\end{Prop}
+	\begin{proof}
+		Suppose the orientation is continuous. This means that for each point there exists an open set $V$ inside which the orientation is represented by a continuous frame $[\{X^i\}]$. Choose then a chart $(U,\phi)$ contained in $V$ and expand the frame like:
+		$$X^i=a^{ij}{\partial\over \partial x^j}$$
+		Then, by feeding this to the $n$-form above:
+		$$dx^1\wedge...\wedge dx^n(X^1,...,X^n)=det(a^{ij})dx^1\wedge...\wedge dx^n\bigg({\partial\over \partial x^1},...,{\partial\over \partial x^n}\bigg)=det(a^{ij})$$
+		and the determinant is always non vanishing since it is a change of basis determinant. However, it can be either greater or lower than 0. By continuity of the orientation, if the determinant is $>0$ at a point $p\in U$, it is also positive everywhere else. If instead the determinant is negative, we will simply choose $\tilde{x}^1=-x^1$ and gain an additional $-$ sign.\\
+		Suppose now that the function $dx^1\wedge...\wedge dx^n(X^1,...,X^n)$ is everywhere positive inside a given chart $(U,\phi)$. In those coordinates, the field can be expanded like before and we obtain again the same result:
+		$$dx^1\wedge...\wedge dx^n(X^1,...,X^n)=det(a^{ij})$$
+		If the left-hand side of this equation is always positive inside $U$, so it is the right hand side. From this we can say that $[\{X^i\}]$ and $[\{{\partial\over\partial x^i}\}]$ describe the same orientation and so $\mu$ is continuous.
+	\end{proof}
+	\begin{Theo}
+		A smooth manifold $M$ is orientable if and only if there exists a non vanishing smooth $n$-form on it.
+	\end{Theo}
+	\begin{proof}
+		The proof of this theorem is not long but requires some tools which are not explained in this work. To see the full proof one can look at [1] chap. 6 pag. 243.
+	\end{proof}
+	We now define a very important form on metric manifolds, called volume form. This will be crucial in the definition of the Hodge operator.
+	\begin{Def}
+		Let $(M,g)$ be a smooth metric manifold manifold and $(U,\phi)$ a chart with coordinates $\partial\over \partial x^i$. We define the volume form as:
+		$$\omega=\sqrt{|det(g^{ij})|}dx^1\wedge...\wedge dx^n$$
+	\end{Def}
+	This is clearly a nowhere vanishing form. It can be shown that, by applying the Gram–Schmidt process, the volume form takes the simpler form:
+	$$\omega=de^1\wedge...\wedge de^n$$
+	where $e^i$ is the orthonormal base with respect to $g$ inside $U$. The proof is just a straightforward calculation and can be found in [2] chap. 3 pag. 134.
+	\section{Exterior derivative and Hodge operator}
 	In this section we will introduce the notion of exterior derivative and hodge operator. Furthermore, we will briefly look at integration on manifolds. More informations on those topic can be found in:
 	REFERENZA
 	\begin{Def}
-		Let $M$ be a smooth manifold and $(U,\phi)$ a chart. We define the \textit{exterior derivative} of a $k$-form $\omega=A_Idx^I$ as the $k+1$-form:
+		Let $M$ be a smooth manifold and $(U,\phi)$ a chart. We define the \textit{exterior derivative} of a $k$-form $\omega=a_Idx^I$ as the $k+1$-form:
 		$$d\omega=da_I\wedge dx^I$$
 	\end{Def}
 	Now we look at some important properties of the exterior derivative.
 	\begin{Prop}
 		Let $M$ be a smooth manifold. Then the following properties hold:
 		\begin{itemize}
-			\item the exterior derivative is an \textit{anti-derivation of degree 1}: $$d(\omega\wedge\beta)=d\omega\wedge\beta+(-)^{deg\omega}\omega\wedge\beta$$
-			where $\omega\in \bigwedge^k TM^*$, $\beta\in \bigwedge^l TM^*$ and $deg\omega=k$.
+			\item the exterior derivative is an \textit{anti-derivation of degree 1}: $$d(\omega\wedge\beta)=d\omega\wedge\beta+(-)^{deg(\omega)}\omega\wedge\beta$$
+			where $\omega\in \bigwedge^k TM^*$, $\beta\in \bigwedge^l TM^*$ and $deg(\omega)=k$.
 			\item $d^2=0$;
 		\end{itemize}
 	\end{Prop}
 	\begin{proof}
 		The first property is just a consequence of the algebra of the exterior power. In particular, let $\omega=a_Idx^I$, $\beta=b_Jdx^J$ in our chart. Recalling that the differential of a $1$-form is linear and respects Leibniz:
 		$$d(a_Idx^I\wedge b_Jdx^J)=d(a_Ib_Jdx^I\wedge dx^J)=d(a_Ib_J)\wedge dx^I\wedge dx^J=$$
-		$$=da_I\wedge dx^I\wedge b_Jdx^J+a_Idb_J\wedge dx^I\wedge b_Jdx^J=d\omega\wedge\beta+(-)^{deg\omega}\omega\wedge db_j\wedge\beta$$
+		$$=da_I\wedge dx^I\wedge b_Jdx^J+a_Idb_J\wedge dx^I\wedge b_Jdx^J=d\omega\wedge\beta+(-)^{deg\omega}\omega\wedge db_J\wedge dx^J$$
 		As for the seconf property, it is a consequence of the symmetry of the Hessian matrix.\\
 		Recall that the differential of a function is:
 		$$df=\partial_ifdx^i$$
@@ -350,6 +388,102 @@
 		$$d^2f=\partial_j\partial_i f dx^j\wedge dx^i$$
 		However, while the second partial derivation is symmetric, the wedge product is skew-symmetric. This gives 0 as a result.
 	\end{proof}
+	The above properties of the exterior derivative con be shown to define it in a unique way on any smooth manifold.
+	\begin{Theo}
+		On any smooth manifold $M$ there exists a unique exterior derivative $d$ such that:
+		\begin{itemize}
+			\item $d$ is an anti-derivation of degree 1;
+			\item $d^2=0$;
+			\item if $f$ is a smooth function and $X$ is a vector field, then:
+			$$df(X)=Xf$$
+		\end{itemize}
+	\end{Theo}
+	\begin{proof}
+		This proof is quite lengthy and requires some knowledge about local operators, which are not explained in this work. The reader cna find the full proof in [1] chap. 5 pag. 210-214.
+	\end{proof}
+	\begin{Def}
+		A $k$-form $\omega$ is said to be \textit{closed} if $d\omega=0$ and \textit{exact} of $\omega=d\alpha$ for $\alpha\in\Omega^{k-1}(M)$.
+	\end{Def}
+	\begin{Obs}
+		It is clear that any exact form is closed. However, in general, not all closed forms are exact.
+	\end{Obs}
+	We now look at the definition of the Hodge operator and see some properties of it. This operator will be useful in writing the maxwell equations from a differential geometry point of view.
+	\begin{Obs}
+		The inner product on $M$ induces an inner product on forms. Namely, at any point $p\in M$ we have:
+		$$\braket{\alpha^1_p\wedge...\wedge \alpha^k_p,\beta^1_p\wedge...\wedge\beta^k_p}=det(\braket{\alpha^i_p,\beta^j_p}_{i,j\in[1,k]})$$
+		This product is clearly symmetric. The bilinearity follows from the multilinearity of the determinant for sums of rows and columns. As for the non degeneracy, it is a consequence of the non degeneracy of $\braket{,}$. Lastly, since $\braket{,}$ is smooth, this induced product also is.
+	\end{Obs}
+	\begin{Def}
+		Let $(M,g)$ be a pseudo Riemannian orientable manifold of dimension $n$. Let $\omega$ denote the volume form. We define the \textit{Hodge operator} acting on $k$-forms as:
+		$$\star:\bigwedge^kTM^*\rightarrow \bigwedge^{n-k}TM^*$$
+		such that at any $p\in M$, for every $\alpha_p,\beta_p\in\bigwedge^kT_pM^*$ we have:
+		$$\alpha_p\wedge(\star\beta_p)=\braket{\alpha_p,\beta_p}\omega_p$$
+	\end{Def}
+	This operator is clearly bilinear since the inner product on forms is. In the next proposition we will see that it also depends smoothly on points.
+	\begin{Prop}
+		Let $(M,g)$ an oriented pseudo-Riemannian manifold and $\omega$ its volume form. Then the Hodge operator satisfies, for any $p\in M$, the following properties:
+		\begin{itemize}
+			\item $\star 1=\omega;$
+			\item $\star\omega=sgn(g)$ where $sgn(g)$ is $(-)^q$ and $q$ is the number of -1 in the signature of $g$;
+			\item let $\{dx^i_p\}$ be a generic base for $T_pM^*$, not necessarily orthonormal, let $[dx^i]$ be it's orientation and let $I,J$ be ordered subsets of $\{1,2,3,...,n\}$ of $k$ elements and $J'$ be the ordered complement of $J$, then:
+			$$\star dx_p^I=[dx^i]\sqrt{|det(g_p)|}\sum_J[JJ']\braket{dx_p^I,dx_p^J}dx_p^{J'}$$
+			\item $\star^2=sgn(g)(-)^{k(n-k)}$
+		\end{itemize}
+	\end{Prop}
+	\begin{proof}
+		In this proof we will omit the subscript $p$ specifying the point to simplify the notation. 
+		By definition of the Hodge operator:
+		$$\alpha\wedge(\star\alpha)=\braket{\alpha,\alpha}\omega$$
+		From this, the first property is proved since: $\braket{1,1}=1$.\\
+		The second one is a clear consequence of:
+		$$\braket{\omega,\omega}=sgn(g)$$
+		As for the third one, consider the following: we can always expand $\star dx^I=\sum_Jc^{IJ}dx^{J'}$ since it is a $n-k$ form. Now the sum is on every ordered subset $J$ of ${1,...,n}$ of length $k$. Taking now the wedge product from both sides with $\sum_J dx^J$ we get:
+		$$\sum_Jdx^J\wedge(\star dx^I)=\sum_Jdx^J\wedge\sum_Jc^{IJ}dx^{J'}$$
+		Since $J$ are all different and of same length, each of their complements $J'$ will contain at least one element in common with every possible $J$, except the one they are complementary to. Knowing that the wedge product between two repeated elements is 0, we can cancel off one of the two sums over $J$ and find:
+		$$\sum_Jdx^J\wedge(\star dx^I)=\sum_Jc^{IJ}dx^J\wedge dx^{J'}=\sum_J\braket{dx^J,dx^I}\omega$$
+		for each $J$, we can write $\omega=\sqrt{|det(g)|}[JJ']dx^J\wedge dx^{J'}$ where $[JJ']$ is the sign of the permutation needed to put the set $JJ'$ in order. This clearly implies:
+		$$C^{IJ}=[dx^i]\sqrt{|det(g)|}[JJ']\braket{dx^J,dx^I}$$
+		Putting everything together we find:
+		$$\star dx_p^I=[dx^i]\sqrt{|det(g_p)|}\sum_J[JJ']\braket{dx_p^I,dx_p^J}dx_p^{J'}$$
+		This formula shows that $\star$ depends smoothly on the points of the manifold.
+		As for the last property, we can prove it for an orthonormal base $\{de^i\}$. By construction, if $I$ is a subset of length $k$ of $\{1,2,...,n\}$, $\star de^I=[de^i]\braket{de^I,de^I}[IJ'] de^{J'}$ where $J'$ is the ordered complement of $I$. In fact, being an orthonormal base, the only non 0 term in the above sum is the one where $I=J$. By applying again the Hodge operator, we get:
+		$$\star\star de^I=[de^i]^2\braket{de^I,de^I}\braket{de^{J'},de^{J'}}[IJ'][J'I] de^{I}$$
+		The term $\braket{de^I,de^I}\braket{de^{J'},de^{J'}}$ gives $sgn(g)$ as a result. As for $[IJ'][J'I]$, this is equal to $(-)^{k(n-k)}$. ????????????
+	\end{proof}
+	We now look at an easy example in Minkiwski space, in order to become mor efamiliar with the action of this operator.
+	\begin{Ex}
+		Let $\mathbb{R}^{1,3}$ be Minkowski space with the metric tensor $\eta=diag(-,+,+,+)$. Let $\{dt,dx,dy,dz\}$ be an orthonormal base for the cotangent space at any point and consider the volume form $\omega=dt\wedge dx\wedge dy\wedge dz$. We can explicitly calculate:
+		$$\star dx=[x,t,y,z]\braket{dx,dx}dt\wedge dy\wedge dz$$
+		And clearly the permutation $[x,t,y,z]$ gives (-) as a result. Thus:
+		$$\star dx=-dt\wedge dy\wedge dz$$
+		In fact, one clearly sees that:
+		$$dx\wedge (\star dx)=-dx\wedge dt\wedge dy\wedge dz=\omega$$
+	\end{Ex}
+	We now use the Hodge operator to construct another linear mapping, which will behave like the adjoint operator of the exterior derivative $d$.
+	\begin{Def}
+		We define the \textit{co-differential} acting on $k$ forms as:
+		$$d^*=(-)^{k(n-k)+1}sgn(g)\star \circ  d\circ\star$$
+	\end{Def}
+	This operator has some interesting properties:
+	\begin{Prop}
+		The co-differential satisfies the following properties:
+		\begin{itemize}
+			\item $d^{*2}=0$;
+			\item $\braket{\alpha,d\beta}=\braket{d^*\alpha,\beta}$;
+		\end{itemize}
+	\end{Prop}
+	\begin{proof}
+		The first claim is obvious since:
+		$$d^{*2}\propto\star \circ  d\circ\star\circ\star \circ  d\circ\star=\star \circ  d\circ\star^2\circ  d\circ\star\propto\star\circ d^2\circ\star=0$$
+		As for the second claim, it requires some knowledge about integration on manifolds. Since this work does not cover this topic, the reader is advised to look at [3] chap. 7 pag. 411 for the full proof.
+	\end{proof}
+	Thus, the co-differential essentially behaves like the adjoint operator of the exterior derivative.\\
+	\\
+	Before concluding this section, we give an incredibly important result known as the \textit{Poincaré Lemma}.
+	\begin{Lm}\label{P.L.}
+		On any open ball of $\mathbb{R}^n$ every closed form is exact.
+	\end{Lm}
+	The proof of this lemma goes beyond the scope of this work.
 	\section{Topological groups}
 	In this section we introduce topological groups, group actions and quotients, with some examples. More information can be found in [1] chap. 1 pag. 66, [4] chap. 5 pag. 35,36,37. 
 	\begin{Def}
@@ -1291,6 +1425,118 @@
 	\end{comment}
 	\chapter{The Yang-Mills Gauge theory}
 	In this chapter we will use the knowledge exposed previously to construct the famous Yang-Mills Lagrangian and look at some properties of it. More informations on this topic can be found in REFERENZA
+	\section{The Maxwell's equations}
+	In this section we will find a geometric formulation for the Maxwell's equations. We will first of all analyze them in a flat space-time configuration, then proceed to look at them in curved space-time with a background non-flat metric. More references can be found in REFERENZA\\
+	\\
+	We will refer to $\mathbb{R}^n$ equipped with a flat metric $\eta=diag(-,-,...,_,+,+,...,+)$ with $q$ minus signs and $p$ plus signs, as $\mathbb{R}^{q,p}$. Our starting setting is Minkowski space, so $\mathbb{R}^{1,3}$.
+	\begin{Obs}
+		We are working in natural units, so that the speed of light is normalized to $c=1$.
+	\end{Obs}
+	Given the coordinate system $\{t,x,y,z\}$, an orthonormal base for our space-time tangent space is $\{\partial_t,\partial_x,\partial_y,\partial_z\}$. Of course, we have an induced ordered orthonormal base of co-vectors: $\{dt,dx,dy,dz\}$. We will use the orientation induced by this base and define the volume form:
+	$$\omega=dt\wedge dx\wedge dy\wedge dz$$
+	Classically, in empty space, the Maxwell's equations are:
+	\begin{equation}\label{M.E.}
+		\nabla \cdot \vec{B} =0 \hspace{20 pt} \nabla \times \vec{B}={\partial \vec{E}\over \partial t}\hspace{20 pt}\nabla \cdot \vec{E} =0 \hspace{20 pt} \nabla \times \vec{E}=-{\partial \vec{B}\over \partial t}
+	\end{equation}
+	Where $\vec{E}=(E_1,E_2,E_3)$ and $\vec{B}=(B_1,B_2,B_3)$ are obviously the electric and magnetic field.
+	We introduce the following $2$-form:
+	\begin{Def}
+		We define the \textit{electromagnetic  field strength} as the following 2-form:
+		$$F=E_1 dt\wedge dx+E_2 dt\wedge dy+E_3 dt\wedge dz-B_1 dy\wedge dz-B_2 dz\wedge dx-B_3 dx\wedge dy$$
+	\end{Def}
+	In terms of matrices, we can represent this as:
+	$$F=\begin{pmatrix}
+		0 && E_1 && E_2 && E_3\\
+		-E_1 && 0 && -B_3 && B_2\\
+		-E_2 &&  B_3 && 0 && -B1\\
+		-E_3 && -B_2 && B_1 && 0\\ 
+	\end{pmatrix}$$
+	Of course, being a form, this is skew-symmetric. Moreover, assuming that the fields $\vec{E},\vec{B}$ are smooth, $F$ is clearly smooth as well: $F\in\Omega^2(\mathbb{R}^{1,3})$.
+	\begin{Prop}
+		The Maxwell's equations are given by:
+		$$dF=0\hspace{20 pt} d^*F=0$$
+	\end{Prop}
+	\begin{proof}
+		This is just a strightforward calculation. The fields are to be intended as functions like:
+		$$\vec{E},\vec{B}:\mathbb{R}^{1,3}\rightarrow\mathbb{R}^3$$
+		In particular, the components $E_i,B_i$ are functions of space-time. Their differentials are:
+		$$dE_i=\partial_\mu E_idx^\mu\hspace{20 pt}dB_i=\partial_\mu B_idx^\mu$$
+		where $dx^\mu$ indicates the base elements $dx^0=dt,dx^1=dx,dx^2=dy,dx^3=dz$. Taking the exterior derivative of the field strength:
+		$$dF=dE_1\wedge dt\wedge dx+dE_2\wedge dt\wedge dy+dE_3\wedge dt\wedge dz-$$
+		$$dB_1\wedge dy\wedge dz-dB_2\wedge dz\wedge dx-dB_3\wedge dx\wedge dy$$
+		Since the wedge product between two equal elements of the base is 0, we obtain, after some algebra:
+		$$dF=(\partial_z E_2-\partial_y E_3-\partial_t B_1)dt\wedge dy\wedge dz+(\partial_z E_1-\partial_x E_3-\partial_t B_2)dt\wedge dx\wedge dz+$$
+		$$(\partial_y E_1-\partial_x E_2-\partial_t B_3)dt\wedge dx\wedge dy+ (\partial_x B_1+ \partial_y B_2+\partial_z B_3)dx\wedge dy\wedge dz$$
+		The term $(\partial_x B_1+ \partial_y B_2+\partial_z B_3)$ is clearly $\nabla\cdot \vec{B}$, while the other 3 terms are obviously the components of:
+		$$\partial_t\vec{B}+\nabla\times E$$
+		By asking for $dF=0$ we recover the first and the fourth equation in \ref*{M.E.}.\\
+		\\
+		To recover the last two equations, we compute: 
+		$$\star F=-B_1 dt\wedge dx-B_2dt\wedge dy-B_3 dt\wedge dz-E_1 dy\wedge dz-E_2 dz\wedge dx-E_3 dx\wedge dy$$
+		Now, by evaluating $d(\star F)$ we get:
+		$$d(\star F)=-dB_1\wedge dt\wedge dx-dB_2\wedge dt\wedge dy-dB_3\wedge dt\wedge dz-$$
+		$$dE_1\wedge dy\wedge dz-dE_2\wedge dz\wedge dx-dE_3\wedge dx\wedge dy$$
+		After a bit of algebra and re-arranging we find:
+		$$d(\star F)=-\bigg[(\partial_z B_2-\partial_y B_3+\partial_t E_1)dt\wedge dy\wedge dz+
+		(\partial_z B_1-\partial_x B_3-\partial_t E_2)dt\wedge dx\wedge dz
+		$$
+		$$+(\partial_y B_1-\partial_x B_2+\partial_t E_3)dt\wedge dx\wedge dy+(\partial_x E_1+\partial_y E_2+\partial_z E_3)dx\wedge dy\wedge dz\bigg]$$
+		Clearly, by the same reasoning above, we recover the last 2 equations. This proves the initial claim.
+	\end{proof}
+	From the previous result we see that the field strength tensor is a closed form. By the Poincaré lemma, \ref{P.L.} we can say that there exists a $1$-form $A\in\Omega^1(\mathbb{R}^{1,3})$, called \textit{vector potential}, such that $F=dA$. Clearly, this potential is not unique, but it is defined up to an additional term of the form $da$ where $a$ is a smooth function.\\
+	The general form of those forms in the above base is:
+	$$F={1\over 2}F_{\mu\nu}dx^\mu\wedge dx^\nu\hspace{20 pt} A=A_\mu dx^\mu$$
+	And now, taking the exterior derivative of $A$, we clearly get:
+	$$dA=dA_\mu\wedge dx^\mu=\partial_\nu A_\mu dx^\nu\wedge dx^\mu$$
+	From this it is clear that:
+	$$F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu$$
+	Looking at the MAxwell's equations, $dF=0$ is automatically satisfied. As for $d^*F=0$, we find:
+	$$\star dA= FAI CONTO$$
+	SPAZIO CURVO???
+	\section{The U(1) Yang-Mills lagrangian}
+	In this section we will use the Maxwell's equation to deduce the general form of the Yang-Mills lagrangian for electromagnetism. More references on this topic can be found in: REFERENZA
+	\\
+	\\
+	\begin{Obs}
+		The lagrangiana is the mathematical object used to describe the dynamics of our fields. A priori there are infinitely many lagrangians that we could consider. However, we would like to set some restrictions to them. Namely, any lagrangian considered should have the following qualities:
+		\begin{itemize}
+			\item they should be invariant under some symmetries;
+			\item they must be renormalizable.
+		\end{itemize}
+		We will not focus on renormalizability since it would require some knowledge which is not exposed in this work. As for the symmetries, we wish our lagrangian to be at least:
+		\begin{itemize}
+			\item Lorentz invariant;
+			\item Gauge invariant.
+		\end{itemize}
+		By gauge invariance we mean that the lagrangian is invariant under local transformations encoded in a Lie group. In particular, we will assume the existence of an a-priori $G$-principal bundle on our space-time manifold, where $G$ is the symmetry group. 
+	\end{Obs}
+	We now wish to construct the lagrangian of the electromagnetic field. We assume there is a principal $G$-bundle $(P,\mathbb{R}^{1,3},\pi,G)$ where $G$ is a Lie group. Given any representation $\rho:G\rightarrow GL(V)$, we can also define an associated bundle $(E,\mathbb{R}^{1,3},\pi_A,G)$ where $E={P\times V\over \sim}$ over the equivalence relation:
+	$$(p,v)\sim(p\cdot g,\rho(g^{-1})v)$$
+	Two points in the space $E$ that belong to the same equivalence class represent the same  physical state. Let $A$ be a connection 1-form on our principal bundle. Thus: $A\in\Omega^1(P,\mathfrak{g})$. The existence of this is proved by REFERENZA TEOREMA.\\
+	By definition, the connection $1$-form has the following properties:
+	\begin{itemize}
+		\item for every $X\in \mathfrak{g}$ and $p\in P$ it holds $A(\overline{X}_p)=X$ where $\overline{X}$ is the fundamental vector field of $X$.
+		\item $A$ is smooth;
+		\item for every $g\in G$ it holds $dr_gA=Ad(g^{-1})A$ is right equivariant.
+	\end{itemize}
+	We know that, having fixed a representation, there is an isomorphism between right-equivariant vector valued forms on the principal bundle and forms on the manifolds which take values in the associated bundle:
+	$$\Omega_\rho^k(P,V)\simeq \Omega^k(\mathbb{R}^{1,3},E)$$
+	Also, locally, the associated bundle is trivial: $E\simeq \mathbb{R}^{1,3}\times \mathfrak{g}$. Thus, locally, we can always identify our 1-form connection with a 1-form on the manifold, which takes values in the Lie algebra of $G$. 
+	$$A\in \Omega_\rho^1(P,V)\longrightarrow A_{\mathbb{R}^{1,3}}\in\Omega^1(\mathbb{R}^{1,3},V)$$
+	We now wish to fix both $G$ and $\rho$ so that our 1-form matches the vector potential. Recall that in the previous section we found that the vector potential was an element of $\Omega^1(\mathbb{R}^{1,3})$ which encoded all of the informations of the electromagnetic fields. By setting a local gauge $s:U\subset \mathbb{R}^{1,3}\rightarrow P$ we 
+	\begin{comment}
+		We have said that the vector potential has a symmetry, which from now on will be called gauge symmetry, like:
+		$$A\sim A+da$$
+		where $a$ is a generic smooth function on the manifold.\\
+		\\
+		We now wish to construct a Lagrangian describing the electromagnetic field. A priori, we impose the existence of a principal $G$-bundle $(P,\mathbb{R}^{1,3},\pi,G)$ where $G$ is a Lie group.
+		It is known that, given a principal bundle  and a finite dimensional representation $\rho:G\rightarrow GL(V)$, we can construct an associated bundle $({P\times V\over \sim},\mathbb{R}^{1,3},\pi_A,G)$ with the equivalence relation:
+		$$(p,v)\sim(p\cdot g,\rho(g^{-1})v)$$
+		where $g\in G$ and $p\in P$. It was shown in theorem REFERENZA TEOREMA that the exists a 1-1 correspondence of the form:
+		$$\Omega^k(P,V)\simeq \Omega^k(\mathbb{R}^{1,3},{P\times V\over \sim})$$
+		Moreover, locally, the associated bundle is trivial: ${P\times V\over \sim}\simeq M\times V$. In our setting, the form $A$ belongs to the space $\Omega^1(\mathbb{R}^{1,3})=\Omega^1(\mathbb{R}^{1,3},\mathbb{R})$, so it is a real valued $1$-form on the manifold. Clearly, this form can also be seen as an element of the space $\Omega^1(\mathbb{R}^{1,3},\mathbb{R}^{1,3}\times \mathbb{R})$. Thus, considering $V=\mathbb{R}$ as our vector space, locally, our form is an element of $\Omega^1(\mathbb{R}^{1,3},{P\times \mathbb{R}\over \sim})$. Thus, there exists a corresponding form inside $\Omega^1(P,\mathbb{R})$. Now, to completely fix the principal bundle, we just need specify a representation.
+	\end{comment}
+	
 	\chapter*{Bibliografia}
 	\begin{itemize}
 		\item[$\circ$] [1] Loring W.Tu, An Introduction to Manifolds, Springer, 2011;
