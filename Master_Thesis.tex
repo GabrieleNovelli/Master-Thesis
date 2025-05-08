@@ -49,12 +49,11 @@
 \begin{document}
 	\tableofcontents
 	\chapter{Preliminaries on differential geometry}
-	In this chapter we will introduce the topic of fiber bundles vector bundles and some basic notions that will be used afterwards. Those concepts will be fundamental for the study of Gauge Theories.\\
-	In what follows, we will assume that the reader has familiarity with basic notions of smooth manifold and Lie groups. To deepen those concepts, the reader is advised to consult [1] chap. 1,2,3,4, and [2] chap. 1,2.
+	In this chapter we will introduce the topic of fiber bundles vector bundles and some basic notions that will be used afterwards. These concepts will be fundamental for the study of Gauge Theories. In what follows, we will assume that the reader has familiarity with basic notions of smooth manifold and Lie groups. For these concepts, the reader is advised to consult [1] chap. 1, 2, 3, 4 and [2] chap. 1,2.
 	\section{Smooth manifolds}
-	In this chapter we introduce the notion of smooth manifolds, tangent spaces and vector fields; with some examples. More details can be found in [1] chap. 1 pag. 48-57.
+	In this section we introduce the notion of smooth manifold, tangent spaces and vector fields; with some examples. More details can be found in [1] chap. 1 pag. 48-57.
 	\begin{Def}
-		A \textit{topological manifold} $M$ of dimension $n$ T2, second countable, locally euclidean topological space of dimension $n$. With locally euclidean we mean that for every point $p\in M$ there exists an open subset $U\subset M$ containing $p$, and an homeomprphism $\phi:U\rightarrow\mathbb{R}^n$. The couple $(U,\phi)$ is called \textit{chart}. 
+		A \textit{topological manifold} $M$ of dimension $n$ T2, second countable, locally euclidean topological space of dimension $n$. With locally euclidean we mean that for every point $p\in M$ there exists an open subset $U\subset M$ containing $p$, and an homeomprphism $\phi:U\rightarrow\mathbb{R}^n$. The pair $(U,\phi)$ is called \textit{chart}. 
 	\end{Def}
 	\begin{Ex}
 		The space $\mathbb{R}^n$ with $(\mathbb{R}^n, id)$ where $id:\mathbb{R}^n\rightarrow \mathbb{R}^n$ is the identity map, is a topological manifold. 
@@ -76,7 +75,7 @@
 		The set $GL_n(\mathbb{R})=\{A\in M_{n\times n}|\det(A)\neq0\}$ si a smooth manifold. One can see this by considering the map $\det:\mathbb{R}^{n^2}\rightarrow \mathbb{R}$, by definition $GL_n(\mathbb{R})=\det^{-1}(\mathbb{R}-\{0\})$. Since the map $\det$ is continuous, the pre-images of open sets are open as well, thus $GL_n(\mathbb{R})$ is an open subset of $\mathbb{R}^{n^2}$. By observation \ref{Obs:1.1.1}, $GL_n(\mathbb{R})$ is a smooth manifold.
 	\end{Ex}
 	\begin{Ex}
-		Consider the unit circle $S^1=\{x^2+y^2=1\}\subset \mathbb{R}^2$. Let there be two charts: $$(U_1=\{x^2+y^2=1;y>0\},\phi_1) \, and \,  (U_2=\{x^2+y^2=1;y<0\},\phi_2)$$ like in figure \ref{figura 1}, where the coordinate maps are defined like: $\phi_1(x,y)=x$ e $\phi_2(x,y)=x$.
+		Consider the unit circle $S^1=\{x^2+y^2=1\}\subset \mathbb{R}^2$. Consider two charts: $$(U_1=\{x^2+y^2=1;y>0\},\phi_1) \, and \,  (U_2=\{x^2+y^2=1;y<0\},\phi_2)$$ like in figure \ref{figura 1}, where the coordinate maps are defined like: $\phi_1(x,y)=x$ e $\phi_2(x,y)=x$.
 		\begin{figure}[H]
 			\centering
 			\begin{tikzpicture}
@@ -93,11 +92,11 @@
 			\label{figura 1}
 			\caption{The two charts $U_1$ and $U_2$ on the unit circle.}
 		\end{figure}
-		To those charts we add analogously $$(U_3=\{x^2+y^2=1;x>0\},\phi_3)\, and \, (U_4=\{x^2+y^2=1;x<0\},\phi_4)$$ with $\phi_3(x,y)=y$ and $\phi_4(x,y)=y$. by construction, $\phi_i$ is an homeomorphism for every $i$. It remains to show that the charts are compatible.\\
+		To those charts we add analogously $$(U_3=\{x^2+y^2=1;x>0\},\phi_3)\, and \, (U_4=\{x^2+y^2=1;x<0\},\phi_4)$$ with $\phi_3(x,y)=y$ and $\phi_4(x,y)=y$. By construction, $\phi_i$ is an homeomorphism for every $i$. It remains to show that the charts are compatible.\\
 		Consider the composition $\phi_3\circ\phi_2^{-1}$, this is such that: $$(\phi_3\circ\phi_2^{-1})(x)=\phi_3(x,-\sqrt{1-x^2})=-\sqrt{1-x^2}$$ for $x\in ]0,1[$, which is $C^\infty$. The compatibility of the remaining charts follows by an analogous proof. This proves the circle is a smooth manifold.
 	\end{Ex}
 	\begin{Def}
-		A subset $S\subset M$ of a manifold $M$ is called \textit{regular submanifold} of dimension $k$ if for every $p\in M$ there exists a chart $(U,\phi)$ centered in $p$ such that $U\cap S$ is defined by the vanishing of $n-k$ coordinates.
+		A subset $S\subset M$ of a manifold $M$ is called \textit{regular} or \textit{embedded submanifold} of dimension $k$ if for every $p\in M$ there exists a chart $(U,\phi)$ centered in $p$ such that $U\cap S$ is defined by the vanishing of $n-k$ coordinates.
 	\end{Def}
 	Thus if $\phi=(x^1,...,x^n)$ is a coordinate map on $M$, then on $U\cap S$ we will have $\phi=(x^1,...,x^k,0,0,...0)$.
 	\begin{Ex}
@@ -109,8 +108,7 @@
 	\section{Differentiable maps}
 	In this section we define smooth maps between smooth manifolds and describe some important properties they enjoy. More details can be found in [1] cap. 2 pag. 59-70.
 	\begin{Def}
-		Let $M$ be a smooth manifold and $f:M\rightarrow\mathbb{R}$ a map. Then $f$ is said to be $C^\infty$ in $p\in M$ if there exists a chart $(U,\phi)$ centered in $p$ such that $f\circ \phi^{-1}$ is $C^\infty$.\\
-		The map $f:M\rightarrow \mathbb{R}$ is said to be $C^\infty$ on $M$ if it is on every $p\in M$.
+		Let $M$ be a smooth manifold and $f:M\rightarrow\mathbb{R}$ a map. Then $f$ is said to be \textit{smooth} or $C^\infty$ in $p\in M$ if there exists a chart $(U,\phi)$ centered in $p$ such that $f\circ \phi^{-1}$ is $C^\infty$. The map $f:M\rightarrow \mathbb{R}$ is said to be $C^\infty$ on $M$ if it is $C^\infty$ on every $p\in M$.
 	\end{Def}
 	\begin{Obs}
 		The definition of smoothness we gave does not depend on the choice of the chart. In fact if $(U,\phi)$ and $(V,\psi)$ are two charts of $M$ and $f\circ\phi^{-1}$ is $C^\infty$, then $$f\circ\psi^{-1}=(f\circ\phi^{-1})\circ(\phi\circ\psi^{-1})$$ which is still $C^\infty$.
@@ -119,7 +117,7 @@
 		If $f:M\rightarrow \mathbb{R}$ is $C^\infty$ then it is continuous. One can in fact write $f=(f\circ\phi^{-1})\circ \phi$ where $\phi$ and $f\circ\phi^{-1}$ are continuous: $f\circ\phi^{-1}$ is $C^\infty$ and $\phi$ is an homeomprphism. It follows that, by composition of continuous maps, that $f$ is continuous.\\
 	\end{Obs}
 	\begin{Def}
-		Let $N$ and $M$ be smooth manifolds of dimensions $n$ and $m$. a continuous map $f:N\rightarrow M$ is said to be $C^\infty$  $p\in N$ if there are two charts $(U,\phi)$ centered in $p\in N$ and $(V,\psi)$ centered in $f(p)\in M$ such that $\psi\circ f\circ \phi$ is $C^\infty$.
+		Let $N$ and $M$ be smooth manifolds of dimensions $n$ and $m$. A continuous map $f:N\rightarrow M$ is said to be $C^\infty$ in $p\in N$ if there are two charts $(U,\phi)$ centered in $p\in N$ and $(V,\psi)$ centered in $f(p)\in M$ such that $\psi\circ f\circ \phi$ is $C^\infty$.
 	\end{Def}
 	The composition has as domain $\phi(f^{-1}(V))\cap U$ subset of $\mathbb{R}^n$. $$\psi\circ f\circ \phi:\phi(f^{-1}(V)\cap U)\rightarrow \mathbb{R}^m$$
 	The continuity of $f$ is requested to ensure that the pre-image of $f^{-1}(V)$ is an open subset of $N$. It is also possible to show that the composition of $C^\infty$ maps between smooth manifolds is still $C^\infty$. The proof can be found in [1] (pag. 62 cap.2). 
@@ -130,12 +128,12 @@
 	\section{Tangent space and vector fields}
 	In this section we define the notions tangent space and vector fields. From now on we will indicate with $M$ a generic smooth manifold of dimension $n$. More informations can be found in [1] chap. 3 pag. 86-98.
 	\begin{Def}
-		Consider all couples $(f,U)$, where $U\subset M$ is an open set containing $p\in M$ and $f:U\rightarrow \mathbb{R}$ is a $C^\infty$ map. We say that $(f,U)$ is in relation with $(g,V)$ if there exists an open set $W\subset U\cap V$ containing $p$, such that $f=g$ when restricted to $W$. We define the \textit{germ} of $f$ in $p$ as the equivalence class of $(f,U)$.
+		Consider all pairs $(f,U)$, where $U\subset M$ is an open set containing $p\in M$ and $f:U\rightarrow \mathbb{R}$ is a $C^\infty$ map. We say that $(f,U)\sim(g,V)$ if there exists an open set $W\subset U\cap V$ containing $p$, such that $f=g$ when restricted to $W$. We define the \textit{germ} of $f$ in $p$ as the equivalence class of $(f,U)$.
 		The set of all germs of $C^\infty$ functions at $p\in M$ is labeled with $C^\infty_p(M)$.
 	\end{Def}
 	It is not difficult to verify that the so defined relation is an equivalence relation: if $f\sim g$ then obviously $g\sim f$ at $p$. Moreover we clearly have that $f\sim f$ and if $f\sim g$, $g\sim h$, then $f\sim h$ since all of the above functions are equal in a neighborhood of $p$.\\
 	\\
-	By generalizing the concept of derivation in $\mathbb{R}^n$, we call \textit{derivation} in $p\in M$ any linear map $D_p:C^\infty_p(M)\rightarrow\mathbb{R}$ which respects the Leibniz rule 
+	By generalizing the concept of derivation in $\mathbb{R}^n$, we call \textit{derivation} in $p\in M$ any linear map $D_p:C^\infty_p(M)\rightarrow\mathbb{R}$ which respects the Leibniz rule:
 	$$D_p(fg)=D_p(f)g(p)+f(p)D_p(g)$$
 	\begin{Def}
 		A derivation in $p\in M$ is called tangent vector in $p$. The set of all tangent vectors in $p$ is called \textit{tangent space} and will be referred to as $T_pM$.
@@ -143,14 +141,13 @@
 	Let $(U,\phi)$ be a chart of $M$ centered in $p\in M$, we set:
 	$${\partial\over \partial x^i}\bigg\rvert_p(f)={\partial\over \partial r^i}\bigg\rvert_{\phi(p)}(f\circ \phi^{-1})$$ where $r^i$ are the coordinates of $\mathbb{R}^n$. This definition makes ${\partial\over \partial x^i}$ a vector field since it follows Leibniz.\\
 	\\
-	An important result is the following: considering the tangent space $T_pM$ and a chart $(U,\phi)$ centered in $p$, then the vectors $\partial\over \partial x^i$ form a base for $T_pM$. This comes from the fact that the tangent vectors $\partial\over \partial r^i$ are a base for the tangent space in $x_0\in\mathbb{R}^n$, which has the same dimensions as $M$.\\
-	Thus, once we choose a chart, a generic tangent vector can be expressed as a linear combination: $$\vec{v}=\sum_{i=1}^{n}c_i{\partial\over \partial x^i}$$ 
+	An important result is the following: considering the tangent space $T_pM$ and a chart $(U,\phi)$ centered in $p$, then the vectors $\partial\over \partial x^i$ form a base for $T_pM$. This comes from the fact that the tangent vectors $\partial\over \partial r^i$ are a base for the tangent space in $x_0\in\mathbb{R}^n$, which has the same dimensions as $M$. Thus, once we choose a chart, a generic tangent vector can be expressed as a linear combination: $$\vec{v}=\sum_{i=1}^{n}c_i{\partial\over \partial x^i}$$ 
 	From now on, we will also refer to $\partial\over \partial x^i$ with $\partial_i$.
 	\begin{Obs} \label{Obs 1.1.3}
-		Looking at the open subset $GL_n(\mathbb{R})$ of $M_{n\times n}$, by the previous observations \ref{Obs:1.1.1} and \ref{Obs:1.1.2}, $GL_n(\mathbb{R})$ is a smooth submanifold of $M_{n\times n}$ and its dimension is $n^2$, equal to the one of $M_{n\times n}$. However, the tangent space at the identity $T_\mathbb{I}M_{n\times n}$ has itself dimension $n^2$. From this, $T_\mathbb{I}GL_n(\mathbb{R})\simeq T_\mathbb{I}M_{n\times n}$.
+		Looking at the open subset $GL_n(\mathbb{R})$ of $M_{n\times n}$, by the previous observations \ref{Obs:1.1.1} and \ref{Obs:1.1.2}, $GL_n(\mathbb{R})$ is a smooth submanifold of $M_{n\times n}$ and its dimension is $n^2$, equal to the one of $M_{n\times n}$. However, the tangent space at the identity $T_\mathbb{I}M_{n\times n}$ has itself dimension $n^2$. From this we have $T_\mathbb{I}GL_n(\mathbb{R})\simeq T_\mathbb{I}M_{n\times n}$.
 	\end{Obs}
 	\begin{Def}
-		Given a $C^\infty$ map between smooth manifolds like $F:N\rightarrow M$, we call \textit{differential} of $F$ in a point $p\in N$ the map $dF_p:T_pN\rightarrow T_{F(p)}M$ acting as follows: for any vector $X_p\in T_pN$ and for any map $f\in C_{F(p)}^\infty(M)$, it holds $dF_p(X_p)f=\\X_p(f\circ F)\in\mathbb{R}$.
+		Given a $C^\infty$ map between smooth manifolds like $F:N\rightarrow M$, we call \textit{differential} of $F$ in a point $p\in N$ the map $dF_p:T_pN\rightarrow T_{F(p)}M$ acting as follows: for any vector $X_p\in T_pN$ and for any map $f\in C_{F(p)}^\infty(M)$, it holds $dF_p(X_p)f=X_p(f\circ F)\in\mathbb{R}$.
 	\end{Def}
 	From the fact that tangent vectors are derivations, it follows that the differential is a derivation as well. It is possible to show that the differential of a composite function follows the \textit{chain rule:} 
 	$$d(F\circ G)_p=dF_{G(p)}\circ dG_p$$ 
@@ -172,9 +169,7 @@
 		We saw that a vector can be identified with a map $\vec{v}:f\mapsto\sum_{i=1}^{n}c_i{\partial f\over \partial x^i}$ for a generic point $p$ inside a chart. Then a vector field can also be seen as a map $X:f\mapsto\vec{v}(f)$ such that $X(f)(p)=\sum_{i=1}^{n}c_i(p){\partial f(p)\over \partial x^i}$
 	\end{Obs}
 	\begin{Def}
-		A vector field $X$ on $M$ is said to be \textit{smooth} or $C^\infty$ if for every $f\in C^\infty(M)$, $X(f)$ is $C^\infty$.
-		\\
-		Equivalently, $X=\sum_{i=1}^{n}c_i{\partial\over \partial x^i}$ is said to be $C^\infty$ if the functions $c_i$ are all $C^\infty$.
+		A vector field $X$ on $M$ is said to be \textit{smooth} or $C^\infty$ if for every $f\in C^\infty(M)$, $X(f)$ is $C^\infty$. Equivalently, $X=\sum_{i=1}^{n}c_i{\partial\over \partial x^i}$ is said to be $C^\infty$ if the functions $c_i$ are all $C^\infty$.
 		\begin{Def}
 			A curve $c_p:]-\epsilon,\epsilon[\rightarrow M$ is said to be an \textit{integral curve} of a vector field $X$ on $M$ passing through $p\in M$ if $c_p(0)=p$ and $c_p'(0)=X_p$.
 		\end{Def}
@@ -202,24 +197,23 @@
 	\section{The tangent bundle}
 	In this section we introduce the notion of tangent bundle of a smooth manifold. For more details one can check [1] pag. 129-139.\\
 	\\
-	Let M be a manifold. At any point $p\in M$ we can construct the tangent space $T_pM\simeq \mathbb{R}^n$. We define the tangent bundle as the disjoint union of all the tangent spaces.
+	Let $M$ be a manifold. At any point $p\in M$ we can construct the tangent space $T_pM\simeq \mathbb{R}^n$. We define the tangent bundle as the disjoint union of all the tangent spaces.
 	$$TM=\bigsqcup_{p\in M}T_pM=\bigcup_{p\in M} \{p\}\times T_pM$$
 	This set has a natural projection 
-	$$\pi:TM\rightarrow M\hbox{ acting like }\pi(p,v_p)=p \hbox{ where }v_p\in T_pM$$.  
-	We now endow the tangent bundle with a manifold structure. To achieve this, we first of all need to give the tangent bundle a T2 and second countable topology. The idea is to induce this on $TM$ by using the one of the underlying manifold $M$.\\
+	$$\pi:TM\rightarrow M\hbox{ acting like }\pi(p,v_p)=p \hbox{ where }v_p\in T_pM$$  
+	We now endow the tangent bundle with a manifold structure. To achieve this, we first of all need to give the tangent bundle a T2 and second countable topology. The idea is to induce a manifold structure on $TM$ by using the one of the underlying manifold $M$.\\
 	\\
-	Let $(U,\phi)$ be a chart on $M$ with $\phi:U\rightarrow \mathbb{R}^n$. Then, any vector in $p\in U$ can be written in local coordinates: $v_p=v^i_p\partial_i|_p$.\\
-	Now we construct the following mapping:
+	Let $(U,\phi)$ be a chart on $M$ with $\phi:U\rightarrow \mathbb{R}^n$. Then, any vector in $p\in U$ can be written in local coordinates: $v_p=v^i_p\partial_i|_p$. Now we construct the following mapping:
 	$$\Phi:TU\rightarrow \phi(U)\times \mathbb{R}^n; \hbox{ like: }
 	\Phi(p,v_p)=(x^i_pe_i,v^i_p\partial_i|_p)$$
-	This mapping is 1-1 and surjective so it is a bijection inside $U$. Moreover, it is continuous. Thus, it is an homeomorphism.
+	This mapping is 1-1 and surjective so it is a bijection. Moreover, it is continuous. Thus, it is an homeomorphism.
 	\begin{Theo} \label{Theo_1.1}
 		The tangent bundle $TM$ has a second countable and Hausdorff topology
 	\end{Theo}
 	\begin{proof}
-		Proving this theorem would take us too far from the main topic of this thesis. The reader can find the complete proof in [1] Chap. 3 pag 132.
+		The reader can find the complete proof in [1] Chap. 3 pag 132.
 	\end{proof}
-	Theorem (\ref{Theo_1.1}) ensures that $TM$ has the topological qualities needed to be a topological manifold. We now show that it is locally Euclidean and that it possesses a smooth atlas.
+	Theorem \ref{Theo_1.1} ensures that $TM$ has the topological qualities needed to be a topological manifold. We now show that it is locally Euclidean and that it possesses a smooth atlas.
 	\begin{Theo}
 		$TM$ is a smooth manifold.
 	\end{Theo}
@@ -484,6 +478,9 @@
 		On any open ball of $\mathbb{R}^n$ every closed form is exact.
 	\end{Lm}
 	The proof of this lemma goes beyond the scope of this work.
+	\chapter{Lie groups and Lie algebras}
+	In this chapter we introduce the concepts of Lie group and Lie algebra, with some important examples. We will also study representations of those mathematical structures. In the framework of gauge theories, Lie groups are a fundamental object since they will represent the symmetry groups of our system. More information on these topics can be found in:
+	[1] chap. 4; [3] chap. 2, 3; [5] chap. 2, 3; [6] chap. 1, 2; [7] part 1, 2.
 	\section{Topological groups}
 	In this section we introduce topological groups, group actions and quotients, with some examples. More information can be found in [1] chap. 1 pag. 66, [4] chap. 5 pag. 35,36,37. 
 	\begin{Def}
@@ -493,14 +490,14 @@
 			\item Existence of neutral element: $\exists e\in G$ such that $\forall a\in G$ it holds $a\cdot e=e\cdot a=a$;
 			\item Existence of inverse: $\forall a\in G$ $\exists a^{-1}$ such that $a\cdot a^{-1}=a^{-1}\cdot a=e$.
 		\end{itemize}
-		A group with a commutative multiplication so that $ab= b\cdot a$ for every $a,b\in G$, is called commutative or abelian.
+		A group with a commutative multiplication so that $ab= b\cdot a$ for every $a,b\in G$, is called \textit{commutative} or \textit{abelian}.
 	\end{Def}
 	From now on, the multiplication will also be indicated by omitting the symbol $\cdot$ to simplify the notation.
 	\begin{Def}
 		A \textit{topological group} $G$ is a topological space with the group structure, such that the multiplication $\cdot:G\times G\rightarrow G$ and the inversion $i:G\rightarrow G$ defined as $i(g)=g^{-1}$ are both continuous.
 	\end{Def}
 	\begin{Ex}
-		The set $\mathbb{R}$ with the euclidean topology is a topological abelian group with the usual sum.
+		$\mathbb{R}^n$ with the euclidean topology is a topological abelian group with the usual sum.
 	\end{Ex}
 	We now define the concept of group action on a generic set $X$.
 	\begin{Def}
@@ -533,7 +530,7 @@
 	\begin{Def}
 		The action of a group $G$ on a set $X$ is called \textit{transitive} if there is just only one orbit. This means that for $x,y\in X$ it exists $g\in G$ such that $x=a(g,y)$.
 	\end{Def}
-	This thesis will mainly study structures in which groups act on manifolds. We thus give the following definition:
+	This thesis will mainly study structures in which groups act on manifolds. We thus give the following definition.
 	\begin{Def}
 		A manifold $M$ with a Lie group $G$ (left) right-acting on it is called a \textit{G-manifold}. We also say that a map $f:M\rightarrow N$ between $G-manifolds$ is equivariant if $f(x\cdot g)=f(x)\cdot g$.
 	\end{Def}		
@@ -541,7 +538,7 @@
 	In this section we give the definition of Lie groups and subgroups, with some important results. More informations can be found in [1] pag. 164-174 chap. 4.
 	\begin{Def}
 		A \textit{Lie group} $G$ is a smooth manifold with a group structure, such that the operations $\cdot:G\times G\rightarrow G$ and inversion $i:G\rightarrow G$ are $C^\infty$.
-		A \textit{subgroup} $H$ of a Lie group $G$ is a regular submanifold of $G$ which is still a group under the induce operations from $G$.
+		A \textit{subgroup} $H$ of a Lie group $G$ is a immersed submanifold of $G$ which is still a group under the induce operations from $G$.
 	\end{Def}
 	\begin{Ex}
 		Consider $GL_n(\mathbb{R})$, which was proven to be a smooth manifold. Given the row-column multiplication and the inverse $i$ which associates to a matrix its inverse, those make $GL_n(\mathbb{R})$ a group. Those operations can also be shown to be $C^\infty$ and so $GL_n(\mathbb{R})$ is a Lie group. To see the full proof consult [1] chap. 1 pag. 66.
@@ -565,7 +562,7 @@
 	We note that an homomorphism between groups sends the identity into the identity. In fact $f(eg)=f(e)f(g)$ ed $f(g)=f(eg)$.\\\\
 	We indicate with $l_g:G\rightarrow G$ where $l_g(x)=gx$ is the left multiplication on $G$ Lie group.
 	\begin{Obs}
-		$l_g$ is $C^\infty$ since it corresponds to the multiplication of a Lie group. Since this has a clear smooth inverse $l_{g^-1}$, it is a diffeomorphism.
+		$l_g$ is $C^\infty$ since it corresponds to the multiplication of a Lie group. Since this has a clear smooth inverse $l_{g^{-1}}$, it is a diffeomorphism.
 	\end{Obs}
 	\section{Lie algebras}
 	In this section we define Lie algebras and left invariant vector fields, with some examples. For more details see [1] chap. 4, [5] chap. 2 pag. 46.
@@ -580,18 +577,18 @@
 	\end{Def}
 	In general, we will only consider finite-dimensional Lie algebras.
 	\begin{Ex} \label{Obs: bracket Mnn}
-		Consider $M_{n\times n}(\mathbb{R})$ vector space of $n\times n$ matrices on $\mathbb{R}$. We define a bracket in the follwoing way: given $A,B\in M_{n\times n}(\mathbb{R})$, $[A,B]\equiv AB-BA$. Clearly, this definition makes $[,]$ bilinear and skew-symmetric. As for the Jacobi identity, it is a straightforward calculation to verify it. This makes $M_{n\times n}(\mathbb{R})$ a Lie algebra. 
+		Consider $M_{n\times n}(\mathbb{R})$ vector space of $n\times n$ matrices on $\mathbb{R}$. We define a bracket in the follwoing way: given $A,B\in M_{n\times n}(\mathbb{R})$, $[A,B]:= AB-BA$. Clearly, this definition makes $[,]$ bilinear and skew-symmetric. As for the Jacobi identity, it is a straightforward calculation to verify it. This makes $M_{n\times n}(\mathbb{R})$ a Lie algebra. 
 	\end{Ex}
 	\begin{Ex}
-		Let $V$ be a generic real vector space. If we define $[,]:V\times V\rightarrow V$ like $[x,y]=0$, $V$ clearly becomes a Lie algebra.
+		Let $V$ be a generic real vector space. If we define $[,]:V\times V\rightarrow V$ like $[x,y]=0$, $V$ clearly becomes a Lie algebra, called \textit{trivial}.
 	\end{Ex}
+	\section{Lie algebras of Lie groups}
+	In this section we define the concept of Lie algebra of a Lie group. We are going to see that it is possible to identify the Lie algebra of any Lie group with it's tangent space at the identity. For more details the reader is advised to see [1] pag 178-182 cap. 4, [6] cap. 1 e [7] part 1 cap.3.
 	\begin{Def}
 		A vector field $X$ on a Lie group $G$ is called \textit{left invariant} if $dl_g(X)=X$ for all $g\in G$.
 	\end{Def}
 	A vector field is left invariant if it's translation induced by the left multiplication leaves it invariant: which means $dl_g(X_h)=X_{gh}$ for all $g,h\in G$.
 	It follows that $X_g=dl_g(X_e)$, this means that a left invariant vector field is completely determined by its value at the identity. It is also possible to show that any left invariant vector field is smooth. ([1] pag. 181 cap.4).
-	\section{Lie algebras of Lie groups}
-	In this section we define the concept of Lie algebra of a Lie group. We are going to see that it is possible to identify the Lie algebra of any Lie group with it's tangent space at the identity. For more details the reader is advised to see [1] pag 178-182 cap. 4, [6] cap. 1 e [7] part 1 cap.3.
 	\begin{Obs} \label{Obs: 2.2}
 		Given a Lie group $G$ and a vector $A\in T_eG$ tangent to the identity, we can define a vector field $X^A:G\rightarrow T_eG$ by setting $X^A_g=dl_g(A)$. This field is left-invariant since $$dl_g(X^A_h)=dl_g(dl_h(X^A_e))=dl_{gh}(X^A_e)=dl_{gh}(A)=X^A_{gh}$$
 		We say that $X^A$ is generated by $A\in T_eG$ and call $Lie(G)$ the set of all $X^A$ generated from vectors tangent to the identity of $G$.	
@@ -979,6 +976,8 @@
 		$$dl_g\tilde{T^a}$$
 		This means that choosing a frame at the identity corresponds to choosing a global frame. Thus, every Lie group has a trivial tangent bundle. 
 	\end{Ex}
+	\section{Vector valued forms}
+	In this section we will introduce the concept of vector valued forms. Those will be extremely important in the construction of the Yang-Mills lagrangian, since the vector potential will be a vector valued form. More informations on this topic can be found in [2] chap. 4 pag. 186-197.
 	\section{Principal Bundles}
 	In this section we define the notion of principal bundles, look at some properties that they have and make some examples. The interested reader can find more details in [2] chap. 6
 	\begin{Def}
@@ -1171,35 +1170,26 @@
 		In this section we will use the previous results to study the notion of parallel transport on the tangent bundle of a smooth manifold. More information on this topic can be found in [2] chap.3 pag. 95-102.
 	\end{comment}
 	\chapter{Connections on principal bundles}
-	In this chapter we will introduce the notion of connection on principal bundles, together with some properties of them. Those will be the main object of Gauge field theories. More informations can be found in REFERENZA
-	\begin{comment}
-		\chapter{Connections on Principal bundles}
+	In this chapter we will introduce the notion of connection on principal bundles, together with some properties of them. Those will be the main object of Gauge field theories. More informations can be found in [2] chap. 6 pag. 254-286; [3] chap. 4, 5.
 		\section{Fundamental vector fields}
+		In this section we will define the concept of fundamental vector field. We will look at some properties of it and at its integral curves. More details on this topic can be found in [2] chap. 6.\\
+		\\
 		Suppose to have a Lie group $G$ that right-acts smoothly on a manifold $M$. Then, consider any element $A\in\mathfrak{g}$ inside the Lie Algebra of $G$. Define:
-		$$\bar{A}={d\over dt}\bigg|_{t=0}p\cdot e^{tA}\in T_pM$$
-		This, at any point is called \textbf{fundamental vector field associated to $A$}.\\
-		\begin{center}
-			\includegraphics[scale=0.3]{fundamental_vector.pdf}
-		\end{center}
-		The idea is to take a point $p\in M$ and a curve passing through it like $c_p(t)=p\cdot e^{tA}$. This is a smooth curve and so it can be derived. The fundamental vector field in $p$ is the initial tangent vector of this curve (initial in the sense that for $t=0$ the curve goes through $p$).
+		$$\bar{A}={d\over dt}\bigg|_{t=0}p\cdot e^{tA}={d\over dt}\bigg|_{t=0}\mu(p, e^{tA})\in T_pM$$
+		where $\mu$ is the action of $G$ on the manifold.
+		This, at any point is called \textit{fundamental vector field associated to $A$}.\\
+		\\
+		The idea is to take a point $p\in M$ and a smooth curve passing through it like $c_p(t)=p\cdot e^{tA}$. The fundamental vector field in $p$ is the initial tangent vector of this curve.
 		\begin{Prop}
-			The fundamentale vector field associated to $A$ is always smooth.
+			The fundamental vector field associated to $A$ is always smooth.
 		\end{Prop}
 		\begin{proof}
-			Non ne ho voglia ma è una cazzata di conti.
+			This proof can be found in [2] chap. 6 pag. 247, 248.
 		\end{proof}
-		There is an alternative mathematical construction for the same concept: define the map $j_p:G\rightarrow M$ like follows:
+		There is an alternative mathematical formulation for the fundamental vector feild: define the map $j_p:G\rightarrow M$ like follows:
 		$$j_p(g)=p\cdot g$$
 		Its differential is defined as:
 		$$dj_p(A\in\mathfrak{g})={d\over dt}\bigg|_{t=0}j_p(e^{tA})={d\over dt}\bigg|_{t=0}p\cdot e^{tA}$$
-		\begin{Ex}
-			Consider the flat Euclidean manifold $\mathbb{R}^2$ and the Lie group $U(1)$ of complex modulo 1 numbers. The Lie algebra of the group is $\mathfrak{u}(1)={i\theta;\theta\in\mathbb{R}}$ made up of all multiples of $i$. We set the following action of $U(1)$ on $\mathbb{R}^2$ given by: $e^{i\theta}(x,y)=(xcos(\theta)-ysin\theta,ycos(\theta)+xsin(\theta))$.
-			Then, choosing the point $p=(1,1)\in\mathbb{R}^2$ and the generic element $e^{i\theta}\in U(1)$, we can compute the fundamental vector field in $p$. Consider the curve $c_p(t)=p\times e^{it\theta}$ and the fundamental vector field in $(1,1)$ is given by:
-			$$\bar{\theta}={d\over dt}\bigg|_{t=0}j_p(e^{it\theta})$$
-			To make things more explicit:
-			$${d\over dt}\bigg|_{t=0}(1,1)\cdot (cos(t\theta))+sin(t\theta)=
-			{d\over dt}\bigg|_{t=0}(cos(t\theta)-sin(t\theta),cos(t\theta)+sin(t\theta))=(-1,1)\theta$$
-		\end{Ex}
 		\begin{Prop}
 			Let $G$ be a Lie group right-acting smoothly on a manifold $M$ and let $r_g(p)=p\cdot g$ the right translation. For $A\in\mathfrak{g}$, it's fundamental vector field $\bar{A}$ satisfies:
 			$$dr_g(\bar{A})=\overline{Ad(g^{-1})(A)}$$
@@ -1211,15 +1201,7 @@
 			By the chain rule:
 			$$dr_g(\bar{A}_p)=dr_gdj_p(A)=dj_{pg}dc_{g^{-1}}(A)=dj_{pg}(Ad(g^{-1})(A))=\overline{Ad(g^{-1})(A_{pg})}$$
 		\end{proof}
-		This means that the push-forward of the fundamental vector field under the right action "transofrms" under the adjoint representation. Let us make an example to better interiorize this:
-		\begin{Ex}
-			Consider again the space $\mathbb{R}^2$ acted on by $U(1)$ like the previous example. Then, suppose $A=i\theta$ and $g=e^{iB}$. We saw that the fundamental vector field associated to $(x,y)$ was:
-			$$\bar{A}_{x,y}=(-\partial_y,\partial_x)\theta$$
-			Now, the push-forward of this vector field under $g$ will be the fundamental vector field of:
-			$$Ad(g^{-1})(A)=g^{-1}Ag=e^{-iB}Ae^{iB}$$
-			However, $U(1)$ is a commutative group, so that $Ad(g)A=A$. Thus, the push forward of the fundamental vector field is the same fundamental vector field.
-		\end{Ex}
-		\section{The integral curves of the fundamental vector fields}
+		We now study the integral curves of the fundamental vector fields.
 		\begin{Prop}
 			The curve $c_p(t)=p\cdot e^{tA}$ is the integral curve of the fundamental vector field $\bar{A}$ passing through $p\in M$.
 		\end{Prop}
@@ -1233,64 +1215,68 @@
 			The fundamental vector field $\bar{A}$ vanishes at $p$ if and only if $A$ is in the Lie algerba of $Stab(p)$.
 		\end{Prop}
 		\begin{proof}
-			If $\bar{A}_p=0$ it means that the constant map $c_p(t)=p\in M$ is an integral curve of this vecotr field. By the previous proposition, we have the equivalence:
+			If $\bar{A}_p=0$ it means that the constant map $c_p(t)=p\in M$ is an integral curve of this vector field. By the previous proposition, we have the equivalence:
 			$p=p\cdot e^{tA}$ from which we see that $A$ must be in the Lie algebra of $Stab(p)$ since $e^{tA}\in Stab(p)$.\\
 			\\
 			On the contrary, if $A\in Stab(p)$ then we ge that:
 			$$\bar{A}_p={d\over dt}\bigg|_{t=0}p\cdot e^{tA}=
 			{d\over dt}\bigg|_{t=0}p=0$$
 		\end{proof}
-		\begin{Obs}
-			As a corollary of the previous statement we can say that $Ker(dj_p)$ at the identity is the stabilizer $Stab(p)$. This is pretty esay to see and pretty obvious to think about:
-			$$Ker dj_p=\{A\in \mathfrak{g}|dj_p(A)=0\}=Stab(p)\hbox{ By the previous result}$$
+		\begin{Obs}\label{Kerdj}
+			As a corollary of the previous statement we can clearly say that $Ker(dj_p)$ at the identity is the stabilizer $Stab(p)$.
+			$$Ker (dj_p)=\{A\in \mathfrak{g}|dj_p(A)=0\}=Stab(p)$$
 		\end{Obs}
 		\section{The vertical subbundle of the tangent bundle}
-		Let $(E,M,\pi,G)$ be a principal $G$-bundle on a manifold $M$. By construction, the projection $\pi:E\rightarrow M$ is smooth, so it can be differentiated. The differential $d\pi_{(p,g)}:T_{(p,g)}E\rightarrow T_{\pi(p,g)}M$ is surjective since the projection is. We now define the \textbf{vertical tangent subspace} $\mathcal{V}_{(p,g)}\subset T_{(p,g)}E$ as the Kernel of the differential of the projection:
-		$$\mathcal{V}_{(p,g)}\equiv Ker(d\pi_{(p,g)})$$
+		In this section we will introduce the notion of vertical sub-bundle of the tangent bundle and see that the fundamental vector fields are precisely the vertical vector fields. More details on this topic can be found in [2] chap. 6 pag 250-252.
+		\begin{Def}
+			A \textit{distribution} on a manifold $M$ is a subbundle of the tangent bundle $TM$.
+		\end{Def}
+		Let $(E,M,\pi,G)$ be a principal $G$-bundle on a manifold $M$ and $x\in E$. By construction, the projection $\pi:E\rightarrow M$ and the differential $d\pi_{x}:T_{x}E\rightarrow T_{\pi(x)}M$ is surjective since the projection is. We now define the \textit{vertical tangent subspace} $\mathcal{V}_{x}\subset T_{x}E$ as the Kernel of the differential of the projection:
+		$$\mathcal{V}_{x}\equiv Ker(d\pi_{x})$$
 		\begin{Obs}
-			Since, by the theorem of dimension, 
+			By dimensional considerations, 
 			$$dim \bigg(Ker(d\pi_{(p,g)})\bigg)+dim\bigg(Im(d\pi_{(p,g)})\bigg)=dim\bigg(T_{(p,g)}E\bigg)$$
 			Moreover, the map $d\pi$ is surjective and so the image corresponds to the full space $T_{\pi(p,g)}M$, we get:
-			$$dim \bigg(Ker(d\pi_{(p,g)})\bigg)=dim\mathcal{V}_{(p,g)}=dim\bigg(T_{(p,g)}E\bigg)-dim\bigg(T_{\pi_{(p,g)}}M\bigg)=dim G$$
+			$$dim \bigg(Ker(d\pi_{(p,g)})\bigg)=dim\mathcal({V}_{(p,g)})=dim\bigg(T_{(p,g)}E\bigg)-dim\bigg(T_{\pi_{(p,g)}}M\bigg)=dim (G)$$
 		\end{Obs}
-		\begin{Prop}
+		\begin{Prop}\label{fund_vec_are_vert}
 			For every element of $E$, the corresponding fundamental tangent vector is vertical.
 		\end{Prop}
 		\begin{proof}
-			We just need to prove that the fundamental tangent vector is in the Kernel of the differential. Recall that the fundamental vecotr field can be seen as the differential of the map $j_{(p,g)}:G\rightarrow E$ defined as 
-			$$j_{(p,g)}(h)=(p,g)\cdot h $$
+			We just need to prove that the fundamental tangent vector is in the kernel of the differential. Recall that the fundamental vector field can be seen as the differential of the map $j_{x}:G\rightarrow E$ defined as 
+			$$j_{x}(h)=x\cdot h $$
 			Taking now the composition with the projection:
-			$$(\pi\circ j_{(p,g)})(h)=\pi((p,g)\cdot h)=\pi(p,g)$$
-			This result is independent of the choice of $h\in G$, thus the composition $\pi\circ j_{(p,g)}$ is the constant map and hao it's differential the null map.\\
-			Recalling that $\bar{A}_{(p,g)}=dj_{(p,g)}(A)$ we clearly see that:
-			$$d\pi_{(p,g)}(\bar{A}_{(p,g)})=
-			(d\pi_{(p,g)}\circ dj_{(p,g)})(A)=
-			d(\pi\circ j_{(p,g)})(A)=0$$
+			$$(\pi\circ j_{x})(h)=\pi(x\cdot h)=\pi(x)$$
+			This result is independent of the choice of $h\in G$, thus the composition $\pi\circ j_{x}$ is the constant map and so it's differential the null map.\\
+			Recalling that $\bar{A}_{x}=dj_{x}(A)$ we clearly see that:
+			$$d\pi_{x}(\bar{A}_{x})=
+			(d\pi_{x}\circ dj_{x})(A)=
+			d(\pi\circ j_{x})(A)=0$$
 		\end{proof}
-		We can now generalize proposiotion REFERENZA for a principal $G$-bundle:
+		From this proposition it follows a key result: the fundamental vector fields are precisely the vertical vector fields.
 		\begin{Prop}
-			Let $(E,M,\pi,G)$ be a principal $G-$bundle and $(p,g)$ a point in $E$. Then: 
-			$$dj_{(p,g),e}:\mathfrak{g}\rightarrow \mathcal{V}_{(p,g)}$$ is an isomorphism.
+			Let $(E,M,\pi,G)$ be a principal $G-$bundle and $x\in E$. Then: 
+			$$dj_{x,e}:\mathfrak{g}\rightarrow \mathcal{V}_{x}$$ is an isomorphism.
 		\end{Prop}
 		\begin{proof}
-			By proposition REFERENZA we know that the Kernel of the differential at the identity is the Stabilizer of $(p,g)$. However, for a principal $G-$bundle, the group acts freely on the manifold $E$ and so the stabilizer is trivial $Stab(p,g))=\{e\}$. Thus, $Ker dj_{(p,g),e}=0$ and the map is injective. By the prpevious propositon REFERENZA the image of the differential lies in the vertical subspace. Moreover, $dim\mathcal{V}_{(p,g)}=dim G$ and so the map must be an isomorphism of vector spaces.			
+			By observation \ref{Kerdj} we know that the kernel of the differential at the identity is the stabilizer of $x$. However, for a principal $G-$bundle, the group acts freely on the manifold $E$ and so the stabilizer is trivial $Stab(x)=\{e\}$. Thus, $Ker (dj_{x,e})=0$ and the map is injective. By the prpevious propositon \ref{fund_vec_are_vert} the image of the differential lies in the vertical subspace. Moreover, $dim(\mathcal{V}_{x})=dim G$ and so the map must be an isomorphism of vector spaces.			
 		\end{proof}
 		\begin{Obs}
 			As a consequence of the last result, all the vertical vectors are the fundamental vectors and all the fundamental vectors are the vertical vectors.\\
-			Let $T^a$ be a base for the Lie algebra $\mathfrak{g}$, then, at any point, by the isomorphism in the previous result, we get that they also form a base of $\mathcal{V}_{(p,g)}$ (under the action of the diffeomorphism). This defines the \textbf{Vertical Subbundle} $$\mathcal{V}=\bigsqcup_{(p,g)\in E}\mathcal{V}_{(p,g)}$$
+			Let $T^a$ be a base for the Lie algebra $\mathfrak{g}$, then, at any point, by the isomorphism in the previous result, we get that they also form a base of $\mathcal{V}_{(p,g)}$ (under the action of the diffeomorphism). This defines the \textit{Vertical Subbundle} $$\mathcal{V}=\bigsqcup_{(p,g)\in E}\mathcal{V}_{(p,g)}$$
 		\end{Obs}
 		\begin{Obs}
 			The name "vertical" comes from the definition $\mathcal{V}=Ker(d\pi)$. The basi idea is that, if we take any smooth vector field $X_E\in\mathfrak{X}(E)$, then the differential of the projection $d\pi:TE\rightarrow TM$ induces a new smooth vector field $X_M=d\pi X_E$ on the base space. The "vertical vector fields" are the ones who get annihilated when projected, since they belong to the Ker of $d\pi$. They are not to be though as vertical with respect to $E$, but to $M$.
 		\end{Obs}
 		\section{The horizontal subbundle}
-		We have seen that on a principal $G$-bundle there is a well defined vertical subbundle $\mathcal{V}$ of the tangent bundle $TE$. We say thet there is an \textbf{horizontal distribution} $\mathcal{H}$ if $TE=\mathcal{H}\oplus\mathcal{V}$. This means that for every point $(p,g)\in TE$ we have $T_{(p,g)}E=\mathcal{H}_{(p,g)}\oplus\mathcal{V}_{(p,g)}$ with $\mathcal{H}_{(p,g)}\cap\mathcal{V}_{(p,g)}=0$.\\
+		We have seen that on a principal $G$-bundle there is a well defined vertical subbundle $\mathcal{V}$ of the tangent bundle $TE$. We say thet there is an \textit{horizontal distribution} $\mathcal{H}$ if $TE=\mathcal{H}\oplus\mathcal{V}$. This means that for every point $(p,g)\in TE$ we have $T_{(p,g)}E=\mathcal{H}_{(p,g)}\oplus\mathcal{V}_{(p,g)}$ with $\mathcal{H}_{(p,g)}\cap\mathcal{V}_{(p,g)}=0$.\\
 		\\
 		In general, there is no canonically defined horizontal distribution on a principal $G$-bundle.
 		COSE CBE DEVO METTERE????
 		\section{Connections on principal bundles}
-		Let $(E,M,\pi,G)$ be a principal $G$-bundle with a vertical and horizontal distribution, so that $TE=\mathcal{H}\oplus\mathcal{V}$. Let $\nu_{(p,g)}:\mathcal{H}_{(p,g)}\oplus\mathcal{V}_{(p,g)}\rightarrow \mathcal{V}_{(p,g)}$ be the standard projection on the vertical subbundle. Obiouvly, if $X_{(p,g)}\in T_{(p,g)}E$ is a vector field on $E$ at a point $(p,g)$, we call $\nu_{(p,g)}(X_{(p,g)})$ its \textbf{vertical component}.
+		Let $(E,M,\pi,G)$ be a principal $G$-bundle with a vertical and horizontal distribution, so that $TE=\mathcal{H}\oplus\mathcal{V}$. Let $\nu_{(p,g)}:\mathcal{H}_{(p,g)}\oplus\mathcal{V}_{(p,g)}\rightarrow \mathcal{V}_{(p,g)}$ be the standard projection on the vertical subbundle. Obiouvly, if $X_{(p,g)}\in T_{(p,g)}E$ is a vector field on $E$ at a point $(p,g)$, we call $\nu_{(p,g)}(X_{(p,g)})$ its \textit{vertical component}.
 		\begin{Def}\label{Def_6.6}
-			We call an \textbf{Ehresmann connection}, or \textbf{connection on a principal bundle} a $\mathfrak{g}$-valued 1-form $\omega:TE\rightarrow \mathfrak{g}$ that respects the following properties:
+			We call an \textit{Ehresmann connection}, or \textit{connection on a principal bundle} a $\mathfrak{g}$-valued 1-form $\omega:TE\rightarrow \mathfrak{g}$ that respects the following properties:
 			\begin{itemize}
 				\item Given any $A\in\mathfrak{g}$ and $(p,g)\in E$ we have $\omega_{(p,g)}(\bar{A}_{(p,g)})=A$;
 				\item $(G-equivariance)$ for $g\in G$ we have $r^*_g\omega=Ad(g^{-1})\omega$;
@@ -1338,7 +1324,7 @@
 		\subsection{Sequences of vector bundles}
 		Consider a short exact sequence of vector bundles over a manifold $M$:
 		$$0\rightarrow A\xrightarrow{i}B\xrightarrow{j}B\rightarrow C\rightarrow0$$
-		We call \textbf{splitting} a map $k:C\rightarrow B$ such that $j\circ K=\mathbb{I}_C$.
+		We call \textit{splitting} a map $k:C\rightarrow B$ such that $j\circ K=\mathbb{I}_C$.
 		\begin{Theo}
 			Let
 			$$0\rightarrow A\xrightarrow{i}B\xrightarrow{j}B\rightarrow C\rightarrow0$$
@@ -1422,7 +1408,6 @@
 			$$d\pi(Y_{(p,g)})=d\pi(Hor(Y_{(p,g)}))=Hor(d\pi(Y_{(p,g)}))=X_{\pi(p,g)}$$
 			This means that $Hor(Y)$ is the lift of $X$. By uniqueness, $X$ is smooth on $M$.
 		\end{proof}
-	\end{comment}
 	\chapter{The Yang-Mills Gauge theory}
 	In this chapter we will use the knowledge exposed previously to construct the famous Yang-Mills Lagrangian and look at some properties of it. More informations on this topic can be found in REFERENZA
 	\section{The Maxwell's equations}
@@ -1498,7 +1483,7 @@
 	\\
 	\\
 	\begin{Obs}
-		The lagrangiana is the mathematical object used to describe the dynamics of our fields. A priori there are infinitely many lagrangians that we could consider. However, we would like to set some restrictions to them. Namely, any lagrangian considered should have the following qualities:
+		The lagrangian is the mathematical object used to describe the dynamics of our fields. A priori there are infinitely many lagrangians that we could consider. However, we would like to set some restrictions to them. Namely, any lagrangian considered should have the following qualities:
 		\begin{itemize}
 			\item they should be invariant under some symmetries;
 			\item they must be renormalizable.
@@ -1522,8 +1507,10 @@
 	We know that, having fixed a representation, there is an isomorphism between right-equivariant vector valued forms on the principal bundle and forms on the manifolds which take values in the associated bundle:
 	$$\Omega_\rho^k(P,V)\simeq \Omega^k(\mathbb{R}^{1,3},E)$$
 	Also, locally, the associated bundle is trivial: $E\simeq \mathbb{R}^{1,3}\times \mathfrak{g}$. Thus, locally, we can always identify our 1-form connection with a 1-form on the manifold, which takes values in the Lie algebra of $G$. 
-	$$A\in \Omega_\rho^1(P,V)\longrightarrow A_{\mathbb{R}^{1,3}}\in\Omega^1(\mathbb{R}^{1,3},V)$$
-	We now wish to fix both $G$ and $\rho$ so that our 1-form matches the vector potential. Recall that in the previous section we found that the vector potential was an element of $\Omega^1(\mathbb{R}^{1,3})$ which encoded all of the informations of the electromagnetic fields. By setting a local gauge $s:U\subset \mathbb{R}^{1,3}\rightarrow P$ we 
+	$$A\in \Omega_\rho^1(P,V=\mathfrak{g})\longrightarrow A_{\mathbb{R}^{1,3}}\in\Omega^1(\mathbb{R}^{1,3},V=\mathfrak{g})$$
+	We now wish to fix both $G$ and $\rho$ so that our 1-form matches the vector potential. Recall that in the previous section we found that the vector potential was an element of $\Omega^1(\mathbb{R}^{1,3})$ which encoded all of the informations of the electromagnetic fields. The form $A_{\mathbb{R}^{1,3}}$ is by definition a smooth section of $TM^*\otimes \mathfrak{g}$. Thus, having choosen a base for $\mathfrak{g}$, indexed with $\{T^a\}$, and a chart $(U,\phi)$ on $\mathbb{R}^{1,3}$ we can express the form as a linear combination:
+	$$A_{\mathbb{R}^{1,3}}=A^a_\mu dx^\mu\otimes T^a=A^a\otimes T^a$$
+	In the electromagnetic setting the Lie algebra is one dimensional, since there is only one vector potential. Thus, we set $\mathfrak{g}=\mathbb{R}$.
 	\begin{comment}
 		We have said that the vector potential has a symmetry, which from now on will be called gauge symmetry, like:
 		$$A\sim A+da$$
