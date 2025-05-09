@@ -291,7 +291,7 @@
 		The proof is very similar to the one seen for the tangent bundle and can be found in [1] chap. 5 pag. 192-193.
 	\end{proof}
 	\begin{Def}
-		Let $M$ be a smooth manifold. We define a \textit{$k$-form} on $M$ as an element of $\bigwedge^k TM^*$. 
+		Let $M$ be a smooth manifold. We define a \textit{$k$-form} on $M$ as a map that associates to each $M$ an element of $\bigwedge^k TM^*$ in the corresponding point. 
 	\end{Def}
 	Sometimes we will index elements of $\bigwedge^k TM^*$ with the following notation: $dx^I$. The index $I$ is called multi-index and represents a subset of indices of $\{1,2,3,...,k\}$. In particular, for a $k$-form, $dx^I$ stands for $dx^{i_1}\wedge dx^{i_2}\wedge...\wedge dx^{i_k}$.
 	\begin{Def}
@@ -908,16 +908,17 @@
 		FIBRAZIONE DI HOPF
 	\end{Ex}
 	\section{Vector bundles}
-	We now introduce the notion of vector bundles, which will be of great importance. A vector bundle can be thought of as a fiber bundle, but with a vector space as a fiber. More details on vector bundles are to be found in [2] chap. 1 pag. 49-59, [3] chap. 4 pag. 225.
+	We now introduce the notion of vector bundles and sub-bundles, which will be of great importance. A vector bundle can be thought of as a fiber bundle, but with a vector space as a fiber. More details on vector bundles are to be found in [2] chap. 1 pag. 49-59, [3] chap. 4 pag. 225.
 	\begin{Def}\label{Def_5.2}
 		Let $E,M$ be manifolds. Let $\pi:E\rightarrow M$ be a smooth and surjective map such that:
 		\begin{itemize}
 			\item for every $p\in M$, the set $E_p=\pi^{-1}(p)$ is a vector space of dimension $k$;
-			\item for every point $p\in M$ there is an open set $U\in M$ containing $p$ and a diffeomorphic fiber-preserving local trivialization $\varphi:\pi^{-1}(U)\rightarrow u\times \mathbb{R}^k$ that reduces to a linear isomorphism on each fiber:
+			\item for every point $p\in M$ there is an open set $U\in M$ containing $p$ and a diffeomorphic fiber-preserving local trivialization $\varphi:\pi^{-1}(U)\rightarrow U\times \mathbb{R}^k$ that reduces to a linear isomorphism on each fiber:
 			$$\varphi_p:E_p\rightarrow U\times \mathbb{R}^k$$
 		\end{itemize}
-		We call $(E,M,\pi,\mathbb{R}^k)$ a smooth vector bundle.
+		We call $(E,M,\pi,\mathbb{R}^k)$ a \textit{smooth vector bundle of rank $k$}.
 	\end{Def}
+	Sometimes, when it is not necessary to specify other structures, we will refer to a vector bundle $(E,M,\pi,\mathbb{R}^k)$ just with $E$.
 	\begin{Ex}
 		Consider a manifold $M$ of dimension $n$ and it's tangent bundle $TM$ with the induced $2n$-manifold structure from $M$. We have a projection $\pi:TM\rightarrow M$ defined as $\pi(p,v_p)=p$ which is continuous and surjective. 
 		\\
@@ -934,24 +935,48 @@
 		This map is clearly an homeomorphism and a diffeomorphism since both the charts on manifolds and the identity are. As for the linear isomorphism reduction, consider the map:
 		$\varphi_p$ where we fix the first argument $p$. The induced map is the following:
 		$$\varphi_p(v_p)=\varphi(p,v_p)=(p,v^i_p\partial_i|_p)$$
-		This is clearly a linear isomorphism between $\mathbb{R}^n$ and itself. This proves that $(TM,M,\pi,\mathbb{R}^n)$ is a smooth vector bundle.
+		This is clearly a linear isomorphism between $\mathbb{R}^n$ and itself. This proves $(TM,M,\pi,\mathbb{R}^{2n})$ is a smooth vector bundle.
 	\end{Ex}
 	\begin{Def}\label{Def_5.3}
 		A vector bundle is said to be trivial if it is isomorphic to $M\times F$ the product bundle.
 	\end{Def}
 	It clearly follows that the product bundle is trivial and so it is also called the \textit{trivial bundle}.
+	\begin{Def}
+		Let $(E,M,\pi_E,\mathbb{R}^k)$ and $(H,M,\pi_H,\mathbb{R}^r)$ be vector bundles on $M$, with $r\leq k$. Then we say that $H$ is a \textit{smooth vector sub-bundle} of $E$ if:
+		\begin{itemize}
+			\item $H$ is a regular submanifold of $E$;
+			\item the inclusion map $i:H\rightarrow E$ is a bundle homomorphism.
+		\end{itemize}
+	\end{Def}
+	We now give a criterion to establish if a family of vector spaces over a manifold can be given the structure of a vector sub-bundle.
+	\begin{Prop}
+		Let $(E,M,\pi_E,\mathbb{R}^r)$ be a vector bundle of rank $r$ and $H=\bigsqcup_{p\in M}H_p$ a subset of $E$ such that, at any $p\in M$, $H_p$ is a $k$-dimensional vector subspace of the fiber $E_p$. If for every $p\in M$, there exist a neighborhood $U$ of $p$ and $m \geq k$ smooth sections $s_1,...,s_m$ of $E$ over $U$ that span $H_q$ at every point $q \in U$, then $F$ is a smooth subbundle of E.
+	\end{Prop}
+	\begin{proof}
+		The proof of this proposition can be found in [2] chap. 4 pag 175-176.
+	\end{proof}
+	In general, one can combine different vector bundles to obtain other vector bundles. Consider the following result:
+	\begin{Prop}
+		Let $E,F$ be two vector bundles over $M$. Then the following sets can be given the structure of vector bundles:
+		$$E\oplus F,\hspace{10pt}E\otimes F,\hspace{10pt}\bigwedge^k E,\hspace{10pt}Hom(E, F)$$.
+	\end{Prop}
+	\begin{proof}
+		THe proof can be found in [2] chap. 4 pag 180-184.
+	\end{proof}
 	\section{Sections and frames}
 	In this section we introduce the notions of sections and frames of a vector bundle. We will also find a criterion to check if a smooth vector bundle is trivial. More details can be found in [2] chap.1. pag. 51,52.
 	\begin{Def}\label{Def_5.5}
-		Let $(E,M,\pi,F)$ be a vector bundle. We say that a map \\$s:U\subset M\rightarrow E$ is a \textit{section} if $\pi\circ s=\mathbb{I}_d$. \\
-		We denote the space of all smooth sections $\Gamma(E)$.
+		Let $(E,M,\pi,\mathbb{R}^n)$ be a vector bundle. We say that a map \\$s:U\subset M\rightarrow E$ is a \textit{section} if $\pi\circ s=\mathbb{I}_d$. We denote the space of all smooth sections with $\Gamma(E)$.
 		%We say that a section is \textit{global} if it is defined over the entire manifold.
 	\end{Def}
 	\begin{Ex}
 		Consider the tangent bundle $TM$ of a manifold $M$. A section is a map that associates to each point a tangent vector. $s:M\rightarrow TM$. Note that every vector field is a section of the tangent bundle, since it acts in the same way: it takes a point and associates a vector to it. Thus, smooth vector fields are smooth sections of the tangent bundle and vice-versa. We call the space $\Gamma(TM)=\mathfrak{X}(M)$.
 	\end{Ex}
+	\begin{Ex}
+		Consider the smooth vector bundle $\bigwedge^kTM^*$. Then, a section of this bundle is a map that associates to each point of $M$ an element in the total space $\bigwedge^kTM^*$. This means that the sections are exactly the $k$-forms. Thus, $\Omega^k(M)=\Gamma(\bigwedge^kTM^*)$.
+	\end{Ex}
 	\begin{Def}\label{Def_5.6}
-		Let $(E,M,\pi,F)$ be a vector bundle. We define a \textit{frame} on an open set $U\subset M$ as a collection of sections $\{s_i\}$ such that $\{s_i(p)\}$ form a basis for the fiber $F$ at each $p$. 
+		Let $(E,M,\pi,\mathbb{R}^k)$ be a vector bundle. We define a \textit{frame} on an open set $U\subset M$ as a collection of sections $\{s_i\}$ such that $\{s_i(p)\}$ form a basis for the fiber $F$ at each $p$. 
 	\end{Def}
 	\begin{Prop}\label{prop_2.3.1}
 		A smooth vector bundle is trivial if and only if it has a smooth frame.
@@ -978,13 +1003,63 @@
 	\end{Ex}
 	\section{Vector valued forms}
 	In this section we will introduce the concept of vector valued forms. Those will be extremely important in the construction of the Yang-Mills lagrangian, since the vector potential will be a vector valued form. More informations on this topic can be found in [2] chap. 4 pag. 186-197.
+	\\\\
+	One can think of vector valued forms as differential forms that take value on a generic vector space instead of $\mathbb{R}$. The construction is purely algebraic.\\
+	\\
+	\begin{Def}
+		Let $W,V$ be vector spaces of finite dimension. We define a $V$-valued \textit{$k$-covector} on $W$ as an element of $Hom(\bigwedge^k W,V)$.
+	\end{Def}
+	It is known from linear algebra that we have the follwing isomorphism:
+	$$Hom(\bigwedge^k W,V)\simeq \bigwedge^k W^*\otimes V$$
+	A $V$-valued $k$-form on a manifold $M$ is a map that associates to each point a $V$-valued $k$-covector in $T_pM$. We can also think of $V$-valued $k$-form as section of some vector bundle: let $V$ be a finite dimensional vector space and $(E,M,\pi,\mathbb{R}^n)$ be a smooth vector bundle on $M$. Then, we can consider the product bundle $M\times V$, and define a new vector bundle $E\otimes (M\times V)$ which we will indicate with $E\otimes V$.
+	\begin{Def}
+		A $V$-valued $k$-form on $M$ is a section of the vector bundle $\bigwedge^k TM^*\otimes V$. The space of smooth $k$-forms is labelled as:
+		$$\Omega^k(M,V)=\Gamma(\bigwedge^k TM^*\otimes V)$$
+	\end{Def}
+	Clearly, given a base $\{v_i\}$ for $V$, we can express any $V$-valued $k$-form on $M$ as a linear combination:
+	$$\omega=\omega^i\otimes v_i \hbox{ and } \omega^i\in \bigwedge^k TM^*$$
+	where obviously we imply the summation on contracted indices. \\
+	\\
+	We can also define a product between $V$-valued $k$-forms. Let $V,W,U,Z$ be vector spaces. It is known from linear algebra that, if $\omega\in Hom(\bigwedge^kV,W)$ and $\eta\in Hom(\bigwedge^lV,U)$ are covectors and $\mu:W\times U\rightarrow Z$ is a multilinear map, we have a natural induced multilinear alternating map:
+	$$\omega\cdot \eta(v_1,...,v_{k+l})=\sum_\sigma sgn(\sigma)\mu(\omega(v_{\sigma(1)}),...,v_{\sigma(k)},\eta(v_{\sigma(k+1)}),...,v_{\sigma(k+l)})$$
+	We can use this map to define a generic product between forms:
+	\begin{Prop}
+		Let $\{v_i\}$ be vectors in $V$ and $\{w_i\}$ be vectors in $W$ and let $M$ be a smooth manifold. Let $\omega=\omega^i\otimes v_i\in\Omega^k(M,V)$ and $\eta=\eta^i\otimes w_i\in\Omega^l(M,W)$ be vector valued forms. Then, for any multilinear map $\mu:V\times W\rightarrow Z$ there is a naturally induced multilinear alternating map:
+		$$\omega\cdot \eta=\omega^i\wedge\eta^j \mu(v_i,w_j)$$
+	\end{Prop}
+	\begin{proof}
+		The proof is just a straightforward calculation and can be found in: [2] chap. 4 pag 189.
+	\end{proof}
+	\begin{Ex}
+		In the case of forms with value on a Lie algebra $\mathfrak{g}$, the multilinear map $\mu$ coincides with the commutator $[,]$, so that if $\{T_i\}$ are elements of $\mathfrak{g}$ and $\omega=\omega^i\otimes T_i\in\Omega^k(M,\mathfrak{g})$ and $\eta=\eta^i\otimes T_i\in\Omega^l(M,\mathfrak{g})$
+		$$[\omega,\eta]=\omega^i\wedge\eta^j[T_i,T_j]$$
+		Clearly, by the properties of the exterior power:
+		$$[\omega,\eta]=(-)^{k+l}[\eta,\omega]$$
+	\end{Ex}
+	\begin{Obs}
+		We can extend the notion of exterior derivative to vector valued forms. In particular, given an expansion $\omega=\omega^i\otimes v_i$ where $\{v_i\}$ is a base for $V$, we define:
+		$$d\omega=d\omega^i\otimes v_i$$
+	\end{Obs}
+	\begin{Prop}
+		The exterior derivative on vector valued forms is still an antiderivation of degree 1.
+	\end{Prop}
+	\begin{proof}
+		Let $\{v_i\}$ be a base for $V$ and $\{w_i\}$ be a base for $W$. As usual, let $\omega=\omega^i\otimes v_i$ be a $k$-form and $\eta=\eta^i\otimes w_i$ be a $l$-form. Then:
+		$$d(\omega\cdot \eta)=d(\omega^i\wedge\eta^j\mu(v_i,w_j))=d(\omega^i\wedge\eta^j)\mu(v_i,w_j)$$
+		By the fact that the exterior derivative is an antiderivation of degree 1 for the exterior product, it immediatly follows:
+		$$d(\omega\cdot \eta)=d\omega\cdot \eta+(-)^{deg(\omega)}\omega\cdot d\eta$$
+	\end{proof}
+	Lastly, one can firther generalize the notion of $k$-form by letting them take values on a vector bundle.
+	\begin{Def}
+		Let $(E,M,\pi, \mathbb{R}^n)$ be a vector bundle. We define an $E$-valued $k$-form as a section of $\bigwedge^kTM^*\otimes E$. We denote the space of smooth $E$-valued $k$-forms with $\Gamma(\bigwedge^kTM^*\otimes E)$.
+	\end{Def}
 	\section{Principal Bundles}
 	In this section we define the notion of principal bundles, look at some properties that they have and make some examples. The interested reader can find more details in [2] chap. 6
 	\begin{Def}
 		Let $(E,M,\pi,G)$ be a fiber bundle, where $G$ is a Lie group and $M$ and $E$ are manifolds. Let $\pi$ be smooth and the trivializations diffeomorphic; let $G$ be acting on $E$ such that:
 		\begin{itemize}
 			\item $G$ acts on $E$: $Stab(E)=\{e\in G\}$;
-			\item Let $U\in M$ be a local trivializing set and $\phi:\pi^{-1}(U)\rightarrow U\times M$  the corresponding trivialization, then $\phi$ is equivariant: $\phi(x,h)\cdot g=\phi(x,hg)$
+			\item Let $U\in M$ be a local trivializing set and $\phi:\pi^{-1}(U)\rightarrow U\times G$  the corresponding trivialization, then $\phi$ is equivariant: $\phi(x,h)\cdot g=\phi(x,hg)$
 		\end{itemize} 
 		Then we say that this fiber bundle is a \textit{principal $G$-bundle}.
 	\end{Def}
@@ -995,7 +1070,7 @@
 		$$(x,g)\cdot h=(x,gh)$$
 		Furthermore the identity map clearly preserves this action in an equivariant way.
 	\end{Ex}
-	\begin{Prop}
+	\begin{Prop} \label{Prop_3.5.1}
 		Let $(E,M,\pi,G)$ be a principal $G-$bundle, then $G$ acts transitively on each fiber. Also, for any group $G$, any right-equivariant map is a left translation.
 	\end{Prop}
 	\begin{proof}
@@ -1003,9 +1078,20 @@
 		\\
 		As for the second proposition, it is just an easy result of group theory: if $f(gh)=f(g)h$, setting $g=e$ we get: $f(h)=f(e)h=l_{f(e)}h$.
 	\end{proof}
+	\begin{Obs} \label{Obs_3.5.1}
+		By definition, in a principal bundle, the trivialization functions are equivariant. This means that:
+		$$\pi\circ r=\pi\hspace{20 pt}d\pi\circ dr=d\pi$$
+	\end{Obs}
 	We are now going to construct one of the most important principal bundles: the frame bundle. This is a principal bundle constructed from a pre-existing vector bundle.
+	\begin{Ex}
+		Let $G$ be a Lie group and $H$ be a normal closed subgroup of it. One can show that the quotient $G/H$ can be given a manifold structure.
+		There is a natural projection $\pi:G\rightarrow G/H$ taking each element to its class: $g\rightarrow \{gH\}$. This can abe given a principal $H$ bundle structure. The proof can be found in [8] chap. 3 pag. 120.
+	\end{Ex}
+	\begin{Ex}
+		HOPF BUNDLEEEEEE
+	\end{Ex}
 	\section{The frame manifold}
-	In this section we will introduce the notion of frame manifold of a vector space and of frame bundle of a vector bundle. We will show that the frame manifold is indeed a smooth manifold and then we will explicitly construct the principal bundle structure. For more information the reader is advised to look at: [2] chap. 6 pag. 241-252.
+	In this section we will introduce the notion of frame manifold of a vector space. We will show that the frame manifold is indeed a smooth manifold. For more information the reader is advised to look at: [2] chap. 6 pag. 241-252.
 	\begin{Def}\label{Def_6.5}
 		Consider a vector space $V$ of finite dimension. We define the frame manifold $Fr(V)$ as the set made of all ordered bases of $V$. This means that $Fr(V)$ contains all of the possible ways of choosing a base for $V$.
 	\end{Def}
@@ -1180,7 +1266,7 @@
 		This, at any point is called \textit{fundamental vector field associated to $A$}.\\
 		\\
 		The idea is to take a point $p\in M$ and a smooth curve passing through it like $c_p(t)=p\cdot e^{tA}$. The fundamental vector field in $p$ is the initial tangent vector of this curve.
-		\begin{Prop}
+		\begin{Prop}\label{Prop_5.1.2}
 			The fundamental vector field associated to $A$ is always smooth.
 		\end{Prop}
 		\begin{proof}
@@ -1190,7 +1276,7 @@
 		$$j_p(g)=p\cdot g$$
 		Its differential is defined as:
 		$$dj_p(A\in\mathfrak{g})={d\over dt}\bigg|_{t=0}j_p(e^{tA})={d\over dt}\bigg|_{t=0}p\cdot e^{tA}$$
-		\begin{Prop}
+		\begin{Prop}\label{Prop_5.1.1}
 			Let $G$ be a Lie group right-acting smoothly on a manifold $M$ and let $r_g(p)=p\cdot g$ the right translation. For $A\in\mathfrak{g}$, it's fundamental vector field $\bar{A}$ satisfies:
 			$$dr_g(\bar{A})=\overline{Ad(g^{-1})(A)}$$
 		\end{Prop}
@@ -1235,9 +1321,9 @@
 		$$\mathcal{V}_{x}\equiv Ker(d\pi_{x})$$
 		\begin{Obs}
 			By dimensional considerations, 
-			$$dim \bigg(Ker(d\pi_{(p,g)})\bigg)+dim\bigg(Im(d\pi_{(p,g)})\bigg)=dim\bigg(T_{(p,g)}E\bigg)$$
-			Moreover, the map $d\pi$ is surjective and so the image corresponds to the full space $T_{\pi(p,g)}M$, we get:
-			$$dim \bigg(Ker(d\pi_{(p,g)})\bigg)=dim\mathcal({V}_{(p,g)})=dim\bigg(T_{(p,g)}E\bigg)-dim\bigg(T_{\pi_{(p,g)}}M\bigg)=dim (G)$$
+			$$dim (Ker(d\pi_{x}))+dim(Im(d\pi_{x}))=dim(T_{x}E)$$
+			Moreover, the map $d\pi$ is surjective and so the image corresponds to the full space $T_{\pi(x)}M$, we get:
+			$$dim (Ker(d\pi_{x}))=dim\mathcal({V}_{x})=dim(T_{x}E)-dim(T_{\pi_{x}}M)=dim (G)$$
 		\end{Obs}
 		\begin{Prop}\label{fund_vec_are_vert}
 			For every element of $E$, the corresponding fundamental tangent vector is vertical.
@@ -1259,155 +1345,178 @@
 			$$dj_{x,e}:\mathfrak{g}\rightarrow \mathcal{V}_{x}$$ is an isomorphism.
 		\end{Prop}
 		\begin{proof}
-			By observation \ref{Kerdj} we know that the kernel of the differential at the identity is the stabilizer of $x$. However, for a principal $G-$bundle, the group acts freely on the manifold $E$ and so the stabilizer is trivial $Stab(x)=\{e\}$. Thus, $Ker (dj_{x,e})=0$ and the map is injective. By the prpevious propositon \ref{fund_vec_are_vert} the image of the differential lies in the vertical subspace. Moreover, $dim(\mathcal{V}_{x})=dim G$ and so the map must be an isomorphism of vector spaces.			
+			By observation \ref{Kerdj} we know that the kernel of the differential at the identity is the stabilizer of $x$. However, for a principal $G-$bundle, the group acts freely on the manifold $E$ and so the stabilizer is trivial $Stab(x)=\{e\}$. Thus, $Ker (dj_{x,e})=0$ and the map is injective. By the prpevious propositon \ref{fund_vec_are_vert} the image of the differential lies in the vertical subspace. Moreover, $dim(\mathcal{V}_{x})=dim(G)$ and so the map must be an isomorphism of vector spaces.			
 		\end{proof}
 		\begin{Obs}
 			As a consequence of the last result, all the vertical vectors are the fundamental vectors and all the fundamental vectors are the vertical vectors.\\
-			Let $T^a$ be a base for the Lie algebra $\mathfrak{g}$, then, at any point, by the isomorphism in the previous result, we get that they also form a base of $\mathcal{V}_{(p,g)}$ (under the action of the diffeomorphism). This defines the \textit{Vertical Subbundle} $$\mathcal{V}=\bigsqcup_{(p,g)\in E}\mathcal{V}_{(p,g)}$$
+			Let $T^a$ be a base for the Lie algebra $\mathfrak{g}$, then, at any point, by the isomorphism in the previous result, we get that they also form a base of $\mathcal{V}_{x}$ (under the action of the diffeomorphism). This defines the \textit{Vertical Subbundle} $$\mathcal{V}=\bigsqcup_{x\in E}\mathcal{V}_{x}$$
 		\end{Obs}
 		\begin{Obs}
-			The name "vertical" comes from the definition $\mathcal{V}=Ker(d\pi)$. The basi idea is that, if we take any smooth vector field $X_E\in\mathfrak{X}(E)$, then the differential of the projection $d\pi:TE\rightarrow TM$ induces a new smooth vector field $X_M=d\pi X_E$ on the base space. The "vertical vector fields" are the ones who get annihilated when projected, since they belong to the Ker of $d\pi$. They are not to be though as vertical with respect to $E$, but to $M$.
+			The name "vertical" comes from the definition $\mathcal{V}=Ker(d\pi)$. If we take any smooth vector field $X_E\in\mathfrak{X}(E)$, then the differential of the projection $d\pi:TE\rightarrow TM$ induces a new smooth vector field $X_M=d\pi (X_E)$ on the base space. The "vertical vector fields" are the ones who get annihilated when projected, since they belong to the Ker of $d\pi$.
 		\end{Obs}
-		\section{The horizontal subbundle}
-		We have seen that on a principal $G$-bundle there is a well defined vertical subbundle $\mathcal{V}$ of the tangent bundle $TE$. We say thet there is an \textit{horizontal distribution} $\mathcal{H}$ if $TE=\mathcal{H}\oplus\mathcal{V}$. This means that for every point $(p,g)\in TE$ we have $T_{(p,g)}E=\mathcal{H}_{(p,g)}\oplus\mathcal{V}_{(p,g)}$ with $\mathcal{H}_{(p,g)}\cap\mathcal{V}_{(p,g)}=0$.\\
+		\section{Connections and horizontal subbundle}
+		In this section we introduce the notions of horizontal sub-bundle and Ehresmann connection. More information on this subject can be found in [2] chap. 6 pag. 251, 252.\\
 		\\
-		In general, there is no canonically defined horizontal distribution on a principal $G$-bundle.
-		COSE CBE DEVO METTERE????
-		\section{Connections on principal bundles}
-		Let $(E,M,\pi,G)$ be a principal $G$-bundle with a vertical and horizontal distribution, so that $TE=\mathcal{H}\oplus\mathcal{V}$. Let $\nu_{(p,g)}:\mathcal{H}_{(p,g)}\oplus\mathcal{V}_{(p,g)}\rightarrow \mathcal{V}_{(p,g)}$ be the standard projection on the vertical subbundle. Obiouvly, if $X_{(p,g)}\in T_{(p,g)}E$ is a vector field on $E$ at a point $(p,g)$, we call $\nu_{(p,g)}(X_{(p,g)})$ its \textit{vertical component}.
+		We have seen that on a principal $G$-bundle there is a canonical well defined vertical subbundle $\mathcal{V}$ of the tangent bundle $TE$. We say thet there is an \textit{horizontal distribution} $\mathcal{H}$ if $TE=\mathcal{H}\oplus\mathcal{V}$. This means that for every point $x\in TE$ we have $T_{x}E=\mathcal{H}_{x}\oplus\mathcal{V}_{x}$ with $\mathcal{H}_{x}\cap\mathcal{V}_{x}=0$.
+		\\
+		\\
+		In general, there is no canonically defined horizontal distribution on a principal $G$-bundle. This comes from the fact that the complement of $\mathcal{V}_x$ is not unique. We will see that choosing an horizontal distribution means choosing a connection on the principal bundle. 
+		\begin{Def}
+			We say that an horizontal distribution $\mathcal{H}$ is \textit{right invariant} if $dr(\mathcal{H})\in \mathcal{H}$.
+			Instead we say that $\mathcal{H}$ is a \textit{smooth distribution} if it is a smooth sub-bundle of the tangent bundle.
+		\end{Def}
+		Let $(E,M,\pi,G)$ be a principal $G$-bundle with a vertical and horizontal distribution, so that $TE=\mathcal{H}\oplus\mathcal{V}$. Let $\nu_{x}:\mathcal{H}_{x}\oplus\mathcal{V}_{x}\rightarrow \mathcal{V}_{x}$ be the standard projection on the vertical subbundle. Obiouvly, if $X_{x}\in T_{x}E$ is a vector field on $E$ at a point $x$, we call $\nu_{x}(X_{x})$ its \textit{vertical component}.
 		\begin{Def}\label{Def_6.6}
 			We call an \textit{Ehresmann connection}, or \textit{connection on a principal bundle} a $\mathfrak{g}$-valued 1-form $\omega:TE\rightarrow \mathfrak{g}$ that respects the following properties:
 			\begin{itemize}
-				\item Given any $A\in\mathfrak{g}$ and $(p,g)\in E$ we have $\omega_{(p,g)}(\bar{A}_{(p,g)})=A$;
-				\item $(G-equivariance)$ for $g\in G$ we have $r^*_g\omega=Ad(g^{-1})\omega$;
+				\item Given any $A\in\mathfrak{g}$ and $x\in E$ we have $\omega_{x}(\bar{A}_{x})=A$;
+				\item $G$-equivariance for $g\in G$ we have $r^*_g\omega=Ad(g^{-1})\omega$;
 				\item $\omega$ is $C^\infty$.
 			\end{itemize}
 		\end{Def}
-		Now it is just a matter to find a map that satisfies those conditions. A good candidate is the following composition:
-		$$\omega_{(p,g)}=dj_{(p,g)}^{-1}\circ \nu:T_{(p,g)}E\xrightarrow{\nu} \mathcal{V}_{(p,g)}\xrightarrow{dj_{(p,g)}}\mathfrak{g}$$
+		If we have an horizontal distribution, we can find a map that satisfies those conditions. Consider the following composition:
+		$$\omega_{x}=dj_{x}^{-1}\circ \nu:T_{x}E\xlongrightarrow{\nu} \mathcal{V}_{x}\xlongrightarrow{dj_{x}}\mathfrak{g}$$
+		This map takes a vector, selects its horizontal component and maps it to the corresponding Lie algebra element.
 		\begin{Theo}
-			If $\mathcal{H}$ is a smooth right-invariant horizontal distribution on a principal $G$-bundle $(E,M,\pi,G)$, then 1-form $\omega_{(p,g)}=dj_{(p,g)}^{-1}\circ \nu$ respects the following properties:
+			If $\mathcal{H}$ is a smooth right-invariant horizontal distribution on a principal $G$-bundle $(E,M,\pi,G)$, then the 1-form $\omega_{x}=dj_{x}^{-1}\circ \nu$ respects the following properties:
 			\begin{itemize}
-				\item Given any $A\in\mathfrak{g}$ and $(p,g)\in E$ we have $\omega_{(p,g)}(\bar{A}_{(p,g)})=A$;
-				\item $(G-equivariance)$ for $g\in G$ we have $r^*_g\omega=Ad(g^{-1})\omega$;
+				\item Given any $A\in\mathfrak{g}$ and $x\in E$ we have $\omega_{x}(\bar{A}_{x})=A$;
+				\item $G$-equivariance for $g\in G$ we have $r^*_g\omega=Ad(g^{-1})\omega$;
 				\item $\omega$ is $C^\infty$.
 			\end{itemize}
 		\end{Theo}
 		\begin{proof}
-			Consider any $A\in\mathfrak{g}$. Then its fundamental vector field is in the vertical sub-bundle and so the projection $\nu$ leaves it invariant:
-			$$\omega_{(p,g)}(\bar{A}_{(p,g)})=(dj_{(p,g)}^{-1}\circ \nu)(\bar{A}_{(p,g)})=dj_{(p,g)}^{-1}(\bar{A}_{(p,g)})=
-			dj_{(p,g)}^{-1}(dj_{(p,g)}(A))=A$$
+			Consider any $A\in\mathfrak{g}$ and any $x\in E$. Then the fundamental vector field in this point is in the vertical sub-bundle and so the projection $\nu$ leaves it invariant:
+			$$\omega_{x}(\bar{A}_{x})=(dj_{x}^{-1}\circ \nu)(\bar{A}_{x})=dj_{x}^{-1}(\bar{A}_{x})=
+			dj_{x}^{-1}(dj_{x}(A))=A$$
 			This proves the first property.\\
 			\\
-			As for the second property, we recall that in proposition PROPOSIZIONE we proved that for a fundamental vector field  we have:
+			As for the second property, we recall that in proposition \ref{Prop_5.1.1} we proved that for a fundamental vector field  we have:
 			$$dr_g(\bar{A})=\overline{Ad(g^{-1})(A)}$$
-			Now, we can directly prove this for fundamental vector fields, since they are the vertical ones and the horizontal ones would be annihilated by the projection $\nu$ contained inside $\omega$. \\
-			Recalling that on principal bundles the pullback of a 1 form gives:
-			$$r^*_h\circ \omega_{(p,g)}(\overline{X_{(p,g)\cdot h}})=\omega_{(p,g)\cdot h}(dr_h(\overline{X_{(p,g)}}))$$
-			We need to prove that:
-			$$r^*_h\circ \omega_{(p,g)}(\overline{X_{(p,g)}})=(Adh^{-1})\omega_{(p,g)}(\overline{X_{(p,g)}})$$
-			If $X_{(p,g)}\in\mathcal{V}$ is vertical then it will be a fundamental vector field of an element $X\in\mathfrak{g}$ and so by proposition PROPOSIZIONE we get:
-			$$\omega_{(p,g)\cdot h}(dr_h(\overline{X_{(p,g)}}))=\omega_{(p,g)\cdot h}\overline{(Ad(h^{-1})(X_{(p,g)\cdot h}))}$$
-			Now by the previous property applied 2 times::
-			$$\omega_{(p,g)\cdot h}\overline{(Ad(h^{-1})(X_{(p,g)\cdot h}))}=Ad(h^{-1})(X)=Ad(h^{-1})\omega_{(p,g)}(\overline{X_{(p,g)}})$$
-			If instead $X_{(p,g)}$ is horizontal then by the invariance horizontal distribution the field $dr X$ will still be horizontal ad so it will be annihilated by $\omega$ since it contains the projection on the vertical subbundle. Thus proving:
-			$$r^*_h\circ \omega_{(p,g)}(X_{(p,g)})=(Adh^{-1})\omega_{(p,g)}X_{(p,g)}=0$$
-			As for the last property, we need to prove that $\omega$ is smooth in a neighbourhood of an arbitrary point $(p,g)\in E$. Since $E$ is a manifold, we choose a chart $(U_E,\phi_E)$ centered in a point $(p,g)\in E$. Let $\{T^i\}$ be a base of the Lie algebra $\mathfrak{g}$ and $\{\bar{T^i}\}$ the associated fundamental vectors. Those fundamental vectors are all smooth by proposition PROPOSIZIONE. By the previous isomorphism, those span the whole vertical sub-bundle at any point. Furthermore, since by hypothesis $\mathcal{H}$ is a smooth distribution  of horizontal vectors, there is a base of smooth vector fields $X^i$ in any point that spans the whole space. Thus, since $TE=\mathcal{H}\oplus\mathcal{V}$, we can expand any element of $TE$ as a linear combination:
+			If $\overline{X_x}$ is a vertical vector, we need to prove that:
+			$$r^*_h\circ \omega_{x}(\overline{X_{x}})=Ad(h^{-1})\omega_{x}(\overline{X_{x}})$$. 
+			The pullback of a 1 form gives us:
+			$$r^*_h\circ \omega_{x}(\overline{X_{x\cdot h}})=\omega_{x\cdot h}(dr_h(\overline{X_{x}}))$$
+			If $X_{x}\in\mathcal{V}$ is vertical then it will be a fundamental vector field of an element $X\in\mathfrak{g}$ and so by proposition \ref{Prop_5.1.1} we get:
+			$$\omega_{x\cdot h}(dr_h(\overline{X_{x}}))=\omega_{x\cdot h}\overline{(Ad(h^{-1})(X_{x\cdot h}))}$$
+			Now applying the previous property 2 times:
+			$$\omega_{x\cdot h}(\overline{Ad(h^{-1})(X_{x\cdot h})})=Ad(h^{-1})(X)=Ad(h^{-1})\omega_{x}(\overline{X_{x}})$$
+			If instead $X_{x}$ is horizontal then by the invariance horizontal distribution the field $dr(X)$ will still be horizontal ad so it will be annihilated by $\omega$ since it contains the projection on the vertical subbundle. Thus proving:
+			$$r^*_h\circ \omega_{x}(X_{x})=Ad(h^{-1})\omega_{x}X_{x}=0$$
+			As for the last property, we need to prove that $\omega$ is smooth in a neighbourhood of an arbitrary point $x\in E$. Since $E$ is a manifold, we choose a chart $(U_E,\phi_E)$ centered in a point $x\in E$. Let $\{T^i\}$ be a base of the Lie algebra $\mathfrak{g}$ and $\{\bar{T^i}\}$ the associated fundamental vectors. Those fundamental vectors are all smooth by proposition \ref{Prop_5.1.2}. By the previous isomorphism, those span the whole vertical sub-bundle at any point. Furthermore, since by hypothesis $\mathcal{H}$ is a smooth distribution  of horizontal vectors, there is a base of smooth vector fields $X^i$ in any point that spans the whole space. Thus, since $TE=\mathcal{H}\oplus\mathcal{V}$, we can expand any element of $TE$ as a linear combination:
 			$$V=a_i \bar{T^i}+b_iX^i;\hbox{ with } V\in TE, a_i,b_i\in \mathcal{F}$$
-			The coefficeints $a_i,b_i$ aare smooth by the previous observations. Now, applying $\omega$, we get that the horizontal components are annihilated:
+			The coefficeints $a_i,b_i$ are smooth by the previous observations. Now, applying $\omega$, we get that the horizontal components are annihilated:
 			$$\omega(a_i \bar{T^i}+b_iX^i)=\omega(a_i \bar{T^i})=a_i T^i$$
 		\end{proof}
-		Basically an Ehresmann connection arises on a principal bundle if one can find an horizontal smooth right-invariant distribution on it. One simply uses it to construct the 1-form as above.\\
+		Clearly, an Ehresmann connection arises naturally on a principal bundle if once one chooses an horizontal smooth right-invariant distribution on it.\\
 		\\
-		There is another equivalent manifestation of a connection: if one can find a smooth $G$-equivariant 1-form that takes value on the lie algebra $\mathfrak{g}$ of $G$ such that $\omega(\bar{A})=A$, then one can construce the horizontal distribution. Naively, one defines $$\mathcal{H}_{(p,g)}=Ker(\omega_{(p,g)})$$
-		We are going to see later how this second definition is completely equivalent to the first one. In order to achieve this, it is useful to see something about sequences.
-		\subsection{Sequences of vector bundles}
-		Consider a short exact sequence of vector bundles over a manifold $M$:
-		$$0\rightarrow A\xrightarrow{i}B\xrightarrow{j}B\rightarrow C\rightarrow0$$
-		We call \textit{splitting} a map $k:C\rightarrow B$ such that $j\circ K=\mathbb{I}_C$.
-		\begin{Theo}
-			Let
-			$$0\rightarrow A\xrightarrow{i}B\xrightarrow{j}B\rightarrow C\rightarrow0$$
-			be a short exact sequence of vector bundles on a manifold $M$. Then there is a $1-1$ correspondence between the following sets:
-			$$\{\hbox{subbundles } H\in B;B=i(A)\oplus H\}\longleftrightarrow\{splittings: k:C\rightarrow B\}$$
-		\end{Theo}
-		\begin{proof}
-			Consider NON HO VOGLIA
-		\end{proof}
-		\subsection{Horizontal sub-bundle and connections}
+		The correspondence goes both ways: if one can find a smooth $G$-equivariant 1-form that takes value on the lie algebra $\mathfrak{g}$ of $G$ such that $\omega(\bar{A})=A$, then one can construce the horizontal distribution. In particular, one defines: $$\mathcal{H}_{x}=Ker(\omega_{x})$$
 		\begin{Prop}
-			If $\mathcal{H}$ is a smooth right-invariant distribution on a principal $G$-bundle, then $\forall g\in G$, the differential of the right-action $dr_g:TE\rightarrow TE$ commutes with the horizontal and the vertical projection operators.
+			If $\mathcal{H}$ is a smooth right-invariant distribution on a principal $G$-bundle $E$, then $\forall g\in G$, the differential of the right-action $dr_g:TE\rightarrow TE$ commutes with the horizontal and the vertical projection operators.
 		\end{Prop}
 		\begin{proof}
-			The result is pretty obvious. Let $Hor:TE\rightarrow\mathcal{H}$ be the horizontal projection. Since both the horizontal and the vertical distributions are right-invariant, it means that for any $X_{(p,g)}\in TE$ we have $dr_h X_{(p,g)}=dr_h \nu(X_{(p,g)})+dr_hHor(X_{(p,g)})$ and each of the two terms is still vertical/horizontal, so that:
-			$$dr_h X_{(p,g)}=dr_h \nu(X_{(p,g)})+dr_hHor(X_{(p,g)})=
-			\nu dr_h(X_{(p,g)})+Hordr_h(X_{(p,g)})$$
+			Let $Hor:TE\rightarrow\mathcal{H}$ be the horizontal projection and $x\in E$. Since both the horizontal and the vertical distributions are right-invariant, it means that for any $X_{x}\in T_xE$ we have $dr_h( X_{x})=dr_h \nu(X_{x})+dr_hHor(X_{x})$ and each of the two terms is still vertical/horizontal, so that:
+			$$dr_h (X_{x})=dr_h\circ \nu(X_{x})+dr_h\circ Hor(X_{x})=
+			\nu\circ dr_h(X_{x})+Hor\circ dr_h(X_{x})$$
 		\end{proof}
-		We are now going to show that given any 1-form $\omega$ with certain oproperties, we can always construct an horizontal distribution. The proof is pretty lenghty.
+		The next theorem shows that given any 1-form $\omega$ with certain oproperties, we can always construct an horizontal distribution. The proof is pretty lenghty.
 		\begin{Theo}
 			Consider a principal $G$-bundle $(E,M,\pi,G)$ where we can find a smooth $\mathfrak{g}$-valued and $G$-equivariant 1-form on it, such that $\omega(\bar{A})=A$ for every fundamental vector field. Then $Ker(\omega)=\mathcal{H}$ is a smooth right-invariant horizontal distribution on $TE$.
 		\end{Theo}
 		\begin{proof}
-			We need to prove 3 basic properties:
-			\begin{itemize}
-				\item for every point $(p,g)\in E$, the tangent space of this manifold decomposes as:
-				$$TE=\mathcal{H}_{(p,g)}\oplus \mathcal{V}_{(p,g)}$$
-				\item $\mathcal{H}_{(p,g)}$ is right-invariant: for every $h\in G$ we have $dr_h \mathcal{H}_{(p,g)}\subset \mathcal{H}_{(p,g)\cdot h}$;
-				\item $\mathcal{H}_{(p,g)}$ is a smooth sub-bundle of $TE$.
-			\end{itemize}
-			There is a short exact sequence of vector spaces for every $(p,g)$:
-			$$0\rightarrow \mathcal{H}_{(p,g)}\xrightarrow{\mathbb{I}???} T_{(p,g)}E\xrightarrow{\omega_{(p,g)}} \mathfrak{g}\rightarrow0$$
-			Furthermore, we have a splitting of this exact sequence: 
-			$$dj_{(p,g)}^{-1}:\mathfrak{g}\rightarrow \mathcal{V}_{(p,g)}$$
-			Thus, by proposition PROPOSIZIONE, there is a sequence of isomorphisms:
-			$$T_{(p,g)}E\simeq\mathfrak{g}\oplus\mathcal{H}\simeq\mathcal{V}\oplus\mathcal{H}$$
-			This proves the first requirement.\\
-			\\
-			As for the second property, we just evalue with a simple calculation the right-equivariance. Let $X\in\mathcal{H}$:
-			$$\omega_{(p,g)\cdot h}(dr_hX_{(p,g)})=Ad(h^{-1})\omega{(p,g)}X_{(p,g)}=0$$
-			This means that $\omega$ acting on a right-transalted vector of $\mathcal{H}$ is 0, so that this vector is still in $\mathcal{H}$, thus proving the second property.\\
-			\\
-			As for the third property NON HO VOGLIA
+			This proof can be found in [2] chap. 6 pag. 256-259.
 		\end{proof}
-		\subsection{The Horizontal Lift of a vector field}
-		Suppose that $\mathcal{H}$ is an horizontal distribution on a principal bundle $(E,M,\pi,G)$. Let $X\in\mathfrak{X}(M)$ be a vector field on $M$. Then for every point $(p,g)\in E$, we have $\mathcal{V}_{(p,g)}=Ker(d\pi_{(p,g)})$ and so we have some induced isomorphisms:
-		$${T_{(p,g)}E\over \mathcal{V}_{(p,g)}}\simeq \mathcal{H}_{(p,g)}\simeq T_{\pi(p,g)}M$$
-		Note that the horizontal lift is up to a vertical vector field so it is not unique, the equivalence class is. However, we can find a unique vector field lying in $\mathcal{H}$ that is the lift of $X$, which corresponds to the lift with a 0 vertical component.
-		Thus, there is a unique horizontal vector $\mathcal{X}_{(p,g)}\in\mathcal{H}_{(p,g)}$ such that:
-		$$d\pi(\mathcal{X}_{(p,g)})=X_{\pi(p,g)}\in T_{\pi(p,g)}M$$
-		We call this unique vecotr the Horizontal Lift of $X$ to $E$.
+		\section{The horizontal Lift of a vector field}
+		In this section we will introduce the notion of horizontal lift of a vector field and look at some properties of it. More informations on this topic can be found in [2] chap. 6 pag 259, 260; [3] chap. 5 pag 286-289.\\
+		\\
+		Suppose that $\mathcal{H}$ is an horizontal distribution on a principal bundle $(E,M,\pi,G)$. Let $X\in\mathfrak{X}(M)$ be a vector field on $M$. Then for every point $x\in E$, we have $\mathcal{V}_{x}=Ker(d\pi_{x})$ and so we have some induced isomorphisms:
+		$${T_{x}E\over \mathcal{V}_{x}}\simeq \mathcal{H}_{x}\simeq T_{\pi(x)}M$$
+		\begin{Def}
+			Let $(E,M,\pi,G)$ be a principal $G$-bundle with a smooth right-invariant horizontal distribution $\mathcal(H)$. Let $X$ be a vector field on $M$. We call \textit{lift} of $X$ to $E$ any vector field $\tilde{X}$ such that $d\pi(\tilde{X})=X$. We call the unique horizontal vector field $\mathcal{X}\in \mathcal{H}$ such that $d\pi(\mathcal{X})=X$ the \textit{horizontal lift} of $X$ to $E$.
+		\end{Def}
+		Note that the lift is unique up to a vertical vector field. However, we can find a unique vector field lying in $\mathcal{H}$ that is the lift of $X$, which corresponds to the lift with a 0 vertical component.
+		Thus, for any $x\in E,$ there is a unique horizontal vector $\mathcal{X}_{x}\in\mathcal{H}_{x}$ such that:
+		$$d\pi(\mathcal{X}_{x})=X_{\pi(x)}\in T_{\pi(x)}M$$
 		\begin{Obs}
-			Basically, when we have a principal $G$-bundle with an horizontal distribution, we see from the previous series of isomorphisms that the tangent space of the base manifold can  be identified with the horizontal tangent space of the principal bundle.\\
+			Given any principal $G$-bundle on $M$ with an horizontal distribution, we see from the previous series of isomorphisms that the tangent space of the base manifold $M$ can be identified with the horizontal tangent space of the principal bundle.\\
 			\\
-			Note that in our construction we have not assumed smoothness nor right-invariance. We are now going to prove that if $\mathcal{H}$ is smooth and right-invariant so will be the lift. (This is, honestly, pretty useless as a concept since it fucking obvious, yet it is useful to learn how to calculate stuff).
+			We are now going to prove that if $\mathcal{H}$ is smooth and right-invariant, the lift of any vector field will be smooth and right invariant as well.
 		\end{Obs}
 		\begin{Prop}
 			Let $(E,M,\pi,G)$ be a principal bundle with a smooth right-invariant horizontal distribution $\mathcal{H}$. Then the horizontal lift $\mathcal{X}$ of any vector field $X\in\mathfrak{X}(M)$ is smooth and right-invariant as well.
 		\end{Prop}
 		\begin{proof}
-			Suppose that $p\in M$ and $(p,g)\in\pi^{-1}(p)$. Then we must have by definition of lift: $d\pi(\mathcal{X}_{(p,g)})=X_p$. Suppose now to take any other point of $\pi^{-1}(x)$ like $(p,h)$. Then, we must have, by the cosntruction of the principal bundle, that $(p,h)=dr_{g'}(p,g)=(p,g)\cdot g'$. Recalling that $\pi\circ r_{g'}=\pi$ we have:
-			$$d\pi(dr_{g'}\mathcal{X}_{(p,g)})=d\pi\circ dr_{g'}(\mathcal{X}_{(p,g)})=d\pi\mathcal{X}_{(p,g)}=d\pi\mathcal{X}_{(p,h)}$$
-			By uniqueness of the horizontal lift, $\mathcal{X}_{(p,g)}=\mathcal{X}_{(p,h)}$ and this proves right-invariance.\\
+			Suppose that $p\in M$ and $x\in\pi^{-1}(p)$. Then we must have by definition of lift: $d\pi(\mathcal{X}_{x})=X_p$. Suppose now to take any other point $y\in\pi^{-1}(p)$ with $x\neq y$. Then, we must have, by proposition \ref{Prop_3.5.1}, that there exists $g\in G$ such that $y=dr_{g}x=x\cdot g$. Recalling that, by observation \ref{Obs_3.5.1}, $\pi\circ r_{g}=\pi$ we have:
+			$$d\pi(dr_{g}(\mathcal{X}_{x}))=d\pi\circ dr_{g}(\mathcal{X}_{x})=d\pi\mathcal{X}_{x}=d\pi\mathcal{X}_{y}$$
+			By uniqueness of the horizontal lift, $\mathcal{X}_{x}=\mathcal{X}_{y}$ and this proves right-invariance.\\
 			\\
-			As for the smoothness, we simply choose a trivializing chart on $M$ like $(U,\phi)$ and construct a trivialization 
+			As for the smoothness, we first of all choose a trivializing chart on $M$ like $(U,\phi)$ and consider the trivialization 
 			$$\varphi_U:\pi^{-1}(U)\rightarrow U\times G$$
 			Now we define the vector field:
 			$$Z_{(p,g)}=(X_p,0)\in T_{(p,g)}(U\times G)$$
 			Clearly $Z$ is a smooth vector field on $U\times G$. Given the projection $\eta:U\times G\rightarrow U$ we have:
 			$$d\eta Z_{(p,g)}=X_p$$
+			\begin{comment}
 			To see this, note that $d\eta:T(U\times G)\rightarrow TU$ and so we get: $d\eta(Z)\in TU$ is a vector field. In particular, by definition of differential, we must have for any $(p,g)\in U\times G$:
 			$$d\eta_{(p,g)}(Z_{(p,g)})f=Z_{(p,g)}(f\circ \eta_{(p,g)})$$
 			And since $\eta$ projects the points from $U\times G$ to $U$, we get:
 			$$d\eta_{(p,g)}(Z_{(p,g)})=X_p$$
-			This implies that
+			\end{comment}
 			We can also define a smooth vector field on $\pi^{-1}(U)$ like:
-			$$Y=d\varphi^{-1}(Z):U\times G \rightarrow T_{\pi^{-1}(U)}E$$
+			$$Y=d\varphi^{-1}(Z)E$$
 			For the same reason as before, given that $\pi$ is a projection, we must have:
-			$$d\pi(Y_{(p,g)})=X_{\pi(p,g)}$$
-			We know that the projection $Hor(Y)$ is smooth by hypothesis, If now we decompose $Y_{(p,g)}=\nu(Y_{(p,g)})+Hor(Y_{(p,g)})$ and apply the differential of the projection, recalling that $\mathcal{V}=Ker(d\pi)$, we get:
-			$$d\pi(Y_{(p,g)})=d\pi(Hor(Y_{(p,g)}))=Hor(d\pi(Y_{(p,g)}))=X_{\pi(p,g)}$$
-			This means that $Hor(Y)$ is the lift of $X$. By uniqueness, $X$ is smooth on $M$.
+			$$d\pi(Y_{x})=X_{\pi(x)}$$
+			We know that the projection $Hor(Y)$ is smooth by hypothesis, If now we decompose $Y_{x}=\nu(Y_{x})+Hor(Y_{x})$ and apply the differential of the projection, recalling that $\mathcal{V}=Ker(d\pi)$, we get:
+			$$d\pi(Y_{x})=d\pi(Hor(Y_{x}))=Hor(d\pi(Y_{x}))=X_{\pi(x)}$$
+			This means that the smooth vector field $Hor(Y)$ is the unnique horizontal lift of $X$.
 		\end{proof}
+	\chapter{Associated bundles}
+	In this chapter we introduce the concept of associated bundle, together with some examples and properties. We will how to use this kind of bundle to construct a covariant derivative on the underlying principal bundle. The most important associated bundle for gauge theories will be the adjoint bundle, which we will introduce later. More informations on these topics can be found in [2] chap. 6 pag. 275-286, and [3] chap. 4 and 5.
+	\begin{Def}
+		Let $(P,M,\pi,G)$ be a principal $G$-bundle and $\rho:G\rightarrow GL(V)$ a representation on a finite dimensional vector space $V$. We define the \textit{associated bundle} as the set: 
+		$$E=P\times_\rho V={P\times V\over \sim}$$
+		where $\sim$ is the following equivalence relation:
+		$$(x,v)\sim(x\cdot g,\rho(g^{-1})v)$$ 
+	\end{Def}
+	\begin{Obs}
+		There is a natural projection: indicating with $[x,g]$ the equivalence class of $(x,g)\in P\times V$.
+		$$\pi_E:E\rightarrow M\hbox{ acting like: }\pi_E([x,g])=\pi(x)$$
+		where $\pi$ is the projection of the principal bundle. Clearly, this projection is well defined as it does not depend on the choice of the representative. This is a consequence of $\pi\circ r=\pi$ for principal bundles.
+	\end{Obs}
+	\begin{Obs}
+		It can be shown that the associated bundle has a manifold structure: REFERENZA
+	\end{Obs}
+	\begin{Prop}\label{Prop_6.1.1}
+		Let $\rho:G\rightarrow GL(V)$ be a finite dimensional representation of a Lie group $G$, let $M$ be any manifold. Then there is a fiber-preserving diffeomorphism:
+		$$\phi:(M\times G)\times_\rho V\rightarrow M\times V$$
+		Acting like: $\phi([(x,g),v])=(x,\rho(g)v)$.
+	\end{Prop}
+	\begin{proof}
+		This map is well defined:
+		$$\phi([(x,g)\cdot h,\rho(h^{-1})v])=(x,\rho(gh)\rho(h^{-1})v)=(x,\rho(g)v)$$
+		This map has an inverse:
+		$$\psi:M\times V\rightarrow (M\times G)\times_\rho V\hbox{ acting like: }
+		\psi(x,v)=[(x,1),v]$$
+		Clearly: $\phi\circ \psi=\mathbb{I}$ is the identity. Now it remains to show that they commmute with the projections and that they are smooth. CONTINUA
+	\end{proof}
+	\begin{Theo}
+		Given a principal $G$-bundle $(P,M,\pi,G)$ and a representation $\rho$, there is a vector bundle called \textit{associated bundle}, namely $(E,M,\pi_E,V)$.
+	\end{Theo}
+	\begin{proof}
+		The proof follows from proposition \ref{Prop_6.1.1}. In fact the principal bundle is locally trivial and this implies that the associated bundle is locally trivial as well, with fiber $V$.
+	\end{proof}
+	\begin{Prop}
+		Let $(P,M,\pi,G)$ be a principal $G$-bundle and $\rho:G\rightarrow GL(V)$ a finite dimensional representation. Let $E$ be the associated bundle. Then, for every point $x\in P$, there is a linear isomorphism:
+		$f_x:V\rightarrow E_x$, acting like $f_x(v)=[x,v]$ where $E_x$ is the fiber of $E$ at $x$.
+	\end{Prop}
+	\begin{proof}
+		this map is clearly linear. To show it is injective, suppose $x\in P,v,w\in V$ and $[x,v]=[x,w]$. Then, we can write:
+		$$(x,w)\sim(x\cdot g,\rho(g^{-1})v)$$
+		Since $G$ acts freely on $P$, we must have that $g=e$ and so $v=w$. This proves injectivity.\\
+		To prove this map is surjective instead, we see that for any $[y,w]$, we can find a $g$ such that $x=y\cdot g$ and so:
+		$$[y,w]=f_x(\rho(g)v)$$ NOOOOO TUTTO SBAGLIATO
+	\end{proof}
+	\chapter{Gauge transformations}
 	\chapter{The Yang-Mills Gauge theory}
 	In this chapter we will use the knowledge exposed previously to construct the famous Yang-Mills Lagrangian and look at some properties of it. More informations on this topic can be found in REFERENZA
 	\section{The Maxwell's equations}
@@ -1533,6 +1642,7 @@
 		\item[$\circ$] [5] V. S. Varadarajan, Lie Groups, Lie Algebras, and Their Representations, Springer, 1984;
 		\item[$\circ$] [6] Theodor Bröcker , Tammo Dieck, Representations of Compact Lie Groups, Springer, 1985;
 		\item[$\circ$] [7] Brian C. Hall, Lie Groups, Lie Algebras, and Representations, Springer, 2015;
+		\item[$\circ$] [8] F. Warner, Foundations of Differentiable Manifolds and Lie Groups, Springer, New York, 1983;
 	\end{itemize}
 	
 	\addcontentsline{toc}{chapter}{Bibliography}
