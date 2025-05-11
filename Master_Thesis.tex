@@ -272,7 +272,7 @@
 		We can use this result to find a local expression for the differential of a map:
 		knowing from proposition \ref{df_is_a_form} that $df$ is a 1-form, once we fix a chart $(U,\phi)$, we can expand locally like:
 		$$df_p=a_i(p)dx^i_p$$
-		Where $a^i(p)$ is a real number, depending on the point.
+		Where $a_i(p)$ are real numbers, depending on the point.
 		Then, by feeding this differential our coordinate functions we get:
 		$$df_p\bigg({\partial\over \partial x^j}\bigg|_p\bigg)=a_i(p)\delta^i_j={\partial\over \partial x^j}\bigg|_pf$$
 		So that we can expliticly write for any point inside $U$:
@@ -291,14 +291,14 @@
 		The proof is very similar to the one seen for the tangent bundle and can be found in [1] chap. 5 pag. 192-193.
 	\end{proof}
 	\begin{Def}
-		Let $M$ be a smooth manifold. We define a \textit{$k$-form} on $M$ as a map that associates to each $M$ an element of $\bigwedge^k TM^*$ in the corresponding point. 
+		Let $M$ be a smooth manifold. We define a \textit{$k$-form} on $M$ as a map that associates to each $p\in M$ an element of $\bigwedge^k TM^*$ in the corresponding point. 
 	\end{Def}
 	Sometimes we will index elements of $\bigwedge^k TM^*$ with the following notation: $dx^I$. The index $I$ is called multi-index and represents a subset of indices of $\{1,2,3,...,k\}$. In particular, for a $k$-form, $dx^I$ stands for $dx^{i_1}\wedge dx^{i_2}\wedge...\wedge dx^{i_k}$.
 	\begin{Def}
 		We say that a $k$-form $\omega$ is smooth if for any chart $(U,\phi)$, the functions $a_I:M\rightarrow \mathbb{R}$ in the expansion $\omega=a_Idx^I$ are smooth.
 		We denote the space of smooth $k$-forms with $\Omega^k(M)$. 
 	\end{Def}
-	We now define a key concept for our analysis on gauge theories: the pullback.
+	Later on, we will see that $k$-forms can be defined as sections of a precise vector bundle. We now define a key concept for our analysis on gauge theories: the pullback.
 	\begin{Def}
 		Let $F:N\rightarrow M$ be a smooth map between manifolds.
 		Let $\omega_{F(p)}$ be a smooth $k$-form on $F(p)\in M$. The \textit{pullback} of $\omega_{F(p)}$ is a covector in $p\in N$ defined as:
@@ -318,13 +318,18 @@
 	\begin{Def}
 		We call \textit{pointwise orientation} on a manifold a map $\mu$ that assigns to each point $p\in M$ an orientation for $T_pM$. A manifold $M$ with a continuous pointwise orientation  is called \textit{orientable}.
 	\end{Def}
-	An orientation for the tangent space is the equivalence class of an ordered base: $[\{X^i\}]$. SO, an orientation for a manifold is a map that assigns to each point a class of an ordered base of the corresponding tangent space, in a continuous way:
+	An orientation for the tangent space is the equivalence class of an ordered base: $[\{X^i\}]$. So, an orientation for a manifold is a map that assigns to each point a class of an ordered base of the corresponding tangent space, in a continuous way:
 	$$\mu(p)=[\{X^i_p\}]$$
 	\begin{Obs}
 		Since every vector space has only 2 orientations, and at each point the tangent space is indeed a vector space, any connected orientable manifold has only 2 possible orientations. The full proof of this claim can be found in [1] chap. 6 pag. 241-242.
 	\end{Obs}
 	\begin{Ex}
-		NASTRO DI MOBIUS??? NON ORIENTABILE
+		The space $\mathbb{R}^n$ is orientable and an orientation is given by the global frame $\{\partial\over \partial_{r^i}\}$ where $r^i$ are the standard coordinates.
+	\end{Ex}
+	\begin{Ex}
+		Ler $R=\{(x,y)\in \mathbb{R}^2|x\in[0,1], y\in [-1,1[\}$
+		The Möbius strip can be defined as the quotient: $R\over \sim$ where $(0,y)\sim(1,-y)$. We now show that this structure is not orientable.\\
+		Suppose that the Möbius strip is orientable. Let $U$ be the interior of the rectangle: $U=\{(x,y)\in \mathbb{R}^2|x\in]0,1[, y\in [-1,1[\}$. Assume an orientation given by the base $e_1,e_2$ of the tangent space in this rectangle. By continuity of the orientation, those vectors will be an orientation also for the points $(0,0)$ and $(1,0)$. However, this base at $(1,0)$ is mapped to $e_1,-e_2$ at $(0,0)$. This proves the orientation is not conitnuous and generates an absurd. Thus, the Möbius strip is not orientable.
 	\end{Ex}
 	\begin{Prop}
 		A pointwise orientation $\mu(p)=[\{X^i_p\}]$ on a manifold $M$ is continuous if and only if for any chart $(U,\phi)$ with coordinates $\{x^i\}$, the function:
@@ -345,7 +350,7 @@
 		A smooth manifold $M$ is orientable if and only if there exists a non vanishing smooth $n$-form on it.
 	\end{Theo}
 	\begin{proof}
-		The proof of this theorem is not long but requires some tools which are not explained in this work. To see the full proof one can look at [1] chap. 6 pag. 243.
+	To see the proof one can look at [1] chap. 6 pag. 243.
 	\end{proof}
 	We now define a very important form on metric manifolds, called volume form. This will be crucial in the definition of the Hodge operator.
 	\begin{Def}
@@ -356,11 +361,11 @@
 	$$\omega=de^1\wedge...\wedge de^n$$
 	where $e^i$ is the orthonormal base with respect to $g$ inside $U$. The proof is just a straightforward calculation and can be found in [2] chap. 3 pag. 134.
 	\section{Exterior derivative and Hodge operator}
-	In this section we will introduce the notion of exterior derivative and hodge operator. Furthermore, we will briefly look at integration on manifolds. More informations on those topic can be found in:
-	REFERENZA
+	In this section we will introduce the notion of exterior derivative and hodge operator. Furthermore, we will briefly look at integration on manifolds. More informations on those topic can be found in [3] chap. 7 pag 401-413.
 	\begin{Def}
 		Let $M$ be a smooth manifold and $(U,\phi)$ a chart. We define the \textit{exterior derivative} of a $k$-form $\omega=a_Idx^I$ as the $k+1$-form:
 		$$d\omega=da_I\wedge dx^I$$
+		where $da_I$ is the differential of the function $a_I$.
 	\end{Def}
 	Now we look at some important properties of the exterior derivative.
 	\begin{Prop}
@@ -393,7 +398,7 @@
 		\end{itemize}
 	\end{Theo}
 	\begin{proof}
-		This proof is quite lengthy and requires some knowledge about local operators, which are not explained in this work. The reader cna find the full proof in [1] chap. 5 pag. 210-214.
+		The reader can find the full proof in [1] chap. 5 pag. 210-214.
 	\end{proof}
 	\begin{Def}
 		A $k$-form $\omega$ is said to be \textit{closed} if $d\omega=0$ and \textit{exact} of $\omega=d\alpha$ for $\alpha\in\Omega^{k-1}(M)$.
@@ -401,7 +406,7 @@
 	\begin{Obs}
 		It is clear that any exact form is closed. However, in general, not all closed forms are exact.
 	\end{Obs}
-	We now look at the definition of the Hodge operator and see some properties of it. This operator will be useful in writing the maxwell equations from a differential geometry point of view.
+	We now look at the definition of the Hodge operator and see some properties of it. This operator will be useful in writing the Maxwell equations from a differential geometry point of view.
 	\begin{Obs}
 		The inner product on $M$ induces an inner product on forms. Namely, at any point $p\in M$ we have:
 		$$\braket{\alpha^1_p\wedge...\wedge \alpha^k_p,\beta^1_p\wedge...\wedge\beta^k_p}=det(\braket{\alpha^i_p,\beta^j_p}_{i,j\in[1,k]})$$
@@ -427,22 +432,24 @@
 	\begin{proof}
 		In this proof we will omit the subscript $p$ specifying the point to simplify the notation. 
 		By definition of the Hodge operator:
-		$$\alpha\wedge(\star\alpha)=\braket{\alpha,\alpha}\omega$$
+		$$\alpha_p\wedge(\star\alpha_p)=\braket{\alpha_p,\alpha_p}\omega_p$$
 		From this, the first property is proved since: $\braket{1,1}=1$.\\
 		The second one is a clear consequence of:
 		$$\braket{\omega,\omega}=sgn(g)$$
-		As for the third one, consider the following: we can always expand $\star dx^I=\sum_Jc^{IJ}dx^{J'}$ since it is a $n-k$ form. Now the sum is on every ordered subset $J$ of ${1,...,n}$ of length $k$. Taking now the wedge product from both sides with $\sum_J dx^J$ we get:
-		$$\sum_Jdx^J\wedge(\star dx^I)=\sum_Jdx^J\wedge\sum_Jc^{IJ}dx^{J'}$$
+		As for the third one, consider the following: we can always expand $\star dx^I_p=\sum_Jc_p^{IJ}dx_p^{J'}$ since it is a $n-k$ form. The sum is on every ordered subset $J$ of ${1,...,n}$ of length $k$. Taking now the wedge product from both sides with $\sum_J dx^J$ we get:
+		$$\sum_Jdx_p^J\wedge(\star dx_p^I)=\sum_Jdx_p^J\wedge\sum_Jc_p^{IJ}dx_p^{J'}$$
 		Since $J$ are all different and of same length, each of their complements $J'$ will contain at least one element in common with every possible $J$, except the one they are complementary to. Knowing that the wedge product between two repeated elements is 0, we can cancel off one of the two sums over $J$ and find:
-		$$\sum_Jdx^J\wedge(\star dx^I)=\sum_Jc^{IJ}dx^J\wedge dx^{J'}=\sum_J\braket{dx^J,dx^I}\omega$$
-		for each $J$, we can write $\omega=\sqrt{|det(g)|}[JJ']dx^J\wedge dx^{J'}$ where $[JJ']$ is the sign of the permutation needed to put the set $JJ'$ in order. This clearly implies:
-		$$C^{IJ}=[dx^i]\sqrt{|det(g)|}[JJ']\braket{dx^J,dx^I}$$
+		$$\sum_Jdx_p^J\wedge(\star dx_p^I)=\sum_Jc_p^{IJ}dx_p^J\wedge dx_p^{J'}=\sum_J\braket{dx_p^J,dx_p^I}\omega_p$$
+		for each $J$, we can write $\omega_p=\sqrt{|det(g_p)|}[JJ']dx_p^J\wedge dx_p^{J'}$ where $[JJ']$ is the sign of the permutation needed to put the set $JJ'$ in order. This clearly implies:
+		$$c_p^{IJ}=[dx_p^i]\sqrt{|det(g_p)|}[JJ']\braket{dx_p^J,dx_p^I}$$
 		Putting everything together we find:
 		$$\star dx_p^I=[dx^i]\sqrt{|det(g_p)|}\sum_J[JJ']\braket{dx_p^I,dx_p^J}dx_p^{J'}$$
 		This formula shows that $\star$ depends smoothly on the points of the manifold.
-		As for the last property, we can prove it for an orthonormal base $\{de^i\}$. By construction, if $I$ is a subset of length $k$ of $\{1,2,...,n\}$, $\star de^I=[de^i]\braket{de^I,de^I}[IJ'] de^{J'}$ where $J'$ is the ordered complement of $I$. In fact, being an orthonormal base, the only non 0 term in the above sum is the one where $I=J$. By applying again the Hodge operator, we get:
-		$$\star\star de^I=[de^i]^2\braket{de^I,de^I}\braket{de^{J'},de^{J'}}[IJ'][J'I] de^{I}$$
-		The term $\braket{de^I,de^I}\braket{de^{J'},de^{J'}}$ gives $sgn(g)$ as a result. As for $[IJ'][J'I]$, this is equal to $(-)^{k(n-k)}$. ????????????
+		As for the last property, we can prove it for an orthonormal base $\{de_p^i\}$. By construction, if $I$ is a subset of length $k$ of $\{1,2,...,n\}$, $\star de_p^I=[de_p^i]\braket{de_p^I,de_p^I}[IJ'] de_p^{J'}$ where $J'$ is the ordered complement of $I$. In fact, being an orthonormal base, the only non 0 term in the above sum is the one where $I=J$. Consider then the following equations:
+		$$\star de_p^I\wedge (\star^2 de_p^I)=\braket{\star de_p^I,\star de_p^I}\omega_p\hbox{ and: } de_p^I\wedge (\star de_p^I)=\braket{de_p^I,de_p^I}\omega_p$$
+		By substituting the previous expression for $\star de^I$, we see that $\braket{\star de_p^I,\star de_p^I}=\braket{de_p^{J'}, de_p^{J'}}$. Also, by the alternating property of the exterior algebra, by exchanging the forms we get: $\star de_p^I\wedge (\star^2 de_p^I)=\star^2 de_p^I\wedge (\star de_p^I)\cdot (-)^{k(n-k)}$. Clearly, combining the two previous expressions, one finds:
+		$$\star^2 de^I=(-)^{k(n-k)}\braket{de_p^{J'}, de_p^{J'}}\braket{de_p^{I}, de_p^{I}}de^I$$
+		And since we have an orthonormal base, we have $\braket{de_p^{J'}, de_p^{J'}}\braket{de_p^{I}, de_p^{I}}=sgn(g)$. This proves the last property.
 	\end{proof}
 	We now look at an easy example in Minkiwski space, in order to become mor efamiliar with the action of this operator.
 	\begin{Ex}
@@ -477,7 +484,9 @@
 	\begin{Lm}\label{P.L.}
 		On any open ball of $\mathbb{R}^n$ every closed form is exact.
 	\end{Lm}
-	The proof of this lemma goes beyond the scope of this work.
+	The proof of this lemma goes beyond the scope of this work. The reader can find it in [1] chap. 7 pag 300.\\
+	\\
+	Since any smooth manifold is locally homeomorphic to $\mathbb{R}^n$, it means that, at least locally, every closed form can be expressed as an exact form.
 	\chapter{Lie groups and Lie algebras}
 	In this chapter we introduce the concepts of Lie group and Lie algebra, with some important examples. We will also study representations of those mathematical structures. In the framework of gauge theories, Lie groups are a fundamental object since they will represent the symmetry groups of our system. More information on these topics can be found in:
 	[1] chap. 4; [3] chap. 2, 3; [5] chap. 2, 3; [6] chap. 1, 2; [7] part 1, 2.
@@ -961,7 +970,7 @@
 		$$E\oplus F,\hspace{10pt}E\otimes F,\hspace{10pt}\bigwedge^k E,\hspace{10pt}Hom(E, F)$$.
 	\end{Prop}
 	\begin{proof}
-		THe proof can be found in [2] chap. 4 pag 180-184.
+		The proof can be found in [2] chap. 4 pag 180-184.
 	\end{proof}
 	\section{Sections and frames}
 	In this section we introduce the notions of sections and frames of a vector bundle. We will also find a criterion to check if a smooth vector bundle is trivial. More details can be found in [2] chap.1. pag. 51,52.
@@ -1090,6 +1099,9 @@
 	\begin{Ex}
 		HOPF BUNDLEEEEEE
 	\end{Ex}
+	\begin{Def}
+		We will call a section of a principal bundle $s:U\subset M\rightarrow E$ a \textit{local gauge}. IF the section is global we will call it \textit{global gauge}.
+	\end{Def}
 	\section{The frame manifold}
 	In this section we will introduce the notion of frame manifold of a vector space. We will show that the frame manifold is indeed a smooth manifold. For more information the reader is advised to look at: [2] chap. 6 pag. 241-252.
 	\begin{Def}\label{Def_6.5}
@@ -1312,7 +1324,7 @@
 			As a corollary of the previous statement we can clearly say that $Ker(dj_p)$ at the identity is the stabilizer $Stab(p)$.
 			$$Ker (dj_p)=\{A\in \mathfrak{g}|dj_p(A)=0\}=Stab(p)$$
 		\end{Obs}
-		\section{The vertical subbundle of the tangent bundle}
+		\section{The vertical subbundle}
 		In this section we will introduce the notion of vertical sub-bundle of the tangent bundle and see that the fundamental vector fields are precisely the vertical vector fields. More details on this topic can be found in [2] chap. 6 pag 250-252.
 		\begin{Def}
 			A \textit{distribution} on a manifold $M$ is a subbundle of the tangent bundle $TM$.
@@ -1470,7 +1482,10 @@
 			$$d\pi(Y_{x})=d\pi(Hor(Y_{x}))=Hor(d\pi(Y_{x}))=X_{\pi(x)}$$
 			This means that the smooth vector field $Hor(Y)$ is the unnique horizontal lift of $X$.
 		\end{proof}
+		\section{Curvature on a principal bundle}
+		In this section
 	\chapter{Associated bundles}
+	\section{The associated bundle of a principal bundle}
 	In this chapter we introduce the concept of associated bundle, together with some examples and properties. We will how to use this kind of bundle to construct a covariant derivative on the underlying principal bundle. The most important associated bundle for gauge theories will be the adjoint bundle, which we will introduce later. More informations on these topics can be found in [2] chap. 6 pag. 275-286, and [3] chap. 4 and 5.
 	\begin{Def}
 		Let $(P,M,\pi,G)$ be a principal $G$-bundle and $\rho:G\rightarrow GL(V)$ a representation on a finite dimensional vector space $V$. We define the \textit{associated bundle} as the set: 
@@ -1506,17 +1521,106 @@
 		The proof follows from proposition \ref{Prop_6.1.1}. In fact the principal bundle is locally trivial and this implies that the associated bundle is locally trivial as well, with fiber $V$.
 	\end{proof}
 	\begin{Prop}
-		Let $(P,M,\pi,G)$ be a principal $G$-bundle and $\rho:G\rightarrow GL(V)$ a finite dimensional representation. Let $E$ be the associated bundle. Then, for every point $x\in P$, there is a linear isomorphism:
-		$f_x:V\rightarrow E_x$, acting like $f_x(v)=[x,v]$ where $E_x$ is the fiber of $E$ at $x$.
+		Let $(P,M,\pi,G)$ be a principal $G$-bundle and $\rho:G\rightarrow GL(V)$ a finite dimensional representation. Let $E$ be the associated bundle and $x\in M$. Then, for every point $p$ in the fiber $P_x$, there is a linear isomorphism:
+		$f_p:V\rightarrow E_x$, acting like $f_p(v)=[p,v]$ where $E_x$ is the fiber of $E$ at $x$.
 	\end{Prop}
 	\begin{proof}
-		this map is clearly linear. To show it is injective, suppose $x\in P,v,w\in V$ and $[x,v]=[x,w]$. Then, we can write:
-		$$(x,w)\sim(x\cdot g,\rho(g^{-1})v)$$
-		Since $G$ acts freely on $P$, we must have that $g=e$ and so $v=w$. This proves injectivity.\\
-		To prove this map is surjective instead, we see that for any $[y,w]$, we can find a $g$ such that $x=y\cdot g$ and so:
-		$$[y,w]=f_x(\rho(g)v)$$ NOOOOO TUTTO SBAGLIATO
+		This map is clearly linear. To prove injectivity, take $[p,v]=[p,w]$ points in $E_x$. Then $(p,w)=(p\cdot g,\rho(g^{-1})v)$ for some $g\in G$. However, the action og $G$ on $P$ is free and so $g=e$. Thus, $w=v$. This proves injectivity. To prove surjectivity, take any $[q,w]\in E_x$. We have $q=p\cdot g$ for some $g\in G$ and so we have $[q,w]=[p\cdot g,w]=[p,\rho(g)w])=f_p(v)$.
 	\end{proof}
+	\begin{Obs}\label{Obs_6.2.3}
+		It is not hard to see that $f_{p\cdot g}=f_p\circ \rho(g)$. In fact:
+		$$f_{p\cdot g}(v)=[p\cdot g,v]=[p,\rho(g)v]=f_p(\rho(g)v)$$
+	\end{Obs}
+	\section{Tensorial forms}
+	In this section we will define the concept of tensorial forms on a principal bundle. We will find a connection between those forms and forms on the associated bundle. More information on this topic can be found in [2] chap. 6 pag. 277-280; and [3] chap. 5, pag. 261-270.
+	\begin{Def}
+		Let $(P,M,\pi,G)$ be a principal $G$-bundle on $M$ and $\rho$ a representation of $G$.  Then any $V$-valued $k$-form $\omega$ on $P$ is said to be \textit{right-equivariant of type $\rho$} if:
+		$$dr_g\omega=\rho(g^{-1})\omega$$
+		instead $\omega$ is said to be \textit{horizontal} if it vanishes whenever one of it's arguments is a vertical vector. If a form is both right-equivariant of type $\rho$ and vertical it is called \textit{tensorial of type $\rho$}. We label the space of all smooth tensorial $k$-forms of type $\rho$ with $\Omega^k_\rho(P,V)$.
+	\end{Def}
+	\begin{Ex}
+		CURVATURA TENSORIALE DI TIPO AD
+	\end{Ex}
+	\begin{Theo}(\textbf{Musical isomorphism})
+		There is a well defined linear isomorphism:
+		$$\Omega^k(M,E)\simeq \Omega^k_\rho(P,V)$$
+	\end{Theo}
+	\begin{proof}
+		Let $\omega\in\Omega^k_\rho(P,V)$, $x\in M$ and $v_1,...,v_k\in T_xM$ be tangent vectors. For any point in the fiber $p\in P_x$ select some lifted vectors $u_i$ such that $d\pi(u_i)=v_i$. Define $$\omega^\flat_x(v_1,...,v_k)=f_p(\omega_p(u_1,...,u_k))$$
+		This map is well defined as it does not depend neither on the fiber point $p\in P$, nor on the lift. To see this, suppose to take any other set lifter vectors $\{u'_i\}$ such that $d\pi(u'_i)=v_i$. Then we must have that $u_i-u_i'$ are  all vertical due to
+		$$d\pi(u_i-u'_i)=0$$
+		However, by definition, $\omega$ is horizontal and multilinear, so that:
+		$$\omega_p(u_1+vert.,...,u_k+vert.)=\omega_p(u_1,...,u_k)$$
+		it does not depend on the choice of the lift. To see that this map does not depend on the point of the fiber, choose any other point $q\in P_x$. Then, there will exist a $g\in G$ such that $p\cdot g=q$. Then, since $\pi\circ dr=\pi$, the lifted vectors of $v_i$ will be $dr_g(u_i)$. Evaluating:
+		$$f_{p\cdot g}(\omega_p(dr_g(u_1),...,dr_g(u_k)))=
+		f_{p\cdot g}(r^*_g\omega_p(u_1,...,u_k))$$
+		By proposition \ref{Obs_6.2.3} and by assumed equivariance of $\omega$:
+		$$f_{p\cdot g}(r^*_g\omega_p(u_1,...,u_k))=f_p\circ \rho(g)\circ \rho(g^{-1})\omega(u_1,...,u_k)=f_p(\omega(u_1,...,u_k))$$
+		To show that the association $\omega\rightarrow\omega^\flat$ is an isomorphism, we construct its inverse. Suppose $\alpha\in\Omega^k(M,E)$ is a $E$-valued $k$-form. Then one can define $\alpha^\sharp\in \Omega^k_\rho(P,V)$ as follows. Take any $p\in P$ and $x=\pi(p)\in M$ and any set $u_1,...,u_k\in T_pP$. Then we set:
+		$$\alpha^\sharp_p(u_1,...,u_k)=f^{-1}_p(\alpha(d\pi(u_1),...,d\pi(u_k)))$$
+		From this definition, $\alpha^\sharp$ is clearly horizontal. The right-equivariance follows obviously from the properties of $f$. Now it remains to check that $\omega^{\flat\sharp}=\omega$ and $\alpha^{\sharp\flat}=\alpha$.\\
+		Let $\omega\in\Omega_\rho^k(P,V)$, $x\in M$, $p\in P_x$, $v_i\in T_xM$ and $u_i$ such that $d\pi(u_i)=v_i$. Then:
+		$$\omega^{\flat\sharp}$$
+		Then, $(\omega^\flat)^\sharp_p(u_1,...,u_k)=f^{-1}_p(\omega^\flat_x(d\pi(u_1),...,d\pi(u_k)))$ by definition. Substituting further we get:
+		$$(\omega^\flat)^\sharp_p(u_1,...,u_k)=
+		f^{-1}_p(f_p(\omega_p(u_1,...,u_k)))=\omega_p(u_1,...,u_k)$$
+		Analogously one proves that $\alpha^{\sharp\flat}=\alpha$. This completes the proof.
+	\end{proof}
+	\section{The covariant derivative}
 	\chapter{Gauge transformations}
+	In this section we use the previous knowledge to construct the notion of gauge transformations. We will also see some properties of connections and curvature on principal bundles, which will be useful in the context of Yang-Mills theory. More informations on this topic can be found in [3] chap. 5 and [2] chap. 6.
+	\begin{Def}
+		Let $(P,M,\pi,G)$ be a principal $G$-bundle. We call a \textit{gauge transformation} any bundle automorphism, i.e a diffeomorphism $f:P\rightarrow P$ such that:
+		\begin{itemize}
+			\item $f$ is fiber preserving: $\pi\circ f=\pi$;
+			\item $f$ is $G$-equivariant: $f(p\cdot g)=f(p)\cdot g$ for any $p\in P, g\in G$.
+		\end{itemize}
+		A gauge transformation $f$ is called \textit{local} if it is defined on an open subset $U\subset P$. If the gauge transformation is defined on the whole principal bundle then it is called \textit{global}.
+	\end{Def}
+	\begin{Obs}
+		The set of all possible gauge transformations is a group under the composition of diffeomorphism and is denoted with $\mathcal{G}(P)$. This is in general an infinite dimensional Lie group.
+	\end{Obs}
+	We now try to give an alternative, more useful, description of gauge transformations.
+	\begin{Def}
+		Let $(P,M,\pi,G)$ be a principal $G$-bundle. We define the set of \textit{smooth gauge $G$-valued maps on $P$} as:
+		$$C^\infty(P,G)^G=\{\sigma:P\rightarrow G|\sigma\hbox{ is smooth },\sigma\circ r_g=c_{g^{-1}}\circ \sigma\}$$
+	\end{Def}
+	\begin{Obs}
+		This set is clearly a group under the pointwise multiplication. Namely:
+		$\sigma\cdot \sigma'(p)=\sigma(p)\cdot \sigma'(p)$.
+	\end{Obs}
+	\begin{Prop}
+		There is a well defined group isomorphism:
+		$$\mathcal{G}(P)\longrightarrow C^\infty(P,G)^G\hbox{ acting like }f\rightarrow \sigma_f$$
+		where $f(p)=p\cdot \sigma_f(p)$.
+	\end{Prop}
+	\begin{proof}
+		Let $f\in\mathcal{G}(P)$, then $f$ is fiber preserving. This means that $f(p)$ is in the same fiber of $p$ and so there will be a $g\in G$ such that $f(p)=p\cdot g$. Define $g=\sigma_f(p)$. Now we show that $\sigma_f(p)\in C^\infty(P,G)^G$. This map is clearly smooth and goes from $P$ to $G$. Moreover:
+		$$(p\cdot h)\sigma_f(p\cdot h)=f(p\cdot h)=f(p)\cdot h=p\cdot \sigma_f(p)\cdot h$$
+		This in turn implies that $\sigma\in C^\infty(P,G)^G$ since:
+		$$\sigma(r_h(p))=c_{h^{-1}}\sigma_f(p)$$
+		The inverse mapping instead goes like:
+		$$\sigma_f\rightarrow f$$
+		Clearly, $f$ defined by the above relation is fiber preserving. To show the equivariance one computes:
+		$$f(p\cdot g)=(p\cdot g)\sigma(p\cdot g)=p\cdot h^{-1}h\cdot\sigma(p)\cdot h=f(p)\cdot h$$
+		And so $f$ lies in $\mathcal{G}(P)$.
+	\end{proof}
+	This result allow us to represent gauge transformations with maps in $C^\infty(P,G)^G$. However, we can look at yet another isomorphism, which will allow us to see gauge transformations as map from the base manifold $M$ to $G$.\\
+	\\
+	\begin{Def}
+		Let $(P,M,\pi,G)$ be a principal $G$-bundle. We call a \textit{physical gauge transformation} any smooth map $\tau\in C^\infty(U\subset M,G)$, where $U$ is an open subset of $M$.
+	\end{Def} 
+	\begin{Prop}
+		Let $(P,M,\pi,G)$ be a principal $G$-bundle and $s:U\rightarrow P$ a smooth local gauge. Then there is an induced isomorphism:
+		$$C^\infty(P|_U,G)^G\longrightarrow C^\infty(U,G)\hbox{ acting like: }\sigma\rightarrow \sigma\circ s$$
+	\end{Prop}
+	\begin{proof}
+		Let $\sigma\in C^\infty(P|_U,G)^G$ and $s:U\rightarrow P$ be a smooth local gauge. The map $\sigma\circ s$ is clearly smooth and so it is indeed an element of $C^\infty(U,G)$.\\
+		Now we construct the inverse mapping: let $\tau\in C^\infty(U,G)$. Then we define 
+		$$\sigma=\tau\circ \pi|_U:P|_U\rightarrow U\rightarrow G$$
+		The action of this map has the following property:
+		$$\sigma\circ r_g=\tau\circ \pi|_U\circ r_g$$
+	\end{proof}
 	\chapter{The Yang-Mills Gauge theory}
 	In this chapter we will use the knowledge exposed previously to construct the famous Yang-Mills Lagrangian and look at some properties of it. More informations on this topic can be found in REFERENZA
 	\section{The Maxwell's equations}
