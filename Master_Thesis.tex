@@ -304,6 +304,19 @@
 		Let $\omega_{F(p)}$ be a smooth $k$-form on $F(p)\in M$. The \textit{pullback} of $\omega_{F(p)}$ is a covector in $p\in N$ defined as:
 		$$F^*(\omega_{F(P)})(v_1,...,v_n)=\omega_{F(p)}(dF_p(v_1),...,dF_p(v_n))$$ 
 	\end{Def}
+	The pullback has some useful properties:
+	\begin{Prop}
+		Let $f:N\rightarrow M$ and $\omega,\sigma\in \Omega^k(M),\tau\in\Omega^l(M)$, then:
+		\begin{itemize}
+			\item the pullback is linear: $f^*(a\omega+b\sigma)=af^*\omega+bf^*\sigma$ for $a,b\in \mathbb{R}$;
+			\item $f^*(\omega\wedge \tau)=f^*\omega\wedge f^*\tau$;
+			\item the pullback commutes with the exterior derivative:
+			$$df^*\omega=f^*d\omega$$
+		\end{itemize}
+	\end{Prop}
+	\begin{proof}
+		The proof can be found in [2] Appendix pag. 303.
+	\end{proof}
 	\section{Orientation on smooth manifolds}
 	In this section we will briefly sudy the notion of orientation and integration on a smooth manifold. In particular, we will define the volume form and the notion of orientable manifold. More references on this topic can be found in [1] chap. 6.
 	\\
@@ -987,7 +1000,7 @@
 	\begin{Def}\label{Def_5.6}
 		Let $(E,M,\pi,\mathbb{R}^k)$ be a vector bundle. We define a \textit{frame} on an open set $U\subset M$ as a collection of sections $\{s_i\}$ such that $\{s_i(p)\}$ form a basis for the fiber $F$ at each $p$. 
 	\end{Def}
-	\begin{Prop}\label{prop_2.3.1}
+	\begin{Prop}\label{Prop_2.3.1}
 		A smooth vector bundle is trivial if and only if it has a smooth frame.
 	\end{Prop}
 	\begin{proof}
@@ -1010,6 +1023,9 @@
 		$$dl_g\tilde{T^a}$$
 		This means that choosing a frame at the identity corresponds to choosing a global frame. Thus, every Lie group has a trivial tangent bundle. 
 	\end{Ex}
+	\begin{Obs}
+		Since every bundle is locally trivial, from proposition \ref{Prop_2.3.1} we can say that choosing a local smooth frame corresponds to choosing a local trivialization.
+	\end{Obs}
 	\section{Vector valued forms}
 	In this section we will introduce the concept of vector valued forms. Those will be extremely important in the construction of the Yang-Mills lagrangian, since the vector potential will be a vector valued form. More informations on this topic can be found in [2] chap. 4 pag. 186-197.
 	\\\\
@@ -1058,7 +1074,32 @@
 		By the fact that the exterior derivative is an antiderivation of degree 1 for the exterior product, it immediatly follows:
 		$$d(\omega\cdot \eta)=d\omega\cdot \eta+(-)^{deg(\omega)}\omega\cdot d\eta$$
 	\end{proof}
-	Lastly, one can firther generalize the notion of $k$-form by letting them take values on a vector bundle.
+	We can also extend the definition of pullback to vector valued forms, in the natural obvious way:
+	\begin{Def}
+		Let $\alpha\in\Omega^k(M,V)$ be a $V$-valued form on $M$ and $f:N\rightarrow M$ be a smooth map between manifolds. We define the \textit{pullback} of $\alpha$ as:
+		$$f^*\alpha_p(u_1,...,u_k)=\alpha_p(dfu_1,...,dfu_k)$$
+		where $u_i\in T_pN$.
+	\end{Def}
+	There are some straightforward properties of the pullback:
+	\begin{Prop}\label{Prop_3.4.3}
+		Let $f:N\rightarrow M$ be any smooth map between manifolds and $\mu:V\times W\rightarrow Z$ be any multilinear map between vector spaces. Then, if $\alpha\in\Omega^k(M,V),\beta\in\Omega^l(M,W)$, we have:
+		\begin{itemize}
+			\item $f^*\alpha=f^*\alpha^i\otimes v_i$;
+			\item $f^*(\alpha\cdot \beta)=(f^*\alpha)\cdot (f^*\beta)$; the pullback commutes with the product;
+			\item the pullback commutes with the exterior derivative:
+			$$f^*d\alpha=df^*\alpha$$
+		\end{itemize}
+	\end{Prop}
+	\begin{proof}
+		To prove the first claim we simply expand:
+		$$f^*\alpha_p(u_1,...,u_k)=f^*(\alpha^i\otimes v_i)(u_1,...,u_k)=(\alpha^i\otimes v_i)(dfu_1,...,dfu_k)=\alpha^i(dfu_1,...,dfu_k)\otimes v_i$$
+		Where $u_1\in T_pN$. To prove the second claim we recall that, having chosen some basis $\{v_i\}$ for $V$ and $\{w_i\}$ for $W$:
+		$$(\alpha\cdot\beta)=\alpha^i\wedge\beta^j\mu(v_i,w_j)$$
+		Then it is clear that:
+		$$f^*(\alpha\cdot\beta)=f^*(\alpha^i\wedge\beta^j)\mu(v_i,w_j)=(f^*\alpha^i\wedge f^*\beta^j)\mu(v_i,w_j)$$
+		The last property follows immediatly from the fact that for real valued forms the pullback commutes with the exterior derivative.
+	\end{proof}
+	Lastly, one can further generalize the notion of $k$-form by letting them take values on a vector bundle.
 	\begin{Def}
 		Let $(E,M,\pi, \mathbb{R}^n)$ be a vector bundle. We define an $E$-valued $k$-form as a section of $\bigwedge^kTM^*\otimes E$. We denote the space of smooth $E$-valued $k$-forms with $\Gamma(\bigwedge^kTM^*\otimes E)$.
 	\end{Def}
@@ -1091,7 +1132,6 @@
 		By definition, in a principal bundle, the trivialization functions are equivariant. This means that:
 		$$\pi\circ r=\pi\hspace{20 pt}d\pi\circ dr=d\pi$$
 	\end{Obs}
-	We are now going to construct one of the most important principal bundles: the frame bundle. This is a principal bundle constructed from a pre-existing vector bundle.
 	\begin{Ex}
 		Let $G$ be a Lie group and $H$ be a normal closed subgroup of it. One can show that the quotient $G/H$ can be given a manifold structure.
 		There is a natural projection $\pi:G\rightarrow G/H$ taking each element to its class: $g\rightarrow \{gH\}$. This can abe given a principal $H$ bundle structure. The proof can be found in [8] chap. 3 pag. 120.
@@ -1100,8 +1140,30 @@
 		HOPF BUNDLEEEEEE
 	\end{Ex}
 	\begin{Def}
-		We will call a section of a principal bundle $s:U\subset M\rightarrow E$ a \textit{local gauge}. IF the section is global we will call it \textit{global gauge}.
+		We will call a section of a principal bundle $s:U\subset M\rightarrow E$ a \textit{local gauge}. If the section is global we will call it \textit{global gauge}.
 	\end{Def}
+	Before going on we would like to define yet another important concept: the transition functions.
+	\begin{Def}
+		Let $(P,M,\pi,G)$ be a principal bundle. Let $\phi_i:\pi^{-1}(U_i)\rightarrow U_i\times G$ and $\phi_j:\pi^{-1}(U_j)\rightarrow U_j\times G$ two local trivializations such that $U_i\cap U_j\neq\emptyset$. Then $\phi_i\circ\phi^{-1}_j:(U_i\cap U_j)\times G\rightarrow (U_j\cap U_i)\times G$ acts like: $\phi_i\circ\phi^{-1}_j(x,h)=(x,g_{ij}(x)h)$. We call \textit{transition function} between $\phi_i$ and $\phi_j$ the map $g_{ij}:U_i\cap U_j\rightarrow G$. 
+	\end{Def}
+	\begin{Obs}
+		The transition functions are clearly smooth functions of $x$ since for $h=e$
+		$$\phi_i\circ\phi^{-1}_j(x,e)=(x,g_{ij}(x)e)$$
+		Moreover, they satisfy the \textit{cocyle condition:}
+		$$g_{ij}g_{jl}=g_{il}$$
+	\end{Obs}
+	From the cocycle condition one can easily show:
+	\begin{Prop}
+		The transition functions satisfy the following properties:
+		\begin{itemize}
+			\item $g_{ii}=e$
+			\item $g_{ij}g_{ji}^{-1}$
+		\end{itemize}
+	\end{Prop}
+	\begin{proof}
+		The proof can be found in [2] pag. 245.
+	\end{proof}
+	We are now going to construct one of the most important principal bundles: the frame bundle. This is a principal bundle constructed from a pre-existing vector bundle.
 	\section{The frame manifold}
 	In this section we will introduce the notion of frame manifold of a vector space. We will show that the frame manifold is indeed a smooth manifold. For more information the reader is advised to look at: [2] chap. 6 pag. 241-252.
 	\begin{Def}\label{Def_6.5}
@@ -1483,7 +1545,50 @@
 			This means that the smooth vector field $Hor(Y)$ is the unnique horizontal lift of $X$.
 		\end{proof}
 		\section{Curvature on a principal bundle}
-		In this section
+		In this section we will introduce the notion of curvature on a principal bundle endowed with an Ehresmann connection and look at some properties of it. In the context of Y-M theory, the curvature form will be used to define the kinetic energy term of the lagrangian. For more informations on this topic the reader can look at [2] chap. 6 pag. 270-274 and [3] chap. 5 pag. 261-285.
+		\\\\
+		\begin{Def}
+			Let $(E,M,\pi,G)$ be a principal $G$-bundle and $\omega$ an Ehresmann connection on it. We define the \textit{curvature form} of $\omega$ as:
+			$$\Omega=d\omega+{1\over 2}[\omega,\omega]$$
+		\end{Def}
+		Clearly, by definition of exterior derivative and by extension of the commutator on the space of $\mathfrak{g}$-valued forms, $\Omega\in \Omega^2(E,\mathfrak{g})$. 
+		\begin{Theo}
+			Let $(E,M,\pi,G)$ be a principal $G$-bundle and $\omega$ an Ehresmann connection on it and let $\Omega$ the curvature of $\omega$. Then the following properties hold:
+			\begin{itemize}
+				\item the curvature is \textit{horizontal}: for every $X_p,Y_p\in T_pE$,
+				$$\Omega_p(X_p,Y_p)=d\omega_p(Hor(X_p),Hor(Y_p))$$
+				\item $\Omega$ is \textit{$G$-equivariant}: for every $g\in G$ we have $r^*_g(\Omega)=Ad(g^{-1})(\Omega)$;
+				\item the curvature respects the \textit{second Bianchi identity}: $d\Omega=[\Omega,\omega]$.
+			\end{itemize}
+		\end{Theo}
+		\begin{proof}
+			To prove the first property, let us consider all of the possible cases:
+			\begin{itemize}
+				\item \textit{case 1}: the vectors are horizontal. Clearly in this case $\Omega_p(X_p,Y_p)=d\omega(X_p,Y_p)$ since the connection annihilates all of the horizontal components.
+				\item \textit{case 2}: one vector is horizontal and the other is vertical. Then:
+				$$\Omega_p(X_p,Y_p)=\Omega_p(Hor(X_p),\nu(Y_p))=$$
+				$$d\omega_p(Hor(X_p),\nu(Y_p))+{1\over 2}[\omega_p,\omega_p](Hor(X_p),\nu(Y_p))$$
+				The second therm vanishes since the connection annihilates the horizontal components. As for the first therm: one can prove that if $\omega$ is a $1$-form, then:
+				$$d\omega(X,Y)=X\omega(Y)-Y\omega(X)-\omega([X,Y])$$
+				The proof can be found in [1] chap. 5 pag 232,233.\\
+				Recall that any vertical vector field is a fundamental vector field: $Y_p\rightarrow \overline{Y}_p$. In our case, the first term is 0 since $\omega(Y_p)=\omega(\overline{Y}_p)=Y\in\mathfrak{g}$ by the defining properties of the connection. Moreover, $X_pY=0$ since its argument is a constant function of $p$. The second term vanishes because $X_p$ is horizontal. As for the first term, it vanishes as well since the commutator between an horizontal and a vertical vector field is 0 ([2] chap. 6 pag. 260).
+				\item\textit{case 3}: both vectors are vertical. By properties of the connectio $1$-form:
+				$$\Omega(X_p,Y_p)=d\omega_p(\overline{X_p},\overline{Y_p})+{1\over 2} ([\omega(\overline{X}),\omega(\overline{Y})]-[\omega(\overline{Y}),\omega(\overline{X}_p)])=$$
+				$$=d\omega_p(\overline{X_p},\overline{Y_p})+[X,Y]$$
+				Moreover:
+				$$d\omega(\overline{X}_p,\overline{Y}_p)=\overline{X}_p\omega(\overline{Y}_p)-\overline{X}_p\omega(\overline{Y}_p)-\omega([\overline{X}_p,\overline{Y}_p])$$	
+				The first two terms are 0 since the arguments fed to the vector fields are constant functions of $p$. As for the last term, the commutator of a vertical vector field is still a vertical vector field, so that we get:
+				$$d\Omega_p(X_p,Y_p)=-[X,Y]+[X,Y]=0$$
+				This proves the first property.
+			\end{itemize}
+			As for the second property, it is just a straightforward calculation:
+			$$r^*_g(\Omega)=r^*_g(d\omega)+r^*_g({1\over 2}[\omega,\omega])$$
+			By proposition \ref{Prop_3.4.3}:
+			$$r^*_g(\Omega)=(r^*_g\omega)+{1\over 2}[r^*_g\omega,r^*_g\omega]=Ad(g^{-1})\omega+{1\over 2}[Ad(g^{-1})\omega,Ad(g^{-1})\omega]=Ad(g^{-1})\Omega$$
+			The third property can be found by a simple expansion:
+			$$d\Omega=d^2\omega+{1\over 2}([d\omega,\omega]-[\omega,d\omega])=[d\omega,\omega]=[\Omega-{1\over 2}[\omega,\omega],\omega]=$$
+			$$=[\Omega,\omega]-{1\over 2}[[\omega,\omega],\omega]=[\Omega,\omega]$$
+		\end{proof}
 	\chapter{Associated bundles}
 	\section{The associated bundle of a principal bundle}
 	In this chapter we introduce the concept of associated bundle, together with some examples and properties. We will how to use this kind of bundle to construct a covariant derivative on the underlying principal bundle. The most important associated bundle for gauge theories will be the adjoint bundle, which we will introduce later. More informations on these topics can be found in [2] chap. 6 pag. 275-286, and [3] chap. 4 and 5.
@@ -1535,7 +1640,7 @@
 	In this section we will define the concept of tensorial forms on a principal bundle. We will find a connection between those forms and forms on the associated bundle. More information on this topic can be found in [2] chap. 6 pag. 277-280; and [3] chap. 5, pag. 261-270.
 	\begin{Def}
 		Let $(P,M,\pi,G)$ be a principal $G$-bundle on $M$ and $\rho$ a representation of $G$.  Then any $V$-valued $k$-form $\omega$ on $P$ is said to be \textit{right-equivariant of type $\rho$} if:
-		$$dr_g\omega=\rho(g^{-1})\omega$$
+		$$r^*_g\omega=\rho(g^{-1})\omega$$
 		instead $\omega$ is said to be \textit{horizontal} if it vanishes whenever one of it's arguments is a vertical vector. If a form is both right-equivariant of type $\rho$ and vertical it is called \textit{tensorial of type $\rho$}. We label the space of all smooth tensorial $k$-forms of type $\rho$ with $\Omega^k_\rho(P,V)$.
 	\end{Def}
 	\begin{Ex}
@@ -1559,8 +1664,7 @@
 		To show that the association $\omega\rightarrow\omega^\flat$ is an isomorphism, we construct its inverse. Suppose $\alpha\in\Omega^k(M,E)$ is a $E$-valued $k$-form. Then one can define $\alpha^\sharp\in \Omega^k_\rho(P,V)$ as follows. Take any $p\in P$ and $x=\pi(p)\in M$ and any set $u_1,...,u_k\in T_pP$. Then we set:
 		$$\alpha^\sharp_p(u_1,...,u_k)=f^{-1}_p(\alpha(d\pi(u_1),...,d\pi(u_k)))$$
 		From this definition, $\alpha^\sharp$ is clearly horizontal. The right-equivariance follows obviously from the properties of $f$. Now it remains to check that $\omega^{\flat\sharp}=\omega$ and $\alpha^{\sharp\flat}=\alpha$.\\
-		Let $\omega\in\Omega_\rho^k(P,V)$, $x\in M$, $p\in P_x$, $v_i\in T_xM$ and $u_i$ such that $d\pi(u_i)=v_i$. Then:
-		$$\omega^{\flat\sharp}$$
+		Let $\omega\in\Omega_\rho^k(P,V)$, $x\in M$, $p\in P_x$, $v_i\in T_xM$ and $u_i$ such that $d\pi(u_i)=v_i$.
 		Then, $(\omega^\flat)^\sharp_p(u_1,...,u_k)=f^{-1}_p(\omega^\flat_x(d\pi(u_1),...,d\pi(u_k)))$ by definition. Substituting further we get:
 		$$(\omega^\flat)^\sharp_p(u_1,...,u_k)=
 		f^{-1}_p(f_p(\omega_p(u_1,...,u_k)))=\omega_p(u_1,...,u_k)$$
@@ -1568,6 +1672,8 @@
 	\end{proof}
 	\section{The covariant derivative}
 	\chapter{Gauge transformations}
+	In this chapter we will introduce the concept of gauge transformations. We will study a particular family of maps on a given principal associated bundle and see how they extend on its associated bundle. Furthermore, we will see how the connection 1-forms and the associated curvatures will behave under such transformations. More informations on those topics can be found in [3] chap. 5.
+	\section{Gauge transformations on a principal bundle}
 	In this section we use the previous knowledge to construct the notion of gauge transformations. We will also see some properties of connections and curvature on principal bundles, which will be useful in the context of Yang-Mills theory. More informations on this topic can be found in [3] chap. 5 and [2] chap. 6.
 	\begin{Def}
 		Let $(P,M,\pi,G)$ be a principal $G$-bundle. We call a \textit{gauge transformation} any bundle automorphism, i.e a diffeomorphism $f:P\rightarrow P$ such that:
@@ -1605,21 +1711,34 @@
 		$$f(p\cdot g)=(p\cdot g)\sigma(p\cdot g)=p\cdot h^{-1}h\cdot\sigma(p)\cdot h=f(p)\cdot h$$
 		And so $f$ lies in $\mathcal{G}(P)$.
 	\end{proof}
-	This result allow us to represent gauge transformations with maps in $C^\infty(P,G)^G$. However, we can look at yet another isomorphism, which will allow us to see gauge transformations as map from the base manifold $M$ to $G$.\\
-	\\
+	This result allow us to represent gauge transformations with maps in $C^\infty(P,G)^G$. However, we can look at yet another isomorphism, which will allow us to see gauge transformations as map from the base manifold $M$ to $G$.
 	\begin{Def}
 		Let $(P,M,\pi,G)$ be a principal $G$-bundle. We call a \textit{physical gauge transformation} any smooth map $\tau\in C^\infty(U\subset M,G)$, where $U$ is an open subset of $M$.
 	\end{Def} 
 	\begin{Prop}
 		Let $(P,M,\pi,G)$ be a principal $G$-bundle and $s:U\rightarrow P$ a smooth local gauge. Then there is an induced isomorphism:
 		$$C^\infty(P|_U,G)^G\longrightarrow C^\infty(U,G)\hbox{ acting like: }\sigma\rightarrow \sigma\circ s$$
+		The inverse mapping is $\tau\rightarrow \sigma$ where: 
+		$$\sigma\circ r_g\circ s=c_{g^{-1}}\circ\tau\hbox{ for every } g\in G$$
 	\end{Prop}
 	\begin{proof}
 		Let $\sigma\in C^\infty(P|_U,G)^G$ and $s:U\rightarrow P$ be a smooth local gauge. The map $\sigma\circ s$ is clearly smooth and so it is indeed an element of $C^\infty(U,G)$.\\
 		Now we construct the inverse mapping: let $\tau\in C^\infty(U,G)$. Then we define 
-		$$\sigma=\tau\circ \pi|_U:P|_U\rightarrow U\rightarrow G$$
-		The action of this map has the following property:
-		$$\sigma\circ r_g=\tau\circ \pi|_U\circ r_g$$
+		$$\sigma\circ r_g\circ s=c_{g^{-1}}\circ\tau$$
+		Clearly, since the above property holds for every $g\in G$, we have:
+		$$\sigma\circ r_g\circ s=c_{g^{-1}}\circ \tau=c_{g^{-1}}\circ \sigma\circ s$$
+		This proves that the inverse map is well defined. Lastly, those maps are clearly one the inverse of the other. This proves the claim.
+	\end{proof}
+	The previous result tells us that after choosing a local gauge, we can express every bundle automorphism as a $G$-valued map on the manifold.
+	\section{Gauge transformations on the associated bundle}
+	In this section we will look at the natural action of gauge transformations on an associated bundle of a principal bundle. More indormations on thuis topic can be found in [3] chap. 5. pag. 265-278.
+	\begin{Prop}
+		Let $(P,M,\pi,G)$ be a principal $G$-bundle and $\rho$ a representation of $G$. Let $E=P\times_\rho V$ be the associated bundle under this representation. Then there is a natural action of the gauge group on the associated bundle:
+		$$\mathcal{G}(P)\times E\rightarrow E\hbox{ acting like:}(f,[p,v])\rightarrow [f(p),v]=[p\cdot \sigma_f(p),v]$$
+	\end{Prop}
+	\begin{proof}
+		The map is well defined since it does not depend on the representative:
+		$$[f(q),w]=[f(p\cdot g),\rho(g^{-1})v]=[f(p)\cdot g,\rho(g?{-1})v]$$
 	\end{proof}
 	\chapter{The Yang-Mills Gauge theory}
 	In this chapter we will use the knowledge exposed previously to construct the famous Yang-Mills Lagrangian and look at some properties of it. More informations on this topic can be found in REFERENZA
