@@ -1044,7 +1044,6 @@
 	Clearly, given a base $\{v_i\}$ for $V$, we can express any $V$-valued $k$-form on $M$ as a linear combination:
 	$$\omega=\omega^i\otimes v_i \hbox{ and } \omega^i\in \bigwedge^k TM^*$$
 	where obviously we imply the summation on contracted indices. \\
-	\\
 	We can also define a product between $V$-valued $k$-forms. Let $V,W,U,Z$ be vector spaces. It is known from linear algebra that, if $\omega\in Hom(\bigwedge^kV,W)$ and $\eta\in Hom(\bigwedge^lV,U)$ are covectors and $\mu:W\times U\rightarrow Z$ is a multilinear map, we have a natural induced multilinear alternating map:
 	$$\omega\cdot \eta(v_1,...,v_{k+l})=\sum_\sigma sgn(\sigma)\mu(\omega(v_{\sigma(1)}),...,v_{\sigma(k)},\eta(v_{\sigma(k+1)}),...,v_{\sigma(k+l)})$$
 	We can use this map to define a generic product between forms:
@@ -1099,6 +1098,14 @@
 		$$f^*(\alpha\cdot\beta)=f^*(\alpha^i\wedge\beta^j)\mu(v_i,w_j)=(f^*\alpha^i\wedge f^*\beta^j)\mu(v_i,w_j)$$
 		The last property follows immediatly from the fact that for real valued forms the pullback commutes with the exterior derivative.
 	\end{proof}
+	\begin{Ex}
+		Let $G$ be a Lie group. We define the \textit{Maurer–Cartan form} $\theta$ as:
+		$$\theta_g(X_g)=dl_{g^{-1}}X_g$$
+		This is obviously a $\mathfrak{g}$ valued $1$-form. One can prove the following:
+		$$r_g^*\theta=Ad(g^{-1})\theta$$
+		This is a straightforward calculation:
+		$$(r_g^*\theta)_{h}(X_{h})=\theta_{gh}(dr_gX_h)=dl_{(gh)^{-1}}dr_gX_h=Ad(g^{-1})dl_{h^{-1}}X_h$$
+	\end{Ex}
 	Lastly, one can further generalize the notion of $k$-form by letting them take values on a vector bundle.
 	\begin{Def}
 		Let $(E,M,\pi, \mathbb{R}^n)$ be a vector bundle. We define an $E$-valued $k$-form as a section of $\bigwedge^kTM^*\otimes E$. We denote the space of smooth $E$-valued $k$-forms with $\Gamma(\bigwedge^kTM^*\otimes E)$.
@@ -1142,7 +1149,7 @@
 	\begin{Def}
 		We will call a section of a principal bundle $s:U\subset M\rightarrow E$ a \textit{local gauge}. If the section is global we will call it \textit{global gauge}.
 	\end{Def}
-	Before going on we would like to define yet another important concept: the transition functions.
+	We now define yet another important concept: the transition functions.
 	\begin{Def}
 		Let $(P,M,\pi,G)$ be a principal bundle. Let $\phi_i:\pi^{-1}(U_i)\rightarrow U_i\times G$ and $\phi_j:\pi^{-1}(U_j)\rightarrow U_j\times G$ two local trivializations such that $U_i\cap U_j\neq\emptyset$. Then $\phi_i\circ\phi^{-1}_j:(U_i\cap U_j)\times G\rightarrow (U_j\cap U_i)\times G$ acts like: $\phi_i\circ\phi^{-1}_j(x,h)=(x,g_{ij}(x)h)$. We call \textit{transition function} between $\phi_i$ and $\phi_j$ the map $g_{ij}:U_i\cap U_j\rightarrow G$. 
 	\end{Def}
@@ -1157,11 +1164,24 @@
 		The transition functions satisfy the following properties:
 		\begin{itemize}
 			\item $g_{ii}=e$
-			\item $g_{ij}g_{ji}^{-1}$
+			\item $g_{ij}=g_{ji}^{-1}$
 		\end{itemize}
 	\end{Prop}
 	\begin{proof}
 		The proof can be found in [2] pag. 245.
+	\end{proof}
+	A key result is that, given a local gauge, we can construct a local trivialization on the open set it is defined on:
+	\begin{Prop}
+		Let $(E,M,\pi,G)$ be a principal bundle. Let $s:U\subset M\rightarrow E$ be a smooth local gauge. Then, the map:
+		$$\varphi^{-1}: U\times G\rightarrow P$$
+		$$(x,p)\rightarrow s(x)\cdot p$$
+		is a local trivialization.
+	\end{Prop}
+	\begin{proof}
+		We now give an idea of the proof.
+		We have to show that this map is a $G$-equivariant diffeomorphism. By smoothness of $s$ and of the right action, this map is smooth. The $G$-equivariance is clear:
+		$$\varphi(x,hg)=s(x)\cdot hg=(s(x)\cdot h)\cdot g=\varphi(x,g)\cdot h$$
+		Furthermore, one can prove the map is bijective and that the inverse is smooth.
 	\end{proof}
 	We are now going to construct one of the most important principal bundles: the frame bundle. This is a principal bundle constructed from a pre-existing vector bundle.
 	\section{The frame manifold}
@@ -1431,7 +1451,7 @@
 		\section{Connections and horizontal subbundle}
 		In this section we introduce the notions of horizontal sub-bundle and Ehresmann connection. More information on this subject can be found in [2] chap. 6 pag. 251, 252.\\
 		\\
-		We have seen that on a principal $G$-bundle there is a canonical well defined vertical subbundle $\mathcal{V}$ of the tangent bundle $TE$. We say thet there is an \textit{horizontal distribution} $\mathcal{H}$ if $TE=\mathcal{H}\oplus\mathcal{V}$. This means that for every point $x\in TE$ we have $T_{x}E=\mathcal{H}_{x}\oplus\mathcal{V}_{x}$ with $\mathcal{H}_{x}\cap\mathcal{V}_{x}=0$.
+		We have seen that on a principal $G$-bundle there is a canonical well defined vertical subbundle $\mathcal{V}$ of the tangent bundle $TE$. We say thet there is an \textit{horizontal distribution} $\mathcal{H}$ if $TE=\mathcal{H}\oplus\mathcal{V}$. This means that for every point $x\in E$ we have $T_{x}E=\mathcal{H}_{x}\oplus\mathcal{V}_{x}$ with $\mathcal{H}_{x}\cap\mathcal{V}_{x}=0$.
 		\\
 		\\
 		In general, there is no canonically defined horizontal distribution on a principal $G$-bundle. This comes from the fact that the complement of $\mathcal{V}_x$ is not unique. We will see that choosing an horizontal distribution means choosing a connection on the principal bundle. 
@@ -1552,7 +1572,7 @@
 			$$\Omega=d\omega+{1\over 2}[\omega,\omega]$$
 		\end{Def}
 		Clearly, by definition of exterior derivative and by extension of the commutator on the space of $\mathfrak{g}$-valued forms, $\Omega\in \Omega^2(E,\mathfrak{g})$. 
-		\begin{Theo}
+		\begin{Theo}\label{Theo_5.5.1}
 			Let $(E,M,\pi,G)$ be a principal $G$-bundle and $\omega$ an Ehresmann connection on it and let $\Omega$ the curvature of $\omega$. Then the following properties hold:
 			\begin{itemize}
 				\item the curvature is \textit{horizontal}: for every $X_p,Y_p\in T_pE$,
@@ -1644,7 +1664,7 @@
 		instead $\omega$ is said to be \textit{horizontal} if it vanishes whenever one of it's arguments is a vertical vector. If a form is both right-equivariant of type $\rho$ and vertical it is called \textit{tensorial of type $\rho$}. We label the space of all smooth tensorial $k$-forms of type $\rho$ with $\Omega^k_\rho(P,V)$.
 	\end{Def}
 	\begin{Ex}
-		CURVATURA TENSORIALE DI TIPO AD
+		By theorem \ref{Theo_5.5.1}, the curvature $\Omega$ is a tensorial $2$-form of type Ad.
 	\end{Ex}
 	\begin{Theo}(\textbf{Musical isomorphism})
 		There is a well defined linear isomorphism:
@@ -1729,16 +1749,51 @@
 		$$\sigma\circ r_g\circ s=c_{g^{-1}}\circ \tau=c_{g^{-1}}\circ \sigma\circ s$$
 		This proves that the inverse map is well defined. Lastly, those maps are clearly one the inverse of the other. This proves the claim.
 	\end{proof}
-	The previous result tells us that after choosing a local gauge, we can express every bundle automorphism as a $G$-valued map on the manifold.
-	\section{Gauge transformations on the associated bundle}
-	In this section we will look at the natural action of gauge transformations on an associated bundle of a principal bundle. More indormations on thuis topic can be found in [3] chap. 5. pag. 265-278.
+	The previous result tells us that after choosing a local gauge, we can express every bundle automorphism as a $G$-valued map on the manifold.\\
+	Now we briefly look at how a gauge transformation acts on the associated bundle of a principal bundle.
 	\begin{Prop}
 		Let $(P,M,\pi,G)$ be a principal $G$-bundle and $\rho$ a representation of $G$. Let $E=P\times_\rho V$ be the associated bundle under this representation. Then there is a natural action of the gauge group on the associated bundle:
 		$$\mathcal{G}(P)\times E\rightarrow E\hbox{ acting like:}(f,[p,v])\rightarrow [f(p),v]=[p\cdot \sigma_f(p),v]$$
 	\end{Prop}
 	\begin{proof}
 		The map is well defined since it does not depend on the representative:
-		$$[f(q),w]=[f(p\cdot g),\rho(g^{-1})v]=[f(p)\cdot g,\rho(g?{-1})v]$$
+		$$[f(q),w]=[f(p\cdot g),\rho(g^{-1})v]=[f(p)\cdot g,\rho(g^{-1})v]$$
+	\end{proof}
+	\section{Gauge transformations of forms}
+	In this section we compute how the connection $1$-forms and the curvature change under a change of local gauge. More information on this topic can be found in: REFERENZA
+	\begin{Obs}
+		Consider a connection $1$-form $A$ on a principal bundle $(P,M,\pi,G)$. Then, $A$ is an element of $\Omega^1(P,\mathfrak{g})$. For any local gauge $s:U\rightarrow P$, we can define a $\mathfrak{g}$-valued form on the manifold through the pullback:
+		$$A_M=s^*A;\hbox{ so that }A_M\in \Omega^1(U,\mathfrak{g})$$
+		Clearly, given a base for the Lie algebra $\{T^a\}$, we can expand:
+		$$A_M=A_{Ma}\otimes T^a$$
+		So, given any section of the principal bundle, we can pullback the connection $1$-form to a form on the manifold, which however depends on the section.
+	\end{Obs}
+	\begin{Prop}
+		Let $G$ be a Lie group right-acting on a manifold $P$ and let $\mu:P\times G\rightarrow P$ be the action. Then the differential of the action is given by:
+		$$d\mu_{(p,g)}:T_pP\oplus T_gG\rightarrow T_{p\cdot g}P$$
+		$$d\mu_{(p,g)}(X_p,dl_gA)=dr_g(X_p)+(\overline{A}_{pg})$$
+		where $X_p\in T_pP,A\in\mathfrak{g}$
+	\end{Prop}
+	\begin{proof}
+		The differential of the action is by definition a map like:
+		$$d\mu_{(p,g)}:T_pP\oplus T_gG\rightarrow T_{p\cdot g}P$$
+		Thus, any element of $T_pP\oplus T_gG$ can be seen as $(X_p,Y_g)$, where $Y_g$ can be related to a specific element of the Lie algebra $\mathfrak{g}$ through the diffeomorphism $dl_g$ given by the left translation: $Y_g=dl_gA$.
+		By definition of differential:
+		$$d\mu_{(p,g)}(X_p,dl_gA)f=(X_p,dl_gA)(f\circ \mu(p,g))=(X_p(f\circ r_g(p)),dl_gA(f\circ l_p(g)))$$
+		where we have indicated with $l_p(g)=p\cdot g$ the left translation with $p$. Clearly, the first term can be rewritten like: $dr_gX_p(f)$. As for the second term instead, by definition of differential:
+		$$dl_gA(f\circ l_p(g))=dl_p\circ dl_gA(f)$$
+		However, $dl_p\circ dl_g=dj_{pg}$ and so we get the result:
+		$$d_\mu{(p,g)}(X_p,dl_gA)=dr_g(X_p)+\overline{A}_{p\cdot g}$$
+	\end{proof}
+	\begin{Theo}
+		Let $(P,M,\pi,G)$ be a principal $G$-bundle and $A$ a connection on it. Let $s_1,s_2:U\rightarrow P$ be local gauges and $A_{i}=s_i^*A$ the pulled-back connections on the manifold. Then 
+		$$A_i=Ad(g_{ij}^{-1})A_j+\mu_{ij}$$
+		Where $g_{ji}$ is the transition function between the local trivializations $s_i,s_j$ and $\mu_{ij}=g_{ij}^*\theta$ with $\theta$ the Maurer-Cartan form.
+	\end{Theo}
+	\begin{proof}
+		By construction, $A_i=s_i^*A$ so that for any vector field $X\in \Gamma(P)$, we have:
+		$$s^*A(X)=A(ds(X))$$
+		Let $p\in P$ and $x\in M$
 	\end{proof}
 	\chapter{The Yang-Mills Gauge theory}
 	In this chapter we will use the knowledge exposed previously to construct the famous Yang-Mills Lagrangian and look at some properties of it. More informations on this topic can be found in REFERENZA
@@ -1812,8 +1867,6 @@
 	SPAZIO CURVO???
 	\section{The U(1) Yang-Mills lagrangian}
 	In this section we will use the Maxwell's equation to deduce the general form of the Yang-Mills lagrangian for electromagnetism. More references on this topic can be found in: REFERENZA
-	\\
-	\\
 	\begin{Obs}
 		The lagrangian is the mathematical object used to describe the dynamics of our fields. A priori there are infinitely many lagrangians that we could consider. However, we would like to set some restrictions to them. Namely, any lagrangian considered should have the following qualities:
 		\begin{itemize}
