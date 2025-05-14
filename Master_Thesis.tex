@@ -1181,8 +1181,18 @@
 		We now give an idea of the proof.
 		We have to show that this map is a $G$-equivariant diffeomorphism. By smoothness of $s$ and of the right action, this map is smooth. The $G$-equivariance is clear:
 		$$\varphi(x,hg)=s(x)\cdot hg=(s(x)\cdot h)\cdot g=\varphi(x,g)\cdot h$$
-		Furthermore, one can prove the map is bijective and that the inverse is smooth.
+		Furthermore, one can prove the map is bijective and that the inverse is smooth. The full proof is in [3] chap. 4 pag. 210, 211.
 	\end{proof}
+	\begin{Obs}
+		Note that, given two sections $s_{1,2}:U\rightarrow P$ on the same open set $U$, we have two local trivializations:
+		$$\phi^{-1}_{1,2}(x,g)=s_{1,2}(x)\cdot g$$
+		then it is obvious that, by definition of transition function: 
+		$$\phi_1\circ\phi_2^{-1}(x,g)=(x,g_{12}(x)\cdot g)=\phi_1(s_{2}(x)\cdot g)$$
+		By applying on both sides $\phi_1^{-1}$ we find:
+		$$s_2\cdot g=s_1(x)\cdot g_{12}\cdot g$$
+		Clearly, we have the following relation between the two sections:
+		$$s_2(x)=s_1(x)\cdot g_{12}$$
+	\end{Obs}
 	We are now going to construct one of the most important principal bundles: the frame bundle. This is a principal bundle constructed from a pre-existing vector bundle.
 	\section{The frame manifold}
 	In this section we will introduce the notion of frame manifold of a vector space. We will show that the frame manifold is indeed a smooth manifold. For more information the reader is advised to look at: [2] chap. 6 pag. 241-252.
@@ -1768,7 +1778,7 @@
 		$$A_M=A_{Ma}\otimes T^a$$
 		So, given any section of the principal bundle, we can pullback the connection $1$-form to a form on the manifold, which however depends on the section.
 	\end{Obs}
-	\begin{Prop}
+	\begin{Prop}\label{Prop_7.2.1}
 		Let $G$ be a Lie group right-acting on a manifold $P$ and let $\mu:P\times G\rightarrow P$ be the action. Then the differential of the action is given by:
 		$$d\mu_{(p,g)}:T_pP\oplus T_gG\rightarrow T_{p\cdot g}P$$
 		$$d\mu_{(p,g)}(X_p,dl_gA)=dr_g(X_p)+(\overline{A}_{pg})$$
@@ -1783,17 +1793,32 @@
 		where we have indicated with $l_p(g)=p\cdot g$ the left translation with $p$. Clearly, the first term can be rewritten like: $dr_gX_p(f)$. As for the second term instead, by definition of differential:
 		$$dl_gA(f\circ l_p(g))=dl_p\circ dl_gA(f)$$
 		However, $dl_p\circ dl_g=dj_{pg}$ and so we get the result:
-		$$d_\mu{(p,g)}(X_p,dl_gA)=dr_g(X_p)+\overline{A}_{p\cdot g}$$
+		$$d\mu_{(p,g)}(X_p,dl_gA)=dr_g(X_p)+\overline{A}_{p\cdot g}$$
 	\end{proof}
 	\begin{Theo}
 		Let $(P,M,\pi,G)$ be a principal $G$-bundle and $A$ a connection on it. Let $s_1,s_2:U\rightarrow P$ be local gauges and $A_{i}=s_i^*A$ the pulled-back connections on the manifold. Then 
 		$$A_i=Ad(g_{ij}^{-1})A_j+\mu_{ij}$$
-		Where $g_{ji}$ is the transition function between the local trivializations $s_i,s_j$ and $\mu_{ij}=g_{ij}^*\theta$ with $\theta$ the Maurer-Cartan form.
+		Where $g_{ji}$ is the transition function between the local trivializations $s_i,s_j$ while the form $\mu_{ij}=g_{ij}^*\theta$ is the pullback of $\theta$ the Maurer-Cartan form.
 	\end{Theo}
 	\begin{proof}
-		By construction, $A_i=s_i^*A$ so that for any vector field $X\in \Gamma(P)$, we have:
+		By construction, $A_i=s_i^*A$ so that for any vector field $X\in \Gamma(U)$, we have:
 		$$s^*A(X)=A(ds(X))$$
-		Let $p\in P$ and $x\in M$
+		The two sections induce trivializations by PROPOSIZIONE. Furthermore, by OSSERVAZIONE, we know that the relation between the two sections at any point $x\in U$ is:
+		$$s_i(x)=s_j(x)\cdot g_{ji}(x)=\mu(s_j(x),g_{ji}(x))$$
+		By taking the differential:
+		$$ds_{i,x}(X_x)=d\mu_{(s_{j}(x), g_{ji}(x))}(ds_{j,x}(X_x),dg_{ji,x}(X_x))$$
+		Now, the mapping $g_{ji}:M\rightarrow G$ has as differential $dg_{ji,x}:T_xM\rightarrow T_{g_{ji}(x)}G$, so that it takes $X_x$ into a tangent vector to $G$ at $g_{ji}(x)$. Thus, since for every $h\in G$ the left action is a diffeomorphism, there exists an element of the Lie algebra, which we will call $T$, such that 
+		$$dl_{g_{ji}(x)}(T)=dg_{ji,x}(X_x)$$
+		This in turn implies:
+		$$T=dl_{g^{-1}_{ji}(x)}\circ dg_{ji,x}(X_x)$$
+		Moreover, applying the result obtained in proposition \ref{Prop_7.2.1} we find:
+		$$d\mu_{(s_{j}(x), g_{ji}(x))}(ds_{j,x}(X_x),dg_{ji,x}(X_x))=d\mu_{(s_{j}(x), g_{ji}(x))}(ds_{j,x}(X_x),dl_{g_{ji}(x)}(T))=$$
+		$$=dr_{g_{ji}(x)}\circ ds_{j,x}(X_x)+\overline{T}_{s_{j}(x)\cdot g_{ji}(x)}$$
+		Finally, feeding this to $A_i$, we get:
+		$$A_{i,s_i(x)}(dr_{g_{ji}(x)}\circ ds_{j,x}(X_x)+\overline{T}_{s_{j}(x)\cdot g_{ji}(x)})=r^*_{g_{ji}(x)}A_{i,{s_i(x)}}(ds_{j,x}(X_x))+T$$
+		Where in the last line we have applied the defining properties of the connection $1$-forms. Substituting back the expression for $T$ we get:
+		$$r^*_{g_{ji}(x)}A_{i,{s_i(x)}}(ds_{j,x}(X_x))+dl_{g^{-1}_{ji}(x)}\circ dg_{ji,x}(X_x)=r^*_{g_{ji}(x)}A_{i,{s_i(x)}}(ds_{j,x}(X_x))+(g^*_{ji}\theta)_x(X_x)$$
+		This completes the proof.
 	\end{proof}
 	\chapter{The Yang-Mills Gauge theory}
 	In this chapter we will use the knowledge exposed previously to construct the famous Yang-Mills Lagrangian and look at some properties of it. More informations on this topic can be found in REFERENZA
