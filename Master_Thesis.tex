@@ -93,7 +93,7 @@
 			\label{figura 1}
 			\caption{The two charts $U_1$ and $U_2$ on the unit circle.}
 		\end{figure}
-		To those charts we add analogously $$(U_3=\{x^2+y^2=1;x>0\},\phi_3)\, and \, (U_4=\{x^2+y^2=1;x<0\},\phi_4)$$ with $\phi_3(x,y)=y$ and $\phi_4(x,y)=y$. By construction, $\phi_i$ is an homeomorphism for every $i$. It remains to show that the charts are compatible.\\
+		To those charts we add analogously $$(U_3=\{x^2+y^2=1;x>0\},\phi_3)\, and \, (U_4=\{x^2+y^2=1;x<0\},\phi_4)$$ with $\phi_3(x,y)=y$ and $\phi_4(x,y)=y$. By construction, $\phi_i$ is a homeomorphism for every $i$. It remains to show that the charts are compatible.\\
 		Consider the composition $\phi_3\circ\phi_2^{-1}$, this is such that: $$(\phi_3\circ\phi_2^{-1})(x)=\phi_3(x,-\sqrt{1-x^2})=-\sqrt{1-x^2}$$ for $x\in ]0,1[$, which is $C^\infty$. The compatibility of the remaining charts follows by an analogous proof. This proves the circle is a smooth manifold.
 	\end{Ex}
 	\begin{Def}
@@ -115,7 +115,7 @@
 		The definition of smoothness we gave does not depend on the choice of the chart. In fact if $(U,\phi)$ and $(V,\psi)$ are two charts of $M$ and $f\circ\phi^{-1}$ is $C^\infty$, then $$f\circ\psi^{-1}=(f\circ\phi^{-1})\circ(\phi\circ\psi^{-1})$$ which is still $C^\infty$.
 	\end{Obs}
 	\begin{Obs}
-		If $f:M\rightarrow \mathbb{R}$ is $C^\infty$ then it is continuous. One can in fact write $f=(f\circ\phi^{-1})\circ \phi$ where $\phi$ and $f\circ\phi^{-1}$ are continuous: $f\circ\phi^{-1}$ is $C^\infty$ and $\phi$ is an homeomprphism. It follows that, by composition of continuous maps, that $f$ is continuous.\\
+		If $f:M\rightarrow \mathbb{R}$ is $C^\infty$ then it is continuous. One can in fact write $f=(f\circ\phi^{-1})\circ \phi$ where $\phi$ and $f\circ\phi^{-1}$ are continuous: $f\circ\phi^{-1}$ is $C^\infty$ and $\phi$ is an homeomorphism. It follows that, by composition of continuous maps, that $f$ is continuous.\\
 	\end{Obs}
 	\begin{Def}
 		Let $N$ and $M$ be smooth manifolds of dimensions $n$ and $m$. A continuous map $f:N\rightarrow M$ is said to be $C^\infty$ in $p\in N$ if there are two charts $(U,\phi)$ centered in $p\in N$ and $(V,\psi)$ centered in $f(p)\in M$ such that $\psi\circ f\circ \phi$ is $C^\infty$.
@@ -132,7 +132,7 @@
 		Consider all pairs $(f,U)$, where $U\subset M$ is an open set containing $p\in M$ and $f:U\rightarrow \mathbb{R}$ is a $C^\infty$ map. We say that $(f,U)\sim(g,V)$ if there exists an open set $W\subset U\cap V$ containing $p$, such that $f=g$ when restricted to $W$. We define the \textit{germ} of $f$ in $p$ as the equivalence class of $(f,U)$.
 		The set of all germs of $C^\infty$ functions at $p\in M$ is labeled with $C^\infty_p(M)$.
 	\end{Def}
-	It is not difficult to verify that the so defined relation is an equivalence relation: if $f\sim g$ then obviously $g\sim f$ at $p$. Moreover we clearly have that $f\sim f$ and if $f\sim g$, $g\sim h$, then $f\sim h$ since all of the above functions are equal in a neighborhood of $p$.\\
+	It is not difficult to verify that the defined relation is an equivalence relation: if $f\sim g$ then obviously $g\sim f$ at $p$. Moreover we clearly have that $f\sim f$ and if $f\sim g$, $g\sim h$, then $f\sim h$ since all of the above functions are equal in a neighborhood of $p$.\\
 	\\
 	By generalizing the concept of derivation in $\mathbb{R}^n$, we call \textit{derivation} in $p\in M$ any linear map $D_p:C^\infty_p(M)\rightarrow\mathbb{R}$ which respects the Leibniz rule:
 	$$D_p(fg)=D_p(f)g(p)+f(p)D_p(g)$$
@@ -160,7 +160,7 @@
 		$$dF_p\bigg{(}{\partial\over \partial x^j}\bigg{)}y^i=\sum_{k=1}^{m}d_j^k{\partial\over \partial y^k}\bigg{\rvert}_{F(p)}y^i=d_j^i$$
 		Moreover, knowing that, by definition of differential, it holds $dF_p(X_p)f=X_p(f\circ F)$, we can further expand:
 		$$dF_p\bigg{(}{\partial\over \partial x^j}\bigg{)}y^i={\partial\over \partial x^j}\bigg{\rvert}_p(y^i\circ F)={\partial F^i\over \partial x^j}(p)=d^i_j$$
-		Thus, the matrix which defines the differential of $F$ in a point $p$ is exactly the jacobian matrix of $F$ evaluated at $p$.
+		Thus, the matrix which defines the differential of $F$ in a point $p$ is exactly the Jacobian matrix of $F$ evaluated at $p$.
 	\end{Ex}
 	We now define the concept of vector field.
 	\begin{Def}
@@ -207,7 +207,7 @@
 	Let $(U,\phi)$ be a chart on $M$ with $\phi:U\rightarrow \mathbb{R}^n$. Then, any vector in $p\in U$ can be written in local coordinates: $v_p=v^i_p\partial_i|_p$. Now we construct the following mapping:
 	$$\Phi:TU\rightarrow \phi(U)\times \mathbb{R}^n; \hbox{ like: }
 	\Phi(p,v_p)=(x^i_pe_i,v^i_p\partial_i|_p)$$
-	This mapping is 1-1 and surjective so it is a bijection. Moreover, it is continuous. Thus, it is an homeomorphism.
+	This mapping is 1-1 and surjective so it is a bijection. Moreover, it is continuous. Thus, it is a homeomorphism.
 	\begin{Theo} \label{Theo_1.1}
 		The tangent bundle $TM$ has a second countable and Hausdorff topology
 	\end{Theo}
@@ -221,9 +221,9 @@
 	\begin{proof}
 		Consider an Atlas $\mathfrak{A}_M=\{U_\alpha,\phi_\alpha\}$ for the manifold $M$. We want to show that the induced collection $\mathfrak{A}_{TM}=\{TU_\alpha,\Phi_\alpha\}$ is an atlas on $TM$, knowing that $TM=\bigcup TU_\alpha$ and $\Phi_\alpha:TU_\alpha\rightarrow U_\alpha\times \mathbb{R}^n$ is the map constructed in the previous section.\\
 		\\
-		As we have said previously, the maps $\Phi_\alpha$ are homeomorphisms between open sets of $TM$ and $\mathbb{R}^{2n}$. This makes $TM$ locally euclidean. It remains to check the compatibility between two overlapping charts.\\
+		As we have said previously, the maps $\Phi_\alpha$ are homeomorphisms between open sets of $TM$ and $\mathbb{R}^{2n}$. This makes $TM$ locally Euclidean. It remains to check the compatibility between two overlapping charts.\\
 		\\
-		Consider two overlapping charts $\Phi_1,\Phi_2$ on $TU_1,TU_2$ open sets of the tangent bundle, with $TU_1\cap TU_2\neq \emptyset$. Then on the two corresponding charts $(U_1,\phi_1)$, $(U_2,\phi_2)$ on $M$, we can express tangent vectors in two different coordinate basis:
+		Consider two overlapping charts $\Phi_1,\Phi_2$ on $TU_1,TU_2$ open sets of the tangent bundle, with $TU_1\cap TU_2\neq \emptyset$. Then on the two corresponding charts $(U_1,\phi_1)$, $(U_2,\phi_2)$ on $M$, we can express tangent vectors in two different coordinate bases:
 		$$v=a^i{\partial\over \partial{x^i}}=b^j{\partial \over \partial y^j}$$
 		Clearly at any point:
 		$$a^i=b^j{\partial x^i\over\partial y^j} \hbox{ and } b^j=a^i{\partial y^j\over\partial x^i}$$
@@ -244,7 +244,7 @@
 	\section{Forms on manifolds}
 	In this section we will introduce the concept of forms on smooth manifolds and see some properties of them. More informations on this topic can be found in [1] chap. 3 and [2] chap. 1.\\
 	\\
-	Given a smooth manifold $M$, at any point $p\in M$ we can consider it's tangent space $T_pM$. Given that this is a vector space, we can look at its dual $T_pM^*$. 
+	Given a smooth manifold $M$, at any point $p\in M$ we can consider its tangent space $T_pM$. Given that this is a vector space, we can look at its dual $T_pM^*$. 
 	\begin{Def}
 		An element of $T_pM^*$ is called \textit{co-vector}. We call a function that assigns to any point of $M$ a co-vector a \textit{1-form}.
 	\end{Def}
@@ -258,7 +258,7 @@
 	\end{Obs}
 	The most important example of a form is the differential:
 	\begin{Prop} \label{df_is_a_form}
-		Let $f$ be a $C^\infty$ function on $M$. Then it's differential is a 1-form.
+		Let $f$ be a $C^\infty$ function on $M$. Then its differential is a 1-form.
 	\end{Prop}
 	\begin{proof}
 		By definition of differential, if $X$ is a vector field, at any $p$ we can write:
@@ -276,10 +276,10 @@
 		Where $a_i(p)$ are real numbers, depending on the point.
 		Then, by feeding this differential our coordinate functions we get:
 		$$df_p\bigg({\partial\over \partial x^j}\bigg|_p\bigg)=a_i(p)\delta^i_j={\partial\over \partial x^j}\bigg|_pf$$
-		So that we can expliticly write for any point inside $U$:
+		So that we can explicitly write for any point inside $U$:
 		$$df={\partial\over \partial x^i}\bigg|_pfdx^i=\partial_ifdx^i$$
 	\end{Obs}
-	We now look at the exterior algebra of the tangent space, in order to generalize the concept of 1-forms. The dual tangent space is a vector space and so one can define it's exterior power $\bigwedge^k T_pM^*$. This set contains skew symmetric elements of the form:
+	We now look at the exterior algebra of the tangent space, in order to generalize the concept of 1-forms. The dual tangent space is a vector space and so one can define its exterior power $\bigwedge^k T_pM^*$. This set contains skew symmetric elements of the form:
 	$$\omega^1_p\wedge \omega^2_p\wedge...\wedge \omega^k_p$$
 	Furthermore, we can define the set:
 	$$\bigwedge^k TM^*=\bigsqcup_{p\in M}\bigwedge^k T_pM^*$$
@@ -318,12 +318,12 @@
 		The proof can be found in [2] Appendix pag. 303.
 	\end{proof}
 	\section{Orientation on smooth manifolds}
-	In this section we will briefly sudy the notion of orientation and integration on a smooth manifold. In particular, we will define the volume form and the notion of orientable manifold. More references on this topic can be found in [1] chap. 6.
+	In this section we will briefly study the notion of orientation and integration on a smooth manifold. In particular, we will define the volume form and the notion of orientable manifold. More references on this topic can be found in [1] chap. 6.
 	\\
 	\\
 	We first of all define the notion of orientation on a generic vector space. We will then generalize those definitions to our framework of smooth manifolds.
 	\begin{Def}
-		An \textit{orientation} on any finite dimensional vector space $V$ is the equivalence class of an ordered basis, under ther relation:
+		An \textit{orientation} on any finite dimensional vector space $V$ is the equivalence class of an ordered basis, under the relation:
 		$$[e_1,...,e_n]\sim[f_1,...,f_n]A$$
 		Where $A$ is an invertible matrix with positive determinant.
 	\end{Def}
@@ -340,7 +340,7 @@
 		The space $\mathbb{R}^n$ is orientable and an orientation is given by the global frame ${\partial\over \partial{r^i}}$ where $r^i$ are the standard coordinates.
 	\end{Ex}
 	\begin{Ex}
-		Ler $R=\{(x,y)\in \mathbb{R}^2|x\in[0,1], y\in [-1,1[\}$
+		Let $R=\{(x,y)\in \mathbb{R}^2|x\in[0,1], y\in [-1,1[\}$
 		The Möbius strip can be defined as the quotient: $R\over \sim$ where $(0,y)\sim(1,-y)$. We now show that this structure is not orientable.\\
 		Suppose that the Möbius strip is orientable. Let $U$ be the interior of the rectangle: $U=\{(x,y)\in \mathbb{R}^2|x\in]0,1[, y\in [-1,1[\}$. Assume an orientation given by the basis $e_1,e_2$ of the tangent space in this rectangle. By continuity of the orientation, those vectors will be an orientation also for the points $(0,0)$ and $(1,0)$. However, this basis at $(1,0)$ is mapped to $e_1,-e_2$ at $(0,0)$. This proves the orientation is not continuous and generates an absurd. Thus, the Möbius strip is not orientable.
 	\end{Ex}
@@ -367,14 +367,14 @@
 	\end{proof}
 	We now define a very important form on metric manifolds, called volume form. This will be crucial in the definition of the Hodge operator.
 	\begin{Def}
-		Let $(M,g)$ be a smooth metric manifold manifold and $(U,\phi)$ a chart with coordinates $\partial\over \partial x^i$. We define the volume form as:
+		Let $(M,g)$ be a smooth metric manifold and $(U,\phi)$ a chart with coordinates $\partial\over \partial x^i$. We define the volume form as:
 		$$\omega=\sqrt{|det(g^{ij})|}dx^1\wedge...\wedge dx^n$$
 	\end{Def}
 	This is clearly a nowhere vanishing form. It can be shown that, by applying the Gram–Schmidt process, the volume form takes the simpler form:
 	$$\omega=de^1\wedge...\wedge de^n$$
 	where $e^i$ is the orthonormal basis with respect to $g$ inside $U$. The proof is just a straightforward calculation and can be found in [2] chap. 3 pag. 134.
 	\section{Exterior derivative and Hodge operator}\label{Sec_1.7}
-	In this section we will introduce the notion of exterior derivative and hodge operator. More informations on those topic can be found in [3] chap. 7 pag 401-413.
+	In this section we will introduce the notion of exterior derivative and Hodge operator. More informations on those topic can be found in [3] chap. 7 pag 401-413.
 	\begin{Def}
 		Let $M$ be a smooth manifold and $(U,\phi)$ a chart. We define the \textit{exterior derivative} of a $k$-form $\omega=a_Idx^I$ as the $(k+1)$-form:
 		$$d\omega=da_I\wedge dx^I$$
@@ -393,14 +393,14 @@
 		The first property is just a consequence of the algebra of the exterior power. In particular, let $\omega=a_Idx^I$, $\beta=b_Jdx^J$ in our chart. Recalling that the differential of a $1$-form is linear and respects Leibniz:
 		$$d(a_Idx^I\wedge b_Jdx^J)=d(a_Ib_Jdx^I\wedge dx^J)=d(a_Ib_J)\wedge dx^I\wedge dx^J=$$
 		$$=da_I\wedge dx^I\wedge b_Jdx^J+a_Idb_J\wedge dx^I\wedge b_Jdx^J=d\omega\wedge\beta+(-)^{deg\omega}\omega\wedge db_J\wedge dx^J$$
-		As for the seconf property, it is a consequence of the symmetry of the Hessian matrix.\\
+		As for the second property, it is a consequence of the symmetry of the Hessian matrix.\\
 		Recall that the differential of a function is:
 		$$df=\partial_ifdx^i$$
 		Taking again the differential we get second derivatives:
 		$$d^2f=\partial_j\partial_i f dx^j\wedge dx^i$$
 		However, while the second partial derivation is symmetric, the wedge product is skew-symmetric. This gives 0 as a result.
 	\end{proof}
-	The above properties of the exterior derivative con be shown to define it in a unique way on any smooth manifold.
+	The above properties of the exterior derivative can be shown to define it in a unique way on any smooth manifold.
 	\begin{Theo}
 		On any smooth manifold $M$ there exists a unique exterior derivative $d$ such that:
 		\begin{itemize}
@@ -423,11 +423,11 @@
 	\begin{Obs}
 		The inner product on $M$ induces an inner product on forms. Namely, at any point $p\in M$ we have:
 		$$\braket{\alpha^1_p\wedge...\wedge \alpha^k_p,\beta^1_p\wedge...\wedge\beta^k_p}=det(\braket{\alpha^i_p,\beta^j_p}_{i,j\in[1,k]})$$
-		In particular, at any $p\in M$, we have a smooth inner product of vectors. Since $g$ is a bilinear, symmetric and non degenerate, it induces an isomorphism on the cotangent space at any point. The inner prduct of 1-forms is defined as being equal to the inner product of the corresponding vectors. More on this construction will be said in section \ref{Sec_3.3}.
+		In particular, at any $p\in M$, we have a smooth inner product of vectors. Since $g$ is a bilinear, symmetric and non degenerate, it induces an isomorphism on the cotangent space at any point. The inner product of 1-forms is defined as being equal to the inner product of the corresponding vectors. More on this construction will be said in section \ref{Sec_3.3}.
 		The extension of this product to $k$-forms is clearly symmetric. The bilinearity follows from the multilinearity of the determinant for sums of rows and columns. As for the non degeneracy, it is a consequence of the non degeneracy of $\braket{,}$. Lastly, since $\braket{,}$ is smooth, this induced product is also smooth.
 	\end{Obs}
 	\begin{Def}
-		Let $(M,g)$ be a pseudo Riemannian orientable manifold of dimension $n$. Let $\omega$ denote the volume form. We define the \textit{Hodge operator} acting on $k$-forms as:
+		Let $(M,g)$ be a pseudo-Riemannian orientable manifold of dimension $n$. Let $\omega$ denote the volume form. We define the \textit{Hodge operator} acting on $k$-forms as:
 		$$\star:\bigwedge^kTM^*\rightarrow \bigwedge^{n-k}TM^*$$
 		such that at any $p\in M$, for every $\alpha_p,\beta_p\in\bigwedge^kT_pM^*$ we have:
 		$$\alpha_p\wedge(\star\beta_p)=\braket{\alpha_p,\beta_p}\omega_p$$
@@ -518,7 +518,7 @@
 		A \textit{topological group} $G$ is a topological space with the group structure, such that the multiplication $\cdot:G\times G\rightarrow G$ and the inversion $i:G\rightarrow G$ defined as $i(g)=g^{-1}$ are both continuous.
 	\end{Def}
 	\begin{Ex}
-		$\mathbb{R}^n$ with the euclidean topology is a topological abelian group with the usual sum.
+		$\mathbb{R}^n$ with the Euclidean topology is a topological abelian group with the usual sum.
 	\end{Ex}
 	We now define the concept of group action on a generic set $X$.
 	\begin{Def}
@@ -559,7 +559,7 @@
 	In this section we give the definition of Lie groups and subgroups, with some important results. More informations can be found in [1] pag. 164-174 chap. 4.
 	\begin{Def}
 		A \textit{Lie group} $G$ is a smooth manifold with a group structure, such that the operations $\cdot:G\times G\rightarrow G$ and inversion $i:G\rightarrow G$ are $C^\infty$.
-		A \textit{subgroup} $H$ of a Lie group $G$ is a immersed submanifold of $G$ which is still a group under the induce operations from $G$.
+		A \textit{subgroup} $H$ of a Lie group $G$ is an immersed submanifold of $G$ which is still a group under the induced operations from $G$.
 	\end{Def}
 	\begin{Ex}
 		Consider $GL_n(\mathbb{R})$, which was proven to be a smooth manifold. Given the row-column multiplication and the inverse $i$ which associates to a matrix its inverse, those make $GL_n(\mathbb{R})$ a group. Those operations can also be shown to be $C^\infty$ and so $GL_n(\mathbb{R})$ is a Lie group. To see the full proof consult [1] chap. 1 pag. 66.
@@ -659,7 +659,7 @@
 	\begin{Obs}
 		Since the left translation $l_g$ is a diffeomorphism, its differential is an isomorphism of vector spaces:
 		$$dl_g:T_eG\rightarrow T_gG$$
-		Thus, we can always express a tangent vector at $g\in G$ as  a left invariant vector field at that point.
+		Thus, we can always express a tangent vector at $g\in G$ as a left invariant vector field at that point.
 	\end{Obs}
 	\section{The exponential map}
 	In this section we will give the definition of exponential map and look at some properties of it. We will focus on matrix Lie groups since those will be the main object of gauge theories.
@@ -758,14 +758,14 @@
 		$$c_g=l_g\circ r_g^{-1}=r_g^{-1}\circ l_g$$
 		This is a map:
 		$$c_g:G\rightarrow G\hbox{ acting like } c_g(x)=gxg^{-1}$$
-		From this it is clear that the adjoint representation of a matrix lie group $G$ is just the differential of the conjugation operator.
+		From this it is clear that the adjoint representation of a matrix Lie group $G$ is just the differential of the conjugation operator.
 		$$\hbox{Ad}_g=dc_g$$
 	\end{Obs}
 	\begin{Obs}
 		Obviously, the adjoint representation of a Lie group of dimension $n$ is a representation of dimension $n$.
 	\end{Obs}
 	\section{Simple and semisimple Lie algebras}
-	In this section we will introduce the notions of simple and semisimple Lie algebras. We will also look at some properties and a criterion to establish if a Lie algebra is simple. Semisimple Lie algebras will be extremely important for the construction of the lagrangians since they will allow us to use a positive definite scalar product. The reader can find more information on this topic on [3] chap. 2, [5] chap. 3 and 4, [7] part 1 pag. 60,61, part 2 pag. 167-172.
+	In this section we will introduce the notions of simple and semisimple Lie algebras. We will also look at some properties and a criterion to establish if a Lie algebra is simple. Semisimple Lie algebras will be extremely important for the construction of the Lagrangians since they will allow us to use a positive definite scalar product. The reader can find more information on this topic on [3] chap. 2, [5] chap. 3 and 4, [7] part 1 pag. 60,61, part 2 pag. 167-172.
 	\begin{Def}
 		Let $\mathfrak{g}$ be a Lie algebra. We call \textit{ideal} of $\mathfrak{g}$ a subspace $\mathfrak{h}$ such that 
 		$$[\mathfrak{g},\mathfrak{h}]\subset\mathfrak{h}$$
@@ -779,7 +779,7 @@
 			\item \textit{semisimple} if it has no non 0 abelian ideals.
 		\end{itemize}
 	\end{Def}
-	We now give two criterion to establish when a Lie algebra is simple.
+	We now give two criteria to establish when a Lie algebra is simple.
 	\begin{Theo}
 		A Lie algebra $\mathfrak{g}$ is simple if and only if it is non abelian and its adjoint representation is irreducible.
 	\end{Theo}
@@ -851,7 +851,7 @@
 	\begin{proof}
 		The proof of this result requires tools which are not explained in this thesis and can be found in [3] chap. 2 pag. 106-108.
 	\end{proof}
-	We now introduce the concept of Killing form. Our aim is to find an inner product on $\mathfrak{g}$ which is non degenerate and positive definite. We will see that those requirements will be satisfied by the Killing form of a compact Lie algebra. This product, once found, will be used to define the Lagrangians.
+	We now introduce the concept of Killing form. Our aim is to find an inner product on $\mathfrak{g}$ which is non degenerate and positive definite. We will see that those requirements will be satisfied by the Killing form of a compact Lie algebra. This product, once found, will be used to define the Lagrangian.
 	\begin{Def}
 		Let $\mathfrak{g}$ be a finite dimensional Lie algebra on $\mathbb{K}=\mathbb{R},\mathbb{C}$. We define the \textit{Killing form} of $\mathfrak{g}$ as the map:
 		$$B_\mathfrak{g}:\mathfrak{g}\times \mathfrak{g}\rightarrow\mathbb{K}\hbox{ acting like } B_\mathfrak{g}(X,Y)=tr(\hbox{ad}_X\circ \hbox{ad}_Y)$$
@@ -860,12 +860,12 @@
 		By definition, this map is clearly bilinear and symmetric. Note that in the case $\mathbb{K}=\mathbb{C}$ the Killing form is still symmetric and not hermitian.
 	\end{Obs} 
 	\begin{Prop}\label{Prop_2.8.2}
-		The Killing form is invariant under the action of Lie algebra automorphism. In prticular, the Killing form is bi-invariant.
+		The Killing form is invariant under the action of Lie algebra automorphism. In particular, the Killing form is bi-invariant.
 	\end{Prop}
 	\begin{proof}
 		Let $\sigma:\mathfrak{g}\rightarrow\mathfrak{g}$ be an automorphism. Then:
 		$$\hbox{ad}_{\sigma X}(Y)=[\sigma X,Y]=\sigma([X,\sigma^{-1}Y])=\sigma\circ \hbox{ad}_X\circ \sigma^{-1}(Y)$$
-		So that $\hbox{ad}_{\sigma X}=\sigma\circ \hbox{ad}_X\circ \sigma^{-1}$. The immediatly implies:
+		So that $\hbox{ad}_{\sigma X}=\sigma\circ \hbox{ad}_X\circ \sigma^{-1}$. The immediately implies:
 		$$B_\mathfrak{g}(X,Y)=B_\mathfrak{g}(\sigma X,\sigma Y)$$
 		This completes the proof.
 	\end{proof}
@@ -888,7 +888,7 @@
 		$$\hbox{ad}_{\hbox{ad}_X}(Y)=\hbox{ad}_X\circ \hbox{ad}_Y-\hbox{ad}_y\circ \hbox{ad}_X$$
 		From this property it directly follows that:
 		$$B_\mathfrak{g}(\hbox{ad}_X(Y),Z)=\hbox{tr}(\hbox{ad}_{\hbox{ad}_X(Y)}\circ \hbox{ad}_Z)=\hbox{tr}(\hbox{ad}_X\circ \hbox{ad}_Y\circ \hbox{ad}_Z-\hbox{ad}_Y\circ\hbox{ad}_X\circ \hbox{ad}_Z)$$
-		By linearity and ciclicity of the trace we find:
+		By linearity and cyclicity of the trace we find:
 		$$B_\mathfrak{g}(\hbox{ad}_X(Y),Z)=\hbox{tr}(\hbox{ad}_Y\circ \hbox{ad}_Z\circ \hbox{ad}_X-\hbox{ad}_Y\circ\hbox{ad}_X\circ \hbox{ad}_Z)=-B_\mathfrak{g}(Y,\hbox{ad}_X(Z))$$
 		Using this property we evalue:
 		$$B_\mathfrak{g}([T^a,T^b],T^c)=B_\mathfrak{g}(\hbox{ad}_{T^a}(T^b),T^c)=f^{ab}_{\hspace{9pt}d}B_\mathfrak{g}(T^d,T^c)=$$
@@ -956,9 +956,9 @@
 		$$\pi:S^3\rightarrow S^2\hbox{ acting like: }\pi(z_1,z_2)=(2z_1z_2^*,|z_1|^2-|z_2|^2)$$
 		This map is obviously well defined since:
 		$$4|z_1|^2|z_2|^2+(|z_1|^2-|z_2|^2)^2)=1$$
-		Note that, chosing a point $(z,x)$ on $S^2$, the pre-image of the projection is defined up to a phase:
+		Note that, choosing a point $(z,x)$ on $S^2$, the pre-image of the projection is defined up to a phase:
 		$$\pi(z_1,z_2)=\pi(\lambda z_1,\lambda z_2)\hbox{ where }|\lambda|^2=1$$
-		In particular, all of the possible phases are elements of $S^1=U(1)$ so that a point in $S^2$ can be idenitified with a point in $S^2$ times a circle $S^1$. This suggests to construct a fiber bundle on $S^2$ with fiber $S^1$ and total space $S^3$. Note that this fiber bundle cannot be trivial since $S^2\times S^1\neq S^3$. To see this it suffices to see that the fundamental group of $S^2\times S^1$ is $\mathbb{Z}$ and the one of $S^3$ is trivial.
+		In particular, all of the possible phases are elements of $S^1=U(1)$ so that a point in $S^2$ can be identified with a point in $S^2$ times a circle $S^1$. This suggests to construct a fiber bundle on $S^2$ with fiber $S^1$ and total space $S^3$. Note that this fiber bundle cannot be trivial since $S^2\times S^1\neq S^3$. To see this it suffices to see that the fundamental group of $S^2\times S^1$ is $\mathbb{Z}$ and the one of $S^3$ is trivial.
 		It is known that $S^n$ is a smooth manifold and so the projection $\pi$ defined earlier is a smooth map. One can construct a local trivialization in the following way: take two open subsets $U_{1,2}\subset S^2$ defined like:
 		$$U_1=S^2-(0+i0,1);U_2=S^2-(0+i0,-1)$$
 		Those subsets cover every point in $S^2$. Then it is clear that the pre-images of those sets are:
@@ -984,7 +984,7 @@
 	\end{Def}
 	Sometimes, when it is not necessary to specify other structures, we will refer to a vector bundle $(E,M,\pi,\mathbb{R}^k)$ just with $E$.
 	\begin{Ex}
-		Consider a manifold $M$ of dimension $n$ and it's tangent bundle $TM$ with the induced $2n$-manifold structure from $M$. We have a projection $\pi:TM\rightarrow M$ defined as $\pi(p,v_p)=p$ which is continuous and surjective. 
+		Consider a manifold $M$ of dimension $n$ and its tangent bundle $TM$ with the induced $2n$-manifold structure from $M$. We have a projection $\pi:TM\rightarrow M$ defined as $\pi(p,v_p)=p$ which is continuous and surjective. 
 		\\
 		Before constructing the local trivializations, we need to show that this projection is smooth. This is done via charts. Consider a chart $(U,\phi)$ on $M$ and the corresponding $(TU,\Phi:TU\rightarrow \phi(U)\times \mathbb{R}^n)$. Then we can look at the composition:
 		$$\phi\circ \pi\circ \Phi^{-1}:\phi(U)\times \mathbb{R}^n\rightarrow \mathbb{R}^n \hbox{ such that }$$ 
@@ -994,9 +994,9 @@
 		Now we need to construct local trivializations. We wish for a diffeomorphism $\varphi:\pi^{-1}(U)\rightarrow U\times F$ where the fiber at each point is the tangent space $T_pM$. We also wish for this map to reduce, on each fiber, to a linear isomorphism.\\
 		Given any chart on $TM$ like $(TU,\Phi)$, we take as our candidate for the local trivialization the map: 
 		$$\varphi:(\phi^{-1}\times \mathbb{I}_{\mathbb{R}^n})\circ \Phi:TU\rightarrow U\times \mathbb{R}^n$$
-		In particular we have the following succession:
+		In particular, we have the following succession:
 		$$\varphi:TU\xrightarrow{\text{$\Phi$}} \phi(U)\times \mathbb{R}^n\xrightarrow{\text{$\phi^{-1}\times \mathbb{I}_{\mathbb{R}^n}$}}U\times \mathbb{R}^n$$
-		This map is clearly an homeomorphism and a diffeomorphism since both the charts on manifolds and the identity are. As for the linear isomorphism reduction, consider the map:
+		This map is clearly a homeomorphism and a diffeomorphism since both the charts on manifolds and the identity are. As for the linear isomorphism reduction, consider the map:
 		$\varphi_p$ where we fix the first argument $p$. The induced map is the following:
 		$$\varphi_p(v_p)=\varphi(p,v_p)=(p,v^i_p\partial_i|_p)$$
 		This is clearly a linear isomorphism between $\mathbb{R}^n$ and itself. This proves $(TM,M,\pi,\mathbb{R}^{2n})$ is a smooth vector bundle.
@@ -1011,7 +1011,7 @@
 				M \arrow{r}{\bar{f}}&N 
 			\end{tikzcd}
 			\]
-			\item on each fiber, $f$ resitricts to a linear map for each $p\in M$:
+			\item on each fiber, $f$ restricts to a linear map for each $p\in M$:
 			$$f_p:E_p\rightarrow
 			F_{\bar{f}(p)}$$
 		\end{itemize} 
@@ -1053,12 +1053,12 @@
 		$$v\rightarrow
 		v^*\hbox{ such that: }=g_{ij}v^i=v_j$$
 		where we have indicated with $v^i$ the components of $v\in V$ and with $v_i$ the components of $v^*\in V^*$ its dual. This operation allows us, given a metric, to relate the components of a vector on $V$, to the ones of it's dual $V^*$ through an operation that we call \textit{lowering} of the indices.\\
-		Clearly, since we have an isomorphism, we will also have an inverse mapping, $g^{-1}$, whith components $g^{ij}$. This allows for the opposite operation: the \textit{raising} of indices of the components of any vector.\\
+		Clearly, since we have an isomorphism, we will also have an inverse mapping, $g^{-1}$, with components $g^{ij}$. This allows for the opposite operation: the \textit{raising} of indices of the components of any vector.\\
 		\\
 		In a metric manifold, we can smoothly raise and lower indices of vectors through the metric tensor $g$ in the same way.
 	\end{Obs}
 	\begin{Prop}
-		Any metric on a smooth manifold provides a natural smooth isomoprhism between the tangent and the cotangent spaces.
+		Any metric on a smooth manifold provides a natural smooth isomorphism between the tangent and the cotangent spaces.
 	\end{Prop}
 	\begin{proof}
 		For each $p\in M$, given any $X\in T_pM$, we can define a unique co-vector: 
@@ -1066,7 +1066,7 @@
 		The map $X\rightarrow X^*$ is a bundle homomorphism since: $g(X,\cdot )(Y)=g(X,Y)$ at any $p\in M$.
 		In any coordinates, expanding $X=X^i\partial_i;X^*=X^*_jdx^j$, the components of $X^*_p$ will be given by the lowering action of the metric:
 		$$X^*_{p,j}=g_{p,ij}X_p^i$$
-		We can make this bundle homomoprhism into a bundle isomorphism by considering the inverse. At any point, the map $g_p$ is bilinear, non degenerate and symmetric and so it is invertible. In any coordinate, we have the following inverse mapping:
+		We can make this bundle homomorphism into a bundle isomorphism by considering the inverse. At any point, the map $g_p$ is bilinear, non degenerate and symmetric and so it is invertible. In any coordinate, we have the following inverse mapping:
 		$$\omega_p\rightarrow\omega^i\partial_i\hbox{ for any }\omega=\omega_jdx^j{\in T_pM^*}$$
 		where $\omega^i=g^{ij}\omega_j$ and $g^{ij}$ is the inverse of $g_{ij}$. By definition of the metric tensor, this mapping is smooth as well. 
 	\end{proof}
@@ -1161,7 +1161,7 @@
 	\begin{proof}
 		Let $\{v_i\}$ be a basis for $V$ and $\{w_i\}$ be a basis for $W$. As usual, let $\omega=\omega^i\otimes v_i$ be a $k$-form and $\eta=\eta^i\otimes w_i$ be a $l$-form. Then:
 		$$d(\omega\cdot \eta)=d(\omega^i\wedge\eta^j\mu(v_i,w_j))=d(\omega^i\wedge\eta^j)\mu(v_i,w_j)$$
-		By the fact that the exterior derivative is an antiderivation of degree 1 for the exterior product, it immediatly follows:
+		By the fact that the exterior derivative is an antiderivation of degree 1 for the exterior product, it immediately follows:
 		$$d(\omega\cdot \eta)=d\omega\cdot \eta+(-)^{deg(\omega)}\omega\cdot d\eta$$
 	\end{proof}
 	We can also extend the definition of pullback to vector valued forms, in the natural obvious way:
@@ -1210,7 +1210,7 @@
 	\begin{Def}
 		Let $(E,M,\pi, \mathbb{R}^n)$ be a vector bundle. We define an $E$-valued $k$-form as a section of $\bigwedge^kTM^*\otimes E$. We denote the space of smooth $E$-valued $k$-forms with $\Gamma(\bigwedge^kTM^*\otimes E)$.
 	\end{Def}
-	In particular, a form $\omega$ wjth value in a vector bundle $E$ associates to each point $p\in M$ an alternating map $\omega_p:T_pM\times...\times T_pM\rightarrow E_p$.
+	In particular, a form $\omega$ with value in a vector bundle $E$ associates to each point $p\in M$ an alternating map $\omega_p:T_pM\times...\times T_pM\rightarrow E_p$.
 	\begin{Obs}
 		By choosing a local frame $\{e_i:M\rightarrow E\}$, we can expand any form $\omega=\omega^i\otimes e_i$ where $\omega^i$ are real valued forms on the base manifold $M$.
 	\end{Obs}
@@ -1253,7 +1253,7 @@
 		This action is evidently free. Moreover, the trivializations are equivariant under this action: suppose to take as open set $U_1=S^2-(0+i0,1)$, then:
 		$$\varphi(\lambda z_1,\lambda z_2)=\bigg(\pi(\lambda z_1,\lambda
 		z_2),\lambda{z_2\over |z_2|}\bigg)=\bigg(\pi(z_1,	z_2),\lambda{z_2\over |z_2|}\bigg)=\bigg(\pi(z_1,	z_2),{z_2\over |z_2|}\bigg)\cdot \lambda$$
-		This makes the Hopf bundkle into a principal $U(1)$ bundle.
+		This makes the Hopf bundle into a principal $U(1)$ bundle.
 	\end{Ex}
 	\begin{Def}
 		We will call a section of a principal bundle $s:U\subset M\rightarrow E$ a \textit{local gauge}. If the section is global we will call it \textit{global gauge}.
@@ -1309,7 +1309,7 @@
 		Consider a vector space $V$ of finite dimension. We define the frame manifold $Fr(V)$ as the set made of all ordered bases of $V$. This means that $Fr(V)$ contains all of the possible ways of choosing a basis for $V$.
 	\end{Def}
 	\begin{Obs}
-		There is a natural action of the general linear group on $Fr(V)$. The idea is the following: since $Fr(V)$ contains all of the possible basis of $V$, we get that, having chosen a basis, we can re-order the elements of it and obtain the same basis. We can also linearly combine those elements to obtain another basis. Thus, all of the elements of $Fr(V)$ will be reached by matrices in $GL(n,\mathbb{R})$, where $n$ is the dimension of the vector space.\\
+		There is a natural action of the general linear group on $Fr(V)$. The idea is the following: since $Fr(V)$ contains all of the possible bases of $V$, we get that, having chosen a basis, we can re-order the elements of it and obtain the same basis. We can also linearly combine those elements to obtain another basis. Thus, all of the elements of $Fr(V)$ will be reached by matrices in $GL(n,\mathbb{R})$, where $n$ is the dimension of the vector space.\\
 		\\
 		In particular, identifying an element of $Fr(V)$ with a row vector $\vec{e}=(e_1,...,e_n)$, we have a right-action of the Lie group $GL(n,\mathbb{R})$ of the form:
 		$$\vec{e}A=(e_1,...,e_n)\begin{pmatrix}
@@ -1334,7 +1334,7 @@
 		Suppose $dim V=n$. Having fixed any element $\vec{e}\in Fr(V)$, we know that there is a bijection 
 		$$\phi_{\vec{e}}:GL(n,\mathbb{R})\rightarrow Fr(V); \hbox{ acting like: }\vec{e}\mapsto\vec{e}A$$
 		We use this bijection to induce a topology on $Fr(V)$ from the one of $GL(n,\mathbb{R})$. We say that a set $U\in Fr(V)$ is open if and only if $\phi^{-1}(U)$ is open in $GL(n,\mathbb{R})$. This automatically makes the map $\phi_{\vec{e}}$ homeomorphic and endows $Fr(V)$ with the same topological qualities as $GL(n,\mathbb{R})$. Moreover, since $GL(n,\mathbb{R})$ is a topological manifold, it is T2 and second countable and thus by this mapping also $Fr(V)$ is.
-		It remains to make $Fr(V)$ locally euclidean. Consider any chart $(V,\Phi)$ on $GL(n,\mathbb{R})$. This induces a chart on $Fr(V)$ like follows:
+		It remains to make $Fr(V)$ locally Euclidean. Consider any chart $(V,\Phi)$ on $GL(n,\mathbb{R})$. This induces a chart on $Fr(V)$ like follows:
 		$$(\phi_{\vec{e}}(V),\Phi\circ\phi^{-1}_{\vec{e}})$$
 		This completes the proof.
 		Note also that if we were to choose any other element of $Fr(V)$ like $\vec{f}=\vec{e}A$, the map would still be still an homeomorphism since:
@@ -1389,7 +1389,7 @@
 		We say that a section $s$ is flat if $\nabla_X s=0$ for every $X\in \mathfrak{X}(M)$.
 	\end{Def}
 	\begin{Ex}
-		Consider the smooth manifold $\mathbb{R}^n$ and it's tangent bundle. Then, a connection will be a map like:
+		Consider the smooth manifold $\mathbb{R}^n$ and its tangent bundle. Then, a connection will be a map like:
 		$$\nabla:\mathfrak{X}(M)\times\mathfrak{X}(M)\rightarrow\mathfrak{X}(M)$$
 		We define $\nabla_XY$ to be the directional derivative: if $X_p$ is a vector at $p\in\mathbb{R}^n$ and $Y=Y^i\partial_i$ is a vector field, then:
 		$$\nabla_XY=(X_pY^i)\partial_i$$
@@ -1454,14 +1454,14 @@
 	\begin{proof}
 		Let $\{e_i(a)\}$ be a basis for $E_{\gamma(a)}$ and $s=s^ie_{i,\gamma}$ be a section along $\gamma$. Consider the following set of equations:
 		$${D\over dt}{s^je_{j,\gamma}}=\dot{s}^je_j+s^j\nabla_{\gamma'(t)}e_j=[\dot{s}^j+s^j\omega^i_j(\gamma'(t))]e_{i,\gamma}=0$$
-		This is a system of linear differential equations, which, once fixed an initial condition $s(a)=s^i(a)e_i(a)$ is given, has a unique solution in a neighborhood of $a$.  This means that, if $]a,b[$ is sufficiently small, there is a unique parallelly transported section $s(b)$ along $\gamma$. Using this result and fixing $s^j(a)=1$, we can say that there is a unique vector field for each index $j$, which is parallelly transported along $\gamma$ and such that it is a basis for $E$ at $\gamma(a)$. This induces a linear mapping:
+		This is a system of linear differential equations, which, once fixed an initial condition $s(a)=s^i(a)e_i(a)$ is given, has a unique solution in a neighborhood of $a$.  This means that, if $]a,b[$ is sufficiently small, there is a unique parallely transported section $s(b)$ along $\gamma$. Using this result and fixing $s^j(a)=1$, we can say that there is a unique vector field for each index $j$, which is parallelly transported along $\gamma$ and such that it is a basis for $E$ at $\gamma(a)$. This induces a linear mapping:
 		$$\phi_{a,b}:E_{\gamma(a)}\rightarrow E_{\gamma(b)}\hbox{ acting like: } s(a)\rightarrow s(b)$$
 		From the fact that any section $s(t)$ is parallel along $\gamma(t)$ if and only if $s(-t)$ is parallel along $\gamma(-t)$, we can construct the inverse of this mapping:
 		$$\phi^{-1}_{a,b}=\phi_{b,a}$$
 		This proves the map is isomorphic.
 	\end{proof}
 	\begin{Obs}
-		Recall that frames are elements of the frame bundle. From the previous result we have substantially shown that, given a smooth curve $\gamma$, a connection $\nabla$ on a vector bundle $(E,M,\pi,F)$ and an initial condition $\{e_i(a)\}\in Fr(E_\gamma(a))$, we can always find find a unique element of the frame bundle which is parallely transported along $\gamma$.
+		Recall that frames are elements of the frame bundle. From the previous result we have substantially shown that, given a smooth curve $\gamma$, a connection $\nabla$ on a vector bundle $(E,M,\pi,F)$ and an initial condition $\{e_i(a)\}\in Fr(E_\gamma(a))$, we can always find a unique element of the frame bundle which is parallely transported along $\gamma$.
 	\end{Obs}
 	\begin{comment}
 		We now look at the notion of parallel transport on the tangent bundle of a manifold.
@@ -1562,10 +1562,10 @@
 	\end{proof}
 	\begin{Obs}
 		As a consequence of the last result, all the vertical vectors are the fundamental vectors and all the fundamental vectors are the vertical vectors.\\
-		Let $T^a$ be a basis for the Lie algebra $\mathfrak{g}$, then, at any point, by the isomorphism in the previous result, we get that they also form a basis of $\mathcal{V}_{x}$ (under the action of the diffeomorphism). This defines the \textit{Vertical Subbundle} $$\mathcal{V}=\bigsqcup_{x\in E}\mathcal{V}_{x}$$
+		Let $T^a$ be a basis for the Lie algebra $\mathfrak{g}$, then, at any point, by the isomorphism in the previous result, we get that they also form a basis of $\mathcal{V}_{x}$ (under the action of the diffeomorphism). This defines the \textit{Vertical subbundle} $$\mathcal{V}=\bigsqcup_{x\in E}\mathcal{V}_{x}$$
 	\end{Obs}
 	\begin{Obs}
-		The name "vertical" comes from the definition $\mathcal{V}=Ker(d\pi)$. If we take any smooth vector field $X_E\in\mathfrak{X}(E)$, then the differential of the projection $d\pi:TE\rightarrow TM$ induces a new smooth vector field $X_M=d\pi (X_E)$ on the base space. The "vertical vector fields" are the ones who get annihilated when projected, since they belong to the Ker of $d\pi$.
+		The name "vertical" comes from the definition $\mathcal{V}=Ker(d\pi)$. If we take any smooth vector field $X_E\in\mathfrak{X}(E)$, then the differential of the projection $d\pi:TE\rightarrow TM$ induces a new smooth vector field $X_M=d\pi (X_E)$ on the base space. The "vertical vector fields" are the ones that get annihilated when projected, since they belong to the Ker of $d\pi$.
 	\end{Obs}
 	\section{Connections and horizontal subbundle}
 	In this section we introduce the notions of horizontal sub-bundle and Ehresmann connection. More information on this subject can be found in [2] chap. 6 pag. 251, 252.\\
@@ -1587,7 +1587,7 @@
 			\item $\omega$ is $C^\infty$.
 		\end{itemize}
 	\end{Def}
-	If we have an horizontal distribution, we can find a map that satisfies those conditions. Consider the following composition:
+	If we have a horizontal distribution, we can find a map that satisfies those conditions. Consider the following composition:
 	$$\omega_{x}=dj_{x}^{-1}\circ \nu:T_{x}E\xlongrightarrow{\nu} \mathcal{V}_{x}\xlongrightarrow{dj_{x}}\mathfrak{g}$$
 	This map takes a vector, selects its horizontal component and maps it to the corresponding Lie algebra element.
 	\begin{Theo}
@@ -1616,14 +1616,14 @@
 		$$\omega_{x\cdot h}(\overline{Ad(h^{-1})(X_{x\cdot h})})=Ad(h^{-1})(X)=Ad(h^{-1})\omega_{x}(\overline{X_{x}})$$
 		If instead $X_{x}$ is horizontal then by the invariance horizontal distribution the field $dr(X)$ will still be horizontal ad so it will be annihilated by $\omega$ since it contains the projection on the vertical subbundle. Thus proving:
 		$$r^*_h\circ \omega_{x}(X_{x})=Ad(h^{-1})\omega_{x}X_{x}=0$$
-		As for the last property, we need to prove that $\omega$ is smooth in a neighbourhood of an arbitrary point $x\in E$. Since $E$ is a manifold, we choose a chart $(U_E,\phi_E)$ centered in a point $x\in E$. Let $\{T^i\}$ be a basis of the Lie algebra $\mathfrak{g}$ and $\{\bar{T^i}\}$ the associated fundamental vectors. Those fundamental vectors are all smooth by proposition \ref{Prop_5.1.2}. By the previous isomorphism, those span the whole vertical sub-bundle at any point. Furthermore, since by hypothesis $\mathcal{H}$ is a smooth distribution  of horizontal vectors, there is a basis of smooth vector fields $X^i$ in any point that spans the whole space. Thus, since $TE=\mathcal{H}\oplus\mathcal{V}$, we can expand any element of $TE$ as a linear combination:
+		As for the last property, we need to prove that $\omega$ is smooth in a neighborhood of an arbitrary point $x\in E$. Since $E$ is a manifold, we choose a chart $(U_E,\phi_E)$ centered in a point $x\in E$. Let $\{T^i\}$ be a basis of the Lie algebra $\mathfrak{g}$ and $\{\bar{T^i}\}$ the associated fundamental vectors. Those fundamental vectors are all smooth by proposition \ref{Prop_5.1.2}. By the previous isomorphism, those span the whole vertical sub-bundle at any point. Furthermore, since by hypothesis $\mathcal{H}$ is a smooth distribution of horizontal vectors, there is a basis of smooth vector fields $X^i$ in any point that spans the whole space. Thus, since $TE=\mathcal{H}\oplus\mathcal{V}$, we can expand any element of $TE$ as a linear combination:
 		$$V=a_i \bar{T^i}+b_iX^i;\hbox{ with } V\in TE, a_i,b_i\in \mathcal{F}$$
-		The coefficeints $a_i,b_i$ are smooth by the previous observations. Now, applying $\omega$, we get that the horizontal components are annihilated:
+		The coefficients $a_i,b_i$ are smooth by the previous observations. Now, applying $\omega$, we get that the horizontal components are annihilated:
 		$$\omega(a_i \bar{T^i}+b_iX^i)=\omega(a_i \bar{T^i})=a_i T^i$$
 	\end{proof}
-	Clearly, an Ehresmann connection arises naturally on a principal bundle once one selects an horizontal smooth right-invariant distribution on it.\\
+	Clearly, an Ehresmann connection arises naturally on a principal bundle once one selects a horizontal smooth right-invariant distribution on it.\\
 	\\
-	The correspondence goes both ways: if one can find a smooth $G$-equivariant 1-form that takes value on the lie algebra $\mathfrak{g}$ of $G$ such that $\omega(\bar{A})=A$, then one can construce the horizontal distribution. In particular, one defines: $$\mathcal{H}_{x}=Ker(\omega_{x})$$
+	The correspondence goes both ways: if one can find a smooth $G$-equivariant 1-form that takes value on the Lie algebra $\mathfrak{g}$ of $G$ such that $\omega(\bar{A})=A$, then one can construct the horizontal distribution. In particular, one defines: $$\mathcal{H}_{x}=Ker(\omega_{x})$$
 	\begin{Prop}\label{Prop_5.3.1}
 		If $\mathcal{H}$ is a smooth right-invariant distribution on a principal $G$-bundle $E$, then $\forall g\in G$, the differential of the right-action $dr_g:TE\rightarrow TE$ commutes with the horizontal and the vertical projection operators.
 	\end{Prop}
@@ -1632,7 +1632,7 @@
 		$$dr_h (X_{x})=dr_h\circ \nu(X_{x})+dr_h\circ Hor(X_{x})=
 		\nu\circ dr_h(X_{x})+Hor\circ dr_h(X_{x})$$
 	\end{proof}
-	The next theorem shows that given any 1-form $\omega$ with certain oproperties, we can always construct an horizontal distribution. The proof is pretty lenghty.
+	The next theorem shows that given any 1-form $\omega$ with certain properties, we can always construct an horizontal distribution. The proof is pretty lengthy.
 	\begin{Theo}
 		Consider a principal $G$-bundle $(E,M,\pi,G)$ where we can find a smooth $\mathfrak{g}$-valued and $G$-equivariant 1-form on it, such that $\omega(\bar{A})=A$ for every fundamental vector field. Then $Ker(\omega)=\mathcal{H}$ is a smooth right-invariant horizontal distribution on $TE$.
 	\end{Theo}
@@ -1681,10 +1681,10 @@
 		$$d\pi(Y_{x})=X_{\pi(x)}$$
 		We know that the projection $Hor(Y)$ is smooth by hypothesis, If now we decompose $Y_{x}=\nu(Y_{x})+Hor(Y_{x})$ and apply the differential of the projection, recalling that $\mathcal{V}=Ker(d\pi)$, we get:
 		$$d\pi(Y_{x})=d\pi(Hor(Y_{x}))=Hor(d\pi(Y_{x}))=X_{\pi(x)}$$
-		This means that the smooth vector field $Hor(Y)$ is the unnique horizontal lift of $X$.
+		This means that the smooth vector field $Hor(Y)$ is the unique horizontal lift of $X$.
 	\end{proof}
 	\section{Curvature on a principal bundle}
-	In this section we will introduce the notion of curvature on a principal bundle endowed with an Ehresmann connection and look at some properties of it. In the context of Y-M theory, the curvature form will be used to define the kinetic energy term of the lagrangian. For more informations on this topic the reader can look at [2] chap. 6 pag. 270-274 and [3] chap. 5 pag. 261-285.
+	In this section we will introduce the notion of curvature on a principal bundle endowed with an Ehresmann connection and look at some properties of it. In the context of Y-M theory, the curvature form will be used to define the kinetic energy term of the Lagrangian. For more informations on this topic the reader can look at [2] chap. 6 pag. 270-274 and [3] chap. 5 pag. 261-285.
 	\begin{Def}
 		Let $(E,M,\pi,G)$ be a principal $G$-bundle and $\omega$ an Ehresmann connection on it. We define the \textit{curvature form} of $\omega$ as:
 		$$\Omega=d\omega+{1\over 2}[\omega,\omega]$$
@@ -1706,10 +1706,10 @@
 			\item \textit{case 2}: one vector is horizontal and the other is vertical. Then:
 			$$\Omega_p(X_p,Y_p)=\Omega_p(Hor(X_p),\nu(Y_p))=$$
 			$$d\omega_p(Hor(X_p),\nu(Y_p))+{1\over 2}[\omega_p,\omega_p](Hor(X_p),\nu(Y_p))$$
-			The second therm vanishes since the connection annihilates the horizontal components. As for the first therm: one can prove that if $\omega$ is a $1$-form, then:
+			The second term vanishes since the connection annihilates the horizontal components. As for the first therm: one can prove that if $\omega$ is a $1$-form, then:
 			$$d\omega(X,Y)=X\omega(Y)-Y\omega(X)-\omega([X,Y])$$
 			The proof can be found in [1] chap. 5 pag 232,233.\\
-			Recall that any vertical vector field is a fundamental vector field: $Y_p\rightarrow \overline{Y}_p$. In our case, the first term is 0 since $\omega(Y_p)=\omega(\overline{Y}_p)=Y\in\mathfrak{g}$ by the defining properties of the connection. Moreover, $X_pY=0$ since its argument is a constant function of $p$. The second term vanishes because $X_p$ is horizontal. As for the first term, it vanishes as well since the commutator between an horizontal and a vertical vector field is 0 ([2] chap. 6 pag. 260).
+			Recall that any vertical vector field is a fundamental vector field: $Y_p\rightarrow \overline{Y}_p$. In our case, the first term is 0 since $\omega(Y_p)=\omega(\overline{Y}_p)=Y\in\mathfrak{g}$ by the defining properties of the connection. Moreover, $X_pY=0$ since its argument is a constant function of $p$. The second term vanishes because $X_p$ is horizontal. As for the first term, it vanishes as well since the commutator between a horizontal and a vertical vector field is 0 ([2] chap. 6 pag. 260).
 			\item\textit{case 3}: both vectors are vertical. By properties of the connection $1$-form:
 			$$\Omega(X_p,Y_p)=d\omega_p(\overline{X_p},\overline{Y_p})+{1\over 2} ([\omega(\overline{X}),\omega(\overline{Y})]-[\omega(\overline{Y}),\omega(\overline{X}_p)])=$$
 			$$=d\omega_p(\overline{X_p},\overline{Y_p})+[X,Y]$$
@@ -1756,7 +1756,7 @@
 		This map has an inverse:
 		$$\psi:M\times V\rightarrow (M\times G)\times_\rho V\hbox{ acting like: }
 		\psi(x,v)=[(x,1),v]$$
-		Clearly: $\phi\circ \psi=\mathbb{I}$ is the identity. Now it remains to show that they commmute with the projections and that they are smooth. CONTINUA
+		Clearly: $\phi\circ \psi=\mathbb{I}$ is the identity. Now it remains to show that they commute with the projections and that they are smooth. CONTINUA
 	\end{proof}
 	\begin{Theo}
 		Given a principal $G$-bundle $(P,M,\pi,G)$ and a representation $\rho$, there is a vector bundle called \textit{associated bundle}, namely $(E,M,\pi_E,V)$.
@@ -1813,7 +1813,7 @@
 		Analogously one proves that $\alpha^{\sharp\flat}=\alpha$. This completes the proof.
 	\end{proof}
 	\section{The covariant derivative}
-	In this section we will define the notion of covariant derivaative on a principal bundle and see some properties of it. More informations on this topic can be found in [2] chap. 6 pag 280-286.
+	In this section we will define the notion of covariant derivative on a principal bundle and see some properties of it. More informations on this topic can be found in [2] chap. 6 pag 280-286.
 	\begin{Prop}
 		Let $\omega$ be a right equivariant form of type $\rho$ on a principal bundle $(P,M,\pi,G)$. Then, $d\omega$ is right equivariant of type $\rho$ as well.
 	\end{Prop}
@@ -1828,7 +1828,7 @@
 		$$\omega^h_p(v_1,...,v_k)=\omega(Hor(v_1),..,Hor(v_k))$$
 	\end{Def}
 	\begin{Prop}
-		Let $\omega$ be a right equivariant form of type $\rho$ on a principal bundle $(P,M,\pi,G)$. Then, $\omega^h$ is equivariant form of tyoe $\rho$ as well.
+		Let $\omega$ be a right equivariant form of type $\rho$ on a principal bundle $(P,M,\pi,G)$. Then, $\omega^h$ is equivariant form of type $\rho$ as well.
 	\end{Prop}
 	\begin{proof}
 		The proof follows immediately from proposition \ref{Prop_5.3.1}.
@@ -1838,7 +1838,7 @@
 		$$\omega\in \Omega^k_\rho(P,V)\Rightarrow (d\omega)^h\in\Omega^{k+1}_\rho(P,V)$$
 	\end{Obs}
 	\begin{Def}
-		Let $(P,M,\pi,G)$ be a principal bundle adn $\rho:G\rightarrow GL(V)$ a representation of $G$. We define the \textit{covariant derivative} or \textit{exterior covariant derivative} of a $k$-form with values in $V$ the map:
+		Let $(P,M,\pi,G)$ be a principal bundle and $\rho:G\rightarrow GL(V)$ a representation of $G$. We define the \textit{covariant derivative} or \textit{exterior covariant derivative} of a $k$-form with values in $V$ the map:
 		$$D:\Omega^k(P,V)\rightarrow \Omega^{k+1}(P,V)$$
 		$$\omega\rightarrow (d\omega)^h$$
 	\end{Def}
@@ -1850,7 +1850,7 @@
 		Consider $\omega\in\Omega^k_\rho(P,V)$ and $\tau\in \Omega^l_\rho(P,V)$, then:
 		$$D(\omega\wedge \tau)=(d(\omega\wedge\tau))^h=(d\omega\wedge \tau+(-)^{deg\omega}\omega\wedge  d\tau)^h=$$
 		$$=(d\omega)^h\wedge \tau^h+(-)^{deg\omega}\omega^h\wedge(  d\tau)^h$$
-		Since $\omega,\tau$ are by hypothesis horizzontal, we have that $\omega^h=\omega$ and $\tau^h=\tau$. Thus:
+		Since $\omega,\tau$ are by hypothesis horizontal, we have that $\omega^h=\omega$ and $\tau^h=\tau$. Thus:
 		$$D(\omega\wedge \tau)=(d\omega)^h\wedge \tau+(-)^{deg\omega}\omega\wedge (d\tau)^h$$
 	\end{proof}
 	\begin{Obs}
@@ -1892,7 +1892,7 @@
 			$$+\sum_{i<j}\omega_p([v_i,v_j],v_1,...,v_{i-1},v_{i+1},...,v_{j-1},v_{j+1},...,v_k)$$
 			Since $\omega$ is assumed to be horizontal, the only non 0 term in the first sum is $v_1\omega(v_2,...,v_k)$. As for the second sum, for the same reason, the only non 0 terms are:
 			$$\sum_{j=2}^{k+1}(-)^{j+1}\omega_p([v_1,v_j],v_2,...,v_{j-1},v_{j+1},...,v_{k+1})$$
-			However, the commutator between horizontal and vertical vectors is 0 ([2] chap. 6 pag. 260). This completely annohilates the second sum. We thus get:
+			However, the commutator between horizontal and vertical vectors is 0 ([2] chap. 6 pag. 260). This completely annihilates the second sum. We thus get:
 			$$d\omega_p(v_1,...,v_{k+1})=v_1\omega_p(v_2,...,v_{k+1})$$
 			Now, let us call $f$ the map $\omega(v_2,...,v_{k+1})$. The map $f$ is then a smooth map on $P$. Let $\gamma$ be the smooth curve in $G$ with initial point $\gamma(0)=e$ and initial tangent vector $\gamma'(0)=X$. Consider the following:
 			$$v_1f(p)=dj_p(X)f(p)=dj_p\bigg( d\gamma\bigg({d\over dt}\bigg|_0\bigg)\bigg)f=d(j_p\circ \gamma)\bigg({d\over dt}\bigg|_0\bigg)f={d\over dt}\bigg|_0 (f\circ j_p\circ \gamma)=$$
@@ -1915,13 +1915,13 @@
 			$$d\omega_p(v_1,...,v_{k+1})=\sum_i (-)^{i+1}v_i\omega_p(v_1,...,v_{i-1},v_{i+1},...,v_{k+1})+$$
 			$$+\sum_{i<j}\omega_p([v_i,v_j],v_1,...,v_{i-1},v_{i+1},...,v_{j-1},v_{j+1},...,v_k)$$
 			The first sum is 0 since at least one argument of $\omega$ is horizontal. The second sum is 0 as well since the commutator between two veritcal vector fields is vertical and all of the term which involve commutators between horizontal and vertical fields are 0
-			The last term in the expansion is also 0 since at least one argumento of $\omega$ is always vertical.
+			The last term in the expansion is also 0 since at least one argument of $\omega$ is always vertical.
 		\end{itemize}
 	\end{proof}
 	\begin{Obs}\label{Obs_6.3.5}
 		The exterior covariant derivative does not square to 0. In fact, given a connection $A$ and a $k$-form $\omega$ with values in $V$:
 		$$D^2\omega=D(d\omega+A\cdot \omega)=d^2\omega+d(A\cdot \omega)+A\cdot d\omega+A\cdot A\cdot \omega$$
-		A priori only the first term is 0. bhowever, one can prove that $DF=0$, where $F$ is the curvature of a connection $A$. Since $F$ is an $Ad$-tensorial $2$-form we can apply the formula shown in proposition \ref{Prop_6.3.4} in the associated adjoint bundle and get:
+		A priori only the first term is 0. Hhowever, one can prove that $DF=0$, where $F$ is the curvature of a connection $A$. Since $F$ is an $Ad$-tensorial $2$-form we can apply the formula shown in proposition \ref{Prop_6.3.4} in the associated adjoint bundle and get:
 		$$DF=dF+[A,F]$$
 		However, by theorem \ref{Theo_5.5.1}, $dF=[F,A]$ and so $DF=0$.
 	\end{Obs}
@@ -1965,7 +1965,7 @@
 		$$f(p\cdot g)=(p\cdot g)\sigma(p\cdot g)=p\cdot h^{-1}h\cdot\sigma(p)\cdot h=f(p)\cdot h$$
 		And so $f$ lies in $\mathcal{G}(P)$.
 	\end{proof}
-	This result allow us to represent gauge transformations with maps in $C^\infty(P,G)^G$. However, we can look at yet another isomorphism, which will allow us to see gauge transformations as map from the base manifold $M$ to $G$.
+	This result allows us to represent gauge transformations with maps in $C^\infty(P,G)^G$. However, we can look at yet another isomorphism, which will allow us to see gauge transformations as map from the base manifold $M$ to $G$.
 	\begin{Def}
 		Let $(P,M,\pi,G)$ be a principal $G$-bundle. We call a \textit{physical gauge transformation} any smooth map $\tau\in C^\infty(U\subset M,G)$, where $U$ is an open subset of $M$.
 	\end{Def} 
@@ -1985,7 +1985,7 @@
 	\end{proof}
 	\begin{Obs}
 		The previous result tells us that after selecting a local gauge, we can express every bundle automorphism as a $G$-valued map on the manifold. Moreover, by observation \ref{Obs_3.5.2}, we know that two local gauges $s_{i,j}:U\rightarrow P$ defined on the same open set, differ by a smooth map: $$s_i(x)=s_j(x)\cdot g_{ji}(x)$$
-		Thus, any gauge transformaation corresponds to a change in the local gauge.
+		Thus, any gauge transformation corresponds to a change in the local gauge.
 	\end{Obs}
 	Now we briefly look at how a gauge transformation acts on the associated bundle of a principal bundle.
 	\begin{Prop}\label{Prop_7.1.3}
@@ -2052,7 +2052,7 @@
 	\begin{Obs}\label{Obs_7.2.2}
 		Recall that the curvature of a connection is defined as:
 		$$F=dA+{1\over 2}[A,A]$$
-		Knowing the transformation rule for the pulled-back connection, we can find the analogue for the curvature: ler $s_{i,j}:U\rightarrow P$ be two local gauges, then: $F_{i,j}=s_{i,j}^*F$ and we get, by applying the results found in proposition \ref{Prop_3.4.3}:
+		Knowing the transformation rule for the pulled-back connection, we can find the analogue for the curvature: let $s_{i,j}:U\rightarrow P$ be two local gauges, then: $F_{i,j}=s_{i,j}^*F$ and we get, by applying the results found in proposition \ref{Prop_3.4.3}:
 		$$s^*F=ds^*A+{1\over 2}[s^*A,s^*A]$$
 		By substituting the transformation rules for the connection one gets:
 		$$s_i^*F=F_i=d(Ad(g_{ji}^{-1})A_j)+d\mu_{ji}+{1\over 2}[Ad(g_{ji}^{-1})A_j+\mu_{ji},Ad(g_{ji}^{-1})A_j+\mu_{ji}]=$$
@@ -2063,10 +2063,10 @@
 		$$F_i=Ad(g_{ji}^{-1})F_j$$
 	\end{Obs}
 	\begin{Prop}\label{Prop_7.2.2}
-		Let $(P,M,\pi,G)$ be a principal $G$-bundle and $G$ an abelial Lie group. Then, given a connection $A$ on $P$, the pullback of its curvature $F$ is independent of the choice of the local gauge.
+		Let $(P,M,\pi,G)$ be a principal $G$-bundle and $G$ an abelian Lie group. Then, given a connection $A$ on $P$, the pullback of its curvature $F$ is independent of the choice of the local gauge.
 	\end{Prop}
 	\begin{proof}
-		If $G$ is abelian, $F$ is gauge invariant. This means that for any change of local section, the pullback of $F$ remains invariant and so $F$ is defined gobally as a closed 2-form on $M$: $F\in \Omega^2(M,\mathfrak{g})$.
+		If $G$ is abelian, $F$ is gauge invariant. This means that for any change of local section, the pullback of $F$ remains invariant and so $F$ is defined globally as a closed 2-form on $M$: $F\in \Omega^2(M,\mathfrak{g})$.
 	\end{proof}
 	Lastly, we would like to understand how the curvature transforms from the point of view of the associated bundle. Recall that proposition \ref{Mus_Iso} gave us the following isomorphism:
 	$$\Omega^k_\rho(P,V)\simeq \Omega^k(M,E)$$
@@ -2086,7 +2086,7 @@
 		$$F_M\rightarrow \phi^{-1}\cdot F_M$$
 	\end{proof}
 	\section{Products on associated bundles}
-	In this section we will define some operations on forms that take values on the associated bundle of a principal bundle. Those will be useful to define the full Y-M lagrangian. More informations on this topic can be found in [3] chap. 7 pag. 409-413.
+	In this section we will define some operations on forms that take values on the associated bundle of a principal bundle. Those will be useful to define the full Y-M Lagrangian. More informations on this topic can be found in [3] chap. 7 pag. 409-413.
 	\begin{Def}
 		Let $(E,M,\pi,\mathbb{R}^n)$ a vector bundle. We call a \textit{bundle metric} a section $\braket{,}_E\in \Gamma(E^*\otimes E^*)$. This is a smooth assignment to each point of a non degenerate, symmetric, bilinear product on the fiber.
 	\end{Def}
@@ -2118,7 +2118,7 @@
 	\end{Def}
 	Clearly, by linearity, this does not depend on the choice of the basis.\\
 	\\
-	By cosntruction, this generalized Hodge operator satisfies very similar properties to the one described in section \ref{Sec_1.7}. We can also define the adjoint of the exterior covariant derivative:
+	By construction, this generalized Hodge operator satisfies very similar properties to the one described in section \ref{Sec_1.7}. We can also define the adjoint of the exterior covariant derivative:
 	\begin{Def}
 		Let $D$ be the exterior covariant derivative on an associated bundle. Then we define the \textit{co-exterior covariant derivative} as:
 		$$D^*=(-)^{k(n-k)}sgn(\braket{,}_E)\star\circ D\circ\star$$
@@ -2202,7 +2202,7 @@
 		Now, by evaluating $d(\star F)$ we get:
 		$$d(\star F)=-dB_1\wedge dt\wedge dx-dB_2\wedge dt\wedge dy-dB_3\wedge dt\wedge dz-$$
 		$$dE_1\wedge dy\wedge dz-dE_2\wedge dz\wedge dx-dE_3\wedge dx\wedge dy$$
-		After a bit of algebra and re-arranging we find:
+		After a bit of algebra and rearranging we find:
 		$$d(\star F)=-\bigg[(\partial_z B_2-\partial_y B_3+\partial_t E_1)dt\wedge dy\wedge dz+
 		(\partial_z B_1-\partial_x B_3-\partial_t E_2)dt\wedge dx\wedge dz
 		$$
@@ -2234,14 +2234,14 @@
 	\section{The Electromagnetic Lagrangian}
 	In this section we will explicitly construct the Lagrangian of the electromagnetic field. More references on this topic can be found in REFERENZA
 	\\\\
-	The Lagrangian is the mathematical object which allows us to describe the laws of the physical system. The aim is to construct a Lorentz-invariant Lagrangian, from which we can recover our equations: $dF=d^*F=0$.
+	The Lagrangian is the mathematical object that allows us to describe the laws of the physical system. The aim is to construct a Lorentz-invariant Lagrangian, from which we can recover our equations: $dF=d^*F=0$.
 	\begin{Prop}\label{Prop_8.1.2}
-		The lagrangian for the Maxwell's equations is the map $\mathcal{L}:M\rightarrow \mathbb{R}$ such that:
+		The Lagrangian for the Maxwell's equations is the map $\mathcal{L}:M\rightarrow \mathbb{R}$ such that:
 		$$\mathcal{L}\omega=-{1\over 2}F\wedge \star F$$
 		where $\omega$ is the volume form.
 	\end{Prop}
 	\begin{proof}
-		We explicitly compute in coordinates the lagrangian, by substituting the previous expansions for $F,\star F$:
+		We explicitly compute in coordinates the Lagrangian, by substituting the previous expansions for $F,\star F$:
 		$$F\wedge \star F={1\over 4}F_{\mu\nu}F_{\alpha\beta}dx^\mu\wedge dx^\nu \wedge (\star dx^\alpha\wedge dx^\beta)=$$
 		$$=(-F_{tx}F_{tx}+F_{ty}F_{yt}-F_{tz}F_{tz}+F_{xy}F_{xy}-F_{xz}F_{zx}+F_{yz}F_{yz})dx\wedge dx\wedge dy\wedge dz$$
 		Moreover, we have that: $F^{\mu\nu}=\eta^{\mu\alpha}\eta^{\nu\beta}F_{\alpha\beta}$ which in turn implies the following identities:
@@ -2250,25 +2250,25 @@
 				\item $F^{ij}=F_{ij}$
 			\end{itemize}
 		$$F\wedge \star F=F_{\mu\nu}F^{\mu\nu}dt\wedge dx\wedge dy\wedge dz$$
-		This gives the general well known form of the electromagnetic lagrangian:
+		This gives the general well known form of the electromagnetic Lagrangian:
 		$$\mathcal{L}=-{1\over 2}F_{\mu\nu}F^{\mu\nu}$$
 	\end{proof}
 	\section{The U(1) Yang-Mills theory}
-	In this section we will use the Maxwell's equation to deduce the general form of the Yang-Mills lagrangian for electromagnetism. More references on this topic can be found in: REFERENZA
+	In this section we will use the Maxwell's equation to deduce the general form of the Yang-Mills Lagrangian for electromagnetism. More references on this topic can be found in: REFERENZA
 	\\\\
-	The lagrangian is the mathematical object used to describe the dynamics of our fields. A priori there are infinitely many lagrangians that we could consider. However, we would like to set some restrictions to them. Namely, any lagrangian considered should have the following qualities:
+	The Lagrangian is the mathematical object used to describe the dynamics of our fields. A priori there are infinitely many Lagrangians that we could consider. However, we would like to set some restrictions to them. Namely, any Lagrangian considered should have the following qualities:
 	\begin{itemize}
 		\item they should be invariant under some symmetries;
 		\item they must be renormalizable.
 	\end{itemize}
-	We will not focus on renormalizability since it would require some knowledge which is not exposed in this work. As for the symmetries, we wish our lagrangian to be at least:
+	We will not focus on renormalizability since it would require some knowledge which is not exposed in this work. As for the symmetries, we wish our Lagrangian to be at least:
 	\begin{itemize}
 		\item Lorentz invariant;
 		\item Gauge invariant.
 	\end{itemize}
-	By gauge invariance we mean that the lagrangian is invariant under local transformations encoded in a Lie group. In particular, we will assume the existence of an a-priori $G$-principal bundle on our space-time manifold, where $G$ is the symmetry group. In our analysis, we also ask for $G$ to be compact and to have a semisimple Lie algebra. This requirement will ensure, in the $n$-dimensional case, that the group is equipped with a positive definite scalar product: the Killing form.
+	By gauge invariance we mean that the Lagrangian is invariant under local transformations encoded in a Lie group. In particular, we will assume the existence of an a-priori $G$-principal bundle on our space-time manifold, where $G$ is the symmetry group. In our analysis, we also ask for $G$ to be compact and to have a semisimple Lie algebra. This requirement will ensure, in the $n$-dimensional case, that the group is equipped with a positive definite scalar product: the Killing form.
 	\\\\
-	We now wish to recover the Maxwell's equations and the electromagnetic lagrangian of the previpus section in a new differntial geometry setting, which will make the geuge symmetry and the Lorentz invariance more manifest. We assume the existence of a principal $G$-bundle $(P,\mathbb{R}^{1,3},\pi,G)$ where $G$ is a Lie group. Given any representation $\rho:G\rightarrow GL(V)$, we can also define an associated bundle $(E,\mathbb{R}^{1,3},\pi_A,G)$ where $E={P\times V\over \sim}$ over the equivalence relation:
+	We now wish to recover the Maxwell's equations and the electromagnetic Lagrangian of the previpus section in a new differential geometry setting, which will make the gauge symmetry and the Lorentz invariance more manifest. We assume the existence of a principal $G$-bundle $(P,\mathbb{R}^{1,3},\pi,G)$ where $G$ is a Lie group. Given any representation $\rho:G\rightarrow GL(V)$, we can also define an associated bundle $(E,\mathbb{R}^{1,3},\pi_A,G)$ where $E={P\times V\over \sim}$ over the equivalence relation:
 	$$(p,v)\sim(p\cdot g,\rho(g^{-1})v)$$
 	Two points in the space $E$ that belong to the same equivalence class represent the same  physical state. To find an analogue for the vector potential, we take a connection 1-form $A$ on our principal bundle $A\in\Omega^1(P,\mathfrak{g})$.\\
 	By definition, the connection $1$-form has the following properties:
@@ -2312,7 +2312,7 @@
 	\end{comment}
 	Since $A$ is a connection, we can look at its curvature. By definition, this is an $Ad$-tensorial $2$ form:
 	$$F=dA+{1\over 2}[A,A]\in \Omega^2_{Ad}(P,\mathfrak{g})$$
-	This object transforms under our gauge symmetry as found in observation \ref{Obs_7.2.2}: chosing a local gauge $s_i:U\rightarrow P$ we have
+	This object transforms under our gauge symmetry as found in observation \ref{Obs_7.2.2}: choosing a local gauge $s_i:U\rightarrow P$ we have
 	$$s^*F=F_i\rightarrow F_j= Ad(g_{ji}^{-1})F$$
 	Once again, in our current setting the symmetry group is abelian and so the adjoint representation is trivial:
 	$$F_i\rightarrow F_i=F_j\hbox{ is invariant under gauge transformations}$$
@@ -2331,33 +2331,33 @@
 		$$[A,F](X,Y,Z)={1\over 2}\sum_\sigma sgn(\sigma)\hbox{ad}(A(X))(F(Y,Z))$$
 		In the current case the gauge group is $U(1)$ abelian. This means that the adjoint representation is trivial and so the exterior covariant derivative $D$ simplifies to:
 		$$F=DA=dA+{1\over 2}[A,A]=dA$$
-		Also $DF=dF+[A,F]=0=d(dA)+[A,F]$ which implies $DF=dF=0$. From those identities we can say that, in the abelian setting, the Maxwell's equations are fully recovered in space-time in two different equivalent forms. In fact, chosing $T$ as a generator for $\mathfrak{g}=\mathbb{R}$ and $s$ as a local gauge, we can pullback both $A$ and $F$. Knowing from proposition \ref{Prop_3.5.3} that the pullback commutes both with the exterior derivative and the product of forms:
+		Also $DF=dF+[A,F]=0=d(dA)+[A,F]$ which implies $DF=dF=0$. From those identities we can say that, in the abelian setting, the Maxwell's equations are fully recovered in space-time in two different equivalent forms. In fact, choosing $T$ as a generator for $\mathfrak{g}=\mathbb{R}$ and $s$ as a local gauge, we can pullback both $A$ and $F$. Knowing from proposition \ref{Prop_3.5.3} that the pullback commutes both with the exterior derivative and the product of forms:
 		$$s^*F=s^*dA=ds^*A=dA_\mu\otimes T={1\over 2}F_{\mu\nu} dx^\mu\wedge dx^\nu \otimes T$$
 		$$s^*dF=0=ds^*F={1\over 2}dF_{\mu\nu}\wedge dx^\mu\wedge dx^\nu \otimes T=0$$
 	\end{proof}
-	We now wish to recover the electromagnetic lagrangian.
+	We now wish to recover the electromagnetic Lagrangian.
 	\begin{Prop}
-		The electromagnetic lagrangian is:
+		The electromagnetic Lagrangian is:
 		$$\mathcal{L}=-{1\over 2}\braket{F_M,F_M}_{Ad}$$
 		where $F_M$ is the induced curvature on $\Omega^2(M,Ad(P))$, $Ad(P)$ is the associated adjoint bundle constructed from the principal bundle $P$ and $\braket{,}_{Ad}$ is the bundle metric induced from the Killing form on $U(1)$.
 	\end{Prop}
 	\begin{proof}
-		We check that this lagrangian reduces to the same one we had found in proposition \ref{Prop_8.1.2}. Starting from the curvature $F\in \Omega^2_{Ad}(P,\mathfrak{g})$, through theorem \ref{Mus_Iso}, we can construct a $2$-form $F_M\in \Omega^2(M,E)$. Choosing a local frame $\{e_i\}$, we can expand $F_M=F^i_{M}\otimes e_i$, where $F_M^i\in \Omega^2(M)$, and define the product: $$\braket{F_M,F_M}_{Ad}=\braket{F_M^i,F_M^j}\braket{e_i,e_j}_{Ad}$$
-		In the last expansion $\braket{e_i(p),e_j(p)}_{Ad}=B_{\mathfrak{u}(1)}(e_i(p),e_j(p))$ is induced by the Killing form, which is a non degenerate, negative definitem symmetric product in our setting. This implies that locally we can choose an orthonormal frame $e_i$ for this produc. Let now $\omega$ be the volume form, then $\braket{F_M^i,F_M^j}\omega=F_M^i\wedge\star F_M^j$ and in our basis the Killinig form takes the form: $B_{\mathfrak{u}(1)}(e_i,e_j)=-\delta_{ij}$ at any $p$. Thus, we can write:
+		We check that this Lagrangian reduces to the same one we had found in proposition \ref{Prop_8.1.2}. Starting from the curvature $F\in \Omega^2_{Ad}(P,\mathfrak{g})$, through theorem \ref{Mus_Iso}, we can construct a $2$-form $F_M\in \Omega^2(M,E)$. Choosing a local frame $\{e_i\}$, we can expand $F_M=F^i_{M}\otimes e_i$, where $F_M^i\in \Omega^2(M)$, and define the product: $$\braket{F_M,F_M}_{Ad}=\braket{F_M^i,F_M^j}\braket{e_i,e_j}_{Ad}$$
+		In the last expansion $\braket{e_i(p),e_j(p)}_{Ad}=B_{\mathfrak{u}(1)}(e_i(p),e_j(p))$ is induced by the Killing form, which is a non degenerate, negative definite symmetric product in our setting. This implies that locally we can choose an orthonormal frame $e_i$ for this product. Let now $\omega$ be the volume form, then $\braket{F_M^i,F_M^j}\omega=F_M^i\wedge\star F_M^j$ and in our basis the Killing form takes the form: $B_{\mathfrak{u}(1)}(e_i,e_j)=-\delta_{ij}$ at any $p$. Thus, we can write:
 		$$\mathcal{L}\omega={1\over 2}F_M^i\wedge \star F_M^i$$
 		and since the Lie algebra is $1$ dimensional, the index $i$ has only one possible value:
 		$$\mathcal{L}\omega={1\over 2}F_M\wedge \star F_M$$
-		This is exactly the same form of proposition \ref{Prop_8.1.2}. Now it only remains to show that the solution of this lagrangian satisfies the Maxwell's equations. \\\\
-		The first half follows from the properties of $F$. In fact, we already proved $DF=dF+A\cdot F=0$ and through the construction of theorem \ref{Mus_Iso}, it immediatly follows that $DF_M=0$.\\
+		This is exactly the same form of proposition \ref{Prop_8.1.2}. Now it only remains to show that the solution of this Lagrangian satisfies the Maxwell's equations. \\\\
+		The first half follows from the properties of $F$. In fact, we already proved $DF=dF+A\cdot F=0$ and through the construction of theorem \ref{Mus_Iso}, it immediately follows that $DF_M=0$.\\
 		\\
-		The remaining part of the maxwell's equations can be found through the Euler-Lagrange equations. DA FARE
+		The remaining part of the Maxwell's equations can be found through the Euler-Lagrange equations. DA FARE
 	\end{proof}
 	\section{The SU(N) Yang-Mills theory}
-	In this section we will generalize the construction of the electromagnetic lagrangian with higher dimensional groups. This will lead us to the QCD gauge boson lagrangian. More informations on this can be found in REFERENZA\\
+	In this section we will generalize the construction of the electromagnetic Lagrangian with higher dimensional groups. This will lead us to the QCD gauge boson Lagrangian. More informations on this can be found in REFERENZA\\
 	\\
-	The idea is to keep the same framework of the $U(1)$ case and generalize the setting to a higher dimensional Lie algebra. Thus, following the approach of the previous section, we start from the assumption of a $G$-principal bundle on $\mathbb{R}^{1,3}$ endowed with a connection $A\in \Omega^1(P,\mathfrak{g})$. However, we now take $\mathfrak{g}$ to be an $n$-dimensional Lie algebra. We are going to refer to $A$ with the name \textit{gague field}. Moreover, we want our group $G$ to have a compact and semisimple Lie algebra, in order to have a negative definite non degenerate Killing form to induce a bundle metric on the Adjoint associated bundle $Ad(P)$. To satisfy this requirement coherently with the previous section, we generalize the group $G$ from $U(1)$ to $SU(N)$, since $\mathfrak{su}(N)$ is compact and semisimple. Thus, our principal bundle will be a principal $SU(N)$-bundle $(P,\mathbb{R}^{1,3},\pi,SU(N))$.
+	The idea is to keep the same framework of the $U(1)$ case and generalize the setting to a higher dimensional Lie algebra. Thus, following the approach of the previous section, we start from the assumption of a $G$-principal bundle on $\mathbb{R}^{1,3}$ endowed with a connection $A\in \Omega^1(P,\mathfrak{g})$. However, we now take $\mathfrak{g}$ to be an $n$-dimensional Lie algebra. We are going to refer to $A$ with the name \textit{gauge field}. Moreover, we want our group $G$ to have a compact and semisimple Lie algebra, in order to have a negative definite non degenerate Killing form to induce a bundle metric on the Adjoint associated bundle $Ad(P)$. To satisfy this requirement coherently with the previous section, we generalize the group $G$ from $U(1)$ to $SU(N)$, since $\mathfrak{su}(N)$ is compact and semisimple. Thus, our principal bundle will be a principal $SU(N)$-bundle $(P,\mathbb{R}^{1,3},\pi,SU(N))$.
 	\begin{Obs}
-		In our analysis we will take $\mathfrak{su}(N)$ to be the real vector space of \textit{tranceless hermitian} matrices. However, in example \ref{Ex_2.5.1} the Lie algebra of $U(N)$ was found to be composed of skew-hermitian matrices. However, if instead of a set of generators $\{T^a\}$ we take $\{-iT^a\}$, the generators $T^a$ become hermitian. Basically, we are rescaling the generators of a factor $-i$.
+		In our analysis we will take $\mathfrak{su}(N)$ to be the real vector space of \textit{traceless hermitian} matrices. However, in example \ref{Ex_2.5.1} the Lie algebra of $U(N)$ was found to be composed of skew-hermitian matrices. However, if instead of a set of generators $\{T^a\}$ we take $\{-iT^a\}$, the generators $T^a$ become hermitian. Basically, we are rescaling the generators of a factor $-i$.
 		With this convention the commutation relations become:
 		$$[T^a,T^b]=if^{ab}_{\hspace{9pt}c}T^c$$
 	\end{Obs}
@@ -2381,7 +2381,7 @@
 		Thus, the transformation of $A$ becomes explicitly:
 		$$A_i=Ad(g_{ji}^{-1})A_j-i\partial_\mu\alpha_a\otimes T^a=e^{i\alpha_aT^a}A_je^{-i\alpha_aT^a}-i\partial_\mu\alpha_a\otimes T^a$$
 	\end{Obs}
-	Looking now at the curvature form $F$, we found in the previous section that it transformad with the adjoint representation:
+	Looking now at the curvature form $F$, we found in the previous section that it transformed with the adjoint representation:
 	$$F_j\rightarrow Ad(g_{ji}^{-1})F_j$$ 
 	Since the adjoint representation is not trivial anymore, we have the following result:
 	\begin{Prop}
