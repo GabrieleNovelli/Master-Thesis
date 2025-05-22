@@ -373,10 +373,10 @@
 	This is clearly a nowhere vanishing form. It can be shown that, by applying the Gram–Schmidt process, the volume form takes the simpler form:
 	$$\omega=de^1\wedge...\wedge de^n$$
 	where $e^i$ is the orthonormal basis with respect to $g$ inside $U$. The proof is just a straightforward calculation and can be found in [2] chap. 3 pag. 134.
-	\section{Exterior derivative and Hodge operator}\label{Sec_1.7}
+	\section{The exterior derivative}\label{Sec_1.7}
 	In this section we will introduce the notion of exterior derivative and Hodge operator. More informations on those topic can be found in [3] chap. 7 pag 401-413.
 	\begin{Def}
-		Let $M$ be a smooth manifold and $(U,\phi)$ a chart. We define the \textit{exterior derivative} of a $k$-form $\omega=a_Idx^I$ as the $(k+1)$-form:
+		Let $M$ be a smooth manifold and $(U,x^i)$ a chart on it. We define the \textit{exterior derivative} of a smooth $k$-form $\omega=a_Idx^I$ a a smooth $(k+1)$-form:
 		$$d\omega=da_I\wedge dx^I$$
 		where $da_I$ is the differential of the function $a_I$.
 	\end{Def}
@@ -419,7 +419,8 @@
 	\begin{Obs}
 		It is clear that any exact form is closed. However, in general, not all closed forms are exact.
 	\end{Obs}
-	We now look at the definition of the Hodge operator and see some properties of it. This operator will be useful in writing the Maxwell equations from a differential geometry point of view.
+	\section{Thoe Hodge Operator}
+	in this section we define the Hodge operator and see some properties of it. This operator will be useful in writing the Maxwell equations from a differential geometry point of view. More reference on this topic can be found in [3] chap. 7 pag. 406-413, [10] chap. 6 pag. 345-356 pag. 386-399.
 	\begin{Obs}
 		The inner product on $M$ induces an inner product on forms. Namely, at any point $p\in M$ we have:
 		$$\braket{\alpha^1_p\wedge...\wedge \alpha^k_p,\beta^1_p\wedge...\wedge\beta^k_p}=det(\braket{\alpha^i_p,\beta^j_p}_{i,j\in[1,k]})$$
@@ -853,14 +854,14 @@
 	\end{proof}
 	We now introduce the concept of Killing form. Our aim is to find an inner product on $\mathfrak{g}$ which is non degenerate and positive definite. We will see that those requirements will be satisfied by the Killing form of a compact Lie algebra. This product, once found, will be used to define the Lagrangian.
 	\begin{Def}
-		Let $\mathfrak{g}$ be a finite dimensional Lie algebra on $\mathbb{K}=\mathbb{R},\mathbb{C}$. We define the \textit{Killing form} of $\mathfrak{g}$ as the map:
+		Let $\mathfrak{g}$ be a finite dimensional Lie algebra on $\mathbb{K}=\mathbb{R}$. We define the \textit{Cartan-Killing form} of $\mathfrak{g}$ as the map:
 		$$B_\mathfrak{g}:\mathfrak{g}\times \mathfrak{g}\rightarrow\mathbb{K}\hbox{ acting like } B_\mathfrak{g}(X,Y)=tr(\hbox{ad}_X\circ \hbox{ad}_Y)$$
 	\end{Def}
 	\begin{Obs}
-		By definition, this map is clearly bilinear and symmetric. Note that in the case $\mathbb{K}=\mathbb{C}$ the Killing form is still symmetric and not hermitian.
+		By definition, this map is clearly bilinear and symmetric. Note that in the case $\mathbb{K}=\mathbb{C}$ the Cartan-Killing form is still symmetric and not hermitian.
 	\end{Obs} 
 	\begin{Prop}\label{Prop_2.8.2}
-		The Killing form is invariant under the action of Lie algebra automorphism. In particular, the Killing form is bi-invariant.
+		The Cartan-Killing form is invariant under the action of Lie algebra automorphism. In particular, the Cartan-Killing form is bi-invariant.
 	\end{Prop}
 	\begin{proof}
 		Let $\sigma:\mathfrak{g}\rightarrow\mathfrak{g}$ be an automorphism. Then:
@@ -869,22 +870,22 @@
 		$$B_\mathfrak{g}(X,Y)=B_\mathfrak{g}(\sigma X,\sigma Y)$$
 		This completes the proof.
 	\end{proof}
-	We now look at some important results regarding the Killing form on semisimple Lie algebras.
+	We now look at some important results regarding the Cartan-Killing form on semisimple Lie algebras.
 	\begin{Theo}\label{Theo_2.8.2}
-		Let $\mathfrak{g}$ be a compact Lie algebra. Then the Killing form is negative definite and non degenerate if and only if $\mathfrak{g}$ is semisimple.
+		Let $\mathfrak{g}$ be a compact Lie algebra. Then the Cartan-Killing form is negative definite and non degenerate if and only if $\mathfrak{g}$ is semisimple.
 	\end{Theo}
 	\begin{proof}
 		The proof of this theorem can be found in [3] chap. 2, pag. 114,115.
 	\end{proof}
 	\begin{Obs}
-		Let $\mathfrak{g}$ be a compact semisimple Lie algebra. Then, we know by the previous theorem, that the Killing form is negative definite. By symmetry of this inner product, we can choose an orthonormal basis $\{T^a\}$ of vectors such that:
+		Let $\mathfrak{g}$ be a compact semisimple Lie algebra. Then, we know by the previous theorem, that the Cartan-Killing form is negative definite. By symmetry of this inner product, we can choose an orthonormal basis $\{T^a\}$ of vectors such that:
 		$$B_{\mathfrak{g}}(T^a,T^b)=-\delta^{ab}$$
 	\end{Obs}
-	\begin{Prop}
+	\begin{Prop}\label{Prop_2.8.3}
 		The structure constants of a compact semisimple Lie algebra for an orthonormal basis of $B_\mathfrak{g}$ are totally antisymmetric.
 	\end{Prop}
 	\begin{proof}
-		Let $\{T^a\}$ be an orthonormal basis for the Killing form. Then, since $\{T^a\}$ are generators, $[T^a,T^b]=f^{ab}_{\hspace{9pt}c}T^c$ and the antisymmetry in the first two indices is a clear consequence of the antisymmetry of $[,]$. Now it remains to show that also the other index commutes. It is known that:
+		Let $\{T^a\}$ be an orthonormal basis for the Cartan-Killing form. Then, since $\{T^a\}$ are generators, $[T^a,T^b]=f^{ab}_{\hspace{9pt}c}T^c$ and the antisymmetry in the first two indices is a clear consequence of the antisymmetry of $[,]$. Now it remains to show that also the other index commutes. It is known that:
 		$$\hbox{ad}_{\hbox{ad}_X}(Y)=\hbox{ad}_X\circ \hbox{ad}_Y-\hbox{ad}_y\circ \hbox{ad}_X$$
 		From this property it directly follows that:
 		$$B_\mathfrak{g}(\hbox{ad}_X(Y),Z)=\hbox{tr}(\hbox{ad}_{\hbox{ad}_X(Y)}\circ \hbox{ad}_Z)=\hbox{tr}(\hbox{ad}_X\circ \hbox{ad}_Y\circ \hbox{ad}_Z-\hbox{ad}_Y\circ\hbox{ad}_X\circ \hbox{ad}_Z)$$
@@ -1045,8 +1046,8 @@
 		The proof can be found in [2] chap. 4 pag 180-184.
 	\end{proof}
 	\section{The tangent-cotangent isomorphism}\label{Sec_3.3}
-		In this section we will show how to use a metric to establish a correspondence between the tangent and the cotangent bundle. We will see how we can use the metric tensor to raise and lower the indices of vectors and covectors. More information on this can be found in: [9] chap. 13 pag. 341, 342.
-		\begin{Obs}
+	In this section we will show how to use a metric to establish a correspondence between the tangent and the cotangent bundle. We will see how we can use the metric tensor to raise and lower the indices of vectors and covectors. More information on this can be found in: [9] chap. 13 pag. 341, 342.
+	\begin{Obs}
 		It is known that, given a symmetric non degenerate bilinear map $g=\braket{,}$ on a vector space $V$, there is a canonical isomorphism between $V$ and its dual $V^*$:
 		$$v\rightarrow\braket{v,}$$
 		Selecting the canonical basis $\{e_i\}$ for $V$, the map $g$ will be a matrix with entries $g_{ij}$ and its action on the components of $v\in V$ will be given by the standard rows-columns product:
@@ -1283,7 +1284,7 @@
 	\begin{Prop}\label{Prop_3.5.3}
 		Let $(E,M,\pi,G)$ be a principal bundle. Let $s:U\subset M\rightarrow E$ be a smooth local gauge. Then, the map:
 		$$\varphi^{-1}: U\times G\rightarrow P$$
-		$$(x,p)\rightarrow s(x)\cdot p$$
+		$$(x,g)\rightarrow s(x)\cdot g$$
 		is a local trivialization.
 	\end{Prop}
 	\begin{proof}
@@ -1743,7 +1744,7 @@
 		where $\pi$ is the projection of the principal bundle. Clearly, this projection is well defined as it does not depend on the choice of the representative. This is a consequence of $\pi\circ r=\pi$ for principal bundles.
 	\end{Obs}
 	\begin{Obs}
-		It can be shown that the associated bundle has a manifold structure: REFERENZA
+		It can be shown that the associated bundle has a manifold structure: [9] chap. 21 pag. 544-547.
 	\end{Obs}
 	\begin{Prop}\label{Prop_6.1.1}
 		Let $\rho:G\rightarrow GL(V)$ be a finite dimensional representation of a Lie group $G$, let $M$ be any manifold. Then there is a fiber-preserving diffeomorphism:
@@ -1778,6 +1779,25 @@
 		It is not hard to see that $f_{p\cdot g}=f_p\circ \rho(g)$. In fact:
 		$$f_{p\cdot g}(v)=[p\cdot g,v]=[p,\rho(g)v]=f_p(\rho(g)v)$$
 	\end{Obs}
+	We now look at how a section of a principal bundle can be used to construct local trivializations for the associated bundle.
+	\begin{Prop}\label{Prop_6.2.3}
+		A smooth local gauge of the principal bundle induces a trivialization on the associated bundle.
+	\end{Prop}
+	\begin{proof}
+		Consider a principal bundle $(P,M,\pi,G)$ and smooth local gauge $s:U\subset M\rightarrow P$ and define the map:
+		$$\varphi^{-1}:U\times V\rightarrow E$$
+		$$\varphi^{-1}(x,v)=[s(x),v]$$
+		where $E$ is the associated bundle to $P$ and $V$ is the space on which the representation of $G$ is defined on.
+		There is a clear inverse to this map:
+		$$\phi([s(x)\cdot g,v])=(x,\rho(g)v)$$
+		This map is well defined since it does not depend on the representative:
+		$$\phi([s(x)\cdot g\cdot h,\rho(h^{-1}v)])=(x,\rho(g)\rho(h)\rho(h^{-1})v)=(x,\rho(g)v)$$
+		Moreover, one is clearly the ivnerse of the other:
+		$$\phi\\circ \phi^{-1}(x,v)=\phi([s(x),v])=(x,v)$$ 
+		Both those maps are by construction  smooth and on each fiber reduce to isomorphisms of vector spaces:
+		$$\phi_x[s(x)\cdot g,v]=\rho(g)v$$
+		This proves that the constructed map is a local trivialization.
+	\end{proof}
 	\section{Tensorial forms}
 	In this section we will define the concept of tensorial forms on a principal bundle. We will find a connection between those forms and forms on the associated bundle. More information on this topic can be found in [2] chap. 6 pag. 277-280; and [3] chap. 5, pag. 261-270.
 	\begin{Def}
@@ -2091,7 +2111,7 @@
 		Let $(E,M,\pi,\mathbb{R}^n)$ a vector bundle. We call a \textit{bundle metric} a section $\braket{,}_E\in \Gamma(E^*\otimes E^*)$. This is a smooth assignment to each point of a non degenerate, symmetric, bilinear product on the fiber.
 	\end{Def}
 	There is a canonical choice for this metric in the case of an associated bundle induced by a representation on a vector space endowed with an inner product.
-	\begin{Prop}
+	\begin{Prop}\label{Prop_7.3.1}
 		Let $(P,M,\pi,G)$ be a principal bundle and $(E,M,\pi_E,V)$ be the induced associated bundle from $\rho:G\rightarrow GL(V)$. Let $V$ be a vector space with an inner product $\braket{,}_V$. Then there is a natural choice for a bundle metric on each fiber: let $x\in M$ and $p\in P_x$, we set 
 		$$\braket{[p,v],[p,w]}_{E_x}=\braket{v,w}_V$$
 	\end{Prop}
@@ -2101,9 +2121,9 @@
 	\begin{Ex}
 		If we consider the adjoint associated bundle of a principal bundle, we have.
 		$$\braket{[p,v],[p,w]}_{Ad}=\braket{v,w}_\mathfrak{g}$$
-		From theorem \ref{Theo_2.8.2} we know that if $\mathfrak{g}$ is compact and semisimple, we can use the Killing form as a non degenerate inner product. This induces the following bundle metric:
+		From theorem \ref{Theo_2.8.2} we know that if $\mathfrak{g}$ is compact and semisimple, we can use the Cartan-Killing form as a non degenerate inner product. This induces the following bundle metric:
 		$$\braket{[p,v],[p,w]}_{Ad}=Tr(\hbox{ad}_v\circ\hbox{ad}_w)$$
-		Moreover, the Killing form, from proposition \ref{Prop_2.8.2}, is invariant under the action of Lie algebra automoprhism. In particular, it is $Ad$-invariant. This immediately implies by proposition \ref{Prop_7.1.3} that the scalar product induced in the adjoint bundle $Ad(P)$ is invariant under gauge transformations, since they act with the adjoint representation.
+		Moreover, the Cartan-Killing form, from proposition \ref{Prop_2.8.2}, is invariant under the action of Lie algebra automoprhism. In particular, it is $Ad$-invariant. This immediately implies by proposition \ref{Prop_7.1.3} that the scalar product induced in the adjoint bundle $Ad(P)$ is invariant under gauge transformations, since they act with the adjoint representation.
 	\end{Ex}
 	\begin{Def}
 		Let $(P,M,\pi,G)$ a principal bundle and $\rho$ a representation of $G$. Let $\omega_{1,2}\in \Omega^k_(M,E)$ be two $E$-valued forms on $M$. Then we define an inner product as follows: choose a local frame $\{e_i:M\rightarrow E\}$ of $E$ and expand $\omega_{1,2}=\omega_{1,2}^i\otimes e_i$, and set:
@@ -2132,6 +2152,47 @@
 		$$\braket{D^*\omega,\eta}_E=\braket{\omega,D\eta}_E$$
 	\end{Prop}
 	SHOW ANTIDERIVATION
+	There is a strong relatioship between the pullback of the curvature on the manifold, with values on the Lie algebra, and the induced form on with values on the associated bundle. In particular, choosing a local gauge, one can show that locally there is a correspondence between them:
+	\begin{Prop}\label{God_Prop}
+		Let $(P,M,\pi,G)$ be a principal bundle and $(Ad(P),M,\pi_{Ad},\mathfrak{g})$ be the adjoint associated bundle. Let $A\in \Omega^1(P,\mathfrak{g})$ be a connection on the principal bundle and $F\in\Omega^2_{Ad}(P,\mathfrak{g})$ be its curvature. Then, for any local gauge $s:U\subset M\rightarrow P$w, the pullback $s^*F$ of $F$ and the associated form $F_M\in\Omega^2(M,Ad(P))$ coincide.  
+	\end{Prop}
+	\begin{proof}
+		The local gauge $s:U\rightarrow P$ induces a local trivialization both on the principal bundle and on the adjoint bundle, respectively:
+		$$\phi: \pi^{-1}(U)\rightarrow U\times G\hbox{ acting like }\phi(s(x)\cdot g)=(x,g)$$
+		$$\varphi: \pi_{Ad}^{-1}(U)\rightarrow U\times \mathfrak{g}\hbox{ acting like }\phi([s(x)\cdot g,X])=(x,\rho(g)X)$$
+		Those were defined in proposition \ref{Prop_3.5.3} and proposition \ref{Prop_6.2.3}. If $F$ is the curvature of $A$, then by theorem \ref{Mus_Iso}, the corresponding form $F_M\in\Omega(M,Ad(P))$ is constructed like:
+		$$F_{M,x}(v_{1,x},v_{2,x})=[s(x),F_{s(x)}(ds(v_{1,x}),ds(v_{2,x}))]$$
+		Where $x\in M$ and $v_{i,x}\in T_xM$.
+		Recall that in the same theorem we proves that this association does not depend on the point in the fiber, nor on the choice of the lifts.
+		By applying the local trivialization of the associated bundle we find:
+		$$\varphi\circ F_{M,x}(v_{1,x},v_{2,x})=(x,F_{s(x)}(ds(v_{1,x}),ds(v_{2,x})))=(x,s^*F_{x}(v_{1,x},v_{2,x}))$$
+		Thus, the choice of a local gauge allows us to locally express the form $F_M$ with the pullback of the curvature. This proves the claim.
+	\end{proof}
+	The last result allows to explicit the bundle metric product of the curvature through the components of the pullback of it:
+	\begin{Prop}
+		Let $(P,M,\pi,G)$ be a principal bundle and $Ad(P)$ the associated adjoint bundle. Let $F\in\Omega^2_{Ad}(P,\mathfrak{g})$ be the curvature of a connection on $P$ and $F_M\in\Omega^2(M,Ad(P))$ be the associated form on $M$. If $\mathfrak{g}$ has an $Ad$-invariant product, for any local gauge $s:U\subset M\rightarrow P$, it holds:
+		$$\braket{F_M,F_M}_{Ad}=\braket{s^*F,s^*F}_\mathfrak{g}$$
+	\end{Prop}
+	\begin{proof}
+		By proposition \ref{God_Prop}, any local gauge $s:U\rightarrow P$ induces a local trivialization:
+		$$\varphi: \pi^{-1}_{Ad}(U)\rightarrow U\times \mathfrak{g}$$
+		such that $F_{M,x}=\varphi^{-1}(x,\circ s^*F)$.
+		Substituting this expression into the product we get, for any $x\in M$:
+		$$\braket{F_{M,x}(v_{1,x},v_{2,x}),F_{M,x}(v_{1,x},v_{2,x})}_{Ad}=$$
+		$$=\braket{\varphi^{-1}\circ (x,s^*F_x(v_{1,x},v_{2,x})),\varphi^{-1}\circ (x,s^*F_x(v_{1,x},v_{2,x}))}_{Ad}$$
+		The action of $\varphi^{-1}$ was defined in proposition \ref{Prop_6.2.3} as: $\phi^{-1}(x,v)=[s(x),v]$ so that the above formula becomes:
+		$$\braket{F_{M,x}(v_{1,x},v_{2,x}),F_{M,x}(v_{1,x},v_{2,x})}_{Ad}=\braket{[s(x),s^*F_x((v_{1,x},v_{2,x}))],[s(x),s^*F_x((v_{1,x},v_{2,x}))]}_{Ad}$$
+		By proposition \ref{Prop_7.3.1}, we can write the above product as:
+		$$\braket{[s(x),s^*F_x((v_{1,x},v_{2,x}))],[s(x),s^*F_x((v_{1,x},v_{2,x}))]}_{Ad}=$$
+		$$=\braket{s^*F_x((v_{1,x},v_{2,x})),s^*F_x((v_{1,x},v_{2,x}))}_\mathfrak{g}$$
+		This product is $Ad$-invariant and so it is invariant under any representative we choose. Moreover, always by $Ad$-invariance, since from observation \ref{Obs_7.2.2} the curvature transforms with the adjoint representation, it is invariant for any choice of local gauge.
+	\end{proof}
+	\begin{Obs}
+		We can look at the last result in coordinates. Let $(U,x^i)$ be a chart on $M$ $\{\partial_i\}$ be the induced base on the tangent space and $\{dx^i\}$ the one on the cotangent space. By definition $s^*F\in \Omega^2(M,\mathfrak{g})$ so that:
+		$$s^*F={1\over 2}F_{\mu\nu,a}dx^\mu\wedge dx^\nu\otimes T^a=F_a\otimes T^a$$
+		where $T^a$ are generators for the Lie algebra. Then, by proposition \ref{Prop_7.3.1}:
+		$$\braket{s^*F,s^*F}_\mathfrak{g}=\braket{F_a,F_b}\braket{T^a,T^b}_\mathfrak{g}$$
+	\end{Obs}
 	\chapter{The Yang-Mills Gauge theory}
 	In this chapter we will use the knowledge exposed previously to construct the famous Yang-Mills Lagrangian and look at some of its properties. More informations on this topic can be found in REFERENZA
 	\section{The Maxwell's equations}
@@ -2245,10 +2306,10 @@
 		$$F\wedge \star F={1\over 4}F_{\mu\nu}F_{\alpha\beta}dx^\mu\wedge dx^\nu \wedge (\star dx^\alpha\wedge dx^\beta)=$$
 		$$=(-F_{tx}F_{tx}+F_{ty}F_{yt}-F_{tz}F_{tz}+F_{xy}F_{xy}-F_{xz}F_{zx}+F_{yz}F_{yz})dx\wedge dx\wedge dy\wedge dz$$
 		Moreover, we have that: $F^{\mu\nu}=\eta^{\mu\alpha}\eta^{\nu\beta}F_{\alpha\beta}$ which in turn implies the following identities:
-			\begin{itemize}
-				\item $F^{ti}=-F_{ti}$ where $i=x,y,z$;
-				\item $F^{ij}=F_{ij}$
-			\end{itemize}
+		\begin{itemize}
+			\item $F^{ti}=-F_{ti}$ where $i=x,y,z$;
+			\item $F^{ij}=F_{ij}$
+		\end{itemize}
 		$$F\wedge \star F=F_{\mu\nu}F^{\mu\nu}dt\wedge dx\wedge dy\wedge dz$$
 		This gives the general well known form of the electromagnetic Lagrangian:
 		$$\mathcal{L}=-{1\over 2}F_{\mu\nu}F^{\mu\nu}$$
@@ -2266,7 +2327,7 @@
 		\item Lorentz invariant;
 		\item Gauge invariant.
 	\end{itemize}
-	By gauge invariance we mean that the Lagrangian is invariant under local transformations encoded in a Lie group. In particular, we will assume the existence of an a-priori $G$-principal bundle on our space-time manifold, where $G$ is the symmetry group. In our analysis, we also ask for $G$ to be compact and to have a semisimple Lie algebra. This requirement will ensure, in the $n$-dimensional case, that the group is equipped with a positive definite scalar product: the Killing form.
+	By gauge invariance we mean that the Lagrangian is invariant under local transformations encoded in a Lie group. In particular, we will assume the existence of an a-priori $G$-principal bundle on our space-time manifold, where $G$ is the symmetry group. In our analysis, we also ask for $G$ to be compact and to have a semisimple Lie algebra. This requirement will ensure, in the $n$-dimensional case, that the group is equipped with a positive definite scalar product: the Cartan-Killing form.
 	\\\\
 	We now wish to recover the Maxwell's equations and the electromagnetic Lagrangian of the previpus section in a new differential geometry setting, which will make the gauge symmetry and the Lorentz invariance more manifest. We assume the existence of a principal $G$-bundle $(P,\mathbb{R}^{1,3},\pi,G)$ where $G$ is a Lie group. Given any representation $\rho:G\rightarrow GL(V)$, we can also define an associated bundle $(E,\mathbb{R}^{1,3},\pi_A,G)$ where $E={P\times V\over \sim}$ over the equivalence relation:
 	$$(p,v)\sim(p\cdot g,\rho(g^{-1})v)$$
@@ -2320,15 +2381,32 @@
 		Since the pullback of $F$ does not change under changes of local gauges, by proposition \ref{Prop_7.2.2}, we know that this form is globally defined on $M$.
 	\end{Obs}
 	\begin{Prop}
+		The general formula for the pullback of the field strength $F$ under a local gauge is:
+		$$s^*F=-iF_a\otimes T^a$$
+		where
+		$$F_a={1\over 2}F_{\mu\nu,a}dx^\mu\wedge dx^\nu\hbox{ and } F_{\mu\nu,a}=\partial_\mu A_{\nu,a}-\partial_\nu A_{\mu,a}$$
+	\end{Prop}
+	\begin{proof}
+		This is just a straightforward calculation. Let $s:U\subset M\rightarrow P$ be a local gauge. By proposition \ref{Prop_3.4.3}, the pullback of a form commutes with the exterior derivative and the product between forms, so that:
+		$$s^*F=ds^*A+{1\over 2}[s^*A,s^*A]$$
+		Moreover, the term $[A,A]$ is 0 since in the $U(1)$ case the adjoint representation is trivial. Thus, we find:
+		$$s^*F=-idA_a\otimes T^a$$
+		And in this setting there is only one generator $T$ for the Lie algebra. This means:
+		$$s^*F=-idA_\mu dx^\mu\otimes T=-i\partial_\mu A_\nu dx^\mu\wedge dx^\nu \otimes T$$
+		By the skew-symmetry of the wedge product, we can re-write the above formula as:
+		$$s^*F=-idA_\mu dx^\mu\otimes T={-i\over 2}[\partial_\mu A_\nu-\partial_\nu A_\mu] dx^\mu\wedge dx^\nu \otimes T$$
+		This completes the proof.
+	\end{proof}
+	\begin{Prop}\label{Prop_8.4.3}
 		For G=$U(1)$, the first half of the Maxwell's equations holds like: $DF=dF=0$, $F=DA=dA$, where $D$ is the exterior covariant derivative with respect to the adjoint bundle and $d$ is the exterior derivative.
 	\end{Prop}
 	\begin{proof}
 		The curvature is a type $Ad$ tensorial form $F\in \Omega^2_{Ad}(P,\mathfrak{g})$. In example \ref{Ex_6.3.1} we found that
 		$$F=DA$$
 		Moreover, in observation \ref{Obs_6.3.5} we proved $DF=0$. Recall that proposition \ref{Prop_6.3.4}, the covariant derivative of an $Ad$-tensorial $2$-form is given by:
-		$$DF=dF+[A,F]$$
+		$$DF=dF+A\cdot F$$
 		where the product $[A,F]$ is given by definition \ref{Def_6.3.3}:
-		$$[A,F](X,Y,Z)={1\over 2}\sum_\sigma sgn(\sigma)\hbox{ad}(A(X))(F(Y,Z))$$
+		$$A\cdot F(X,Y,Z)={1\over 2}\sum_\sigma sgn(\sigma)\hbox{ad}(A(X))(F(Y,Z))$$
 		In the current case the gauge group is $U(1)$ abelian. This means that the adjoint representation is trivial and so the exterior covariant derivative $D$ simplifies to:
 		$$F=DA=dA+{1\over 2}[A,A]=dA$$
 		Also $DF=dF+[A,F]=0=d(dA)+[A,F]$ which implies $DF=dF=0$. From those identities we can say that, in the abelian setting, the Maxwell's equations are fully recovered in space-time in two different equivalent forms. In fact, choosing $T$ as a generator for $\mathfrak{g}=\mathbb{R}$ and $s$ as a local gauge, we can pullback both $A$ and $F$. Knowing from proposition \ref{Prop_3.5.3} that the pullback commutes both with the exterior derivative and the product of forms:
@@ -2339,14 +2417,14 @@
 	\begin{Prop}
 		The electromagnetic Lagrangian is:
 		$$\mathcal{L}=-{1\over 2}\braket{F_M,F_M}_{Ad}$$
-		where $F_M$ is the induced curvature on $\Omega^2(M,Ad(P))$, $Ad(P)$ is the associated adjoint bundle constructed from the principal bundle $P$ and $\braket{,}_{Ad}$ is the bundle metric induced from the Killing form on $U(1)$.
+		where $F_M$ is the induced curvature on $\Omega^2(M,Ad(P))$, $Ad(P)$ is the associated adjoint bundle constructed from the principal bundle $P$ and $\braket{,}_{Ad}$ is the bundle metric induced from the Cartan-Killing form on $U(1)$.
 	\end{Prop}
 	\begin{proof}
 		We check that this Lagrangian reduces to the same one we had found in proposition \ref{Prop_8.1.2}. Starting from the curvature $F\in \Omega^2_{Ad}(P,\mathfrak{g})$, through theorem \ref{Mus_Iso}, we can construct a $2$-form $F_M\in \Omega^2(M,E)$. Choosing a local frame $\{e_i\}$, we can expand $F_M=F^i_{M}\otimes e_i$, where $F_M^i\in \Omega^2(M)$, and define the product: $$\braket{F_M,F_M}_{Ad}=\braket{F_M^i,F_M^j}\braket{e_i,e_j}_{Ad}$$
-		In the last expansion $\braket{e_i(p),e_j(p)}_{Ad}=B_{\mathfrak{u}(1)}(e_i(p),e_j(p))$ is induced by the Killing form, which is a non degenerate, negative definite symmetric product in our setting. This implies that locally we can choose an orthonormal frame $e_i$ for this product. Let now $\omega$ be the volume form, then $\braket{F_M^i,F_M^j}\omega=F_M^i\wedge\star F_M^j$ and in our basis the Killing form takes the form: $B_{\mathfrak{u}(1)}(e_i,e_j)=-\delta_{ij}$ at any $p$. Thus, we can write:
+		In the last expansion $\braket{e_i(p),e_j(p)}_{Ad}=\braket{e_i(p),e_j(p)}_{\mathfrak{u}(1)}$ is a non degenerate, positive definite symmetric product on $\mathbb{R}=\mathfrak{u}(1)$. Since the group is abelian, the product is clearly invariant under the adjoint representation. Locally, we can choose an orthonormal frame $e_i$ for this product. Let now $\omega$ be the volume form, then $\braket{F_M^i,F_M^j}\omega=F_M^i\wedge\star F_M^j$ and in our basis the Cartan-Killing form takes the form: $B_{\mathfrak{u}(1)}(e_i,e_j)=-\delta_{ij}$ at any $p$. Thus, we can write:
 		$$\mathcal{L}\omega={1\over 2}F_M^i\wedge \star F_M^i$$
 		and since the Lie algebra is $1$ dimensional, the index $i$ has only one possible value:
-		$$\mathcal{L}\omega={1\over 2}F_M\wedge \star F_M$$
+		$$\mathcal{L}\omega={1\over 2}F^1_M\wedge \star F^1_M$$
 		This is exactly the same form of proposition \ref{Prop_8.1.2}. Now it only remains to show that the solution of this Lagrangian satisfies the Maxwell's equations. \\\\
 		The first half follows from the properties of $F$. In fact, we already proved $DF=dF+A\cdot F=0$ and through the construction of theorem \ref{Mus_Iso}, it immediately follows that $DF_M=0$.\\
 		\\
@@ -2355,7 +2433,7 @@
 	\section{The SU(N) Yang-Mills theory}
 	In this section we will generalize the construction of the electromagnetic Lagrangian with higher dimensional groups. This will lead us to the QCD gauge boson Lagrangian. More informations on this can be found in REFERENZA\\
 	\\
-	The idea is to keep the same framework of the $U(1)$ case and generalize the setting to a higher dimensional Lie algebra. Thus, following the approach of the previous section, we start from the assumption of a $G$-principal bundle on $\mathbb{R}^{1,3}$ endowed with a connection $A\in \Omega^1(P,\mathfrak{g})$. However, we now take $\mathfrak{g}$ to be an $n$-dimensional Lie algebra. We are going to refer to $A$ with the name \textit{gauge field}. Moreover, we want our group $G$ to have a compact and semisimple Lie algebra, in order to have a negative definite non degenerate Killing form to induce a bundle metric on the Adjoint associated bundle $Ad(P)$. To satisfy this requirement coherently with the previous section, we generalize the group $G$ from $U(1)$ to $SU(N)$, since $\mathfrak{su}(N)$ is compact and semisimple. Thus, our principal bundle will be a principal $SU(N)$-bundle $(P,\mathbb{R}^{1,3},\pi,SU(N))$.
+	The idea is to keep the same framework of the $U(1)$ case and generalize the setting to a higher dimensional Lie algebra. Thus, following the approach of the previous section, we start from the assumption of a $G$-principal bundle on $\mathbb{R}^{1,3}$ endowed with a connection $A\in \Omega^1(P,\mathfrak{g})$. However, we now take $\mathfrak{g}$ to be an $n$-dimensional Lie algebra. We are going to refer to $A$ with the name \textit{gauge field}. Moreover, we want our group $G$ to have a compact and semisimple Lie algebra, in order to have a negative definite non degenerate Cartan-Killing form to induce a bundle metric on the Adjoint associated bundle $Ad(P)$. To satisfy this requirement coherently with the previous section, we generalize the group $G$ from $U(1)$ to $SU(N)$, since $\mathfrak{su}(N)$ is compact and semisimple. Thus, our principal bundle will be a principal $SU(N)$-bundle $(P,\mathbb{R}^{1,3},\pi,SU(N))$.
 	\begin{Obs}
 		In our analysis we will take $\mathfrak{su}(N)$ to be the real vector space of \textit{traceless hermitian} matrices. However, in example \ref{Ex_2.5.1} the Lie algebra of $U(N)$ was found to be composed of skew-hermitian matrices. However, if instead of a set of generators $\{T^a\}$ we take $\{-iT^a\}$, the generators $T^a$ become hermitian. Basically, we are rescaling the generators of a factor $-i$.
 		With this convention the commutation relations become:
@@ -2373,8 +2451,8 @@
 		Note that, with respect to the previous section, the adjoint representation for $SU(N)$ is not trivial anymore.
 	\end{Obs}
 	\begin{Obs}
-		We can explicitly write the transformation rule once we choose a base $\{T^a\}$ for the Lie algebra $\mathfrak{su}(N)$. In particular, the connection $A$ belongs to $\Omega^1(P,\mathfrak{su}(N))$ and so can be expanded like:
-		$$A=-iA_a\otimes T^a=-iA_{\mu,a}dx^\mu\otimes T^a$$
+		We can explicitly write the transformation rule once we choose a base $\{T^a\}$ for the Lie algebra $\mathfrak{su}(N)$. In particular, the connection $A$ belongs to $\Omega^1(P,\mathfrak{su}(N))$ and so it's pullback can be expanded like:
+		$$s^*A=-iA_a\otimes T^a=-iA_{\mu,a}dx^\mu\otimes T^a$$
 		where $A_a\in\Omega^1(M)$ for every $a$ and $A_{\mu,a}:M\rightarrow\mathbb{R}$ are smooth functions of points in $M$. 
 		If now we expand $g_{ji}(x)=exp(-i\alpha_a(x)T^a)$ through the exponential map, with $\alpha(x)$ being smooth functions of points, we get:
 		$$dg_{ji,x}(X_x)=-iexp(-i\alpha_aT^a)\cdot \partial_\mu \alpha_{a}(x)dx^\mu\otimes T^a$$
@@ -2388,6 +2466,37 @@
 		The curvature tensor is not gauge invariant.
 	\end{Prop}
 	This means that the pullback of $F$ does not define a global closed form on $M$, since it depends on the local gauge chosen.
+	\begin{Prop}
+		For $G=SU(N)$, the first half of the Maxwell's equations takes the form:
+		$$DF=0$$
+		with $F=DA$.
+	\end{Prop}
+	This result immediatly follows from observation \ref{Obs_6.3.5}. However, the main difference from the result found in proposition \ref{Prop_8.4.3} is that $F\neq dA$ and $dF\neq 0$. In fact:
+	$$F=dA+{1\over 2}[A,A]$$
+	and in the case of a non abelian gauge group like $SU(N)$, the second term does not vanish. Looking back at example \ref{Ex_3.5.1}:
+	$$[A,A]=A_a\wedge A_b \otimes [T^a,T^b]$$ 
+	In the same way $dF=[F,A]$ is non 0 in general.
+	\begin{Prop}
+		If $\{-iT^a\}$ is an orthonormal basis for the Cartan-Killing form, the general formula for the pullback of the field strength $F$ under a local gauge is:
+		$$s^*F=-iF_{a}\otimes T^a$$
+		where 
+		$$F_a={1\over 2}F_{\mu\nu,a}dx^\mu\wedge dx^\nu \hbox{ and }F_{\mu\nu,a}=\partial_\mu A_{\nu,a}-\partial_\nu A_{\mu,a}+f^{bc}_{\hspace{9pt}a}A_{\mu,b}A_{\nu,c}$$
+	\end{Prop}
+	\begin{proof}
+		The proof is just a straightforward calculation. By construction $F=DA$ so that:
+		$$F=dA+{1\over 2}[A,A]$$
+		Let $s:U\subset M\rightarrow P$ be a local gauge. By proposition \ref{Prop_3.4.3} the pullback commutes with the covariant derivative and the product of forms, so that:
+		$$s^*F=ds^*A+{1\over 2}[s^*A,s^*A]$$
+		Expanding in terms of the components of $A$ we get:
+		$$s^*F=-i\partial_\mu A_{\nu,a}dx^\mu\wedge dx^\nu\otimes T^a-{1\over 2}A_a\wedge A_b\otimes [T^a,T^b]=$$
+		$$=-i\partial_\mu A_{\nu,a}dx^\mu\wedge dx^\nu\otimes T^a-{i\over 2}A_{\mu,a}A_{\nu,b}dx^\mu\wedge dx^\nu \otimes f^{ab}_{\hspace{9pt}c}T^c$$
+		We can now re-write the first term as:
+		$$-i\partial_\mu A_{\nu,a}dx^\mu\wedge dx^\nu\otimes T^a={-i\over 2}[\partial_\mu A_{\nu,a}-\partial_\nu A_{\mu,a}]dx^\mu\wedge dx^\nu\otimes T^a$$
+		By proposition \ref{Prop_2.8.3}, if we choose $\{-iT^a\}$ to be an orthonormal basis for the Cartan-Killing metric, the structure constants $f^{ab}_{\hspace{9pt}c}$ are totally antisymmetric. By permuting the indices and applying the above property one finds:
+		$$A_{\mu,a}A_{\nu,b}dx^\mu\wedge dx^\nu \otimes f^{ab}_{\hspace{9pt}c}T^c=f^{bc}_{\hspace{9pt}a}A_{\mu,b}A_{\nu,c}\otimes T^a$$
+		Substituting this into the expression for $F$ one gets:
+		$$s^*F={-i\over 2}F_{\mu\nu,a}dx^\mu\wedge dx^\nu\otimes T^a={-i\over 2}[\partial_{\mu}A_{\nu,a}-\partial_{\nu}A_{\mu,a}+f^{bc}_{\hspace{9pt}a}A_{\mu,b}A_{\nu,c}]dx^\mu\wedge dx^\nu \otimes T^a$$
+	\end{proof}
 	\chapter*{Bibliography}
 	\begin{itemize}
 		\item[$\circ$] [1] Loring W.Tu, An Introduction to Manifolds, Springer, 2011;
