@@ -421,7 +421,7 @@
 	\end{Obs}
 	\section{Thoe Hodge Operator}
 	in this section we define the Hodge operator and see some properties of it. This operator will be useful in writing the Maxwell equations from a differential geometry point of view. More reference on this topic can be found in [3] chap. 7 pag. 406-413, [10] chap. 6 pag. 345-356 pag. 386-399.
-	\begin{Obs}
+	\begin{Obs}\label{Obs_1.7.1}
 		The inner product on $M$ induces an inner product on forms. Namely, at any point $p\in M$ we have:
 		$$\braket{\alpha^1_p\wedge...\wedge \alpha^k_p,\beta^1_p\wedge...\wedge\beta^k_p}=det(\braket{\alpha^i_p,\beta^j_p}_{i,j\in[1,k]})$$
 		In particular, at any $p\in M$, we have a smooth inner product of vectors. Since $g$ is a bilinear, symmetric and non degenerate, it induces an isomorphism on the cotangent space at any point. The inner product of 1-forms is defined as being equal to the inner product of the corresponding vectors. More on this construction will be said in section \ref{Sec_3.3}.
@@ -2091,9 +2091,9 @@
 	Lastly, we would like to understand how the curvature transforms from the point of view of the associated bundle. Recall that proposition \ref{Mus_Iso} gave us the following isomorphism:
 	$$\Omega^k_\rho(P,V)\simeq \Omega^k(M,E)$$
 	The curvature of a connection is, as proved in proposition \ref{Theo_5.5.1}, $Ad$-equivariant and thus belongs to $\Omega^2_{Ad}(P,\mathfrak{g})$. This implies that once we have a connection on $P$ principal bundle, we can construct a $2$-form on the associated bundle $F_M$.
-	\begin{Prop}
-		Let $F\in \Omega^2_Ad(P,\mathfrak{g})$ be a curvature form on a principal bundle and $F_m\in\Omega^2(M,E)$ be the corresponding $2$-form on the associated bundle. The action of $\phi\in\mathcal{G}(P)$ on $F_M$ is induced by the one of $F$ and is:
-		$$F\rightarrow \phi^{-1}\cdot F$$
+	\begin{Prop}\label{Prop_7.2.3}
+		Let $F\in \Omega^2_Ad(P,\mathfrak{g})$ be a curvature form on a principal bundle and $F_M\in\Omega^2(M,E)$ be the corresponding $2$-form on the associated bundle. The action of $\phi\in\mathcal{G}(P)$ on $F_M$ is induced by the one of $F$ and is:
+		$$F_M\rightarrow \phi^{-1}\cdot F_M$$
 	\end{Prop}
 	\begin{proof}
 		Let $s:U\rightarrow P$ be a local gauge. By observation \ref{Obs_7.2.2}, the action of $\phi\in\mathcal{G}$ on $F$ is:
@@ -2187,7 +2187,7 @@
 		$$=\braket{s^*F_x((v_{1,x},v_{2,x})),s^*F_x((v_{1,x},v_{2,x}))}_\mathfrak{g}$$
 		This product is $Ad$-invariant and so it is invariant under any representative we choose. Moreover, always by $Ad$-invariance, since from observation \ref{Obs_7.2.2} the curvature transforms with the adjoint representation, it is invariant for any choice of local gauge.
 	\end{proof}
-	\begin{Obs}
+	\begin{Obs}\label{Obs_7.3.2}
 		We can look at the last result in coordinates. Let $(U,x^i)$ be a chart on $M$ $\{\partial_i\}$ be the induced base on the tangent space and $\{dx^i\}$ the one on the cotangent space. By definition $s^*F\in \Omega^2(M,\mathfrak{g})$ so that:
 		$$s^*F={1\over 2}F_{\mu\nu,a}dx^\mu\wedge dx^\nu\otimes T^a=F_a\otimes T^a$$
 		where $T^a$ are generators for the Lie algebra. Then, by proposition \ref{Prop_7.3.1}:
@@ -2302,17 +2302,19 @@
 		where $\omega$ is the volume form.
 	\end{Prop}
 	\begin{proof}
-		We explicitly compute in coordinates the Lagrangian, by substituting the previous expansions for $F,\star F$:
+		We explicitly compute in coordinates the Lagrangian:
 		$$F\wedge \star F={1\over 4}F_{\mu\nu}F_{\alpha\beta}dx^\mu\wedge dx^\nu \wedge (\star dx^\alpha\wedge dx^\beta)=$$
-		$$=(-F_{tx}F_{tx}+F_{ty}F_{yt}-F_{tz}F_{tz}+F_{xy}F_{xy}-F_{xz}F_{zx}+F_{yz}F_{yz})dx\wedge dx\wedge dy\wedge dz$$
-		Moreover, we have that: $F^{\mu\nu}=\eta^{\mu\alpha}\eta^{\nu\beta}F_{\alpha\beta}$ which in turn implies the following identities:
-		\begin{itemize}
-			\item $F^{ti}=-F_{ti}$ where $i=x,y,z$;
-			\item $F^{ij}=F_{ij}$
-		\end{itemize}
-		$$F\wedge \star F=F_{\mu\nu}F^{\mu\nu}dt\wedge dx\wedge dy\wedge dz$$
+		$${1\over 4}F_{\mu\nu}F_{\alpha\beta}\braket{dx^\mu\wedge dx^\nu,dx^\alpha\wedge dx^\beta}\omega$$
+		By observation \ref{Obs_1.7.1}, we can explicitly write the scalar product as:
+		$$\braket{dx^\mu\wedge dx^\nu,dx^\alpha\wedge dx^\beta}=det
+		\begin{pmatrix}
+			\braket{dx^\mu,dx^\alpha} && \braket{dx^\mu,dx^\beta}\\
+			\braket{dx^\nu,dx^\alpha} && \braket{dx^\nu,dx^\beta}\\
+		\end{pmatrix}=\eta^{\mu\alpha}\eta^{\nu\beta}-\eta^{\nu\alpha}\eta^{\mu\beta}$$
+		By contracting the indices we find:
+		$$F\wedge \star F={1\over 2}F_{\mu\nu}F^{\mu\nu}dt\wedge dx\wedge dy\wedge dz$$
 		This gives the general well known form of the electromagnetic Lagrangian:
-		$$\mathcal{L}=-{1\over 2}F_{\mu\nu}F^{\mu\nu}$$
+		$$\mathcal{L}=-{1\over 4}F_{\mu\nu}F^{\mu\nu}$$
 	\end{proof}
 	\section{The U(1) Yang-Mills theory}
 	In this section we will use the Maxwell's equation to deduce the general form of the Yang-Mills Lagrangian for electromagnetism. More references on this topic can be found in: REFERENZA
@@ -2425,6 +2427,22 @@
 		$$\mathcal{L}\omega={1\over 2}F_M^i\wedge \star F_M^i$$
 		and since the Lie algebra is $1$ dimensional, the index $i$ has only one possible value:
 		$$\mathcal{L}\omega={1\over 2}F^1_M\wedge \star F^1_M$$
+		From proposition \ref{Prop_7.2.3} we know that the transformation of the curvature $F_M$ under a gauge transformation $\phi\in \mathcal{G}(P)$ is:
+		$$F_M\rightarrow \phi^{-1}\cdot F_M$$
+		Moreover, the bundle metric $\braket{,}_{Ad}$ is, by construction, invariant under automorphisms of the Lie algebra. This makes the Lagrangian invariant under gauge transformations. This invariance allows us to express the Lagrangian in coordinates, by choosing an arbitrary local gauge $s:U\subset M\rightarrow P$. In particular, from proposition \ref{God_Prop} and observation \ref{Obs_7.3.2}, we have:
+		$$\braket{F_M,F_M}_{Ad}=\braket{s^*F,s^*F}_\mathfrak{g}=\braket{F_a,F_b}\braket{T^a,T^b}_\mathfrak{g}$$
+		In our current case the Lie algebra is 1 dimensional and selecting we choose a normalized generator so that:
+		$$\braket{F_M,F_M}_{Ad}=\braket{F_a,F_a}$$
+		Choosing a local chart $(U,x^i)$ on $M$, we can select a basis $\{\partial_\mu\}$ for the tangent space and a base $\{dx^\mu\}$ for the cotangent space. Those bases are constructed to be orthonormal with respect to the Minkowsky metric. It is now possible to expand with those coordinates the pullback of the curvature:
+		$$\braket{F_a,F_a}={1\over 4}F_{\mu\nu} F_{\alpha\beta}\braket{dx^\mu\wedge dx^\nu,dx^\alpha\wedge dx^\beta}$$ 
+		Applying the definition of scalar product between forms written in observation \ref{Obs_1.7.1}, we get:
+		$$\braket{dx^\mu\wedge dx^\nu,dx^\alpha\wedge dx^\beta}=det
+		\begin{pmatrix}
+			\braket{dx^\mu,dx^\alpha} && \braket{dx^\mu,dx^\beta}\\
+			\braket{dx^\nu,dx^\alpha} && \braket{dx^\nu,dx^\beta}\\
+		\end{pmatrix}=\eta^{\mu\alpha}\eta^{\nu\beta}-\eta^{\nu\alpha}\eta^{\mu\beta}$$
+		Contracting the indices with $F_{\mu\nu}F_{\alpha\beta}$ one gets:
+		$$\braket{F_a,F_a}={1\over 2}F_{\mu\nu} F^{\mu\nu}$$
 		This is exactly the same form of proposition \ref{Prop_8.1.2}. Now it only remains to show that the solution of this Lagrangian satisfies the Maxwell's equations. \\\\
 		The first half follows from the properties of $F$. In fact, we already proved $DF=dF+A\cdot F=0$ and through the construction of theorem \ref{Mus_Iso}, it immediately follows that $DF_M=0$.\\
 		\\
@@ -2435,7 +2453,7 @@
 	\\
 	The idea is to keep the same framework of the $U(1)$ case and generalize the setting to a higher dimensional Lie algebra. Thus, following the approach of the previous section, we start from the assumption of a $G$-principal bundle on $\mathbb{R}^{1,3}$ endowed with a connection $A\in \Omega^1(P,\mathfrak{g})$. However, we now take $\mathfrak{g}$ to be an $n$-dimensional Lie algebra. We are going to refer to $A$ with the name \textit{gauge field}. Moreover, we want our group $G$ to have a compact and semisimple Lie algebra, in order to have a negative definite non degenerate Cartan-Killing form to induce a bundle metric on the Adjoint associated bundle $Ad(P)$. To satisfy this requirement coherently with the previous section, we generalize the group $G$ from $U(1)$ to $SU(N)$, since $\mathfrak{su}(N)$ is compact and semisimple. Thus, our principal bundle will be a principal $SU(N)$-bundle $(P,\mathbb{R}^{1,3},\pi,SU(N))$.
 	\begin{Obs}
-		In our analysis we will take $\mathfrak{su}(N)$ to be the real vector space of \textit{traceless hermitian} matrices. However, in example \ref{Ex_2.5.1} the Lie algebra of $U(N)$ was found to be composed of skew-hermitian matrices. However, if instead of a set of generators $\{T^a\}$ we take $\{-iT^a\}$, the generators $T^a$ become hermitian. Basically, we are rescaling the generators of a factor $-i$.
+		In our analysis we will take $\mathfrak{su}(N)$ to be the real vector space of \textit{traceless hermitian} matrices. However, in example \ref{Ex_2.5.1} the Lie algebra of $U(N)$ was found to be composed of skew-hermitian matrices. If instead of a set of generators $\{T^a\}$ we take $\{-iT^a\}$, the generators $T^a$ become hermitian. Basically, we are rescaling the generators of a factor $-i$.
 		With this convention the commutation relations become:
 		$$[T^a,T^b]=if^{ab}_{\hspace{9pt}c}T^c$$
 	\end{Obs}
@@ -2485,7 +2503,7 @@
 	\begin{proof}
 		The proof is just a straightforward calculation. By construction $F=DA$ so that:
 		$$F=dA+{1\over 2}[A,A]$$
-		Let $s:U\subset M\rightarrow P$ be a local gauge. By proposition \ref{Prop_3.4.3} the pullback commutes with the covariant derivative and the product of forms, so that:
+		Let $s:U\subset M\rightarrow P$ be a local gauge. By proposition \ref{Prop_3.4.3} the pullback commutes with the exterior derivative and the product of forms, so that:
 		$$s^*F=ds^*A+{1\over 2}[s^*A,s^*A]$$
 		Expanding in terms of the components of $A$ we get:
 		$$s^*F=-i\partial_\mu A_{\nu,a}dx^\mu\wedge dx^\nu\otimes T^a-{1\over 2}A_a\wedge A_b\otimes [T^a,T^b]=$$
@@ -2497,6 +2515,33 @@
 		Substituting this into the expression for $F$ one gets:
 		$$s^*F={-i\over 2}F_{\mu\nu,a}dx^\mu\wedge dx^\nu\otimes T^a={-i\over 2}[\partial_{\mu}A_{\nu,a}-\partial_{\nu}A_{\mu,a}+f^{bc}_{\hspace{9pt}a}A_{\mu,b}A_{\nu,c}]dx^\mu\wedge dx^\nu \otimes T^a$$
 	\end{proof}
+	\begin{Obs}
+		We now check how the Lagrangian changes in this generalized non-abbelian theory. We keep the same structure we found in the $U(1)$ and develop it in coordinates.\\
+		\\
+		Let $F\in\Omega^2_{Ad}(P,\mathfrak{su}(N))$ be the curvature. By construction $\mathcal{L}=-{1\over 2}\braket{F_M,F_M}_{Ad}$ where $F_M\in \Omega^2(M,Ad(P))$ is the $2$-form associated to the curvature $F$ by theorem \ref{Mus_Iso}. We immediately see that this lagrangian is invariant under gauge transformations. This is clear since those act on $F_M$ as described in proposition \ref{Prop_7.2.3}, and the scalar product on $\mathfrak{g}=\mathfrak{su}(N)$ is the Cartan-Killing form, which is invariant under automorphisms.\\
+		Note that, with respect to the $U(1)$ case, $F_M$ is not invariant under gauge transformations, but the Lagrangian is. Choosing a local gauge $s:U\subset M\rightarrow P$, we can express, through \ref{God_Prop}, $F_M$ as $s^*F$. In particular:
+		$$\braket{F_M,F_M}_{Ad}=\braket{s^*F,s^*F}_{\mathfrak{su}(N)}$$
+		Moreover, fixing a chart $(U,x^i)$ with induced bases $\{\partial_\mu\}$, $\{dx^\mu\}$ orthonormal to the Minkowski metric $\eta_{\mu\nu}$, we get:
+		$$s^*F={1\over 2}F_{\mu\nu,a}dx^\mu\wedge dx^\nu\otimes T^a$$
+		The scalar product thus becomes:
+		$$\braket{s^*F,s^*F}_{\mathfrak{su}(N)}={1\over 4}F_{\mu\nu,a}F_{\alpha\beta,b}\braket{dx^\mu\wedge dx^\nu,dx^\alpha\wedge dx^\beta}\braket{T^a,T^b}_{\mathfrak{su}(N)}$$
+		The basis $\{T^a\}$ is selected as an orthonormal basis with respect to the Cartan-Killing form. This means:
+		$$\braket{T^a,T^b}_{\mathfrak{su}(N)}=\delta^{ab}$$
+		Note that the Cartan-Killing form is negative definite so we take as a scalar product the inverse of it. The product between forms gives the same exact result of the previous section:
+		$$\braket{s^*F,s^*F}_{\mathfrak{su}(N)}={1\over 2}F_{\mu\nu,a}F^{\mu\nu,a}$$
+		Thus, the Lagrangian takes the following form:
+		$$\mathcal{L}=-{1\over 4}F_{\mu\nu,a}F^{\mu\nu,a}$$
+		We see that the general form is exactly the same one we found in the $U(1)$ case, however, there are differences which arise due to the non commutativity of $SU(N)$. In particular, if we substitute the expression for $s^*F$ found in the previous proposition we get:
+		$$F_{\mu\nu,a}F^{\mu\nu,a}=(\partial_\mu A_{\nu,a}-\partial_\nu A_{\mu,a}+f^{bc}_{\hspace{9pt}a}A_{\mu,b}A_{\nu,c})(\partial^\mu A^{\nu,a}-\partial^\nu A^{\mu,a}+f^{dea}A^{\mu}_dA^{\nu}_e)=$$
+		$$=2(\partial_\mu A_{\nu,a}\partial^\mu A^{\nu,a}-\partial_\mu A_{\nu,a}\partial^\nu A^{\mu,a})+2f^{bc}_{\hspace{9pt}a}A_{\mu,b}A_{\nu,c}\partial^\mu A^{\nu,a}+$$
+		$$+2f^{dea}A^{\mu}_dA^{\nu}_e\partial_\mu A_{\nu,a}+f^{bc}_{\hspace{9pt}a}f^{dea}A_{\mu,b}A_{\nu,c}A^{\mu}_dA^{\nu}_e$$
+		Since our base $\{-iT^a\}$ is orthonormal with respect to the Cartan-Killing form, the structure constants $f^{abc}$ are totally skew-symmetric by proposition \ref{Prop_2.8.3}. Moreover, the fully contracted indices can be renamed, lowered and raised arbitrarily. Thus, the above equation becomes:
+		$$F_{\mu\nu,a}F^{\mu\nu,a}=$$
+		$$=2(\partial_\mu A_{\nu,a}\partial^\mu A^{\nu,a}-\partial_\mu A_{\nu,a}\partial^\nu A^{\mu,a})+4f^{abc}A_{\mu,b}A_{\nu,c}\partial^\mu A^{\nu}_{a}+ f^{bc}_{\hspace{9pt}a}f^{ade}A_{\mu,b}A_{\nu,c}A^{\mu}_dA^{\nu}_e$$
+		Thus, for any local gauge $s:U\subset M\rightarrow P$, the Lagrangian in coordinates is:
+		$$\mathcal{L}=-{1\over 2}(\partial_\mu A_{\nu,a}\partial^\mu A^{\nu,a}-\partial_\mu A_{\nu,a}\partial^\nu A^{\mu,a})-f^{abc}A_{\mu,b}A_{\nu,c}\partial^\mu A^{\nu}_{a}-{1\over 4} f^{bc}_{\hspace{9pt}a}f^{ade}A_{\mu,b}A_{\nu,c}A^{\mu}_dA^{\nu}_e$$
+		Clearly, the main difference from the abelian case is in the last two terms, which arise due to the non commutativity of the Lie algebra. in fact, in the $U(1)$ case, the structure constants are 0.
+	\end{Obs}
 	\chapter*{Bibliography}
 	\begin{itemize}
 		\item[$\circ$] [1] Loring W.Tu, An Introduction to Manifolds, Springer, 2011;
