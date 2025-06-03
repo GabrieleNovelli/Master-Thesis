@@ -126,7 +126,7 @@
 		A map $f:M\rightarrow N$ between two smooth manifolds is called \textit{diffeomorphism} if it is bijective, $C^\infty$ and with a $C^\infty$ inverse.
 	\end{Def}
 	It is also possible to show that all coordinate maps of any given chart $(U,\phi)$ of a smooth manifold are diffeomorphisms. The proof can be found in [1] pag. 63 cap. 2.
-	\section{Tangent space and vector fields}
+	\section{Tangent space and vector fields}\label{Sec_1.3}
 	In this section we define the notions tangent space and vector fields. From now on we will indicate with $M$ a generic smooth manifold of dimension $n$. More informations can be found in [1] chap. 3 pag. 86-98.
 	\begin{Def}
 		Consider all pairs $(f,U)$, where $U\subset M$ is an open set containing $p\in M$ and $f:U\rightarrow \mathbb{R}$ is a $C^\infty$ map. We say that $(f,U)\sim(g,V)$ if there exists an open set $W\subset U\cap V$ containing $p$, such that $f=g$ when restricted to $W$. We define the \textit{germ} of $f$ in $p$ as the equivalence class of $(f,U)$.
@@ -180,7 +180,8 @@
 		\\
 		More details on the flux of a vector field can be found in [1] pag. 155, 156 cap. 3.
 	\end{Def}
-	Lastly, we define the concept of metric manifold.
+	\section{Riemannian manifolds}
+	In this section we briefly define the concept of Riemannian manifold and look at some properties of it. More informations can ba found in [2] cahp. 1 pag. 1-7.
 	\begin{Def}
 		A \textit{metric} on a manifold $M$ is a smooth assignment to any point $p\in M$ of an inner product $\braket{,}_p:T_pM\times T_pM\rightarrow \mathbb{R}$:
 		\begin{itemize}
@@ -193,8 +194,17 @@
 	One can think of a metric as a map $g$ that reduces to $\braket{,}_p$ at any point. By definition, $g$ is smooth and in local coordinates we identify its components with $g_{ij}$.
 	In general, one can consider metrics which are not positive definite. An example is the Minkowski metric.
 	\begin{Def}
-		We call \textit{Riemanniann manifold} a metric manifold in which the metric tensor is positive definite. If the metric is not positive definite we call the manifold \textit{pseudo-Riemannian}.
+		We call \textit{Riemannian manifold} a metric manifold in which the metric tensor is positive definite. If the metric is not positive definite we call the manifold \textit{pseudo-Riemannian}.
 	\end{Def}
+	\begin{Ex}
+		Since the tangent space $T_p\mathbb{R}^n$ at any point in $\mathbb{R}^n$ is isomorphic to $\mathbb{R}^n$, the Euclidean inner product in $\mathbb{R}^n$ gives rise to a Riemannian metric in $\mathbb{R}^n$.		
+	\end{Ex}
+	\begin{Theo}
+		On any manifold $M$ there exists a Riemannian metric.
+	\end{Theo}
+	\begin{proof}
+		The proof can be found in [2] chap. 1 pag. 7.
+	\end{proof}
 	\section{The tangent bundle}
 	In this section we introduce the notion of tangent bundle of a smooth manifold. For more details one can check [1] pag. 129-139.\\
 	\\
@@ -244,18 +254,20 @@
 	\section{Forms on manifolds}
 	In this section we will introduce the concept of forms on smooth manifolds and see some properties of them. More informations on this topic can be found in [1] chap. 3 and [2] chap. 1.\\
 	\\
-	Given a smooth manifold $M$, at any point $p\in M$ we can consider its tangent space $T_pM$. Given that this is a vector space, we can look at its dual $T_pM^*$. 
+	Given a smooth manifold $M$, at any point $p\in M$ we can consider its tangent space $T_pM$ and look at its dual $T_pM^*$. See section \ref{Sec_1.3} 
 	\begin{Def}
 		An element of $T_pM^*$ is called \textit{co-vector}. We call a function that assigns to any point of $M$ a co-vector a \textit{1-form}.
 	\end{Def}
 	\begin{Obs}
-		Once we choose a chart $(U,\phi)$ on $M$, with coordinates $\{x^i\}$, we have a basis of $T_pM$ of vectors $\{{\partial\over \partial x^i}|_p\}$ for any $p\in U$. We can then induce another basis on the dual space $T_pM^*$, indexed with $\{dx^i_p\}$ defined by:
+		Once we choose a chart $(U,\phi)$ on $M$, with coordinates $\{x^i\}$, we have a basis of $T_pM$ of vectors $\{{\partial\over \partial x^i}|_p\}$ for any $p\in U$. We can then induce another basis on the dual space $T_pM^*$, denoted as $\{dx^i_p\}$ defined by:
 		$$dx^i_p\bigg({\partial\over \partial x^j}\bigg|_p\bigg)=\delta^i_j$$
 	\end{Obs}
-	\begin{Obs}
-		Note that on a metric manifold $(M,g)$, after choosing a chart, we can expand the metric tensor in local coordinates:
-		$$g=g_{ij}dx^i\otimes dx^j$$  
-	\end{Obs}
+	\begin{comment}
+		\begin{Obs}
+			Note that on a metric manifold $(M,g)$, after choosing a chart, we can expand the metric tensor in local coordinates:
+			$$g=g_{ij}dx^i\otimes dx^j$$  
+		\end{Obs}
+	\end{comment}
 	The most important example of a form is the differential:
 	\begin{Prop} \label{df_is_a_form}
 		Let $f$ be a $C^\infty$ function on $M$. Then its differential is a 1-form.
@@ -309,16 +321,14 @@
 		Let $f:N\rightarrow M$ and $\omega,\sigma\in \Omega^k(M),\tau\in\Omega^l(M)$, then:
 		\begin{itemize}
 			\item the pullback is linear: $f^*(a\omega+b\sigma)=af^*\omega+bf^*\sigma$ for $a,b\in \mathbb{R}$;
-			\item $f^*(\omega\wedge \tau)=f^*\omega\wedge f^*\tau$;
-			\item the pullback commutes with the exterior derivative:
-			$$df^*\omega=f^*d\omega$$
+			\item $f^*(\omega\wedge \tau)=f^*\omega\wedge f^*\tau$.
 		\end{itemize}
 	\end{Prop}
 	\begin{proof}
 		The proof can be found in [2] Appendix pag. 303.
 	\end{proof}
 	\section{Orientation on smooth manifolds}
-	In this section we will briefly study the notion of orientation and integration on a smooth manifold. In particular, we will define the volume form and the notion of orientable manifold. More references on this topic can be found in [1] chap. 6.
+	In this section we will briefly study the notion of orientation and integration on a smooth manifold. In particular, we will define the volume form and the notion of orientable manifold. More details on this topic can be found in [1] chap. 6.
 	\\
 	\\
 	We first of all define the notion of orientation on a generic vector space. We will then generalize those definitions to our framework of smooth manifolds.
@@ -341,8 +351,10 @@
 	\end{Ex}
 	\begin{Ex}
 		Let $R=\{(x,y)\in \mathbb{R}^2|x\in[0,1], y\in [-1,1[\}$
-		The Möbius strip can be defined as the quotient: $R\over \sim$ where $(0,y)\sim(1,-y)$. We now show that this structure is not orientable.\\
-		Suppose that the Möbius strip is orientable. Let $U$ be the interior of the rectangle: $U=\{(x,y)\in \mathbb{R}^2|x\in]0,1[, y\in [-1,1[\}$. Assume an orientation given by the basis $e_1,e_2$ of the tangent space in this rectangle. By continuity of the orientation, those vectors will be an orientation also for the points $(0,0)$ and $(1,0)$. However, this basis at $(1,0)$ is mapped to $e_1,-e_2$ at $(0,0)$. This proves the orientation is not continuous and generates an absurd. Thus, the Möbius strip is not orientable.
+		The Möbius strip can be defined as the quotient: 
+		$$R\slash\sim$$ 
+		where $(0,y)\sim(1,-y)$. We now show that this structure is not orientable.\\
+		Suppose that the Möbius strip is orientable. Let $U$ be the interior of the rectangle: $U=\{(x,y)\in \mathbb{R}^2|x\in]0,1[, y\in [-1,1[\}$. Assume an orientation given by the basis $e_1,e_2$ of the tangent space in this rectangle. By continuity of the orientation, those vectors will be an orientation also for the points $(0,0)$ and $(1,0)$. However, this basis at $(1,0)$ is mapped to $e_1,-e_2$ at $(0,0)$. This proves the orientation is not continuous. Thus, the Möbius strip is not orientable.
 	\end{Ex}
 	\begin{Prop}
 		A pointwise orientation $\mu(p)=[\{X^i_p\}]$ on a manifold $M$ is continuous if and only if for any chart $(U,\phi)$ with coordinates $\{x^i\}$, the function:
@@ -365,6 +377,7 @@
 	\begin{proof}
 		To see the proof one can look at [1] chap. 6 pag. 243.
 	\end{proof}
+	\begin{comment}
 	We now define a very important form on metric manifolds, called volume form. This will be crucial in the definition of the Hodge operator.
 	\begin{Def}
 		Let $(M,g)$ be a smooth metric manifold and $(U,\phi)$ a chart with coordinates $\partial\over \partial x^i$. We define the volume form as:
@@ -373,36 +386,118 @@
 	This is clearly a nowhere vanishing form. It can be shown that, by applying the Gram–Schmidt process, the volume form takes the simpler form:
 	$$\omega=de^1\wedge...\wedge de^n$$
 	where $e^i$ is the orthonormal basis with respect to $g$ inside $U$. The proof is just a straightforward calculation and can be found in [2] chap. 3 pag. 134.
+	\end{comment}
+	\section{\textcolor{red}{Manifolds with boundary}}
+	In this section we will briefly define the notion of manifold with boundary and look at some important results concerning them. More references on this subject can be found in: [1] chap. 6 pag. 250-256.
+	\begin{Def}
+		We define the \textit{closed upper half space} as:
+		$$\mathcal{H}^n=\{(x^1,...,x^n)\in\mathbb{R}^n|x^i\geq 0\}$$
+		We call the set of points $(x^1,...,x^n)$ such that $x^i>0$ the \textit{interior of} $\mathcal{H}^n$ and we denote it with $(\mathcal{H}^n)^\circ$. We call the set of points $(x^1,...,x^n)$ such that $x^i=0$ the \textit{boundary of} $\mathcal{H}^n$ and we denote it with $\partial\mathcal{H}^n$.
+	\end{Def}
+	\begin{Def}
+		Let $M$ be a manifold. We say that $M$ is a \textit{manifold with boundary} if it is locally homeomorphic to $\mathcal{H}^n$. We call \textit{boundary} of $M$ the set $\partial M$ of points $p\in M$ such that for some chart $(U\subset M, \phi)$ we have $\phi(p)\in\partial\mathcal{H}^n$.
+	\end{Def}
+	\begin{Obs}
+		One can show that if $p$ is a boundary point for a chart $(U,\phi)$ then it is also a boundary point for any other chart. The full proof can be found in [1] chap. 6 pag. 251.
+	\end{Obs}
+	\begin{Prop}
+		If $M$ is an $n$-dimensional manifold with boundary, its boundary $\partial M$ is a $n-1$ dimensional manifold without boundary.
+	\end{Prop}
+	\begin{proof}
+		To prove this, we simply need to show that there is a smooth $n-1$ dimensional atlas we can construct on $\partial M$ starting from the one on $M$. Let $(U,\phi)$ be any chart on $M$. Then, the restriction
+		$$\Phi=\phi:U\cap \partial M\rightarrow \partial \mathcal{H}^n=\mathbb{R}^{n-1}$$
+		is smooth. Moreover, if $(U,\phi)$ and $(V,\psi)$ are two overlapping charts on $M$, then:
+		$$\Psi\circ \Phi^{-1}:\Phi(U\cap V\cap \partial M)\rightarrow \Psi(U\cap V\cap \partial M)$$ 
+		is diffeomorphic. Thus, an atlas $\mathcal{A}=\{(U_\alpha,\phi_\alpha)\}$ on $M$ induces an atlas $\mathcal{\partial A}=\{(U_\alpha\cap\partial M,\Phi_\alpha)\}$ on the boundary.
+	\end{proof}
+	One can also prove that if $M$ is orientable and has a boundary, then it's boundary is also orientable as a $n-1$ manifold.
+	\begin{Prop}
+		Let $M$ be a manifold with boundary and $\partial M$ be it's boundary. Then if $\omega$ is a nowhere vanishing form on $M$ one can always construct a nowhere vanishing form on $\partial M$.
+	\end{Prop}
+	\begin{proof}
+		The proof of this statement can be found in [1] chap. 6 pag. 254, 255.
+	\end{proof}
+	\section{\textcolor{red}{Integration on manifolds}}
+	In this section we will show how we can integrate forms on manifolds. This will allow us to derive the equations of motions for the Yang-Mills Lagrangian. More informations on this topic can be found in [1] chap. 6 pag. 260-272.
+	\begin{Def}
+		Let $f:X\rightarrow \mathbb{R}$ be a real valued function on a set $X$. We call \textit{support} of $f$ the set:
+		$$Supp(f)=\{x\in X|f(x)\neq 0\}$$
+		If $Supp(f)$ is compact we call it \textit{compact support} and we say that $f$ \textit{has a compact support}.
+	\end{Def}
+	We can generalize the previous definition to forms on a manifold.
+	\begin{Def}
+		Let $\omega$ be a $k$-form on a manifold $M$. We define the \textit{support} of $\omega$ as the set:
+		$$Supp(\omega)=\hbox{closure of }\{p\in M|\omega_p\neq 0\}$$
+		We denote the space of smooth $k$-forms on $M$ with compact support as:
+		$$\Omega_c^k(M)$$
+	\end{Def}
+	\begin{Obs}
+		The set $\Omega^k_c(M)$ is clearly a vector space.
+	\end{Obs}
+	We now define the notion of integral of a $n$-form with compact support on a manifold. To do this, one first needs to define the integral of a $n$-form on $\mathbb{R}^n$.
+	\begin{Def}
+		Let $\omega=f(x)dx^1\wedge...\wedge dx^n\in\Omega^n_c(\mathbb{R}^n)$. One defines its integral on a subset $U\subset\mathbb{R}^n$ as:
+		$$\int_U\omega=\int_Uf(x)dx^1...dx^n$$ 
+	\end{Def}
+	\begin{Prop}
+		Let $\omega\in\Omega^n_c(U\subset \mathbb{R}^n)$, $V\subset \mathbb{R}^n$ be an open set and $T:V\subset \mathbb{R}^n\rightarrow U$ be a diffeomorphism. Then:
+		$$\int_U\omega=\pm\int_VT^*\omega$$
+	\end{Prop}
+	\begin{proof}
+		Let $\omega=f(x)dx^1\wedge...\wedge dx^n\in\Omega^n_c(U\subset \mathbb{R}^n)$ in a coordinate frame $x^i$ on $U$. Let $V\subset \mathbb{R}^n$ be an open set wit coordiantes $y^i$. Let $T:V\subset \mathbb{R}^n\rightarrow U$ be a diffeomorphism. Then, indicating with $T^i=x^i\circ T$ the $i^{th}$ component of $T$:
+		$$dT^1\wedge...\wedge dT^n=\hbox{det}J(T)dy^1\wedge...\wedge dy^n$$
+		Where $J(T)$ is the Jacobian matrix of the change of coordinates. Clearly, applying the change of variable rules from differential calculus:
+		$$\int_U\omega=\int_Uf dx^1...dx^n=\int_V T\circ f |\hbox{det}(J(T))|dy^1...dy^n=\pm\int_V T\circ f \hbox{det}(J(T))dy^1...dy^n=$$
+		$$=\pm\int_V T\circ f \hbox{det}(J(T))dy^1\wedge...\wedge dy^n=\pm\int_V T\circ f dT^1\wedge...\wedge dT^n=$$
+		$$=\pm\int_V(T^*f)T^*dx^1\wedge...\wedge dx^n=\pm\int_V T^*\omega$$
+	\end{proof}
+	We can now extend the previous definitions to our differential geometry framework, since any smooth manifold is locally Euclidean.
+	\begin{Def}
+		Let $\omega\in\Omega^n_c(M)$ be a $n$-form with compact support on a manifold $M$ of dimension $n$. Let $(U,\phi)$ be a chart on $M$. Then we define:
+		$$\int_U\omega=\int_{\phi(U)}\phi^{-1*}\omega$$
+	\end{Def}
+	\begin{Obs}
+		The previous definition does not depend on the chart. To see this, consider two charts on the same open set $(U,\phi)$ and $(U,\psi)$, with same orientation, so that:
+		$$\int_{\phi(U)}\phi^{-1*}\omega=\int_{\psi(U)}(\phi\circ\psi)^*\phi^{-1*}\omega=\int_{\psi(U)}\psi^{-1*}\omega$$
+		Moreover, if $\omega$ is with compact support then $\phi^{-1*}\omega$ is a $n$-form with compact support on $\phi(U)\subset\mathbb{R}^n$, due to $\phi$ being a diffeomorphism. 
+	\end{Obs}
+	\begin{Theo}[\textbf{Stokes}]
+		Let $M$ be an orientable manifold with boundary $\partial M$. For any $(n-1)$-form $\omega$ with compact support on $\partial M$, it holds:
+		$$\int_M d\omega=\int_{\partial M}\omega$$ 
+	\end{Theo}
+	\begin{proof}
+		The proof of this statement can be found in [1] chap. 6 pag. 269-271.
+	\end{proof}
 	\section{The exterior derivative}\label{Sec_1.7}
 	In this section we will introduce the notion of exterior derivative and Hodge operator. More informations on those topic can be found in [3] chap. 7 pag 401-413.
 	\begin{Def}
-		Let $M$ be a smooth manifold and $(U,x^i)$ a chart on it. We define the \textit{exterior derivative} of a smooth $k$-form $\omega=a_Idx^I$ a a smooth $(k+1)$-form:
+		Let $U\subset \mathbb{R}^n$ with coordinates $x^i$. We define the \textit{exterior derivative} of a smooth $k$-form $\omega=a_Idx^I\in \Omega^k(U)$ as a smooth $(k+1)$-form:
 		$$d\omega=da_I\wedge dx^I$$
-		where $da_I$ is the differential of the function $a_I$.
+		where $da_I$ is the differential of the function $a_I$. For 0-forms, we define the exterior derivative to be equal to the differential.
 	\end{Def}
-	Now we look at some important properties of the exterior derivative.
+	Now we look at some important properties of the exterior derivative defined on $\mathbb{R}^n$.
 	\begin{Prop}
-		Let $M$ be a smooth manifold. Then the following properties hold:
+		The following properties are satisfied:
 		\begin{itemize}
 			\item the exterior derivative is an \textit{anti-derivation of degree 1}: $$d(\omega\wedge\beta)=d\omega\wedge\beta+(-)^{deg(\omega)}\omega\wedge\beta$$
-			where $\omega\in \bigwedge^k TM^*$, $\beta\in \bigwedge^l TM^*$ and $deg(\omega)=k$.
+			where $deg(\omega)=k$;
 			\item $d^2=0$;
+			\item if $f:U\rightarrow \mathbb{R}$ is a smooth function and $X$ is a smooth vector field, then: $df(X)=Xf$.
 		\end{itemize}
 	\end{Prop}
 	\begin{proof}
-		The first property is just a consequence of the algebra of the exterior power. In particular, let $\omega=a_Idx^I$, $\beta=b_Jdx^J$ in our chart. Recalling that the differential of a $1$-form is linear and respects Leibniz:
+		The first property is just a consequence of the algebra of the exterior power. In particular, let $\omega=a_Idx^I$, $\beta=b_Jdx^J$ in $U\subset \mathbb{R}^n$. Recalling that the differential of a $1$-form is linear and respects Leibniz:
 		$$d(a_Idx^I\wedge b_Jdx^J)=d(a_Ib_Jdx^I\wedge dx^J)=d(a_Ib_J)\wedge dx^I\wedge dx^J=$$
 		$$=da_I\wedge dx^I\wedge b_Jdx^J+a_Idb_J\wedge dx^I\wedge b_Jdx^J=d\omega\wedge\beta+(-)^{deg\omega}\omega\wedge db_J\wedge dx^J$$
-		As for the second property, it is a consequence of the symmetry of the Hessian matrix.\\
-		Recall that the differential of a function is:
+		As for the second property, it is a consequence of the symmetry of the Hessian matrix. Recall that the differential of a function is:
 		$$df=\partial_ifdx^i$$
 		Taking again the differential we get second derivatives:
 		$$d^2f=\partial_j\partial_i f dx^j\wedge dx^i$$
-		However, while the second partial derivation is symmetric, the wedge product is skew-symmetric. This gives 0 as a result.
+		However, while the second partial derivation is symmetric, the wedge product is skew-symmetric. This gives 0 as a result. The third property immediately follows by definition.
 	\end{proof}
-	The above properties of the exterior derivative can be shown to define it in a unique way on any smooth manifold.
+	The above properties of the exterior derivative can be shown to define it in a unique way on any open subset $U\subset\mathbb{R}^n$.
 	\begin{Theo}
-		On any smooth manifold $M$ there exists a unique exterior derivative $d$ such that:
+		On $U\subset\mathbb{R}^n$ there exists a unique exterior derivative $d$ such that:
 		\begin{itemize}
 			\item $d$ is an anti-derivation of degree 1;
 			\item $d^2=0$;
@@ -411,16 +506,54 @@
 		\end{itemize}
 	\end{Theo}
 	\begin{proof}
-		The reader can find the full proof in [1] chap. 5 pag. 210-214.
+		The reader can find the full proof in [1] chap. 1 pag. 40.
 	\end{proof}
+	Having defined the exterior derivative on $\mathbb{R}^n$, we can generalize the definition to smooth manifolds.
+	\begin{Def}
+		Let $M$ be a smooth manifold. The \textit{exterior derivative} is a linear mapping 
+		$$d:\Omega^k(M)\rightarrow\Omega^{k+1}(M)$$
+		such that:
+		\begin{itemize}
+			\item $d$ is an antiderivation of degree 1;
+			\item $d^2=0$;
+			\item The exterior derivative of a 0-form coincides with its differential.
+		\end{itemize}
+	\end{Def}
+	\begin{Theo}
+		On any manifold $M$ there exists an exterior derivative $d$ characterized uniquely by the above three properties.
+	\end{Theo}
+	\begin{proof}
+		The proof of this theorem can be found in [1] chap. 5 pag. 210-214.
+	\end{proof}
+	\begin{Obs}
+		Given a coordinate chart $(U,x^i)$ in a smooth manifold $M$, the exterior derivative of $\omega=a_Idx^I\in \Omega^k(U)$ is expressed in coordinates as a smooth $(k+1)$-form:
+		$$d\omega=da_I\wedge dx^I$$
+	\end{Obs}
 	\begin{Def}
 		A $k$-form $\omega$ is said to be \textit{closed} if $d\omega=0$ and \textit{exact} of $\omega=d\alpha$ for $\alpha\in\Omega^{k-1}(M)$.
 	\end{Def}
 	\begin{Obs}
 		It is clear that any exact form is closed. However, in general, not all closed forms are exact.
 	\end{Obs}
-	\section{Thoe Hodge Operator}
-	in this section we define the Hodge operator and see some properties of it. This operator will be useful in writing the Maxwell equations from a differential geometry point of view. More reference on this topic can be found in [3] chap. 7 pag. 406-413, [10] chap. 6 pag. 345-356 pag. 386-399.
+	It is useful to see the following property of the exterior derivative:
+	\begin{Prop}
+		Let $f:N\rightarrow M$ and $\omega\in \Omega^k(M)$ then the pullback commutes with the exterior derivative:
+			$$df^*\omega=f^*d\omega$$
+	\end{Prop}
+		\begin{proof}
+		The proof can be found in [1] chap.5 pag. 214.
+		\end{proof}
+	\section{The Hodge Operator}
+	In this section we define the Hodge operator and see some properties of it. This operator will be useful in writing the Maxwell equations from a differential geometry point of view. More reference on this topic can be found in [3] chap. 7 pag. 406-413, [10] chap. 6 pag. 345-356 pag. 386-399.\\
+	\\
+	To construct the Hodge operator we first need to define the notion of volume on a smooth manifold.
+	\begin{Def}
+		Let $(M,g)$ be a smooth metric manifold and $(U,\phi)$ a chart with coordinates $\partial\over \partial x^i$. We define the \textit{volume form} as:
+		$$\omega=\sqrt{|det(g^{ij})|}dx^1\wedge...\wedge dx^n$$
+	\end{Def}
+	This is clearly a nowhere vanishing form. It can be shown that, by applying the Gram–Schmidt process, the volume form takes the simpler form:
+	$$\omega=de^1\wedge...\wedge de^n$$
+	where $e^i$ is the orthonormal basis with respect to $g$ inside $U$. The proof is just a straightforward calculation and can be found in [2] chap. 3 pag. 134.
 	\begin{Obs}\label{Obs_1.7.1}
 		The inner product on $M$ induces an inner product on forms. Namely, at any point $p\in M$ we have:
 		$$\braket{\alpha^1_p\wedge...\wedge \alpha^k_p,\beta^1_p\wedge...\wedge\beta^k_p}=det(\braket{\alpha^i_p,\beta^j_p}_{i,j\in[1,k]})$$
@@ -475,23 +608,40 @@
 		In fact, one clearly sees that:
 		$$dx\wedge (\star dx)=-dx\wedge dt\wedge dy\wedge dz=\omega$$
 	\end{Ex}
+	\begin{Def}\label{Def_1.10.2}
+		Let $\alpha,\beta\in\Omega^k_c(M)$ be $k$-forms with compact support on an orientable manifold $M$ and $\omega$ the volume form. We define the $L^2$ product of forms as:
+		$$\braket{,}_{L^2}:\Omega^k_c(M)\times \Omega^k_c(M)\rightarrow \mathbb{R}$$
+		$$\braket{\alpha,\beta}_{L^2}=\int_M\braket{\alpha,\beta}\omega$$
+	\end{Def}
+	\begin{Obs}
+		By definition of the Hodge operator, it is clear that:
+		$$\braket{\alpha,\beta}_{L^2}=\int_M\alpha\wedge\star\beta$$
+	\end{Obs}
 	We now use the Hodge operator to construct another linear mapping, which will behave like the adjoint operator of the exterior derivative $d$.
 	\begin{Def}
 		We define the \textit{co-differential} acting on $k$ forms as:
-		$$d^*=(-)^{k(n-k)+1}sgn(g)\star \circ  d\circ\star$$
+		$$d^*=(-)^{n(k-1)+1}sgn(g)\star \circ  d\circ\star$$
 	\end{Def}
 	This operator has some interesting properties:
 	\begin{Prop}
 		The co-differential satisfies the following properties:
 		\begin{itemize}
 			\item $d^{*2}=0$;
-			\item $\braket{\alpha,d\beta}=\braket{d^*\alpha,\beta}$;
+			\item if the forms have compact support, the manifold is boundary-less and orientable $\braket{\alpha,d\beta}_{L^2}=\braket{d^*\alpha,\beta}_{L^2}$;
 		\end{itemize}
 	\end{Prop}
 	\begin{proof}
 		The first claim is obvious since:
 		$$d^{*2}\propto\star \circ  d\circ\star\circ\star \circ  d\circ\star=\star \circ  d\circ\star^2\circ  d\circ\star\propto\star\circ d^2\circ\star=0$$
-		As for the second claim, it requires some knowledge about integration on manifolds. Since this work does not cover this topic, the reader is advised to look at [3] chap. 7 pag. 411 for the full proof.
+		As for the second claim, it directly follows from Stokes's theorem. Let $\alpha\in\Omega^{k-1}_c(M)$ and $\beta\in\Omega^{k}_c(M)$, then:
+		$$d(\alpha\wedge \star\beta)=d\alpha\wedge\beta+(-1)^{k-1}\alpha\wedge d\star\beta$$
+		By proposition \ref{Prop_1.7.2} we know that $\star^2=sgn(g)(-)^{(k-1)(n-k+1)}$ acting on a $(k-1)$ form. Thus:
+		$$d(\alpha\wedge \star\beta)=
+		d\alpha\wedge\star\beta+sgn(g)(-1)^{k-1+(k-1)(n-k+1)}\alpha\wedge \star^2 d\star\beta=$$
+		$$=d\alpha\wedge\star\beta+(-1)^{k-1+(k-1)(n-k+1)+n(k-1)+1}\alpha\wedge \star d^*\beta$$
+		Moreover, since $k-k^2=k(1-k)$ is always even, we get:
+		$$d(\alpha\wedge \star\beta)=d\alpha\wedge \star\beta-\alpha\wedge \star d^*\beta$$
+		Integrating this with the $L^2$ product, the term on the left vanishes due to Stokes's theorem. This proves the claim.
 	\end{proof}
 	Before concluding this section, we give an incredibly important result known as the \textit{Poincaré Lemma}.
 	\begin{Lm}\label{P.L.}
@@ -663,51 +813,64 @@
 		Thus, we can always express a tangent vector at $g\in G$ as a left invariant vector field at that point.
 	\end{Obs}
 	\section{The exponential map}
-	In this section we will give the definition of exponential map and look at some properties of it. We will focus on matrix Lie groups since those will be the main object of gauge theories.
-	To find more details the reader is advised to check [7] part 1, chap 2-2.4 and 3.7.
+	In this section we will give the definition of exponential map and look at some of its properties. We will focus on matrix Lie groups since those will be the main object of gauge theories.
+	To find more details the reader can see [7] part 1, chap 2-2.4 and 3.7.
 	\begin{Def}
-		Given $G$ Lie group and $X\in\mathfrak{g}$, the \textit{exponential map} \\$exp:\mathfrak{g}\rightarrow G$ is defined as $exp(X)=\Phi_X(1,e)$ the flux of the field $X$.
+		Given $G$ Lie group and $X\in\mathfrak{g}$, the \textit{exponential map} \\$exp:\mathfrak{g}\rightarrow G$ is defined as $exp(X)=\Phi_X(1,e)$ the flow of the field $X$.
 	\end{Def}
 	We will also refer to $exp(X)$ with $e^X$.
 	\begin{Def}
-		We call \textit{exponential} of a matrix $X\in M_{n\times n}$ the series \\$e^X=\sum_{n=0}^{\infty}{X^n\over n! }$ where $X^n$ is the $n^{th}$ product of $X$ with itself.
+		We call \textit{exponential} of a matrix $X\in M_{n\times n}(\mathbb{K})$, with $\mathbb{K}=\mathbb{R},\mathbb{C}$, the series $$e^X=\sum_{n=0}^{\infty}{X^n\over n! }$$ 
 	\end{Def}
-	It can be shown that this series converges for all $X\in M_{n\times n}$ and that it is a continuous function of $X$. Moreover, the following holds:
-	\begin{itemize}
-		\item $e^0=I$;
-		\item $(e^X)^+=e^{X^+}$ where $^+$ indicates the adjoint;
-		\item $e^X$ is invertible and $(e^X)^{-1}=e^{-X}$;
-		\item $e^{(a+b)X}=e^{aX}e^{bX}$ for all $a,b\in\mathbb{R}$;
-		\item if $XY-YX=0$ then $e^{X+Y}=e^Xe^Y=e^Ye^X$ for all $X,Y$ matrices;\\
-		\item if $C$ is an invertible matrix, then $e^{CXC^{-1}}=Ce^XC^{-1}$
-	\end{itemize} 
-	However the most important results are: ${d\over dt}e^{tX}\bigg{\rvert}_0=X$ and ${d\over dt}e^{tX}\bigg{\rvert}_{t'}=Xe^{t'X}$.\\
-	In fact, this ensures that the exponential map coincides with the exponential of a matrix. For the proofs see [t] pag. 38-41 chap.2.\\
+	It can be shown that this series converges for all $X\in M_{n\times n}(\mathbb{K})$ and that it is a continuous function of $X$.
+	\begin{Prop}
+		Assuming the above notation, the following properties hold:
+		\begin{itemize}
+			\item $e^0=I$;
+			\item $e^X$ is invertible and $(e^X)^{-1}=e^{-X}$;
+			\item if $\mathbb{K}=\mathbb{C}$ , $(e^X)^\dagger=e^{X^\dagger}$ where $^\dagger$ indicates the adjoint;
+			\item $e^{(a+b)X}=e^{aX}e^{bX}$ for all $a,b\in\mathbb{R}$;
+			\item if $XY-YX=0$ then $e^{X+Y}=e^Xe^Y=e^Ye^X$ for all $X,Y$ matrices;\\
+			\item if $C$ is an invertible matrix, then $e^{CXC^{-1}}=Ce^XC^{-1}$
+			\item ${d\over dt}e^{tX}\bigg{\rvert}_0=X$ and ${d\over dt}e^{tX}\bigg{\rvert}_{t'}=Xe^{t'X}$
+		\end{itemize}
+	\end{Prop} 
+	For the proofs see [t] pag. 38-41 chap.2.\\
 	\begin{Ex}\label{Ex_2.5.1}
-		Consider the group $U(N)$ of unitary matrices:
-		$$U(N)=\{A\in M_{N\times N}|A^\dagger=A^{-1}\}$$
-		Consider the curve $e^{tX}$ passing through $\mathbb{I}$. In order for this curve to be contained inside $U(N)$ it must hold:
+		Consider the group $U(n)$ of unitary matrices:
+		$$U(n)=\{A\in M_{n\times n}(\mathbb{C})|A^\dagger=A^{-1}\}$$
+		Consider the curve $e^{tX}$ passing through $\mathbb{I}$. In order for this curve to be contained inside $U(n)$ it must hold:
 		$$(e^{tX})^{-1}=(e^tX)^\dagger$$
-		And this is true only for $X=-X^\dagger$. Thus, the Lie algebra of $U(N)$ is:
-		$$\mathfrak{u}(N)=\{X\in M_{N\times N}|X^\dagger=-X\}$$
-		In the same way, for $O(N)$ it holds:
-		$$\mathfrak{o}(N)=\{X\in M_{N\times N}| X^T=-X\}$$
+		And this is true only for $X=-X^\dagger$. Thus, the Lie algebra of $U(n)$ is:
+		$$\mathfrak{u}(n)=\{X\in M_{n\times n}8\mathbb{C}|X^\dagger=-X\}$$
+		In the same way, for $O(n)$ it holds:
+		$$\mathfrak{o}(n)=\{X\in M_{n\times n}(\mathbb{C})| X^T=-X\}$$
 		Now, 
 	\end{Ex}
 	We now look at an important proposition, which will allow us to establish a relation between homomorphisms of Lie algebras and Lie groups.
 	\begin{Prop} \label{Prop: 2.4.1}
-		Let $G$ and $H$ be matrix Lie groups and $\mathfrak{g}$, $\mathfrak{h}$ their algebras. let $\rho:G\rightarrow H$ a Lie group homomorphism. Then there is a unique linear map $q:\mathfrak{g}\rightarrow\mathfrak{h}$ such that:
+		Let $G$ and $H$ be matrix Lie groups and $\mathfrak{g}$, $\mathfrak{h}$ their algebras. let $\rho:G\rightarrow H$ a Lie group homomorphism. Then there is a unique linear map $(d\rho)_\mathbb{I}:\mathfrak{g}\rightarrow\mathfrak{h}$ such that:
 		\begin{itemize}
-			\item $\rho(e^X)=e^{q(X)}$; 
-			\item $q(AXA^{-1})=\rho(A)q(X)\rho(A)^{-1}$;
-			\item $q([X,Y])=[q(X),q(Y)]$, is a Lie algebra homomorphism;
-			\item $q(X)={d\over dt}\bigg{\rvert}_0\rho(e^{tX})$.
+			\item $\rho(e^X)=e^{d\rho(X)}$; 
+			\item $d\rho(AXA^{-1})=\rho(A)d\rho(X)\rho(A)^{-1}$;
+			\item $d\rho([X,Y])=[d\rho(X),d\rho(Y)]$, is a Lie algebra homomorphism;
+			\item $d\rho(X)={d\over dt}\bigg{\rvert}_0\rho(e^{tX})$.
 		\end{itemize}
 	\end{Prop}
 	\begin{proof}
 		For the full proof see [47] pag. 67 chap. 3.
 	\end{proof}
-	Thus, given a homomorphism between Lie groups it is always possible to construct a homomorphism between their Lie algebras.
+	Thus, given a homomorphism between Lie groups it is always possible to construct a homomorphism between their Lie algebras by taking the differential at the identity. Moreover, the following theorem holds:
+	\begin{Theo}
+		Let $G,H$ be Lie groups and $\mathfrak{g},\mathfrak{h}$ be their Lie algebras. If $\phi:G\rightarrow H$ is a Lie group homomorphism and $d\phi_\textbf{1}$ be its differential at the identity, the following diagram commutes:\\
+		\begin{equation*}
+			\begin{tikzcd}
+				G \arrow{r}{\phi} & H \\
+				\mathfrak{g} \arrow{r}{d\phi_\textbf{1}} \arrow{u}{exp}& \mathfrak{h} \arrow[swap]{u}{exp} 
+			\end{tikzcd}
+		\end{equation*}
+	\end{Theo}
+	The proof of this theorem can be found in [8] chap. 3 pag. 104.
 	\section{Representations of Lie algebras and groups}
 	In this section we define the concept of representations of Lie groups and algebras and look at some properties of them. We will also see how those two objects can be related to one another. For more details see [7] part 1, chap 4.
 	\begin{Def}
@@ -743,7 +906,7 @@
 	\\
 	Thus, given a connected matrix Lie group and a representation, not only it is always possible to find a representation of its Lie algebra, but the irreducibility of one implies the irreducibility of the other.
 	\begin{Obs}
-		One could show that, for a simply connected matrix Lie group, there exists a bijection between representations of the group and of the associated algebra. More details in [7] pag. 106 cap. 4.
+		In general, we have seen that, given a Lie group representation $\rho:G\rightarrow GL(V)$, we can always construct a representation of its Lie algebra by taking its differential at the identity $d\rho_\textbf{1}:\mathfrak{g}\rightarrow \mathfrak{gl}(V)$. One can show that, for a simply connected Lie group, there exists a bijection between representations of the group and of the associated algebra. More details in [7] pag. 106 cap. 4. If the group is connected but not simply connected, from the Lie algebra representation one can obtain a representation of the universal covering of the group.
 	\end{Obs}
 	We now construct a very important representation: the adjoint representation. This will be the used very frequently in gauge theories since it controls the transformations of the gauge bosons.
 	\begin{Def}
@@ -817,7 +980,79 @@
 		\end{pmatrix}$$
 		And this has no non-trivial invariant subspaces. Thus, the adjoint representation is irreducible and the Lie algebra $\mathfrak{sl_n}(\mathbb{R})$ is simple.
 	\end{Ex}
-	\section{Scalar products on Lie algebras}
+	\section{The Cartan-Killing form}
+	In this section we introduce the concept of Killing form. Our aim is to find an inner product on $\mathfrak{g}$ which is non degenerate and positive definite. We will see that those requirements will be satisfied by the Killing form of some Lie algebras. This product, once found, will be used to define the Lagrangian. More informations can be found in [3] chap. 2.
+	\begin{Def}
+		Let $\mathfrak{g}$ be a finite dimensional Lie algebra on $\mathbb{K}=\mathbb{R},\mathbb{C}$. We define the \textit{Cartan-Killing form} of $\mathfrak{g}$ as the map:
+		$$B_\mathfrak{g}:\mathfrak{g}\times \mathfrak{g}\rightarrow\mathbb{K}\hbox{ acting like } B_\mathfrak{g}(X,Y)=tr(\hbox{ad}_X\circ \hbox{ad}_Y)$$
+	\end{Def}
+	\begin{Obs}
+		By definition, this map is clearly bilinear and symmetric. Note that in the case $\mathbb{K}=\mathbb{C}$ the Cartan-Killing form is still symmetric and not hermitian. Form now on, we will only work with real Lie algebras.
+	\end{Obs} 
+	\begin{Prop}\label{Prop_2.8.2}
+		The Cartan-Killing form is invariant under the action of Lie algebra automorphism.
+	\end{Prop}
+	\begin{proof}
+		Let $\sigma:\mathfrak{g}\rightarrow\mathfrak{g}$ be an automorphism. Then:
+		$$\hbox{ad}_{\sigma X}(Y)=[\sigma X,Y]=\sigma([X,\sigma^{-1}Y])=\sigma\circ \hbox{ad}_X\circ \sigma^{-1}(Y)$$
+		So that $\hbox{ad}_{\sigma X}=\sigma\circ \hbox{ad}_X\circ \sigma^{-1}$. The immediately implies:
+		$$B_\mathfrak{g}(X,Y)=B_\mathfrak{g}(\sigma X,\sigma Y)$$
+		This completes the proof.
+	\end{proof}
+	We now look at some important results regarding the Cartan-Killing form on semisimple Lie algebras.
+	\begin{Prop}
+		Let $\mathfrak{g}$ be a real Lie algebra and $B_\mathfrak{g}$ its Cartan-Killing form. Then:
+		$$B_\mathfrak{g}(\hbox{ad}_X(Y),Z)=-B_\mathfrak{g}(Y,\hbox{ad}_X(Z))$$
+	\end{Prop}
+	\begin{proof}
+		It is known that:
+		$$\hbox{ad}_{\hbox{ad}_X}(Y)=\hbox{ad}_X\circ \hbox{ad}_Y-\hbox{ad}_y\circ \hbox{ad}_X$$
+		From this property it directly follows that:
+		$$B_\mathfrak{g}(\hbox{ad}_X(Y),Z)=\hbox{tr}(\hbox{ad}_{\hbox{ad}_X(Y)}\circ \hbox{ad}_Z)=\hbox{tr}(\hbox{ad}_X\circ \hbox{ad}_Y\circ \hbox{ad}_Z-\hbox{ad}_Y\circ\hbox{ad}_X\circ \hbox{ad}_Z)$$
+		By linearity and cyclicity of the trace we find:
+		$$B_\mathfrak{g}(\hbox{ad}_X(Y),Z)=\hbox{tr}(\hbox{ad}_Y\circ \hbox{ad}_Z\circ \hbox{ad}_X-\hbox{ad}_Y\circ\hbox{ad}_X\circ \hbox{ad}_Z)=-B_\mathfrak{g}(Y,\hbox{ad}_X(Z))$$
+	\end{proof}
+	\begin{Theo}\label{Theo_2.8.2}
+		Let $\mathfrak{g}$ be a Lie algebra. Then the Cartan-Killing form is non degenerate if and only if $\mathfrak{g}$ is semisimple.
+	\end{Theo}
+	\begin{proof}
+		The proof of this theorem can be found in [3] chap. 2, pag. 114,115.
+	\end{proof}
+	\begin{Theo}
+		Let $\mathfrak{g}$ be a compact Lie algebra. Then the Cartan-Killing form is negative semidefinite.
+	\end{Theo}
+	\begin{proof}
+		The proof of this theorem can be found in [3] cahp. 2 pag.114.
+	\end{proof}
+	\begin{Theo}
+		Let $\mathfrak{g}$ be a compact simple Lie algebra, then any positive (negative) definite $\hbox{Ad}$ invariant symmetric form on $\mathfrak{g}$ is a multiple of the Cartan-Killing form.
+	\end{Theo}
+	\begin{proof}
+		The proof of this theorem can be found in [3] chap. 2 pag. 118,119.
+	\end{proof}
+	\begin{Obs}
+		Let $\mathfrak{g}$ be a compact semisimple Lie algebra. Then, from the previous theorems, the Cartan-Killing form is negative definite and non degenerate. Thus, we can choose an orthonormal basis $\{T^a\}$ of vectors such that:
+		$$B_{\mathfrak{g}}(T^a,T^b)=-\delta^{ab}$$
+	\end{Obs}
+	\begin{Prop}\label{Prop_2.8.3}
+		The structure constants of a compact semisimple Lie algebra for an orthonormal basis of $B_\mathfrak{g}$ are totally antisymmetric.
+	\end{Prop}
+	\begin{proof}
+		Let $\{T^a\}$ be an orthonormal basis for the Cartan-Killing form. Then, since $\{T^a\}$ are generators, $[T^a,T^b]=f^{ab}_{\hspace{9pt}c}T^c$ and the antisymmetry in the first two indices is a clear consequence of the antisymmetry of $[,]$. Now it remains to show that also the other index commutes. 
+		We proved that the Cartan-Killing form satisfies:
+		$$B_\mathfrak{g}(\hbox{ad}_X(Y),Z)=-B_\mathfrak{g}(Y,\hbox{ad}_X(Z))$$
+		From this it immediately follows:
+		$$B_\mathfrak{g}([T^a,T^b],T^c)=B_\mathfrak{g}(\hbox{ad}_{T^a}(T^b),T^c)=f^{ab}_{\hspace{9pt}d}B_\mathfrak{g}(T^d,T^c)=$$
+		$$=-B_\mathfrak{g}(T^b,\hbox{ad}_{T^a}(T^c))=-B_\mathfrak{g}(T^b,[T^a,T^c])=-f^{ac}_{\hspace{9pt}d}B_\mathfrak{g}(T^c,T^d)$$
+		By orthonormality of the chosen basis we finally find:
+		$$f^{ab}_{\hspace{9pt}d}\delta^{dc}=-f^{ac}_{\hspace{9pt}d}\delta^{bd}$$
+		$$f^{abc}=-f^{acb}$$
+		This completes the proof.
+	\end{proof}
+	\begin{Obs}
+		The above results imply that if $\mathfrak{g}$ is a compact semisimple Lie algebra then there is a natural choice for a scalar product on $\mathfrak{g}$: the Cartan-Killing form. Futhermore, if $\mathfrak{g}$ is simple, this is the unique $\hbox{Ad}$ invariant scalar product up to a constant. In the next section we will show how to use this product to construct a metric on a Lie group.
+	\end{Obs}
+	\section{Metrics on Lie groups}
 	In this section we will briefly study scalar products on Lie algebras, which will be fundamental in the further analysis on Gauge theories. For further references see [3] chap. 2.
 	\begin{Def}
 		Let $\braket{,}$ be a metric on a Lie group $G$. We say that the metric is:
@@ -837,7 +1072,7 @@
 	Where $X_g,Y_g\in T_gG$ are tangent vectors at $g$.
 	\begin{Prop}
 		Let $\braket{,}$ be a left-invariant metric on a Lie group $G$. Then $\braket{,}$ is bi-invariant if and only if the scalar product defined on $\mathfrak{g}$ is $\hbox{Ad}$-invariant:
-		$$\braket{X_e,Y_e}=\braket{\hbox{Ad}_g(X)_e,\hbox{Ad}_g(Y_e)}$$
+		$$\braket{X_e,Y_e}=\braket{\hbox{Ad}_g(X_e),\hbox{Ad}_g(Y_e)}$$
 		For every $X_e,Y_e\in\mathfrak{g}$ and $g\in G$.
 	\end{Prop}
 	\begin{proof}
@@ -850,55 +1085,17 @@
 		On every compact Lie group $G$ there exists a bi-invariant positive definite metric.
 	\end{Theo}
 	\begin{proof}
-		The proof of this result requires tools which are not explained in this thesis and can be found in [3] chap. 2 pag. 106-108.
+		The proof of this result can be found in [3] chap. 2 pag. 106-108.
 	\end{proof}
-	We now introduce the concept of Killing form. Our aim is to find an inner product on $\mathfrak{g}$ which is non degenerate and positive definite. We will see that those requirements will be satisfied by the Killing form of a compact Lie algebra. This product, once found, will be used to define the Lagrangian.
-	\begin{Def}
-		Let $\mathfrak{g}$ be a finite dimensional Lie algebra on $\mathbb{K}=\mathbb{R}$. We define the \textit{Cartan-Killing form} of $\mathfrak{g}$ as the map:
-		$$B_\mathfrak{g}:\mathfrak{g}\times \mathfrak{g}\rightarrow\mathbb{K}\hbox{ acting like } B_\mathfrak{g}(X,Y)=tr(\hbox{ad}_X\circ \hbox{ad}_Y)$$
-	\end{Def}
-	\begin{Obs}
-		By definition, this map is clearly bilinear and symmetric. Note that in the case $\mathbb{K}=\mathbb{C}$ the Cartan-Killing form is still symmetric and not hermitian.
-	\end{Obs} 
-	\begin{Prop}\label{Prop_2.8.2}
-		The Cartan-Killing form is invariant under the action of Lie algebra automorphism. In particular, the Cartan-Killing form is bi-invariant.
-	\end{Prop}
-	\begin{proof}
-		Let $\sigma:\mathfrak{g}\rightarrow\mathfrak{g}$ be an automorphism. Then:
-		$$\hbox{ad}_{\sigma X}(Y)=[\sigma X,Y]=\sigma([X,\sigma^{-1}Y])=\sigma\circ \hbox{ad}_X\circ \sigma^{-1}(Y)$$
-		So that $\hbox{ad}_{\sigma X}=\sigma\circ \hbox{ad}_X\circ \sigma^{-1}$. The immediately implies:
-		$$B_\mathfrak{g}(X,Y)=B_\mathfrak{g}(\sigma X,\sigma Y)$$
-		This completes the proof.
-	\end{proof}
-	We now look at some important results regarding the Cartan-Killing form on semisimple Lie algebras.
-	\begin{Theo}\label{Theo_2.8.2}
-		Let $\mathfrak{g}$ be a compact Lie algebra. Then the Cartan-Killing form is negative definite and non degenerate if and only if $\mathfrak{g}$ is semisimple.
+	\begin{Theo}
+		Let $G$ be a compact, simple Lie groups. Then there exists a unique $\hbox{Ad}$ invariant Riemannian metric on $G$, up to a re-scaling.
 	\end{Theo}
 	\begin{proof}
-		The proof of this theorem can be found in [3] chap. 2, pag. 114,115.
+		This follows immediately from the previous results.
 	\end{proof}
 	\begin{Obs}
-		Let $\mathfrak{g}$ be a compact semisimple Lie algebra. Then, we know by the previous theorem, that the Cartan-Killing form is negative definite. By symmetry of this inner product, we can choose an orthonormal basis $\{T^a\}$ of vectors such that:
-		$$B_{\mathfrak{g}}(T^a,T^b)=-\delta^{ab}$$
+		The constants that determine the $\hbox{Ad}$ invariant metric are called \textit{coupling constants}. In general, we have one coupling constant for each symmetry group of the theory.
 	\end{Obs}
-	\begin{Prop}\label{Prop_2.8.3}
-		The structure constants of a compact semisimple Lie algebra for an orthonormal basis of $B_\mathfrak{g}$ are totally antisymmetric.
-	\end{Prop}
-	\begin{proof}
-		Let $\{T^a\}$ be an orthonormal basis for the Cartan-Killing form. Then, since $\{T^a\}$ are generators, $[T^a,T^b]=f^{ab}_{\hspace{9pt}c}T^c$ and the antisymmetry in the first two indices is a clear consequence of the antisymmetry of $[,]$. Now it remains to show that also the other index commutes. It is known that:
-		$$\hbox{ad}_{\hbox{ad}_X}(Y)=\hbox{ad}_X\circ \hbox{ad}_Y-\hbox{ad}_y\circ \hbox{ad}_X$$
-		From this property it directly follows that:
-		$$B_\mathfrak{g}(\hbox{ad}_X(Y),Z)=\hbox{tr}(\hbox{ad}_{\hbox{ad}_X(Y)}\circ \hbox{ad}_Z)=\hbox{tr}(\hbox{ad}_X\circ \hbox{ad}_Y\circ \hbox{ad}_Z-\hbox{ad}_Y\circ\hbox{ad}_X\circ \hbox{ad}_Z)$$
-		By linearity and cyclicity of the trace we find:
-		$$B_\mathfrak{g}(\hbox{ad}_X(Y),Z)=\hbox{tr}(\hbox{ad}_Y\circ \hbox{ad}_Z\circ \hbox{ad}_X-\hbox{ad}_Y\circ\hbox{ad}_X\circ \hbox{ad}_Z)=-B_\mathfrak{g}(Y,\hbox{ad}_X(Z))$$
-		Using this property we evalue:
-		$$B_\mathfrak{g}([T^a,T^b],T^c)=B_\mathfrak{g}(\hbox{ad}_{T^a}(T^b),T^c)=f^{ab}_{\hspace{9pt}d}B_\mathfrak{g}(T^d,T^c)=$$
-		$$=-B_\mathfrak{g}(T^b,\hbox{ad}_{T^a}(T^c))=-B_\mathfrak{g}(T^b,[T^a,T^c])=-f^{ac}_{\hspace{9pt}d}B_\mathfrak{g}(T^c,T^d)$$
-		By orthonormality of the chosen basis we finally find:
-		$$f^{ab}_{\hspace{9pt}d}\delta^{dc}=-f^{ac}_{\hspace{9pt}d}\delta^{bd}$$
-		$$f^{abc}=-f^{acb}$$
-		This completes the proof.
-	\end{proof}
 	\chapter{Bundles on smooth manifolds}
 	In this chapter we will introduce fiber bundles, vector bundles and principal bundles, with some examples. We will see some basic results which will allow us to study connections in the following chapters. To find more informations about those topics one may check [2] chap. 1 pag. 49-59, chap. 2 pag. 71-86, chap. 3 pag. 95-110, chap. 5; [3] chap. 4 pag. 193-223.
 	\section{Fiber Bundles}
@@ -1757,7 +1954,7 @@
 		This map has an inverse:
 		$$\psi:M\times V\rightarrow (M\times G)\times_\rho V\hbox{ acting like: }
 		\psi(x,v)=[(x,1),v]$$
-		Clearly: $\phi\circ \psi=\mathbb{I}$ is the identity. Now it remains to show that they commute with the projections and that they are smooth. CONTINUA
+		Clearly: $\phi\circ \psi=\mathbb{I}$ is the identity. Those maps are clearly smooth and fiber preserving.
 	\end{proof}
 	\begin{Theo}
 		Given a principal $G$-bundle $(P,M,\pi,G)$ and a representation $\rho$, there is a vector bundle called \textit{associated bundle}, namely $(E,M,\pi_E,V)$.
@@ -1766,7 +1963,7 @@
 		\begin{comment}
 			The proof follows from proposition \ref{Prop_6.1.1}. In fact the principal bundle is locally trivial and this implies that the associated bundle is locally trivial as well, with fiber $V$
 		\end{comment}
-		REFERENZA TEOREMA
+		This is a direct consequence of \ref{Prop_6.1.1}, since the local trivaility of the principal bundle ensures the associated bundle to be locally trivial. Furthermore, the structure of $\phi$ defined above ensures that the local trivializzation reduce to isomorphisms on the fibers.
 	\end{proof}
 	\begin{Prop}\label{Prop_6.2.2}
 		Let $(P,M,\pi,G)$ be a principal $G$-bundle and $\rho:G\rightarrow GL(V)$ a finite dimensional representation. Let $E$ be the associated bundle and $x\in M$. Then, for every point $p$ in the fiber $P_x$, there is a linear isomorphism:
@@ -1792,8 +1989,8 @@
 		$$\phi([s(x)\cdot g,v])=(x,\rho(g)v)$$
 		This map is well defined since it does not depend on the representative:
 		$$\phi([s(x)\cdot g\cdot h,\rho(h^{-1}v)])=(x,\rho(g)\rho(h)\rho(h^{-1})v)=(x,\rho(g)v)$$
-		Moreover, one is clearly the ivnerse of the other:
-		$$\phi\\circ \phi^{-1}(x,v)=\phi([s(x),v])=(x,v)$$ 
+		Moreover, one is clearly the inverse of the other:
+		$$\phi\circ \phi^{-1}(x,v)=\phi([s(x),v])=(x,v)$$ 
 		Both those maps are by construction  smooth and on each fiber reduce to isomorphisms of vector spaces:
 		$$\phi_x[s(x)\cdot g,v]=\rho(g)v$$
 		This proves that the constructed map is a local trivialization.
@@ -1863,7 +2060,7 @@
 		$$\omega\rightarrow (d\omega)^h$$
 	\end{Def}
 	It is clear from the previous propositions that: $D:\Omega^k_\rho(P,V)\rightarrow \Omega^{k+1}_\rho(P,V)$ the covariant derivative restricts to a map on tensorial forms of type $\rho$.
-	\begin{Prop}
+	\begin{Prop}\label{Prop_6.3.3}
 		The covariant derivative of a tensorial form of type $\rho$ is an antiderivation of degree 1.
 	\end{Prop}
 	\begin{proof}
@@ -1945,6 +2142,19 @@
 		$$DF=dF+[A,F]$$
 		However, by theorem \ref{Theo_5.5.1}, $dF=[F,A]$ and so $DF=0$.
 	\end{Obs}
+	\begin{Obs}
+		The formula	\ref{Prop_6.3.4} cannot be applied to a connection 1 form on $P$, since $A\in\Omega^1(P,\mathfrak{g})$ is not horizontal, but vertical. However, it is possible to show that the difference between two connections is always a tensorial $1$-form. 
+		$$A-A'\in\Omega^1_{Ad}(P,\mathfrak{g})$$
+		This clearly follows from the properties of the connection. Moreover, if $A$ is a conne
+	\end{Obs}
+	\begin{Prop}\label{Prop_6.3.5}
+		If $A,A'$ are connections 1 forms on $P$, then:
+		$$A-A'\in\Omega^1_{Ad}(P,\mathfrak{g})$$
+		Moreover, if $\omega\in\Omega^1_{Ad}(P,\mathfrak{g})$, then $A+\omega$ is still a connection 1 form.
+	\end{Prop}
+	\begin{proof}
+		This result immediately follows from the defining properties of the connection.
+	\end{proof}
 	\chapter{Gauge transformations}
 	In this chapter we will introduce the concept of gauge transformations. Furthermore, we will see how the connection 1-forms and the associated curvatures will behave under such transformations. More informations on those topics can be found in [3] chap. 5.
 	\section{Gauge transformations on a principal bundle}
@@ -2129,6 +2339,10 @@
 		Let $(P,M,\pi,G)$ a principal bundle and $\rho$ a representation of $G$. Let $\omega_{1,2}\in \Omega^k_(M,E)$ be two $E$-valued forms on $M$. Then we define an inner product as follows: choose a local frame $\{e_i:M\rightarrow E\}$ of $E$ and expand $\omega_{1,2}=\omega_{1,2}^i\otimes e_i$, and set:
 		$$\braket{,}_{E}:\Omega^k(M,E)\times \Omega^k(M,E)\rightarrow C^\infty(M)$$
 		$$\braket{\omega_1,\omega_2}=\braket{\omega_1^i,\omega_2^j}\braket{e_i,e_j}_E$$
+		In the same way we define the $L^2$ product:
+		$$\braket{,}_{E,L^2}:\Omega^k_c(M,E)\times\Omega^k_c(M,E)\rightarrow \mathbb{R}$$
+		$$\braket{\alpha,\beta}_{E,L^2}=\int_M\braket{\alpha,\beta}_E\omega$$
+		where $\omega$ is the volume form on $M$.
 	\end{Def}
 	We now wish to generalize the notion of Hodge operator and dual exterior derivative to the framework of associated bundles.
 	\begin{Def}
@@ -2147,11 +2361,14 @@
 	\begin{Obs}
 		In the case of an adjoint associated bundle on a compact semisimple algebra, the bundle metric on the associated bundle $E$ is positive definite so that the term $sgn(\braket{,}_E)$ is just 1.
 	\end{Obs}
-	\begin{Prop}
+	\begin{Prop}\label{Prop_7.3.2}
 		The co-exterior derivative on an associated bundle $E$ satisfies:
-		$$\braket{D^*\omega,\eta}_E=\braket{\omega,D\eta}_E$$
+		$$\braket{D^*\omega,\eta}_{E,L^2}=\braket{\omega,D\eta}_{E,L^2}$$
+		where $\omega,\eta$ have compact support and $M$ is assumed to have no boundary.
 	\end{Prop}
-	SHOW ANTIDERIVATION
+	\begin{proof}
+		The proof can be found in [3] chap. 7 pag. 412.
+	\end{proof}
 	There is a strong relatioship between the pullback of the curvature on the manifold, with values on the Lie algebra, and the induced form on with values on the associated bundle. In particular, choosing a local gauge, one can show that locally there is a correspondence between them:
 	\begin{Prop}\label{God_Prop}
 		Let $(P,M,\pi,G)$ be a principal bundle and $(Ad(P),M,\pi_{Ad},\mathfrak{g})$ be the adjoint associated bundle. Let $A\in \Omega^1(P,\mathfrak{g})$ be a connection on the principal bundle and $F\in\Omega^2_{Ad}(P,\mathfrak{g})$ be its curvature. Then, for any local gauge $s:U\subset M\rightarrow P$w, the pullback $s^*F$ of $F$ and the associated form $F_M\in\Omega^2(M,Ad(P))$ coincide.  
@@ -2193,10 +2410,26 @@
 		where $T^a$ are generators for the Lie algebra. Then, by proposition \ref{Prop_7.3.1}:
 		$$\braket{s^*F,s^*F}_\mathfrak{g}=\braket{F_a,F_b}\braket{T^a,T^b}_\mathfrak{g}$$
 	\end{Obs}
+	\begin{comment}
+	\chapter{The Euler-Lagrange equations}
+	In this chapter we will look at how to define the Euler-LAgrange equations on the framework of differential geometry. We will apply the results of this chapter in the study of the general solutions of the Yang-Mills lagrangian. REFERENZA
+	\section{Lagrangians and gauge invariance}
+	In this section we will give the definition of a gauge invariant Lagrangian and look at some properties of it. REFERENZA
+	\begin{Def}
+		Let $(P,M,\pi,G)$ be a principal $G$-bundle and $\rho:G\rightarrow GL(V)$ a representation. We define the space of \textit{1-Jets} as:
+		$$J(P,V)=\{(p,v,T)|p\in P,v\in V, T:T_pP\rightarrow V \hbox{linear}\}$$
+	\end{Def}
+	\begin{Prop}
+		The 1-Jets space is a smooth manifold.
+	\end{Prop}
+	\begin{proof}
+		
+	\end{proof}
+	\end{comment}
 	\chapter{The Yang-Mills Gauge theory}
 	In this chapter we will use the knowledge exposed previously to construct the famous Yang-Mills Lagrangian and look at some of its properties. More informations on this topic can be found in REFERENZA
 	\section{The Maxwell's equations}
-	In this section we will see a geometric formulation for the Maxwell's equations. We will first of all analyze them in a flat space-time configuration, then proceed to look at them in curved space-time with a background non-flat metric. More references can be found in REFERENZA\\
+	In this section we will see a geometric formulation for the Maxwell's equations. We will first of all analyze them in a void flat space-time configuration. More references can be found in REFERENZA\\
 	\\
 	We will refer to $\mathbb{R}^n$ equipped with a flat metric $\eta=diag(-,-,...,_,+,+,...,+)$ with signature $(p,q)$, as $\mathbb{R}^{q,p}$. Our starting setting is Minkowski space, so we consider $\mathbb{R}^{1,3}$ as the base manifold. We are working in natural units, so that the speed of light is normalized to $c=1$.\\
 	\\
@@ -2278,20 +2511,56 @@
 	From this we obtain:
 	$$F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu$$
 	Looking at the Maxwell's equations, $dF=0$ is automatically satisfied. As for $d^*F=0$, we can explicitly compute this in the orthonormal basis:
-	$$\star F=\star dA={1\over 2}\star(\partial_\mu A_\nu dx^\mu\wedge dx^\nu)=$$
-	$$-(\partial_tA_x-\partial_x A_t)dy\wedge dz-(\partial_yA_t-\partial_t A_y)dx\wedge dz+$$
-	$$-(\partial_t A_z-\partial_z A_t)dx\wedge dy+(\partial_x A_y-\partial_y A_x)dt\wedge dz+$$
-	$$+(\partial_z A_x-\partial_x A_z)dt\wedge dy+(\partial_y A_z-\partial_z A_y)dt\wedge dx=$$
-	$$=-F_{tx} dy\wedge dz- F_{yt}dx\wedge dz -F_{tz}dx\wedge dy+F_{xy}dt\wedge dz+F_{zx}dt\wedge dy+F_{yz}dt\wedge dx$$
-	Applying now the exterior derivative we get:
-	$$d\star F=d\star dA=$$
-	$$=(-\partial_t F_{tz}+\partial_xF_{xz}+\partial_y F_{yz})dt\wedge dx\wedge dy+(\partial_t F_{ty}-\partial_x F_{xy}-\partial_z F_{zy})dt\wedge dx\wedge dz+$$
-	$$+(-\partial_t F_{tx}+\partial_yF_{yx}+\partial_z F_{zx})dt\wedge dy\wedge dz +(\partial_xF_{xt}+\partial_yF_{yt}+\partial_zF_{xt}))dx\wedge dy\wedge dz$$
-	Equating this to 0, it can be re-written as:
-	$$\braket{dx^\mu,dx^\mu}\partial_\nu F_{\nu\mu}=0$$
+	$$\star F=\star dA={1\over 2}\star(\partial_\mu A_\nu dx^\mu\wedge dx^\nu)={1\over 2}F_{\mu\nu}\star(dx^\mu\wedge dx^\nu)$$
+	From proposition \ref{Prop_1.7.2} we have, for our othonormal basis:
+	$$\star (dx^\mu\wedge dx^\nu)= [\mu\nu\mu'\nu']\braket{dx^\mu\wedge dx^\nu,dx^\alpha\wedge dx^\beta}dx^{\mu'}\wedge dx^{\nu'}$$
+	With $\mu',\nu'$ complements of $\mu,\nu$ and $\alpha,\beta$ equal to the ordered $\mu,\nu$. Substituting this into the previous formula and expliciting the scalar product of forms as in observation \ref{Obs_1.7.1} one gets:
+	$$\star F=\sum_{\mu<\nu}F_{\mu\nu}[\mu\nu\mu'\nu']\hbox{det}
+	\begin{pmatrix}
+		\eta^{\mu\alpha} & \eta^{\mu\beta}\\
+		\eta^{\nu\alpha} & \eta^{\nu\beta}\\
+	\end{pmatrix} dx^{\mu'}\wedge dx^{\nu'}$$
+	With $\alpha=\mu$ and $\beta=\nu$ since we are considering ordered sets of indices. The result is:
+	$$\star F=\sum_{\mu<\nu}[\mu\nu\mu'\nu']F^{\mu\nu}dx^{\mu'}\wedge dx^{\nu'}$$
+	Applying now the exterior derivative in the above formula we get:
+	$$d\star F=\sum_{\mu<\nu}[\mu\nu\mu'\nu']\partial_\rho F^{\mu\nu}dx^\rho\wedge dx^{\mu'}\wedge dx^{\nu'}$$
+	The result is automatically 0 if $\rho=mu'$ or $\rho=\nu'$. Thus:
+	$$d\star F=0\iff \partial_\mu F^{\mu\nu}=0$$
 	Or equivalently, in terms of the vector potential $A$:
-	$$\braket{dx^\mu,dx^\mu}\partial_\nu (\partial_\mu A_\nu-\partial_\nu A_\mu)=0$$
+	$$\partial_\mu(\partial^\mu A^\nu-\partial^\nu A^\mu)=\square A^\nu-\partial^\nu\partial_\mu A^\mu=0$$
+	where $\square=\partial_\mu\partial^\mu$.
 	\section{The Maxwell's equations in curved space-time}
+	In this section we will generalize the results of the previous analysis in a curved space-time. We will assume a background non-flat metric, with Minkowsky signature. We will also keep the assumption of a void space-time. REFERENZA
+	\\\\
+	Let $M$ be a 4-dimensional boundaryless manifold with a generic metric tensor $g$ with signature $(1,3)$. In this setting, in a generic coordinate system $\{x^\mu\}$, the metric tensor will be:
+	$$g=g_{\mu\nu}dx^\mu\wedge dx^\nu$$
+	and the volume form:
+	$$\omega=\sqrt{|\hbox{det}g|}dx^0\wedge...\wedge dx^3$$
+	The action of the Hodge operator on a generic element of the base is thus more complicated with respect to the previous section. In fact, from proposition \ref{Prop_1.7.2} we have:
+	$$\star dx^I=[dx^i]\sqrt{|\hbox{det}g|}\sum_J [JJ']\braket{dx^I,dx^J}dx^{J'}$$
+	Assuming our base preserves the orientation of the volume form i.e. $[dx^i]=1$, we can express the above terms in a nicer way:
+	$$\braket{dx^I,dx^J}=\hbox{det}(\braket{dx^i,dx^j}_{i\in I,j\in J})=\hbox{det}(g^{ij}_{\hspace{9pt}i\in I,j\in J})$$
+	The determinant of the metric tensor can be expressed as follows:
+	$$\hbox{det}(g^{ij}_{\hspace{9pt}i\in I,j\in J})=\sum_\nu g^{i_1j_{\nu_1}}...g^{i_kj_{\nu_k}}\varepsilon_{\nu_1,...,\nu_k}$$
+	where $\varepsilon$ is the Levi-Civita symbol. Substituting this into the above expression:
+	$$\star dx^I=\sqrt{|\hbox{det}g|}\sum_{J,\nu} [JJ']g^{i_1j_{\nu_1}}...g^{i_kj_{\nu_k}}\varepsilon_{\nu_1,...,\nu_k}dx^{J'}$$
+	\begin{Prop}
+		In curved space-time, the Maxwell's equations are:
+		$$\partial_{[\rho} F_{\mu\nu]}=0\hspace{20 pt} {1\over \sqrt{|\hbox{det}g|}}\partial_\nu (\sqrt{|\hbox{det}g|}F^{\mu\nu})=0$$
+	\end{Prop}
+	\begin{proof}
+		Generalizing the equations: 
+		$$dF=0\hspace{20pt} d^*F=0$$
+		The first one is automatically proved since the exterior derivation does not involve the metric at all; as for the second one, we find the following:
+		$$\star F={1\over 2}F_{\mu\nu}\star( dx^\mu\wedge dx^\nu)=$$
+		$$={1\over 2}F_{\mu\nu}\sqrt{|\hbox{det}g|}\sum_{J,\nu}[JJ']g^{\mu j_{\nu_1}}g^{\nu j_{\nu_2}}\varepsilon_{\nu_1\nu_2} dx^{J'}={1\over 2}\sqrt{|\hbox{det}g|}\sum_{J,\nu}[JJ']F^{j_{\nu_1}j_{\nu_2}}\varepsilon_{\nu_1\nu_2} dx^{J'}$$
+		Taking now the exterior derivative, one clearly sees that the non 0 terms are only the ones like $$\partial_{j_{\nu_1}}F^{j_{\nu_1}j_{\nu_2}}dx^{j_{\nu_1}}\wedge dx^{J'}$$ 
+		Due to $J'$ being the ordered complement of $J$. This means that the second half of the Maxwell's equations is:
+		$$\partial_\nu (\sqrt{|\hbox{det}g|}F^{\mu\nu})=0$$
+	\end{proof}
+	\begin{Obs}
+		One easily sees that in the limit $g=\eta$ of flat space, the original Maxwell's equations are fully recovered.
+	\end{Obs}
 	\section{The Electromagnetic Lagrangian}
 	In this section we will explicitly construct the Lagrangian of the electromagnetic field. More references on this topic can be found in REFERENZA
 	\\\\
@@ -2315,6 +2584,13 @@
 		$$F\wedge \star F={1\over 2}F_{\mu\nu}F^{\mu\nu}dt\wedge dx\wedge dy\wedge dz$$
 		This gives the general well known form of the electromagnetic Lagrangian:
 		$$\mathcal{L}=-{1\over 4}F_{\mu\nu}F^{\mu\nu}$$
+		One can then apply the Euler Lagrange equations to find the equations of motions of the field $A$:
+		$$\partial_\nu{\partial \mathcal{L}\over \partial_\mu A_\nu}={\partial \mathcal{L}\over \partial A_\mu}$$
+		Re-writing the Lagrangian as:
+		$$\mathcal{L}=-{1\over 2}(\partial_\mu A_\nu\partial^\mu A^\nu-\partial_\mu A_\nu\partial^\nu A^\mu)$$
+		one gets the expected equation of motion:
+		$$\square A^\mu-\partial^\mu\partial_\nu A^\nu=0$$
+		Where $\square=\partial_\mu\partial^\mu$.
 	\end{proof}
 	\section{The U(1) Yang-Mills theory}
 	In this section we will use the Maxwell's equation to deduce the general form of the Yang-Mills Lagrangian for electromagnetism. More references on this topic can be found in: REFERENZA
@@ -2446,30 +2722,42 @@
 		This is exactly the same form of proposition \ref{Prop_8.1.2}. Now it only remains to show that the solution of this Lagrangian satisfies the Maxwell's equations. \\\\
 		The first half follows from the properties of $F$. In fact, we already proved $DF=dF+A\cdot F=0$ and through the construction of theorem \ref{Mus_Iso}, it immediately follows that $DF_M=0$.\\
 		\\
-		The remaining part of the Maxwell's equations can be found through the Euler-Lagrange equations. DA FARE
+		The remaining part of the Maxwell's equations can be found through the minimization of the action. Define:
+		$$S[A]=-{1\over 2}\braket{F_M,F_M}_{Ad,L^2}$$
+ 		The equations of motion must satisfy:
+ 		$${d\over dt}\bigg|_0S[A+\delta A]=0$$
+ 		By proposition \ref{Prop_6.3.5}, we can vary the connection 1-form with a tensorial 1 form $\omega\in\Omega^1_{Ad}(M,Ad(P))$. In particular:
+ 		$$F_M\rightarrow F_M+\delta F_M= d(A+t\omega)+{1\over 2}[A+t\omega,A+t\omega]=F_M+t(d\omega+[A,\omega])+O(t^2)$$
+ 		Since $\omega$ is a tensorial form of type Ad, we can re-formulate the above equation as:
+ 		$$F_M\rightarrow F_M+tD\omega+O(t^2)$$
+ 		This gives us the result:
+ 		$${d\over dt}\bigg|_0\braket{F_M+\delta F_M,F_M+\delta F_M}_{Ad,L^2}=2\braket{D\omega,F_M}$$
+ 		From \ref{Prop_7.3.2} we get:
+ 		$$0=\braket{\omega,D^*F_M}$$
+ 		Which means that the equations of motion must satisfy $D^*F_M=0$ or $d^*F=0$ in the abelian case.
 	\end{proof}
-	\section{The SU(N) Yang-Mills theory}
+	\section{The SU(n) Yang-Mills theory}
 	In this section we will generalize the construction of the electromagnetic Lagrangian with higher dimensional groups. This will lead us to the QCD gauge boson Lagrangian. More informations on this can be found in REFERENZA\\
 	\\
-	The idea is to keep the same framework of the $U(1)$ case and generalize the setting to a higher dimensional Lie algebra. Thus, following the approach of the previous section, we start from the assumption of a $G$-principal bundle on $\mathbb{R}^{1,3}$ endowed with a connection $A\in \Omega^1(P,\mathfrak{g})$. However, we now take $\mathfrak{g}$ to be an $n$-dimensional Lie algebra. We are going to refer to $A$ with the name \textit{gauge field}. Moreover, we want our group $G$ to have a compact and semisimple Lie algebra, in order to have a negative definite non degenerate Cartan-Killing form to induce a bundle metric on the Adjoint associated bundle $Ad(P)$. To satisfy this requirement coherently with the previous section, we generalize the group $G$ from $U(1)$ to $SU(N)$, since $\mathfrak{su}(N)$ is compact and semisimple. Thus, our principal bundle will be a principal $SU(N)$-bundle $(P,\mathbb{R}^{1,3},\pi,SU(N))$.
+	The idea is to keep the same framework of the $U(1)$ case and generalize the setting to a higher dimensional Lie algebra. Thus, following the approach of the previous section, we start from the assumption of a $G$-principal bundle on $\mathbb{R}^{1,3}$ endowed with a connection $A\in \Omega^1(P,\mathfrak{g})$. However, we now take $\mathfrak{g}$ to be an $n$-dimensional Lie algebra. We are going to refer to $A$ with the name \textit{gauge field}. Moreover, we want our group $G$ to have a compact and semisimple Lie algebra, in order to have a negative definite non degenerate Cartan-Killing form to induce a bundle metric on the Adjoint associated bundle $Ad(P)$. To satisfy this requirement coherently with the previous section, we generalize the group $G$ from $U(1)$ to $SU(n)$, since $\mathfrak{su}(n)$ is compact and semisimple. Thus, our principal bundle will be a principal $SU(n)$-bundle $(P,\mathbb{R}^{1,3},\pi,SU(n))$.
 	\begin{Obs}
-		In our analysis we will take $\mathfrak{su}(N)$ to be the real vector space of \textit{traceless hermitian} matrices. However, in example \ref{Ex_2.5.1} the Lie algebra of $U(N)$ was found to be composed of skew-hermitian matrices. If instead of a set of generators $\{T^a\}$ we take $\{-iT^a\}$, the generators $T^a$ become hermitian. Basically, we are rescaling the generators of a factor $-i$.
+		In our analysis we will take $\mathfrak{su}(n)$ to be the real vector space of \textit{traceless hermitian} matrices. However, in example \ref{Ex_2.5.1} the Lie algebra of $U(n)$ was found to be composed of skew-hermitian matrices. If instead of a set of generators $\{T^a\}$ we take $\{-iT^a\}$, the generators $T^a$ become hermitian. Basically, we are rescaling the generators of a factor $-i$.
 		With this convention the commutation relations become:
 		$$[T^a,T^b]=if^{ab}_{\hspace{9pt}c}T^c$$
 	\end{Obs}
 	\begin{Prop}
-		The transformation rule of the pullback of the gauge field $A$ under a gauge transformation induced by $SU(N)$ is:
+		The transformation rule of the pullback of the gauge field $A$ under a gauge transformation induced by $SU(n)$ is:
 		$$s_i^*A=A_i=Ad(g_{ji}^{-1})A_i+g^{-1}_{ji}dg_{ji}$$ 
 	\end{Prop}
 	\begin{proof}
-		This is an immediate consequence of theorem \ref{Theo_7.2.1}. In particular, for a matrix Lie group like $SU(N)$, the form $\mu_{ji}=g_{ji}^*\theta$ is:
+		This is an immediate consequence of theorem \ref{Theo_7.2.1}. In particular, for a matrix Lie group like $SU(n)$, the form $\mu_{ji}=g_{ji}^*\theta$ is:
 		$$(g_{ji}^*\theta)_x(X_x)=\theta_{g_{ji}(x)}(dg_{ji,x}(X_x))=g^{-1}_{ji}(x)\cdot dg_{ji,x}(X_x)$$
 	\end{proof}
 	\begin{Obs}
-		Note that, with respect to the previous section, the adjoint representation for $SU(N)$ is not trivial anymore.
+		Note that, with respect to the previous section, the adjoint representation for $SU(n)$ is not trivial anymore.
 	\end{Obs}
 	\begin{Obs}
-		We can explicitly write the transformation rule once we choose a base $\{T^a\}$ for the Lie algebra $\mathfrak{su}(N)$. In particular, the connection $A$ belongs to $\Omega^1(P,\mathfrak{su}(N))$ and so it's pullback can be expanded like:
+		We can explicitly write the transformation rule once we choose a base $\{T^a\}$ for the Lie algebra $\mathfrak{su}(n)$. In particular, the connection $A$ belongs to $\Omega^1(P,\mathfrak{su}(n))$ and so it's pullback can be expanded like:
 		$$s^*A=-iA_a\otimes T^a=-iA_{\mu,a}dx^\mu\otimes T^a$$
 		where $A_a\in\Omega^1(M)$ for every $a$ and $A_{\mu,a}:M\rightarrow\mathbb{R}$ are smooth functions of points in $M$. 
 		If now we expand $g_{ji}(x)=exp(-i\alpha_a(x)T^a)$ through the exponential map, with $\alpha(x)$ being smooth functions of points, we get:
@@ -2485,13 +2773,13 @@
 	\end{Prop}
 	This means that the pullback of $F$ does not define a global closed form on $M$, since it depends on the local gauge chosen.
 	\begin{Prop}
-		For $G=SU(N)$, the first half of the Maxwell's equations takes the form:
+		For $G=SU(n)$, the first half of the Maxwell's equations takes the form:
 		$$DF=0$$
 		with $F=DA$.
 	\end{Prop}
 	This result immediatly follows from observation \ref{Obs_6.3.5}. However, the main difference from the result found in proposition \ref{Prop_8.4.3} is that $F\neq dA$ and $dF\neq 0$. In fact:
 	$$F=dA+{1\over 2}[A,A]$$
-	and in the case of a non abelian gauge group like $SU(N)$, the second term does not vanish. Looking back at example \ref{Ex_3.5.1}:
+	and in the case of a non abelian gauge group like $SU(n)$, the second term does not vanish. Looking back at example \ref{Ex_3.5.1}:
 	$$[A,A]=A_a\wedge A_b \otimes [T^a,T^b]$$ 
 	In the same way $dF=[F,A]$ is non 0 in general.
 	\begin{Prop}
@@ -2518,20 +2806,20 @@
 	\begin{Obs}
 		We now check how the Lagrangian changes in this generalized non-abbelian theory. We keep the same structure we found in the $U(1)$ and develop it in coordinates.\\
 		\\
-		Let $F\in\Omega^2_{Ad}(P,\mathfrak{su}(N))$ be the curvature. By construction $\mathcal{L}=-{1\over 2}\braket{F_M,F_M}_{Ad}$ where $F_M\in \Omega^2(M,Ad(P))$ is the $2$-form associated to the curvature $F$ by theorem \ref{Mus_Iso}. We immediately see that this lagrangian is invariant under gauge transformations. This is clear since those act on $F_M$ as described in proposition \ref{Prop_7.2.3}, and the scalar product on $\mathfrak{g}=\mathfrak{su}(N)$ is the Cartan-Killing form, which is invariant under automorphisms.\\
+		Let $F\in\Omega^2_{Ad}(P,\mathfrak{su}(n))$ be the curvature. By construction $\mathcal{L}=-{1\over 2}\braket{F_M,F_M}_{Ad}$ where $F_M\in \Omega^2(M,Ad(P))$ is the $2$-form associated to the curvature $F$ by theorem \ref{Mus_Iso}. We immediately see that this lagrangian is invariant under gauge transformations. This is clear since those act on $F_M$ as described in proposition \ref{Prop_7.2.3}, and the scalar product on $\mathfrak{g}=\mathfrak{su}(n)$ is the Cartan-Killing form, which is invariant under automorphisms.\\
 		Note that, with respect to the $U(1)$ case, $F_M$ is not invariant under gauge transformations, but the Lagrangian is. Choosing a local gauge $s:U\subset M\rightarrow P$, we can express, through \ref{God_Prop}, $F_M$ as $s^*F$. In particular:
-		$$\braket{F_M,F_M}_{Ad}=\braket{s^*F,s^*F}_{\mathfrak{su}(N)}$$
+		$$\braket{F_M,F_M}_{Ad}=\braket{s^*F,s^*F}_{\mathfrak{su}(n)}$$
 		Moreover, fixing a chart $(U,x^i)$ with induced bases $\{\partial_\mu\}$, $\{dx^\mu\}$ orthonormal to the Minkowski metric $\eta_{\mu\nu}$, we get:
 		$$s^*F={1\over 2}F_{\mu\nu,a}dx^\mu\wedge dx^\nu\otimes T^a$$
 		The scalar product thus becomes:
-		$$\braket{s^*F,s^*F}_{\mathfrak{su}(N)}={1\over 4}F_{\mu\nu,a}F_{\alpha\beta,b}\braket{dx^\mu\wedge dx^\nu,dx^\alpha\wedge dx^\beta}\braket{T^a,T^b}_{\mathfrak{su}(N)}$$
+		$$\braket{s^*F,s^*F}_{\mathfrak{su}(n)}={1\over 4}F_{\mu\nu,a}F_{\alpha\beta,b}\braket{dx^\mu\wedge dx^\nu,dx^\alpha\wedge dx^\beta}\braket{T^a,T^b}_{\mathfrak{su}(n)}$$
 		The basis $\{T^a\}$ is selected as an orthonormal basis with respect to the Cartan-Killing form. This means:
-		$$\braket{T^a,T^b}_{\mathfrak{su}(N)}=\delta^{ab}$$
+		$$\braket{T^a,T^b}_{\mathfrak{su}(n)}=\delta^{ab}$$
 		Note that the Cartan-Killing form is negative definite so we take as a scalar product the inverse of it. The product between forms gives the same exact result of the previous section:
-		$$\braket{s^*F,s^*F}_{\mathfrak{su}(N)}={1\over 2}F_{\mu\nu,a}F^{\mu\nu,a}$$
+		$$\braket{s^*F,s^*F}_{\mathfrak{su}(n)}={1\over 2}F_{\mu\nu,a}F^{\mu\nu,a}$$
 		Thus, the Lagrangian takes the following form:
 		$$\mathcal{L}=-{1\over 4}F_{\mu\nu,a}F^{\mu\nu,a}$$
-		We see that the general form is exactly the same one we found in the $U(1)$ case, however, there are differences which arise due to the non commutativity of $SU(N)$. In particular, if we substitute the expression for $s^*F$ found in the previous proposition we get:
+		We see that the general form is exactly the same one we found in the $U(1)$ case, however, there are differences which arise due to the non commutativity of $SU(n)$. In particular, if we substitute the expression for $s^*F$ found in the previous proposition we get:
 		$$F_{\mu\nu,a}F^{\mu\nu,a}=(\partial_\mu A_{\nu,a}-\partial_\nu A_{\mu,a}+f^{bc}_{\hspace{9pt}a}A_{\mu,b}A_{\nu,c})(\partial^\mu A^{\nu,a}-\partial^\nu A^{\mu,a}+f^{dea}A^{\mu}_dA^{\nu}_e)=$$
 		$$=2(\partial_\mu A_{\nu,a}\partial^\mu A^{\nu,a}-\partial_\mu A_{\nu,a}\partial^\nu A^{\mu,a})+2f^{bc}_{\hspace{9pt}a}A_{\mu,b}A_{\nu,c}\partial^\mu A^{\nu,a}+$$
 		$$+2f^{dea}A^{\mu}_dA^{\nu}_e\partial_\mu A_{\nu,a}+f^{bc}_{\hspace{9pt}a}f^{dea}A_{\mu,b}A_{\nu,c}A^{\mu}_dA^{\nu}_e$$
@@ -2540,8 +2828,27 @@
 		$$=2(\partial_\mu A_{\nu,a}\partial^\mu A^{\nu,a}-\partial_\mu A_{\nu,a}\partial^\nu A^{\mu,a})+4f^{abc}A_{\mu,b}A_{\nu,c}\partial^\mu A^{\nu}_{a}+ f^{bc}_{\hspace{9pt}a}f^{ade}A_{\mu,b}A_{\nu,c}A^{\mu}_dA^{\nu}_e$$
 		Thus, for any local gauge $s:U\subset M\rightarrow P$, the Lagrangian in coordinates is:
 		$$\mathcal{L}=-{1\over 2}(\partial_\mu A_{\nu,a}\partial^\mu A^{\nu,a}-\partial_\mu A_{\nu,a}\partial^\nu A^{\mu,a})-f^{abc}A_{\mu,b}A_{\nu,c}\partial^\mu A^{\nu}_{a}-{1\over 4} f^{bc}_{\hspace{9pt}a}f^{ade}A_{\mu,b}A_{\nu,c}A^{\mu}_dA^{\nu}_e$$
-		Clearly, the main difference from the abelian case is in the last two terms, which arise due to the non commutativity of the Lie algebra. in fact, in the $U(1)$ case, the structure constants are 0.
+		Clearly, the main difference from the abelian case is in the last two terms, which arise due to the non commutativity of the Lie algebra. In fact, in the $U(1)$ case, the structure constants are 0.
 	\end{Obs}
+	\begin{Prop}
+		In the $SU(n)$ case, the second half of the MAxwell's equations has the form:
+		$$D^*F=0$$
+	\end{Prop}
+	\begin{proof}
+		We repeat the same analysis of the abelian case. Define the action as:
+		$$S[A]=-{1\over 2}\braket{F_M,F_M}_{Ad,L^2}$$
+		The equations of motion must satisfy:
+		$${d\over dt}\bigg|_0S[A+\delta A]=0$$
+		From the result \ref{Prop_6.3.5}, we can vary the connection 1-form by adding a tensorial 1 form $\omega\in\Omega^1_{Ad}(M,Ad(P))$. This means that the curvature will be transformed as:
+		$$F_M\rightarrow F_M+t(d\omega+[A,\omega])+O(t^2)$$
+		And since $\omega$ is a tensorial form::
+		$$F_M\rightarrow F_M+tD\omega+O(t^2)$$
+		This gives us the known result result:
+		$${d\over dt}\bigg|_0\braket{F_M+\delta F_M,F_M+\delta F_M}_{Ad,L^2}=2\braket{D\omega,F_M}$$
+		From \ref{Prop_7.3.2} we get:
+		$$0=\braket{\omega,D^*F_M}$$
+		Which means that the equations of motion must satisfy $D^*F_M=0$.
+	\end{proof}
 	\chapter*{Bibliography}
 	\begin{itemize}
 		\item[$\circ$] [1] Loring W.Tu, An Introduction to Manifolds, Springer, 2011;
