@@ -184,18 +184,9 @@
 	In this section we briefly define the concept of Riemannian manifold and look at some properties of it. More informations can ba found in [2] cahp. 1 pag. 1-7.
 	\begin{Def}
 		A \textit{metric} on a manifold $M$ is a smooth assignment to any point $p\in M$ of an inner product $\braket{,}_p:T_pM\times T_pM\rightarrow \mathbb{R}$:
-		\begin{itemize}
-			\item $\braket{,}_p$ is bilinear;
-			\item $\braket{,}_p$ is non degenerate;
-			\item $\braket{,}_p$ is symmetric.
-		\end{itemize}
-		We also refer to any manifold $M$ endowed with a metric with the name \textit{metric manifold} and the notation $(M,g)$.
+		We also refer to any manifold $M$ endowed with a Riemannian metric with the name \textit{Riemannian manifold} and the notation $(M,g)$.
 	\end{Def}
-	One can think of a metric as a map $g$ that reduces to $\braket{,}_p$ at any point. By definition, $g$ is smooth and in local coordinates we identify its components with $g_{ij}$.
-	In general, one can consider metrics which are not positive definite. An example is the Minkowski metric.
-	\begin{Def}
-		We call \textit{Riemannian manifold} a metric manifold in which the metric tensor is positive definite. If the metric is not positive definite we call the manifold \textit{pseudo-Riemannian}.
-	\end{Def}
+	In general, one can also consider inner products which are not positive definite. An example is the Minkowski metric for $M=\mathbb{R}^4$.
 	\begin{Ex}
 		Since the tangent space $T_p\mathbb{R}^n$ at any point in $\mathbb{R}^n$ is isomorphic to $\mathbb{R}^n$, the Euclidean inner product in $\mathbb{R}^n$ gives rise to a Riemannian metric in $\mathbb{R}^n$.		
 	\end{Ex}
@@ -388,14 +379,14 @@
 	where $e^i$ is the orthonormal basis with respect to $g$ inside $U$. The proof is just a straightforward calculation and can be found in [2] chap. 3 pag. 134.
 	\end{comment}
 	\section{\textcolor{red}{Manifolds with boundary}}
-	In this section we will briefly define the notion of manifold with boundary and look at some important results concerning them. More references on this subject can be found in: [1] chap. 6 pag. 250-256.
+	In this section we will briefly define the notion of manifold with boundary and look at some important results concerning them. More details on this subject can be found in: [1] chap. 6 pag. 250-256.
 	\begin{Def}
 		We define the \textit{closed upper half space} as:
 		$$\mathcal{H}^n=\{(x^1,...,x^n)\in\mathbb{R}^n|x^i\geq 0\}$$
 		We call the set of points $(x^1,...,x^n)$ such that $x^i>0$ the \textit{interior of} $\mathcal{H}^n$ and we denote it with $(\mathcal{H}^n)^\circ$. We call the set of points $(x^1,...,x^n)$ such that $x^i=0$ the \textit{boundary of} $\mathcal{H}^n$ and we denote it with $\partial\mathcal{H}^n$.
 	\end{Def}
 	\begin{Def}
-		Let $M$ be a manifold. We say that $M$ is a \textit{manifold with boundary} if it is locally homeomorphic to $\mathcal{H}^n$. We call \textit{boundary} of $M$ the set $\partial M$ of points $p\in M$ such that for some chart $(U\subset M, \phi)$ we have $\phi(p)\in\partial\mathcal{H}^n$.
+		Let $M$ be a manifold. We say that $M$ is a \textit{manifold with boundary} if it is locally homeomorphic either to $\mathbb{R}^n$ to $\mathcal{H}^n$. We call \textit{boundary} of $M$ the set $\partial M$ of points $p\in M$ such that for some chart $(U\subset M, \phi)$ we have $\phi(p)\in\partial\mathcal{H}^n$, where $\partial\mathcal{H}^n$ is the boundary of the closed upper half space.
 	\end{Def}
 	\begin{Obs}
 		One can show that if $p$ is a boundary point for a chart $(U,\phi)$ then it is also a boundary point for any other chart. The full proof can be found in [1] chap. 6 pag. 251.
@@ -410,9 +401,9 @@
 		$$\Psi\circ \Phi^{-1}:\Phi(U\cap V\cap \partial M)\rightarrow \Psi(U\cap V\cap \partial M)$$ 
 		is diffeomorphic. Thus, an atlas $\mathcal{A}=\{(U_\alpha,\phi_\alpha)\}$ on $M$ induces an atlas $\mathcal{\partial A}=\{(U_\alpha\cap\partial M,\Phi_\alpha)\}$ on the boundary.
 	\end{proof}
-	One can also prove that if $M$ is orientable and has a boundary, then it's boundary is also orientable as a $n-1$ manifold.
+	One can also prove that if $M$ is orientable and has a boundary, then its boundary is also orientable as a $n-1$ manifold.
 	\begin{Prop}
-		Let $M$ be a manifold with boundary and $\partial M$ be it's boundary. Then if $\omega$ is a nowhere vanishing form on $M$ one can always construct a nowhere vanishing form on $\partial M$.
+		Let $M$ be a manifold with boundary and $\partial M$ be its boundary. Then if $\omega$ is a nowhere vanishing form on $M$ one can always construct a nowhere vanishing form on $\partial M$.
 	\end{Prop}
 	\begin{proof}
 		The proof of this statement can be found in [1] chap. 6 pag. 254, 255.
@@ -428,19 +419,16 @@
 	\begin{Def}
 		Let $\omega$ be a $k$-form on a manifold $M$. We define the \textit{support} of $\omega$ as the set:
 		$$Supp(\omega)=\hbox{closure of }\{p\in M|\omega_p\neq 0\}$$
-		We denote the space of smooth $k$-forms on $M$ with compact support as:
-		$$\Omega_c^k(M)$$
+		We denote the space of smooth $k$-forms on $M$ with compact support as: $\Omega_c^k(M)$
 	\end{Def}
-	\begin{Obs}
-		The set $\Omega^k_c(M)$ is clearly a vector space.
-	\end{Obs}
+	The set $\Omega^k_c(M)$ is clearly a vector space.
 	We now define the notion of integral of a $n$-form with compact support on a manifold. To do this, one first needs to define the integral of a $n$-form on $\mathbb{R}^n$.
 	\begin{Def}
-		Let $\omega=f(x)dx^1\wedge...\wedge dx^n\in\Omega^n_c(\mathbb{R}^n)$. One defines its integral on a subset $U\subset\mathbb{R}^n$ as:
+		Let $\omega=f(x)dx^1\wedge...\wedge dx^n\in\Omega^n_c(\mathbb{R}^n)$. We defines the integral of $\omega$ on a subset $U\subset\mathbb{R}^n$ as:
 		$$\int_U\omega=\int_Uf(x)dx^1...dx^n$$ 
 	\end{Def}
 	\begin{Prop}
-		Let $\omega\in\Omega^n_c(U\subset \mathbb{R}^n)$, $V\subset \mathbb{R}^n$ be an open set and $T:V\subset \mathbb{R}^n\rightarrow U$ be a diffeomorphism. Then:
+		Let $\omega\in\Omega^n_c(U\subset \mathbb{R}^n)$, $V\subset \mathbb{R}^n$ be an open set and $T:V\rightarrow U$ be a diffeomorphism. Then:
 		$$\int_U\omega=\pm\int_VT^*\omega$$
 	\end{Prop}
 	\begin{proof}
@@ -551,7 +539,7 @@
 		Let $(M,g)$ be a smooth metric manifold and $(U,\phi)$ a chart with coordinates $\partial\over \partial x^i$. We define the \textit{volume form} as:
 		$$\omega=\sqrt{|det(g^{ij})|}dx^1\wedge...\wedge dx^n$$
 	\end{Def}
-	This is clearly a nowhere vanishing form. It can be shown that, by applying the Gram–Schmidt process, the volume form takes the simpler form:
+	This is clearly a nowhere vanishing form. It can be shown that, by applying the Gram–Schmidt process, the volume form in local coordinates takes the simpler form:
 	$$\omega=de^1\wedge...\wedge de^n$$
 	where $e^i$ is the orthonormal basis with respect to $g$ inside $U$. The proof is just a straightforward calculation and can be found in [2] chap. 3 pag. 134.
 	\begin{Obs}\label{Obs_1.7.1}
@@ -601,7 +589,8 @@
 		And since the basis is orthonormal, one finds $\braket{de_p^{J'}, de_p^{J'}}\braket{de_p^{I}, de_p^{I}}=sgn(g)$. This proves the last property.
 	\end{proof}
 	\begin{Ex}
-		Let $\mathbb{R}^{1,3}$ be Minkowski space with the metric tensor $\eta=diag(-,+,+,+)$. Let $\{dt,dx,dy,dz\}$ be an orthonormal basis for the cotangent space at any point and consider the volume form $\omega=dt\wedge dx\wedge dy\wedge dz$. We can explicitly calculate:
+		Let $\mathbb{R}^{1,3}$ be Minkowski space with the metric tensor $$\eta=diag(-,+,+,+)$$ 
+		Let $\{dt,dx,dy,dz\}$ be an orthonormal basis for the cotangent space at any point and consider the volume form $\omega=dt\wedge dx\wedge dy\wedge dz$. We can explicitly calculate:
 		$$\star dx=[x,t,y,z]\braket{dx,dx}dt\wedge dy\wedge dz$$
 		And clearly the permutation $[x,t,y,z]$ gives (-) as a result. Thus:
 		$$\star dx=-dt\wedge dy\wedge dz$$
@@ -759,8 +748,8 @@
 	\begin{Def}
 		A vector field $X$ on a Lie group $G$ is called \textit{left invariant} if $dl_g(X)=X$ for all $g\in G$.
 	\end{Def}
-	A vector field is left invariant if it's translation induced by the left multiplication leaves it invariant: which means $dl_g(X_h)=X_{gh}$ for all $g,h\in G$.
-	It follows that $X_g=dl_g(X_e)$, this means that a left invariant vector field is completely determined by its value at the identity. It is also possible to show that any left invariant vector field is smooth. ([1] pag. 181 cap.4).
+	A vector field is left invariant if $dl_g(X_h)=X_{gh}$ for all $g,h\in G$.
+	It follows that $X_g=dl_g(X_e)$, this means that a left invariant vector field is completely determined by its value at the identity. It is also possible to show that any left invariant vector field is smooth; ([1] pag. 181 cap.4).
 	\begin{Obs} \label{Obs: 2.2}
 		Given a Lie group $G$ and a vector $A\in T_eG$ tangent to the identity, we can define a vector field $X^A:G\rightarrow T_eG$ by setting $X^A_g=dl_g(A)$. This field is left-invariant since $$dl_g(X^A_h)=dl_g(dl_h(X^A_e))=dl_{gh}(X^A_e)=dl_{gh}(A)=X^A_{gh}$$
 		We say that $X^A$ is generated by $A\in T_eG$ and call $Lie(G)$ the set of all $X^A$ generated from vectors tangent to the identity of $G$.	
@@ -810,7 +799,7 @@
 	\begin{Obs}
 		Since the left translation $l_g$ is a diffeomorphism, its differential is an isomorphism of vector spaces:
 		$$dl_g:T_eG\rightarrow T_gG$$
-		Thus, we can always express a tangent vector at $g\in G$ as a left invariant vector field at that point.
+		Thus, we can always identify a tangent vector at $g\in G$ as a left invariant vector field at that point.
 	\end{Obs}
 	\section{The exponential map}
 	In this section we will give the definition of exponential map and look at some of its properties. We will focus on matrix Lie groups since those will be the main object of gauge theories.
@@ -835,25 +824,24 @@
 			\item ${d\over dt}e^{tX}\bigg{\rvert}_0=X$ and ${d\over dt}e^{tX}\bigg{\rvert}_{t'}=Xe^{t'X}$
 		\end{itemize}
 	\end{Prop} 
-	For the proofs see [t] pag. 38-41 chap.2.\\
+	For the proofs see [7] pag. 38-41 chap.2.\\
 	\begin{Ex}\label{Ex_2.5.1}
 		Consider the group $U(n)$ of unitary matrices:
 		$$U(n)=\{A\in M_{n\times n}(\mathbb{C})|A^\dagger=A^{-1}\}$$
 		Consider the curve $e^{tX}$ passing through $\mathbb{I}$. In order for this curve to be contained inside $U(n)$ it must hold:
 		$$(e^{tX})^{-1}=(e^tX)^\dagger$$
 		And this is true only for $X=-X^\dagger$. Thus, the Lie algebra of $U(n)$ is:
-		$$\mathfrak{u}(n)=\{X\in M_{n\times n}8\mathbb{C}|X^\dagger=-X\}$$
+		$$\mathfrak{u}(n)=\{X\in M_{n\times n}(\mathbb{C})|X^\dagger=-X\}$$
 		In the same way, for $O(n)$ it holds:
 		$$\mathfrak{o}(n)=\{X\in M_{n\times n}(\mathbb{C})| X^T=-X\}$$
 		Now, 
 	\end{Ex}
 	We now look at an important proposition, which will allow us to establish a relation between homomorphisms of Lie algebras and Lie groups.
 	\begin{Prop} \label{Prop: 2.4.1}
-		Let $G$ and $H$ be matrix Lie groups and $\mathfrak{g}$, $\mathfrak{h}$ their algebras. let $\rho:G\rightarrow H$ a Lie group homomorphism. Then there is a unique linear map $(d\rho)_\mathbb{I}:\mathfrak{g}\rightarrow\mathfrak{h}$ such that:
+		Let $G$ and $H$ be Lie groups and $\mathfrak{g}$, $\mathfrak{h}$ their algebras. Let $\rho:G\rightarrow H$ a Lie group homomorphism. Then $d\rho:=(d\rho)_\mathbb{I}:\mathfrak{g}\rightarrow\mathfrak{h}$ is a Lie algebra homomorphism. Moreover:
 		\begin{itemize}
 			\item $\rho(e^X)=e^{d\rho(X)}$; 
 			\item $d\rho(AXA^{-1})=\rho(A)d\rho(X)\rho(A)^{-1}$;
-			\item $d\rho([X,Y])=[d\rho(X),d\rho(Y)]$, is a Lie algebra homomorphism;
 			\item $d\rho(X)={d\over dt}\bigg{\rvert}_0\rho(e^{tX})$.
 		\end{itemize}
 	\end{Prop}
@@ -874,8 +862,8 @@
 	\section{Representations of Lie algebras and groups}
 	In this section we define the concept of representations of Lie groups and algebras and look at some properties of them. We will also see how those two objects can be related to one another. For more details see [7] part 1, chap 4.
 	\begin{Def}
-		Given a group $G$ and a vector space $V$ of finite dimension, we call \textit{representation} a homomorphism between groups $\rho:G\rightarrow GL(V)$. In other words, we ask for $\rho(gh)=\rho(g)\circ\rho(h)$ for every $g,h\in G$.\\
-		If $G$ is a Lie group, we define a representation as a homomorphism between Lie groups $\rho:G\rightarrow GL(V)$. With \textit{dimension of the representation} we refer to the dimension of the vector space $V$.
+		Given a group $G$ and a vector space $V$ of finite dimension, we call \textit{representation} a homomorphism between groups $\rho:G\rightarrow GL(V)$.
+		If $G$ is a Lie group, we define a \textit{representation} as a homomorphism between Lie groups $\rho:G\rightarrow GL(V)$. With \textit{dimension of the representation} we refer to the dimension of the vector space $V$.
 	\end{Def}Let us now see some easy examples:
 	\begin{Ex}
 		Let $G$ be a matrix Lie group. We define $\rho: G\rightarrow GL_n(\mathbb{C})$ such that $\rho(X)=I$, then $\rho$ is a representation, called \textit{trivial}. 
