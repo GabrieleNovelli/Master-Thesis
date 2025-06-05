@@ -1049,7 +1049,7 @@
 		$$f^{abc}=-f^{acb}$$
 		This completes the proof.
 	\end{proof}
-	\begin{Obs}
+	\begin{Obs} \label{Obs_2.9.1}
 		The above results imply that if $\mathfrak{g}$ is a compact semisimple Lie algebra then there is a natural choice for a scalar product on $\mathfrak{g}$: the Cartan-Killing form. Futhermore, if $\mathfrak{g}$ is simple, this is the unique $\hbox{Ad}$ invariant scalar product up to a constant. In the next section we will show how to use this product to construct a metric on a Lie group.
 	\end{Obs}
 	\section{Metrics on Lie groups}
@@ -2849,6 +2849,16 @@
 		$$0=\braket{\omega,D^*F_M}$$
 		Which means that the equations of motion must satisfy $D^*F_M=0$.
 	\end{proof}
+	There is a last step to make to complete the construction: explicit the coupling constant. In observation \ref{Obs_2.9.1} We defined the coupling constant $g$ as the factor which determines the scalar product induced by the Cartan-Killing form. Thus, we operate the re-scaling up to a positive factor:
+	$$\braket{,}_\mathfrak{g}\rightarrow {1\over g^2}\braket{,}_\mathfrak{g}$$
+	To keep the generators of the Lie algebra orthonormal, we have to also re-scale them like:
+	$$T^a\rightarrow gT^a$$
+	So that the commutator between them becomes:
+	$$[T^a,T^b]\longrightarrow g^2[T^a,T^b]$$
+	By substituting this into the expression fot the curvature tensor we find:
+	$$F_{\mu\nu,a}\rightarrow g(\partial_\mu A_{\nu,a}-\partial_\nu A_{\mu,a})+g^2 f^{bc}_{\hspace{9pt}a}A_{\mu,b}A_{\nu,c}$$
+	And obviously the Lagrangian becomes:
+	$$\mathcal{L}=-{1\over 2}(\partial_\mu A_{\nu,a}\partial^\mu A^{\nu,a}-\partial_\mu A_{\nu,a}\partial^\nu A^{\mu,a})-gf^{abc}A_{\mu,b}A_{\nu,c}\partial^\mu A^{\nu}_{a}-{1\over 4}g^2 f^{bc}_{\hspace{9pt}a}f^{ade}A_{\mu,b}A_{\nu,c}A^{\mu}_dA^{\nu}_e$$
 	\chapter*{Bibliography}
 	\begin{itemize}
 		\item[$\circ$] [1] Loring W.Tu, An Introduction to Manifolds, Springer, 2011;
