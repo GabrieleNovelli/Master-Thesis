@@ -162,6 +162,12 @@
 		$$dF_p\bigg{(}{\partial\over \partial x^j}\bigg{)}y^i={\partial\over \partial x^j}\bigg{\rvert}_p(y^i\circ F)={\partial F^i\over \partial x^j}(p)=d^i_j$$
 		Thus, the matrix which defines the differential of $F$ in a point $p$ is exactly the Jacobian matrix of $F$ evaluated at $p$.
 	\end{Ex}
+	\begin{Def}
+		Let $M,N$ be smooth manifolds and $f:M\rightarrow N$ be a smooth map. Then $f$ is called \textit{immersion} if the differential $df:T_pM\rightarrow T_{f(p)}N$ is injective at every point of $p\in M$.
+	\end{Def}
+	\begin{Def}
+		Let $M$ be a smooth manifold. Then $S\subset M$ is called \textit{immersed submanifold} if it is a smooth manifold and the inclusion map $S\hookrightarrow M$ is a smooth immersion with respect to its differentiable structure. 
+	\end{Def}
 	We now define the concept of vector field.
 	\begin{Def}
 		We call \textit{vector field} on $M$ a map $X$ such that to any point it associates a vector in the tangent space at that point: $X:p\mapsto X_p$. 
@@ -702,33 +708,32 @@
 		A \textit{subgroup} $H$ of a Lie group $G$ is an immersed submanifold of $G$ which is still a group under the induced operations from $G$.
 	\end{Def}
 	\begin{Ex}
-		Consider $GL_n(\mathbb{R})$, which was proven to be a smooth manifold. Given the row-column multiplication and the inverse $i$ which associates to a matrix its inverse, those make $GL_n(\mathbb{R})$ a group. Those operations can also be shown to be $C^\infty$ and so $GL_n(\mathbb{R})$ is a Lie group. To see the full proof consult [1] chap. 1 pag. 66.
+		Consider $GL_n(\mathbb{R})$, this is a smooth manifold (see \ref{Ex 1.1}). Given the row-column multiplication and the inverse $i$ which associates to a matrix its inverse, we have that $GL_n(\mathbb{R})$ is a group. Those operations are also $C^\infty$ and so $GL_n(\mathbb{R})$ is a Lie group. To see the full proof consult [1] chap. 1 pag. 66.
 	\end{Ex}
 	\begin{Ex}
-		Consider $SL_n(\mathbb{R})=\{A\in M_{n\times n}| \det(A)=1\}$. since $SL_n(\mathbb{R})=\det^{-1}(1)$ we have that $SL_n(\mathbb{R})$ is a closed subgroup of $GL_n(\mathbb{R})$. It is also possible to show that ([1] pag. 105 cap. 3, Theorem 9.9) $SL_n(\mathbb{R})$ is a regular submanifold $GL_n(\mathbb{R})$ of dimension $n^2-1$. Since the operations of multiplication and inversion are still $C^\infty$ on $SL_n(\mathbb{R})$, we can say that this is a Lie subgroup of $GL_n(\mathbb{R})$.\\
+		Consider $SL_n(\mathbb{R})=\{A\in M_{n\times n}| \det(A)=1\}$. Since those elements are given by polynomials, $SL_n(\mathbb{R})$ is a closed subgroup of $GL_n(\mathbb{R})$. It is also possible to show that ([1] pag. 105 cap. 3, Theorem 9.9) $SL_n(\mathbb{R})$ is a regular submanifold $GL_n(\mathbb{R})$ of dimension $n^2-1$. Since the operations of multiplication and inversion are still $C^\infty$ on $SL_n(\mathbb{R})$, we have that this is a Lie subgroup of $GL_n(\mathbb{R})$.\\
 		\\
-		To find more informations on this example the reader can see [1] pag. 105-107, 125, 165 chap. 3 and 4.\\
+		To find more informations on this example the reader can see [1] 105-107, 125, 165 chap. 3 and 4.\\
 		\\
-		It is possible to show that (indicating with $^+$ the adjoint and with $T$ the transposition):\\\\
+		It is possible to show that (indicating with $^\dagger$ the adjoint and with $T$ the transposition):\\\\
 		$O_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^TA=AA^T=\mathbb{I}\};$\\\\
 		$SO_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^TA=AA^T=\mathbb{I};\, \det(A)=1\};$\\\\
-		$U_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^+A=AA^+=\mathbb{I}\};$\\\\
-		$SU_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^+A=AA^+=\mathbb{I};\,\det(A)=1\};$\\\\
+		$U_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^\dagger A=AA^\dagger=\mathbb{I}\};$\\\\
+		$SU_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^\dagger A=AA^\dagger=\mathbb{I};\,\det(A)=1\};$\\\\
 		are all real Lie groups. 
 		For the full proofs the reader is advised to check [5] pag. 41-51 chap. 2.
 	\end{Ex}
 	\begin{Def}
-		We call \textit{homomorphism between Lie groups} $G$ and $H$ a smooth map $f:G\rightarrow H$ such that $f(gh)=f(g)f(h)$.
+		We call \textit{homomorphism between Lie groups} $G$ and $H$ a smooth map $f:G\rightarrow H$ which is a group homomorphism, that is: $f(gh)=f(g)f(h)$.
 	\end{Def}
-	We note that an homomorphism between groups sends the identity into the identity. In fact $f(eg)=f(e)f(g)$ ed $f(g)=f(eg)$.\\\\
-	We indicate with $l_g:G\rightarrow G$ where $l_g(x)=gx$ is the left multiplication on $G$ Lie group.
+	We indicate with $\ell_g:G\rightarrow G$ where $\ell_g(x)=gx$ is the left multiplication on $G$ Lie group.
 	\begin{Obs}
-		$l_g$ is $C^\infty$ since it corresponds to the multiplication of a Lie group. Since this has a clear smooth inverse $l_{g^{-1}}$, it is a diffeomorphism.
+		$\ell_g$ is $C^\infty$ since it corresponds to the multiplication of a Lie group. Since this has a clear smooth inverse $\ell_{g^{-1}}$, it is a diffeomorphism.
 	\end{Obs}
 	\section{Lie algebras}
-	In this section we define Lie algebras and left invariant vector fields, with some examples. For more details see [1] chap. 4, [5] chap. 2 pag. 46.
+	In this section we define Lie algebras, with some examples. For more details see [1] chap. 4, [5] chap. 2 pag. 46.
 	\begin{Def}
-		We call \textit{Lie algebra} a vector space $\mathfrak{g}$ endowed with a binary operation called Lie bracket $[,]:\mathfrak{g}\times\mathfrak{g}\rightarrow\mathfrak{g}$ such that it respects:
+		We call \textit{Lie algebra} a vector space $\mathfrak{g}$ endowed with a binary bilinear operation called Lie bracket $[,]:\mathfrak{g}\times\mathfrak{g}\rightarrow\mathfrak{g}$ such that:
 		\begin{itemize}
 			\item Skew-symmetry: $[x,y]=-[y,x]$, $\forall x,y\in\mathfrak{g}$;
 			\item Jacobi identity: $[x,[y,z]]+[y,[z,x]]+[z,[x,y]]=0$, $\forall x,y,z\in \mathfrak{g}$ 
@@ -746,12 +751,12 @@
 	\section{Lie algebras of Lie groups}
 	In this section we define the concept of Lie algebra of a Lie group. We are going to see that it is possible to identify the Lie algebra of any Lie group with its tangent space at the identity. For more details the reader is advised to see [1] pag 178-182 cap. 4, [6] cap. 1 e [7] part 1 cap.3.
 	\begin{Def}
-		A vector field $X$ on a Lie group $G$ is called \textit{left invariant} if $dl_g(X)=X$ for all $g\in G$.
+		A vector field $X$ on a Lie group $G$ is called \textit{left invariant} if $d\ell_g(X)=X$ for all $g\in G$.
 	\end{Def}
-	A vector field is left invariant if $dl_g(X_h)=X_{gh}$ for all $g,h\in G$.
-	It follows that $X_g=dl_g(X_e)$, this means that a left invariant vector field is completely determined by its value at the identity. It is also possible to show that any left invariant vector field is smooth; ([1] pag. 181 cap.4).
+	A vector field is left invariant if $d\ell_g(X_h)=X_{gh}$ for all $g,h\in G$.
+	It follows that $X_g=d\ell_g(X_e)$, this means that a left invariant vector field is completely determined by its value at the identity. It is also possible to show that any left invariant vector field is smooth; ([1] pag. 181 cap.4).
 	\begin{Obs} \label{Obs: 2.2}
-		Given a Lie group $G$ and a vector $A\in T_eG$ tangent to the identity, we can define a vector field $X^A:G\rightarrow T_eG$ by setting $X^A_g=dl_g(A)$. This field is left-invariant since $$dl_g(X^A_h)=dl_g(dl_h(X^A_e))=dl_{gh}(X^A_e)=dl_{gh}(A)=X^A_{gh}$$
+		Given a Lie group $G$ and a vector $A\in T_eG$ tangent to the identity, we can define a vector field $X^A:G\rightarrow T_eG$ by setting $X^A_g=d\ell_g(A)$. This field is left-invariant since $$d\ell_g(X^A_h)=d\ell_g(d\ell_h(X^A_e))=\ell_{gh}(X^A_e)=d\ell_{gh}(A)=X^A_{gh}$$
 		We say that $X^A$ is generated by $A\in T_eG$ and call $Lie(G)$ the set of all $X^A$ generated from vectors tangent to the identity of $G$.	
 	\end{Obs}
 	Given two vector fields $X$ and $Y$, we define their Lie bracket in a point $p$ as:
@@ -797,8 +802,8 @@
 		where we have used Einstein's notation for the sum of contracted indices. We call the numbers $f^{ab}_{\hspace{9pt}c}$ \textit{structure constants}. Those completely define the commutators between all elements of the Lie algebra, since any element is a linear combination of the generators.
 	\end{Obs}
 	\begin{Obs}
-		Since the left translation $l_g$ is a diffeomorphism, its differential is an isomorphism of vector spaces:
-		$$dl_g:T_eG\rightarrow T_gG$$
+		Since the left translation $\ell_g$ is a diffeomorphism, its differential is an isomorphism of vector spaces:
+		$$d\ell_g:T_eG\rightarrow T_gG$$
 		Thus, we can always identify a tangent vector at $g\in G$ as a left invariant vector field at that point.
 	\end{Obs}
 	\section{The exponential map}
@@ -846,7 +851,7 @@
 		\end{itemize}
 	\end{Prop}
 	\begin{proof}
-		For the full proof see [47] pag. 67 chap. 3.
+		For the full proof see [7] pag. 67 chap. 3.
 	\end{proof}
 	Thus, given a homomorphism between Lie groups it is always possible to construct a homomorphism between their Lie algebras by taking the differential at the identity. Moreover, the following theorem holds:
 	\begin{Theo}
@@ -907,7 +912,7 @@
 	$$\hbox{ad}_X(Y)=[X,Y]$$
 	\begin{Obs}
 		There is another way to look at the adjoint representation. We can define the \textit{conjugation} operator on a Lie group by composing the right and the left translations:
-		$$c_g=l_g\circ r_g^{-1}=r_g^{-1}\circ l_g$$
+		$$c_g=\ell_g\circ r_g^{-1}=r_g^{-1}\circ \ell_g$$
 		This is a map:
 		$$c_g:G\rightarrow G\hbox{ acting like } c_g(x)=gxg^{-1}$$
 		From this it is clear that the adjoint representation of a matrix Lie group $G$ is just the differential of the conjugation operator.
@@ -969,7 +974,7 @@
 		And this has no non-trivial invariant subspaces. Thus, the adjoint representation is irreducible and the Lie algebra $\mathfrak{sl_n}(\mathbb{R})$ is simple.
 	\end{Ex}
 	\section{The Cartan-Killing form}
-	In this section we introduce the concept of Killing form. Our aim is to find an inner product on $\mathfrak{g}$ which is non degenerate and positive definite. We will see that those requirements will be satisfied by the Killing form of some Lie algebras. This product, once found, will be used to define the Lagrangian. More informations can be found in [3] chap. 2.
+	In this section we introduce the concept of Cartan-Killing form. Our aim is to find an inner product on $\mathfrak{g}$ which is non degenerate and positive definite. We will see that those requirements will be satisfied by the Cartan-Killing form of some Lie algebras. This product, once found, will be used to define the Lagrangian. More informations can be found in [3] chap. 2.
 	\begin{Def}
 		Let $\mathfrak{g}$ be a finite dimensional Lie algebra on $\mathbb{K}=\mathbb{R},\mathbb{C}$. We define the \textit{Cartan-Killing form} of $\mathfrak{g}$ as the map:
 		$$B_\mathfrak{g}:\mathfrak{g}\times \mathfrak{g}\rightarrow\mathbb{K}\hbox{ acting like } B_\mathfrak{g}(X,Y)=tr(\hbox{ad}_X\circ \hbox{ad}_Y)$$
@@ -1000,6 +1005,7 @@
 		By linearity and cyclicity of the trace we find:
 		$$B_\mathfrak{g}(\hbox{ad}_X(Y),Z)=\hbox{tr}(\hbox{ad}_Y\circ \hbox{ad}_Z\circ \hbox{ad}_X-\hbox{ad}_Y\circ\hbox{ad}_X\circ \hbox{ad}_Z)=-B_\mathfrak{g}(Y,\hbox{ad}_X(Z))$$
 	\end{proof}
+	We now state a key result.
 	\begin{Theo}\label{Theo_2.8.2}
 		Let $\mathfrak{g}$ be a Lie algebra. Then the Cartan-Killing form is non degenerate if and only if $\mathfrak{g}$ is semisimple.
 	\end{Theo}
@@ -1010,7 +1016,7 @@
 		Let $\mathfrak{g}$ be a compact Lie algebra. Then the Cartan-Killing form is negative semidefinite.
 	\end{Theo}
 	\begin{proof}
-		The proof of this theorem can be found in [3] cahp. 2 pag.114.
+		The proof of this theorem can be found in [3] chap. 2 pag. 114.
 	\end{proof}
 	\begin{Theo}
 		Let $\mathfrak{g}$ be a compact simple Lie algebra, then any positive (negative) definite $\hbox{Ad}$ invariant symmetric form on $\mathfrak{g}$ is a multiple of the Cartan-Killing form.
@@ -1045,7 +1051,7 @@
 	\begin{Def}
 		Let $\braket{,}$ be a metric on a Lie group $G$. We say that the metric is:
 		\begin{itemize}
-			\item \textit{left-invariant} if $l^*_g\braket{,}=\braket{,}$;
+			\item \textit{left-invariant} if $\ell^*_g\braket{,}=\braket{,}$;
 			\item \textit{right-invariant} if $r^*_g\braket{,}=\braket{,}$;
 			\item \textit{bi-invariant} if it is both right and left invariant.
 		\end{itemize}
@@ -1053,7 +1059,7 @@
 	It is clear that, given any metric $\braket{,}$ on $G$, we have an induced scalar product on $\mathfrak{g}$, given by the product of vector fields at the identity $\braket{,}_\mathfrak{g}=\braket{,}_e$. On the contrary, given a scalar product on the Lie algebra $\mathfrak{g}$, it is easy to construct:
 	\begin{itemize}
 		\item a left-invariant metric:
-		$$\braket{X_g,Y_g}_g=\braket{dl_{g^{-1}}X_g,dl_{g^{-1}}Y_g}_\mathfrak{g}$$
+		$$\braket{X_g,Y_g}_g=\braket{d\ell_{g^{-1}}X_g,d\ell_{g^{-1}}Y_g}_\mathfrak{g}$$
 		\item a right-invariant metric:
 		$$\braket{X_g,Y_g}_g=\braket{dr_{g^{-1}}X_g,dr_{g^{-1}}Y_g}_\mathfrak{g}$$
 	\end{itemize}
@@ -1065,9 +1071,9 @@
 	\end{Prop}
 	\begin{proof}
 		Let $X_g,Y_g\in T_gG$ be vectors tangent to $g\in G$. Suppose $\braket{,}$ is a left-invariant metric on $G$. Then:
-		$$r_h^*\braket{X_g,Y_g}=\braket{dl_{(gh)^{-1}}\circ dr_h(X_g),dl_{(gh)^{-1}}\circ dr_h(Y_g)}=$$
-		$$=\braket{\hbox{Ad}_{h^{-1}}\circ dl_{g^{-1}}(X_g),\hbox{Ad}_{h^{-1}}\circ dl_{g^{-1}}(Y_g)}$$
-		This is clearly equal to $\braket{X_g,Y_g}=\braket{dl_{g^{-1}}(X_g),dl_{g^{-1}}(Y_g)}$ if and only if the action of the adjoint leaves the product unchanged.
+		$$r_h^*\braket{X_g,Y_g}=\braket{d\ell_{(gh)^{-1}}\circ dr_h(X_g),d\ell_{(gh)^{-1}}\circ dr_h(Y_g)}=$$
+		$$=\braket{\hbox{Ad}_{h^{-1}}\circ \ell_{g^{-1}}(X_g),\hbox{Ad}_{h^{-1}}\circ d\ell_{g^{-1}}(Y_g)}$$
+		This is clearly equal to $\braket{X_g,Y_g}=\braket{\ell_{g^{-1}}(X_g),d\ell_{g^{-1}}(Y_g)}$ if and only if the action of the adjoint leaves the product unchanged.
 	\end{proof}
 	\begin{Theo} \label{Scal_prod_theo_1}
 		On every compact Lie group $G$ there exists a bi-invariant positive definite metric.
@@ -1076,13 +1082,13 @@
 		The proof of this result can be found in [3] chap. 2 pag. 106-108.
 	\end{proof}
 	\begin{Theo}
-		Let $G$ be a compact, simple Lie groups. Then there exists a unique $\hbox{Ad}$ invariant Riemannian metric on $G$, up to a re-scaling.
+		Let $G$ be a compact, simple Lie groups. Then there exists a unique $\hbox{Ad}$ invariant Riemannian metric on $G$, up to a rescaling.
 	\end{Theo}
 	\begin{proof}
 		This follows immediately from the previous results.
 	\end{proof}
 	\begin{Obs}
-		The constants that determine the $\hbox{Ad}$ invariant metric are called \textit{coupling constants}. In general, we have one coupling constant for each symmetry group of the theory.
+		The constants that determine the $\hbox{Ad}$ invariant metric are called \textit{coupling constants}.
 	\end{Obs}
 	\chapter{Bundles on smooth manifolds}
 	In this chapter we will introduce fiber bundles, vector bundles and principal bundles, with some examples. We will see some basic results which will allow us to study connections in the following chapters. To find more informations about those topics one may check [2] chap. 1 pag. 49-59, chap. 2 pag. 71-86, chap. 3 pag. 95-110, chap. 5; [3] chap. 4 pag. 193-223.
@@ -1104,9 +1110,8 @@
 		We call $(E,M,\pi,F)$ a \textit{fiber bundle}, $M$ \textit{base space}, $E$ \textit{total space} and $F$ \textit{fiber}.
 	\end{Def}
 	\begin{Ex}\label{Ex_1.1}
-		Let $M$, $F$ be manifolds. We will indicate with $p_M$ points in $M$ and with $p_F$ points in $F$.\\ 
-		We set $E=M\times F$ and construct a projection in the obvious way: 
-		$\pi:M\times F\rightarrow M$ like $\pi(p_M,p_F)=x_M$. This map is obviously continuous and surjective since it is a projection. Moreover, it is also smooth since given two charts $(U_M,\phi_M:U_M\rightarrow \mathbb{R}^n)$ on $M$ and $(U_F,\phi_F:U_F\rightarrow \mathbb{R}^k)$ on $F$, we have:
+		Let $M$, $F$ be manifolds. We set $E=M\times F$ and construct a projection in the obvious way: 
+		$\pi:M\times F\rightarrow M$ like $\pi(x_M,x_F)=x_M$. This map is obviously continuous and surjective since it is a projection. Moreover, it is also smooth since given two charts $(U_M,\phi_M:U_M\rightarrow \mathbb{R}^n)$ on $M$ and $(U_F,\phi_F:U_F\rightarrow \mathbb{R}^k)$ on $F$, we have:
 		$$\phi_M\circ \pi\circ (\phi_M^{-1}\times \phi_F^{-1}):\mathbb{R}^n\times\mathbb{R}^k\rightarrow\mathbb{R}^n,\hbox{ }\phi_M\circ \pi\circ (\phi_M^{-1}\times \phi_F^{-1})(x^i_M,x^j_F)=x^i_M$$
 		Now it remains to construct local trivializations. Considering any chart on $M$ like $(U_M,\phi_M:U_M\rightarrow \mathbb{R}^n)$ we set
 		$$\varphi:\pi^{-1}(U)\rightarrow U\times F$$
@@ -1114,8 +1119,7 @@
 		This gives $M\times F$ the structure of a fiber bundle.
 	\end{Ex}
 	\begin{Ex} \label{Ex_1.2}
-		An example of the product bundle is the cylinder. It can be constructed as a fiber bundle over the circle $S^1=\{z\in \mathbb{C}|z=e^{i\theta}, \theta\in[0,2\pi]\}$.\\
-		We define the cylinder as $C=S^1\times \mathbb{R}$, recalling that both $S^1$ and $\mathbb{R}$ are manifolds. We now repeat the same construction we did in the previous example: we define the projection as: $\pi:C\rightarrow S^1$ that sends $\pi(z,t)\rightarrow z$, where $z\in S^1$ and $t\in\mathbb{R}$. By the same arguments as above, this map is smooth and surjective.\\As for the local trivializations, we can take any subset of the circle $U$ and trivialize the bundle with the identity:
+		We define the cylinder as $C=S^1\times \mathbb{R}$, where $S^1=\{z\in \mathbb{C}|z=e^{i\theta}, \theta\in[0,2\pi]\}$ is the circle. Recalling that both $S^1$ and $\mathbb{R}$ are manifolds, we now repeat the same construction we did in the previous example: we define the projection as: $\pi:C\rightarrow S^1$ that sends $\pi(z,t)\rightarrow z$, where $z\in S^1$ and $t\in\mathbb{R}$. By the same arguments as above, this map is smooth and surjective.\\As for the local trivializations, we can take any subset of the circle $U$ and trivialize the bundle with the identity:
 		$\varphi:\pi^{-1}(U)\rightarrow U\times \mathbb{R}=\mathbb{I}_d$.\\
 		In this case the fiber of the cylinder is a line. Intuitively, each point has associated a line and the totality of those lines composes the cylinder.\\
 		\begin{figure}[H]
@@ -1235,9 +1239,9 @@
 	\begin{Obs}
 		It is known that, given a symmetric non degenerate bilinear map $g=\braket{,}$ on a vector space $V$, there is a canonical isomorphism between $V$ and its dual $V^*$:
 		$$v\rightarrow\braket{v,}$$
-		Selecting the canonical basis $\{e_i\}$ for $V$, the map $g$ will be a matrix with entries $g_{ij}$ and its action on the components of $v\in V$ will be given by the standard rows-columns product:
+		Selecting a basis $\{e_i\}$ for $V$, we will have an induced dual basis $e^i=\braket{e_i,}$. Moreover, the map $g$ will be a matrix with entries $g_{ij}$ and its action on the components of $v\in V$ will be given by the standard rows-columns product:
 		$$v\rightarrow
-		v^*\hbox{ such that: }=g_{ij}v^i=v_j$$
+		v^*\hbox{ such that: }=g_{ij}v^i=v_j \hbox{ in a given base}$$
 		where we have indicated with $v^i$ the components of $v\in V$ and with $v_i$ the components of $v^*\in V^*$ its dual. This operation allows us, given a metric, to relate the components of a vector on $V$, to the ones of it's dual $V^*$ through an operation that we call \textit{lowering} of the indices.\\
 		Clearly, since we have an isomorphism, we will also have an inverse mapping, $g^{-1}$, with components $g^{ij}$. This allows for the opposite operation: the \textit{raising} of indices of the components of any vector.\\
 		\\
@@ -1247,12 +1251,12 @@
 		Any metric on a smooth manifold provides a natural smooth isomorphism between the tangent and the cotangent spaces.
 	\end{Prop}
 	\begin{proof}
-		For each $p\in M$, given any $X\in T_pM$, we can define a unique co-vector: 
+		For each $p\in M$, given any $X_p\in T_pM$, we can define a unique co-vector: 
 		$$X^*_p=g_p(X_p,\cdot)$$
-		The map $X\rightarrow X^*$ is a bundle homomorphism since: $g(X,\cdot )(Y)=g(X,Y)$ at any $p\in M$.
-		In any coordinates, expanding $X=X^i\partial_i;X^*=X^*_jdx^j$, the components of $X^*_p$ will be given by the lowering action of the metric:
+		For a vector field $X:p\rightarrow X_p$, the map $X\rightarrow X^*$ is a bundle homomorphism since: $g(X,\cdot )(Y)=g(X,Y)$ at any $p\in M$.
+		In local coordinates, expanding $X=X^i\partial_i;X^*=X^*_jdx^j$, the components of $X^*_p$ will be given by the lowering action of the metric:
 		$$X^*_{p,j}=g_{p,ij}X_p^i$$
-		We can make this bundle homomorphism into a bundle isomorphism by considering the inverse. At any point, the map $g_p$ is bilinear, non degenerate and symmetric and so it is invertible. In any coordinate, we have the following inverse mapping:
+		We can make this bundle homomorphism into a bundle isomorphism by considering the inverse. At any point, the map $g_p$ is bilinear, non degenerate and symmetric and so it is invertible. In local coordinates, we have the following inverse mapping:
 		$$\omega_p\rightarrow\omega^i\partial_i\hbox{ for any }\omega=\omega_jdx^j{\in T_pM^*}$$
 		where $\omega^i=g^{ij}\omega_j$ and $g^{ij}$ is the inverse of $g_{ij}$. By definition of the metric tensor, this mapping is smooth as well. 
 	\end{proof}
@@ -1261,6 +1265,7 @@
 		$$g^*(v^*,w^*)=g(v,w)$$
 		In coordinates, this means:
 		$$g(v_ie^i,w_je^j)=g(v^ie_i,w^je_j)=g^{ij}v_iw_j=g_{ij}v^iw^j$$
+		Where, as usual, $\{e_i\}$ is the basis for $V$ and $\{e^i\}$ is the induced dual basis for $V^*$.
 		In a smooth manifold, this construction induces a smooth inner product on 1-forms.
 	\end{Obs}
 	\section{Sections and frames}
@@ -1295,10 +1300,10 @@
 		Consider the smooth manifold $\mathbb{R}^2$ and its tangent bundle $T\mathbb{R}^2$. At any point $(x,y)\in\mathbb{R}^2$ we can find a frame: $\partial_x,\partial_y$. This is a global smooth frame. By proposition $\label{prop_2.3.1}$, the tangent bundle of $\mathbb{R}^2$ is thus trivial.
 	\end{Ex}
 	\begin{Ex}
-		Consider a generic Lie group $G$. We can find a frame for the vector fields at the identity by choosing a basis for the Lie algebra $\{T^a\}$ and considering the corresponding left-invariant vector fields $\{\tilde{T^a}\}$. Consider then the left-multiplication $l_g:G\rightarrow G$ on $G$. This is a diffeomorphism and so it induces an isomorphism of tangent spaces:
-		$$dl_g:T_eG\rightarrow T_gG$$
+		Consider a generic Lie group $G$. We can find a frame for the vector fields at the identity by choosing a basis for the Lie algebra $\{T^a\}$ and considering the corresponding left-invariant vector fields $\{\tilde{T^a}\}$. Consider then the left-multiplication $\ell_g:G\rightarrow G$ on $G$. This is a diffeomorphism and so it induces an isomorphism of tangent spaces:
+		$$d\ell_g:T_eG\rightarrow T_gG$$
 		Any tangent vector at any $g\in G$ can be expressed as a linear combination of
-		$$dl_g\tilde{T^a}$$
+		$$d\ell_g\tilde{T^a}$$
 		This means that choosing a frame at the identity corresponds to choosing a global frame. Thus, every Lie group has a trivial tangent bundle. 
 	\end{Ex}
 	\begin{Obs}
@@ -1377,16 +1382,16 @@
 	\end{proof}
 	\begin{Ex}\label{Ex_3.4.2}
 		Let $G$ be a Lie group. We define the \textit{Maurer–Cartan form} $\theta$ as:
-		$$\theta_g(X_g)=dl_{g^{-1}}X_g$$
+		$$\theta_g(X_g)=\ell_{g^{-1}}X_g$$
 		This is obviously a $\mathfrak{g}$ valued $1$-form. One can prove the following:
 		$$r_g^*\theta=Ad(g^{-1})\theta$$
 		This is a straightforward calculation:
-		$$(r_g^*\theta)_{h}(X_{h})=\theta_{gh}(dr_gX_h)=dl_{(gh)^{-1}}dr_gX_h=Ad(g^{-1})dl_{h^{-1}}X_h$$
+		$$(r_g^*\theta)_{h}(X_{h})=\theta_{gh}(dr_gX_h)=\ell_{(gh)^{-1}}dr_gX_h=Ad(g^{-1})d\ell_{h^{-1}}X_h$$
 		Moreover, one can prove that:
 		$$d\theta+{1\over 2}[\theta,\theta]=0$$
 		To prove this, we can use the fact that:
 		$$d\theta(X,Y)=X\theta(Y)-Y\theta(X)-\theta([X,Y])$$
-		The proof of this claimed property can be found in [1] chap. 5 pag. 232, 233. Since $dl_g$ is an isomorphism, it is sufficient to prove the claim for left invariant vector fields at any point. Let thus $X_g,Y_g$ be left-invariant, then:
+		The proof of this claimed property can be found in [1] chap. 5 pag. 232, 233. Since $d\ell_g$ is an isomorphism, it is sufficient to prove the claim for left invariant vector fields at any point. Let thus $X_g,Y_g$ be left-invariant, then:
 		$$d\theta_g(X_g,Y_g)=Y_g\theta_g(X)-X\theta_g(Y_g)-\theta([X_g,Y_g])$$
 		The first two terms are 0 since the Maurer-Cartan form applied to a left-invariant vector field is a constant function of the points. As for the last term, due to the vector fields being left invariant, we have:
 		$$\theta([X,Y])={1\over 2}[\theta,\theta](X,Y)$$
@@ -1423,7 +1428,7 @@
 	\begin{proof}
 		$G$ acts transitively on $\{p\} \times G$, obviously. Looking at the fiber diffeomorphism $\phi:\pi^{-1}\rightarrow U\times G$, it can be reduced to $\phi_p:E_p\rightarrow \{p\}\times G$, which is equivariant. Thus, on each fiber, $G$ acts transitively.\\
 		\\
-		As for the second proposition, it is just an easy result of group theory: if $f(gh)=f(g)h$, setting $g=e$ we get: $f(h)=f(e)h=l_{f(e)}h$.
+		As for the second proposition, it is just an easy result of group theory: if $f(gh)=f(g)h$, setting $g=e$ we get: $f(h)=f(e)h=\ell_{f(e)}h$.
 	\end{proof}
 	\begin{Obs} \label{Obs_3.5.1}
 		By definition, in a principal bundle, the trivialization functions are equivariant. This means that:
@@ -1524,7 +1529,7 @@
 		$$(\phi_{\vec{e}}(V),\Phi\circ\phi^{-1}_{\vec{e}})$$
 		This completes the proof.
 		Note also that if we were to choose any other element of $Fr(V)$ like $\vec{f}=\vec{e}A$, the map would still be still an homeomorphism since:
-		$$\phi_{\vec{f}}(B)=\vec{f}B=\vec{e}AB=\phi_{\vec{e}}\circ l_A(B)$$
+		$$\phi_{\vec{f}}(B)=\vec{f}B=\vec{e}AB=\phi_{\vec{e}}\circ \ell_A(B)$$
 		And the left translation is a diffeomorphism.
 	\end{proof}
 	We now briefly study the smooth structure of the frame bundle. 
@@ -2226,19 +2231,19 @@
 	\begin{Prop}\label{Prop_7.2.1}
 		Let $G$ be a Lie group right-acting on a manifold $P$ and let $\mu:P\times G\rightarrow P$ be the action. Then the differential of the action is given by:
 		$$d\mu_{(p,g)}:T_pP\oplus T_gG\rightarrow T_{p\cdot g}P$$
-		$$d\mu_{(p,g)}(X_p,dl_gA)=dr_g(X_p)+(\overline{A}_{pg})$$
+		$$d\mu_{(p,g)}(X_p,d\ell_gA)=dr_g(X_p)+(\overline{A}_{pg})$$
 		where $X_p\in T_pP,A\in\mathfrak{g}$
 	\end{Prop}
 	\begin{proof}
 		The differential of the action is by definition a map like:
 		$$d\mu_{(p,g)}:T_pP\oplus T_gG\rightarrow T_{p\cdot g}P$$
-		Thus, any element of $T_pP\oplus T_gG$ can be seen as $(X_p,Y_g)$, where $Y_g$ can be related to a specific element of the Lie algebra $\mathfrak{g}$ through the diffeomorphism $dl_g$ given by the left translation: $Y_g=dl_gA$.
+		Thus, any element of $T_pP\oplus T_gG$ can be seen as $(X_p,Y_g)$, where $Y_g$ can be related to a specific element of the Lie algebra $\mathfrak{g}$ through the diffeomorphism $d\ell_g$ given by the left translation: $Y_g=d\ell_gA$.
 		By definition of differential:
-		$$d\mu_{(p,g)}(X_p,dl_gA)f=(X_p,dl_gA)(f\circ \mu(p,g))=(X_p(f\circ r_g(p)),dl_gA(f\circ l_p(g)))$$
-		where we have indicated with $l_p(g)=p\cdot g$ the left translation with $p$. Clearly, the first term can be rewritten like: $dr_gX_p(f)$. As for the second term instead, by definition of differential:
-		$$dl_gA(f\circ l_p(g))=dl_p\circ dl_gA(f)$$
-		However, $dl_p\circ dl_g=dj_{pg}$ and so we get the result:
-		$$d\mu_{(p,g)}(X_p,dl_gA)=dr_g(X_p)+\overline{A}_{p\cdot g}$$
+		$$d\mu_{(p,g)}(X_p,d\ell_gA)f=(X_p,\ell_gA)(f\circ \mu(p,g))=(X_p(f\circ r_g(p)),\ell_gA(f\circ \ell_p(g)))$$
+		where we have indicated with $\ell_p(g)=p\cdot g$ the left translation with $p$. Clearly, the first term can be rewritten like: $dr_gX_p(f)$. As for the second term instead, by definition of differential:
+		$$d\ell_gA(f\circ \ell_p(g))=d\ell_p\circ d\ell_gA(f)$$
+		However, $d\ell_p\circ d\ell_g=dj_{pg}$ and so we get the result:
+		$$d\mu_{(p,g)}(X_p,\ell_gA)=dr_g(X_p)+\overline{A}_{p\cdot g}$$
 	\end{proof}
 	\begin{Theo} \label{Theo_7.2.1}
 		Let $(P,M,\pi,G)$ be a principal $G$-bundle and $A$ a connection on it. Let $s_1,s_2:U\rightarrow P$ be local gauges and $A_{i}=s_i^*A$ the pulled-back connections on the manifold. Then 
@@ -2253,16 +2258,16 @@
 		By taking the differential:
 		$$ds_{i,x}(X_x)=d\mu_{(s_{j}(x), g_{ji}(x))}(ds_{j,x}(X_x),dg_{ji,x}(X_x))$$
 		Now, the mapping $g_{ji}:M\rightarrow G$ has as differential $dg_{ji,x}:T_xM\rightarrow T_{g_{ji}(x)}G$, so that it takes $X_x$ into a tangent vector to $G$ at $g_{ji}(x)$. Thus, since for every $h\in G$ the left action is a diffeomorphism, there exists an element of the Lie algebra, which we will call $T$, such that 
-		$$dl_{g_{ji}(x)}(T)=dg_{ji,x}(X_x)$$
+		$$d\ell_{g_{ji}(x)}(T)=dg_{ji,x}(X_x)$$
 		This in turn implies:
-		$$T=dl_{g^{-1}_{ji}(x)}\circ dg_{ji,x}(X_x)$$
+		$$T=\ell_{g^{-1}_{ji}(x)}\circ dg_{ji,x}(X_x)$$
 		Moreover, applying the result obtained in proposition \ref{Prop_7.2.1} we find:
-		$$d\mu_{(s_{j}(x), g_{ji}(x))}(ds_{j,x}(X_x),dg_{ji,x}(X_x))=d\mu_{(s_{j}(x), g_{ji}(x))}(ds_{j,x}(X_x),dl_{g_{ji}(x)}(T))=$$
+		$$d\mu_{(s_{j}(x), g_{ji}(x))}(ds_{j,x}(X_x),dg_{ji,x}(X_x))=d\mu_{(s_{j}(x), g_{ji}(x))}(ds_{j,x}(X_x),d\ell_{g_{ji}(x)}(T))=$$
 		$$=dr_{g_{ji}(x)}\circ ds_{j,x}(X_x)+\overline{T}_{s_{j}(x)\cdot g_{ji}(x)}$$
 		Finally, feeding this to $A_i$, we get:
 		$$A_{i,s_i(x)}(dr_{g_{ji}(x)}\circ ds_{j,x}(X_x)+\overline{T}_{s_{j}(x)\cdot g_{ji}(x)})=r^*_{g_{ji}(x)}A_{i,{s_i(x)}}(ds_{j,x}(X_x))+T$$
 		Where in the last line we have applied the defining properties of the connection $1$-forms. Substituting back the expression for $T$ we get:
-		$$r^*_{g_{ji}(x)}A_{i,{s_i(x)}}(ds_{j,x}(X_x))+dl_{g^{-1}_{ji}(x)}\circ dg_{ji,x}(X_x)=r^*_{g_{ji}(x)}A_{i,{s_i(x)}}(ds_{j,x}(X_x))+(g^*_{ji}\theta)_x(X_x)$$
+		$$r^*_{g_{ji}(x)}A_{i,{s_i(x)}}(ds_{j,x}(X_x))+d\ell_{g^{-1}_{ji}(x)}\circ dg_{ji,x}(X_x)=r^*_{g_{ji}(x)}A_{i,{s_i(x)}}(ds_{j,x}(X_x))+(g^*_{ji}\theta)_x(X_x)$$
 		By once again applying the defining properties of the connection:
 		$$A_i=Ad(g_{ji}^{-1})A_j+\mu_{ji}$$
 		This completes the proof.
