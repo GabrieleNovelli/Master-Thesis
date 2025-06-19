@@ -375,14 +375,14 @@
 		To see the proof one can look at [1] chap. 6 pag. 243.
 	\end{proof}
 	\begin{comment}
-	We now define a very important form on metric manifolds, called volume form. This will be crucial in the definition of the Hodge operator.
-	\begin{Def}
-		Let $(M,g)$ be a smooth metric manifold and $(U,\phi)$ a chart with coordinates $\partial\over \partial x^i$. We define the volume form as:
-		$$\omega=\sqrt{|det(g^{ij})|}dx^1\wedge...\wedge dx^n$$
-	\end{Def}
-	This is clearly a nowhere vanishing form. It can be shown that, by applying the Gram–Schmidt process, the volume form takes the simpler form:
-	$$\omega=de^1\wedge...\wedge de^n$$
-	where $e^i$ is the orthonormal basis with respect to $g$ inside $U$. The proof is just a straightforward calculation and can be found in [2] chap. 3 pag. 134.
+		We now define a very important form on metric manifolds, called volume form. This will be crucial in the definition of the Hodge operator.
+		\begin{Def}
+			Let $(M,g)$ be a smooth metric manifold and $(U,\phi)$ a chart with coordinates $\partial\over \partial x^i$. We define the volume form as:
+			$$\omega=\sqrt{|det(g^{ij})|}dx^1\wedge...\wedge dx^n$$
+		\end{Def}
+		This is clearly a nowhere vanishing form. It can be shown that, by applying the Gram–Schmidt process, the volume form takes the simpler form:
+		$$\omega=de^1\wedge...\wedge de^n$$
+		where $e^i$ is the orthonormal basis with respect to $g$ inside $U$. The proof is just a straightforward calculation and can be found in [2] chap. 3 pag. 134.
 	\end{comment}
 	\section{\textcolor{red}{Manifolds with boundary}}
 	In this section we will briefly define the notion of manifold with boundary and look at some important results concerning them. More details on this subject can be found in: [1] chap. 6 pag. 250-256.
@@ -532,11 +532,11 @@
 	It is useful to see the following property of the exterior derivative:
 	\begin{Prop}
 		Let $f:N\rightarrow M$ and $\omega\in \Omega^k(M)$ then the pullback commutes with the exterior derivative:
-			$$df^*\omega=f^*d\omega$$
+		$$df^*\omega=f^*d\omega$$
 	\end{Prop}
-		\begin{proof}
+	\begin{proof}
 		The proof can be found in [1] chap.5 pag. 214.
-		\end{proof}
+	\end{proof}
 	\section{The Hodge Operator}
 	In this section we define the Hodge operator and see some properties of it. This operator will be useful in writing the Maxwell equations from a differential geometry point of view. More reference on this topic can be found in [3] chap. 7 pag. 406-413, [10] chap. 6 pag. 345-356 pag. 386-399.\\
 	\\
@@ -1148,7 +1148,7 @@
 		$$4|z_1|^2|z_2|^2+(|z_1|^2-|z_2|^2)^2)=1$$
 		Note that, choosing a point $(z,x)$ on $S^2$, the pre-image of the projection is defined up to a phase:
 		$$\pi(z_1,z_2)=\pi(\lambda z_1,\lambda z_2)\hbox{ where }|\lambda|^2=1$$
-		In particular, all of the possible phases are elements of $S^1=U(1)$ so that a point in $S^2$ can be identified with a point in $S^2$ times a circle $S^1$. This suggests to construct a fiber bundle on $S^2$ with fiber $S^1$ and total space $S^3$. Note that this fiber bundle cannot be trivial since $S^2\times S^1\neq S^3$. To see this it suffices to see that the fundamental group of $S^2\times S^1$ is $\mathbb{Z}$ and the one of $S^3$ is trivial.
+		In particular, all of the possible phases are elements of $S^1=U(1)$ so that a point in $S^3$ can be identified with a point in $S^2$ times a circle $S^1$. This suggests to construct a fiber bundle on $S^2$ with fiber $S^1$ and total space $S^3$. Note that this fiber bundle cannot be trivial since $S^2\times S^1\neq S^3$. To see this it suffices to see that the fundamental group of $S^2\times S^1$ is $\mathbb{Z}$ and the one of $S^3$ is trivial.
 		It is known that $S^n$ is a smooth manifold and so the projection $\pi$ defined earlier is a smooth map. One can construct a local trivialization in the following way: take two open subsets $U_{1,2}\subset S^2$ defined like:
 		$$U_1=S^2-(0+i0,1);U_2=S^2-(0+i0,-1)$$
 		Those subsets cover every point in $S^2$. Then it is clear that the pre-images of those sets are:
@@ -1312,15 +1312,15 @@
 	\section{Vector valued forms}
 	In this section we will introduce the concept of vector valued forms. Those will be extremely important in the construction of the Yang-Mills lagrangian, since the vector potential will be a vector valued form. More informations on this topic can be found in [2] chap. 4 pag. 186-197.
 	\\\\
-	One can think of vector valued forms as differential forms that take value on a generic vector space instead of $\mathbb{R}$. The construction is purely algebraic.
+	Vector valued forms are differential forms taking values on a generic vector space.
 	\begin{Def}
 		Let $W,V$ be vector spaces of finite dimension. We define a $V$-valued \textit{$k$-covector} on $W$ as an element of $Hom(\bigwedge^k W,V)$.
 	\end{Def}
 	It is known from linear algebra that we have the following isomorphism:
 	$$Hom(\bigwedge^k W,V)\simeq \bigwedge^k W^*\otimes V$$
-	A $V$-valued $k$-form on a manifold $M$ is a map that associates to each point a $V$-valued $k$-covector in $T_pM$. We can also think of $V$-valued $k$-form as section of some vector bundle: let $V$ be a finite dimensional vector space and $(E,M,\pi,\mathbb{R}^n)$ be a smooth vector bundle on $M$. Then, we can consider the product bundle $M\times V$, and define a new vector bundle $E\otimes (M\times V)$ which we will indicate with $E\otimes V$.
+	A $V$-valued $k$-form on a manifold $M$ is a map that associates to each point a $V$-valued $k$-covector in $T_pM$. We can also think of $V$-valued $k$-form as section of some vector bundle: let $V$ be a finite dimensional vector space and $(E,M,\pi,\mathbb{R}^n)$ be a smooth vector bundle on $M$. Then, we can consider the product bundle $M\times V$, and define a new vector bundle $E\otimes (M\times V)$. A $V$ valued form defined over $E$ will then be a section of the bundle $E\otimes (M\times V)$. From now on we will indicate $E\otimes (M\times V)$ with $E\otimes V$.
 	\begin{Def}
-		A $V$-valued $k$-form on $M$ is a section of the vector bundle $\bigwedge^k TM^*\otimes V$. The space of smooth $k$-forms is labeled as:
+		A $V$-valued $k$-form on $M$ is a section of the vector bundle $\bigwedge^k TM^*\otimes V$. The space of smooth $k$-forms is denoted as:
 		$$\Omega^k(M,V)=\Gamma(\bigwedge^k TM^*\otimes V)$$
 	\end{Def}
 	Clearly, given a basis $\{v_i\}$ for $V$, we can express any $V$-valued $k$-form on $M$ as a linear combination:
@@ -1337,7 +1337,7 @@
 		The proof is just a straightforward calculation and can be found in: [2] chap. 4 pag 189.
 	\end{proof}
 	\begin{Ex}\label{Ex_3.5.1}
-		In the case of forms with value on a Lie algebra $\mathfrak{g}$, the multilinear map $\mu$ coincides with the commutator $[,]$, so that if $\{T_i\}$ are elements of $\mathfrak{g}$ and $\omega=\omega^i\otimes T_i\in\Omega^k(M,\mathfrak{g})$ and $\eta=\eta^i\otimes T_i\in\Omega^l(M,\mathfrak{g})$
+		In the case of forms with values on a Lie algebra $\mathfrak{g}$, the multilinear map $\mu$ coincides with the commutator $[,]$, so that if $\{T_i\}$ are elements of $\mathfrak{g}$ and $\omega=\omega^i\otimes T_i\in\Omega^k(M,\mathfrak{g})$ and $\eta=\eta^i\otimes T_i\in\Omega^l(M,\mathfrak{g})$
 		$$[\omega,\eta]=\omega^i\wedge\eta^j[T_i,T_j]$$
 		Clearly, by the properties of the exterior power and of the commutator:
 		$$[\omega,\eta]=(-)^{kl+1}[\eta,\omega]$$
@@ -1355,48 +1355,58 @@
 		By the fact that the exterior derivative is an antiderivation of degree 1 for the exterior product, it immediately follows:
 		$$d(\omega\cdot \eta)=d\omega\cdot \eta+(-)^{deg(\omega)}\omega\cdot d\eta$$
 	\end{proof}
-	We can also extend the definition of pullback to vector valued forms, in the natural obvious way:
+	We can also extend the definition of pullback to vector valued forms:
 	\begin{Def}
 		Let $\alpha\in\Omega^k(M,V)$ be a $V$-valued form on $M$ and $f:N\rightarrow M$ be a smooth map between manifolds. We define the \textit{pullback} of $\alpha$ as:
-		$$f^*\alpha_p(u_1,...,u_k)=\alpha_p(dfu_1,...,dfu_k)$$
+		$$f^*\alpha_p(u_1,...,u_k)=\alpha_p((df)_pu_1,...,(df)_pu_k)$$
 		where $u_i\in T_pN$.
 	\end{Def}
 	There are some straightforward properties of the pullback:
 	\begin{Prop}\label{Prop_3.4.3}
 		Let $f:N\rightarrow M$ be any smooth map between manifolds and $\mu:V\times W\rightarrow Z$ be any multilinear map between vector spaces. Then, if $\alpha\in\Omega^k(M,V),\beta\in\Omega^l(M,W)$, we have:
-		\begin{itemize}
+		\begin{enumerate}
 			\item $f^*\alpha=f^*\alpha^i\otimes v_i$;
 			\item $f^*(\alpha\cdot \beta)=(f^*\alpha)\cdot (f^*\beta)$; the pullback commutes with the product;
 			\item the pullback commutes with the exterior derivative:
 			$$f^*d\alpha=df^*\alpha$$
-		\end{itemize}
+		\end{enumerate}
 	\end{Prop}
 	\begin{proof}
-		To prove the first claim we simply expand:
+		To prove (1) we simply expand:
 		$$f^*\alpha_p(u_1,...,u_k)=f^*(\alpha^i\otimes v_i)(u_1,...,u_k)=(\alpha^i\otimes v_i)(dfu_1,...,dfu_k)=\alpha^i(dfu_1,...,dfu_k)\otimes v_i$$
-		Where $u_1\in T_pN$. To prove the second claim we recall that, having chosen some basis $\{v_i\}$ for $V$ and $\{w_i\}$ for $W$:
+		Where $u_1\in T_pN$. To prove (2) we recall that, having chosen some basis $\{v_i\}$ for $V$ and $\{w_i\}$ for $W$:
 		$$(\alpha\cdot\beta)=\alpha^i\wedge\beta^j\mu(v_i,w_j)$$
 		Then it is clear that:
 		$$f^*(\alpha\cdot\beta)=f^*(\alpha^i\wedge\beta^j)\mu(v_i,w_j)=(f^*\alpha^i\wedge f^*\beta^j)\mu(v_i,w_j)$$
-		The last property follows immediately from the fact that for real valued forms the pullback commutes with the exterior derivative.
+		(3) follows immediately from the fact that for real valued forms the pullback commutes with the exterior derivative.
 	\end{proof}
-	\begin{Ex}\label{Ex_3.4.2}
+	\section{Lie valued differential forms}
+	In this section we will look at forms which take values in a Lie algebra. Those will be extremely important since the gauge fields will be represented by this kind of object.
+	More details on this topica can be found in: [2] chap. 4 pag. 191-193.
+	\begin{Def}
 		Let $G$ be a Lie group. We define the \textit{Maurer–Cartan form} $\theta$ as:
 		$$\theta_g(X_g)=\ell_{g^{-1}}X_g$$
-		This is obviously a $\mathfrak{g}$ valued $1$-form. One can prove the following:
+	\end{Def}
+	This is obviously a smooth $\mathfrak{g}$ valued $1$-form.
+	\begin{Obs}\label{Ex_3.4.2}
+		It is not hard to see that:
 		$$r_g^*\theta=Ad(g^{-1})\theta$$
 		This is a straightforward calculation:
 		$$(r_g^*\theta)_{h}(X_{h})=\theta_{gh}(dr_gX_h)=\ell_{(gh)^{-1}}dr_gX_h=Ad(g^{-1})d\ell_{h^{-1}}X_h$$
-		Moreover, one can prove that:
+	\end{Obs}
+	\begin{Prop}
+		Let the notation be as above. Then:
 		$$d\theta+{1\over 2}[\theta,\theta]=0$$
+	\end{Prop}
+	\begin{proof}
 		To prove this, we can use the fact that:
 		$$d\theta(X,Y)=X\theta(Y)-Y\theta(X)-\theta([X,Y])$$
-		The proof of this claimed property can be found in [1] chap. 5 pag. 232, 233. Since $d\ell_g$ is an isomorphism, it is sufficient to prove the claim for left invariant vector fields at any point. Let thus $X_g,Y_g$ be left-invariant, then:
+		(see [1] chap. 5 pag. 232, 233). Since $d\ell_g$ is an isomorphism, it is sufficient to prove the claim for left invariant vector fields at any point. Let thus $X_g,Y_g$ be left-invariant, then:
 		$$d\theta_g(X_g,Y_g)=Y_g\theta_g(X)-X\theta_g(Y_g)-\theta([X_g,Y_g])$$
 		The first two terms are 0 since the Maurer-Cartan form applied to a left-invariant vector field is a constant function of the points. As for the last term, due to the vector fields being left invariant, we have:
 		$$\theta([X,Y])={1\over 2}[\theta,\theta](X,Y)$$
 		This completes the proof.
-	\end{Ex}
+	\end{proof}
 	Lastly, one can further generalize the notion of $k$-form by letting them take values on a vector bundle.
 	\begin{Def}
 		Let $(E,M,\pi, \mathbb{R}^n)$ be a vector bundle. We define an $E$-valued $k$-form as a section of $\bigwedge^kTM^*\otimes E$. We denote the space of smooth $E$-valued $k$-forms with $\Gamma(\bigwedge^kTM^*\otimes E)$.
@@ -1406,7 +1416,7 @@
 		By choosing a local frame $\{e_i:M\rightarrow E\}$, we can expand any form $\omega=\omega^i\otimes e_i$ where $\omega^i$ are real valued forms on the base manifold $M$.
 	\end{Obs}
 	\section{Principal Bundles}
-	In this section we define the notion of principal bundles, look at some properties that they have and make some examples. The interested reader can find more details in [2] chap. 6
+	In this section we define the notion of principal bundles, look at some properties that they have and make some examples. The interested reader can find more details in [2] chap. 6.
 	\begin{Def}
 		Let $(E,M,\pi,G)$ be a fiber bundle, where $G$ is a Lie group and $M$ and $E$ are manifolds. Let $\pi$ be smooth and the trivializations diffeomorphic; let $G$ be acting on $E$ such that:
 		\begin{itemize}
@@ -1439,6 +1449,15 @@
 		There is a natural projection $\pi:G\rightarrow G/H$ taking each element to its class: $g\rightarrow \{gH\}$. This can be given a principal $H$ bundle structure. The proof can be found in [8] chap. 3 pag. 120.
 	\end{Ex}
 	\begin{Ex}
+		Let $M$ be a smooth manifold and $G$ be a Lie group acting freely on $M$. If the action is such that the map:
+		$$\Phi:M\times G\rightarrow M\times M$$
+		$$(p,g)\rightarrow(p,p\cdot g)$$
+		is closed, then $M/G$ is a smooth manifold and $(M,M/G,\pi,G)$ is a principal bundle, with:
+		$$\pi:M\rightarrow M/ G$$
+		$$\pi(p)=[p]$$
+		For the proof of this claim see [3] chap. 4 pag. 213.
+	\end{Ex}
+	\begin{Ex}\label{Ex_3.7.3}
 		In example \ref{Ex_3.1.3} we proved that the Hopf bundle is a fiber bundle. It is also possible to endow this with a principal bundle structure. Recall that $S^1$ can be identified with the Lie group $U(1)$. This group acts on $S^3$ in the obvious way:
 		$$\lambda(z_1,z_2)=(\lambda z_1,\lambda z_2)$$
 		This action is evidently free. Moreover, the trivializations are equivariant under this action: suppose to take as open set $U_1=S^2-(0+i0,1)$, then:
@@ -1545,11 +1564,11 @@
 	\section{The frame bundle}
 	In this section we will define the frame bundle of a smooth vector bundle. We will show that it is possible to use it to construct another bundle on the base manifold. More details are in [2] chap. 6 pag. 246 and [3] chap. 4 pag 223.\\
 	\\
-	Suppose to have a smooth vector bundle $(E,M,\pi,F)$. Our idea is now to associate to $M$ a smooth principal $GL(n,\mathbb{R})-bundle$. At any point $p\in M$, the fiber $F_p$ is a vector space. Thus, we can construct $Fr(F_p)$ the frame manifold of each fiber. Define the Frame Bundle as the following space:
+	Suppose to have a smooth vector bundle $(E,M,\pi,F)$. Our idea is now to associate to $M$ a smooth principal $GL(n,\mathbb{R})-$bundle. At any point $p\in M$, the fiber $F_p$ is a vector space. Thus, we can construct $Fr(F_p)$ the frame manifold of each fiber. Define the \textit{frame bundle} as the following space:
 	$$Fr(E)=\bigsqcup_{p\in M}Fr(F_p)$$
 	The disjoint union of the fibers at each point. There is a natural projection that we can use:
 	$$\pi_G:Fr(E)\rightarrow M\hbox{ such that } \pi_G(\vec{e_p}\in Fr(F_p))=p$$
-	Now we need to find local trivializations. The idea is quite simple but somewhat elaborate.\\
+	In order to prove this is a $G$ bundle we need to find local trivializations and prove the gluing condition.\\
 	\\
 	Suppose now to have a chart on $Fr(E)$ like $(U_{M},\psi:U_{Fr(E)}\rightarrow \mathbb{R}^n\times\mathbb{R}^k)$. Due to the existence of the projection $\pi_G$ we can induce a chart on $M$ by finding the corresponding open set on it $U_M$ and it's map $\phi:U_M\rightarrow \mathbb{R}^n$. We choose as trivialization the same map we had chosen to trivialize the tangent bundle:
 	$$\varphi\equiv(\phi^{-1}\circ \mathbb{I}_{\mathbb{R}^k})\circ \psi: U_{Fr(E)}\xrightarrow{\psi}\phi(U_M)\times\mathbb{R}^k\xrightarrow{\phi^{-1}\times\mathbb{I}_{\mathbb{R}^k}}U_m\times\mathbb{R}^k$$
@@ -1823,7 +1842,7 @@
 		$$dr_h (X_{x})=dr_h\circ \nu(X_{x})+dr_h\circ Hor(X_{x})=
 		\nu\circ dr_h(X_{x})+Hor\circ dr_h(X_{x})$$
 	\end{proof}
-	The next theorem shows that given any 1-form $\omega$ with certain properties, we can always construct an horizontal distribution. The proof is pretty lengthy.
+	The next theorem shows that given any 1-form $\omega$ with certain properties, we can always construct a horizontal distribution.
 	\begin{Theo}
 		Consider a principal $G$-bundle $(E,M,\pi,G)$ where we can find a smooth $\mathfrak{g}$-valued and $G$-equivariant 1-form on it, such that $\omega(\bar{A})=A$ for every fundamental vector field. Then $Ker(\omega)=\mathcal{H}$ is a smooth right-invariant horizontal distribution on $TE$.
 	\end{Theo}
@@ -1831,9 +1850,9 @@
 		This proof can be found in [2] chap. 6 pag. 256-259.
 	\end{proof}
 	\section{The horizontal Lift of a vector field}
-	In this section we will introduce the notion of horizontal lift of a vector field and look at some properties of it. More informations on this topic can be found in [2] chap. 6 pag 259, 260; [3] chap. 5 pag 286-289.\\
+	In this section we will introduce the notion of horizontal lift of a vector field and look at some properties of it. More information on this topic can be found in [2] chap. 6 pag 259, 260; [3] chap. 5 pag 286-289.\\
 	\\
-	Suppose that $\mathcal{H}$ is an horizontal distribution on a principal bundle $(E,M,\pi,G)$. Let $X\in\mathfrak{X}(M)$ be a vector field on $M$. Then for every point $x\in E$, we have $\mathcal{V}_{x}=Ker(d\pi_{x})$ and so we have some induced isomorphisms:
+	Suppose that $\mathcal{H}$ is a horizontal distribution on a principal bundle $(E,M,\pi,G)$. Let $X\in\mathfrak{X}(M)$ be a vector field on $M$. Then for every point $x\in E$, we have $\mathcal{V}_{x}=Ker(d\pi_{x})$ and so we have some induced isomorphisms:
 	$${T_{x}E\over \mathcal{V}_{x}}\simeq \mathcal{H}_{x}\simeq T_{\pi(x)}M$$
 	\begin{Def}
 		Let $(E,M,\pi,G)$ be a principal $G$-bundle with a smooth right-invariant horizontal distribution $\mathcal(H)$. Let $X$ be a vector field on $M$. We call \textit{lift} of $X$ to $E$ any vector field $\tilde{X}$ such that $d\pi(\tilde{X})=X$. We call the unique horizontal vector field $\mathcal{X}\in \mathcal{H}$ such that $d\pi(\mathcal{X})=X$ the \textit{horizontal lift} of $X$ to $E$.
@@ -1875,7 +1894,7 @@
 		This means that the smooth vector field $Hor(Y)$ is the unique horizontal lift of $X$.
 	\end{proof}
 	\section{Curvature on a principal bundle}
-	In this section we will introduce the notion of curvature on a principal bundle endowed with an Ehresmann connection and look at some properties of it. In the context of Y-M theory, the curvature form will be used to define the kinetic energy term of the Lagrangian. For more informations on this topic the reader can look at [2] chap. 6 pag. 270-274 and [3] chap. 5 pag. 261-285.
+	In this section we will introduce the notion of curvature on a principal bundle endowed with an Ehresmann connection and look at some properties of it. In the context of Y-M theory, the curvature form will be used to define the kinetic energy term of the Lagrangian. For more information on this topic the reader can look at [2] chap. 6 pag. 270-274 and [3] chap. 5 pag. 261-285.
 	\begin{Def}
 		Let $(E,M,\pi,G)$ be a principal $G$-bundle and $\omega$ an Ehresmann connection on it. We define the \textit{curvature form} of $\omega$ as:
 		$$\Omega=d\omega+{1\over 2}[\omega,\omega]$$
@@ -1919,11 +1938,11 @@
 		$$=[\Omega,\omega]-{1\over 2}[[\omega,\omega],\omega]=[\Omega,\omega]$$
 	\end{proof}
 	\chapter{Associated bundles}
-	In this chapter we introduce the concept of associated bundle, together with some examples and properties. We will see how to use this kind of bundle to construct a covariant derivative on the underlying principal bundle. The most important associated bundle for gauge theories will be the adjoint bundle, which we will introduce later. More informations on these topics can be found in [2] chap. 6 pag. 275-286, and [3] chap. 4 and 5.
+	In this chapter we introduce the concept of associated bundle, together with some examples and properties. We will see how to use this kind of bundle to construct a covariant derivative on the underlying principal bundle. The most important associated bundle for gauge theories will be the adjoint bundle, which we will introduce later. More information on these topics can be found in [2] chap. 6 pag. 275-286, and [3] chap. 4 and 5.
 	\section{The associated bundle of a principal bundle}
 	In this section we define the concept of associated bundle and look at some properties of it, together with some examples. More informations on this topic can be found in [2] chap. 6 pag. 275, 276; [3] chap. 4 pag. 237.
 	\begin{Def}
-		Let $(P,M,\pi,G)$ be a principal $G$-bundle and $\rho:G\rightarrow GL(V)$ a representation on a finite dimensional vector space $V$. We define the \textit{associated bundle} as the set: 
+		Let $(P,M,\pi,G)$ be a principal $G$-bundle and $\rho:G\rightarrow GL(V)$ a representation on a finite dimensioinformationnal vector space $V$. We define the \textit{associated bundle} as the set: 
 		$$E=P\times_\rho V={P\times V\over \sim}$$
 		where $\sim$ is the following equivalence relation:
 		$$(x,v)\sim(x\cdot g,\rho(g^{-1})v)$$ 
@@ -1956,7 +1975,7 @@
 		\begin{comment}
 			The proof follows from proposition \ref{Prop_6.1.1}. In fact the principal bundle is locally trivial and this implies that the associated bundle is locally trivial as well, with fiber $V$
 		\end{comment}
-		This is a direct consequence of \ref{Prop_6.1.1}, since the local trivaility of the principal bundle ensures the associated bundle to be locally trivial. Furthermore, the structure of $\phi$ defined above ensures that the local trivializzation reduce to isomorphisms on the fibers.
+		This is a direct consequence of \ref{Prop_6.1.1}, since the local triviality of the principal bundle ensures the associated bundle to be locally trivial. Furthermore, the structure of $\phi$ defined above ensures that the local trivialization reduces to isomorphisms on the fibers.
 	\end{proof}
 	\begin{Prop}\label{Prop_6.2.2}
 		Let $(P,M,\pi,G)$ be a principal $G$-bundle and $\rho:G\rightarrow GL(V)$ a finite dimensional representation. Let $E$ be the associated bundle and $x\in M$. Then, for every point $p$ in the fiber $P_x$, there is a linear isomorphism:
@@ -1984,7 +2003,7 @@
 		$$\phi([s(x)\cdot g\cdot h,\rho(h^{-1}v)])=(x,\rho(g)\rho(h)\rho(h^{-1})v)=(x,\rho(g)v)$$
 		Moreover, one is clearly the inverse of the other:
 		$$\phi\circ \phi^{-1}(x,v)=\phi([s(x),v])=(x,v)$$ 
-		Both those maps are by construction  smooth and on each fiber reduce to isomorphisms of vector spaces:
+		Both those maps are by construction smooth and on each fiber reduce to isomorphisms of vector spaces:
 		$$\phi_x[s(x)\cdot g,v]=\rho(g)v$$
 		This proves that the constructed map is a local trivialization.
 	\end{proof}
@@ -2023,7 +2042,7 @@
 		Analogously one proves that $\alpha^{\sharp\flat}=\alpha$. This completes the proof.
 	\end{proof}
 	\section{The covariant derivative}
-	In this section we will define the notion of covariant derivative on a principal bundle and see some properties of it. More informations on this topic can be found in [2] chap. 6 pag 280-286.
+	In this section we will define the notion of covariant derivative on a principal bundle and see some properties of it. More information on this topic can be found in [2] chap. 6 pag 280-286.
 	\begin{Prop}
 		Let $\omega$ be a right equivariant form of type $\rho$ on a principal bundle $(P,M,\pi,G)$. Then, $d\omega$ is right equivariant of type $\rho$ as well.
 	\end{Prop}
@@ -2124,21 +2143,21 @@
 			The first term can be rewritten as before:
 			$$d\omega_p(v_1,...,v_{k+1})=\sum_i (-)^{i+1}v_i\omega_p(v_1,...,v_{i-1},v_{i+1},...,v_{k+1})+$$
 			$$+\sum_{i<j}\omega_p([v_i,v_j],v_1,...,v_{i-1},v_{i+1},...,v_{j-1},v_{j+1},...,v_k)$$
-			The first sum is 0 since at least one argument of $\omega$ is horizontal. The second sum is 0 as well since the commutator between two veritcal vector fields is vertical and all of the term which involve commutators between horizontal and vertical fields are 0
+			The first sum is 0 since at least one argument of $\omega$ is horizontal. The second sum is 0 as well since the commutator between two vertical vector fields is vertical and all of the term which involve commutators between horizontal and vertical fields are 0
 			The last term in the expansion is also 0 since at least one argument of $\omega$ is always vertical.
 		\end{itemize}
 	\end{proof}
 	\begin{Obs}\label{Obs_6.3.5}
 		The exterior covariant derivative does not square to 0. In fact, given a connection $A$ and a $k$-form $\omega$ with values in $V$:
 		$$D^2\omega=D(d\omega+A\cdot \omega)=d^2\omega+d(A\cdot \omega)+A\cdot d\omega+A\cdot A\cdot \omega$$
-		A priori only the first term is 0. Hhowever, one can prove that $DF=0$, where $F$ is the curvature of a connection $A$. Since $F$ is an $Ad$-tensorial $2$-form we can apply the formula shown in proposition \ref{Prop_6.3.4} in the associated adjoint bundle and get:
+		A priori only the first term is 0. However, one can prove that $DF=0$, where $F$ is the curvature of a connection $A$. Since $F$ is an $Ad$-tensorial $2$-form we can apply the formula shown in proposition \ref{Prop_6.3.4} in the associated adjoint bundle and get:
 		$$DF=dF+[A,F]$$
 		However, by theorem \ref{Theo_5.5.1}, $dF=[F,A]$ and so $DF=0$.
 	\end{Obs}
 	\begin{Obs}
 		The formula	\ref{Prop_6.3.4} cannot be applied to a connection 1 form on $P$, since $A\in\Omega^1(P,\mathfrak{g})$ is not horizontal, but vertical. However, it is possible to show that the difference between two connections is always a tensorial $1$-form. 
 		$$A-A'\in\Omega^1_{Ad}(P,\mathfrak{g})$$
-		This clearly follows from the properties of the connection. Moreover, if $A$ is a conne
+		This clearly follows from the properties of the connection.
 	\end{Obs}
 	\begin{Prop}\label{Prop_6.3.5}
 		If $A,A'$ are connections 1 forms on $P$, then:
@@ -2149,9 +2168,9 @@
 		This result immediately follows from the defining properties of the connection.
 	\end{proof}
 	\chapter{Gauge transformations}
-	In this chapter we will introduce the concept of gauge transformations. Furthermore, we will see how the connection 1-forms and the associated curvatures will behave under such transformations. More informations on those topics can be found in [3] chap. 5.
+	In this chapter we will introduce the concept of gauge transformations. Furthermore, we will see how the connection 1-forms and the associated curvatures will behave under such transformations. More information on those topics can be found in [3] chap. 5.
 	\section{Gauge transformations on a principal bundle}
-	In this section we use the previous knowledge to construct the notion of gauge transformations. We will also see some properties of connections and curvature on principal bundles, which will be useful in the context of Yang-Mills theory. More informations on this topic can be found in [3] chap. 5 and [2] chap. 6.
+	In this section we use the previous knowledge to construct the notion of gauge transformations. We will also see some properties of connections and curvature on principal bundles, which will be useful in the context of Yang-Mills theory. More information on this topic can be found in [3] chap. 5 and [2] chap. 6.
 	\begin{Def}
 		Let $(P,M,\pi,G)$ be a principal $G$-bundle. We call a \textit{gauge transformation} any bundle automorphism, i.e a diffeomorphism $f:P\rightarrow P$ such that:
 		\begin{itemize}
@@ -2161,7 +2180,7 @@
 		A gauge transformation $f$ is called \textit{local} if it is defined on an open subset $U\subset P$. If the gauge transformation is defined on the whole principal bundle then it is called \textit{global}.
 	\end{Def}
 	\begin{Obs}
-		The set of all possible gauge transformations is a group under the composition of diffeomorphism and is denoted with $\mathcal{G}(P)$. This is in general an infinite dimensional Lie group.
+		The set of all possible gauge transformations is a group under the composition of diffeomorphisms and is denoted with $\mathcal{G}(P)$. This is in general an infinite dimensional Lie group.
 	\end{Obs}
 	We now try to give an alternative, more useful, description of gauge transformations.
 	\begin{Def}
@@ -2309,7 +2328,7 @@
 		$$F_M\rightarrow \phi^{-1}\cdot F_M$$
 	\end{proof}
 	\section{Products on associated bundles}
-	In this section we will define some operations on forms that take values on the associated bundle of a principal bundle. Those will be useful to define the full Y-M Lagrangian. More informations on this topic can be found in [3] chap. 7 pag. 409-413.
+	In this section we will define some operations on forms that take values on the associated bundle of a principal bundle. Those will be useful to define the full Y-M Lagrangian. More information on this topic can be found in [3] chap. 7 pag. 409-413.
 	\begin{Def}
 		Let $(E,M,\pi,\mathbb{R}^n)$ a vector bundle. We call a \textit{bundle metric} a section $\braket{,}_E\in \Gamma(E^*\otimes E^*)$. This is a smooth assignment to each point of a non degenerate, symmetric, bilinear product on the fiber.
 	\end{Def}
@@ -2362,7 +2381,7 @@
 	\begin{proof}
 		The proof can be found in [3] chap. 7 pag. 412.
 	\end{proof}
-	There is a strong relatioship between the pullback of the curvature on the manifold, with values on the Lie algebra, and the induced form on with values on the associated bundle. In particular, choosing a local gauge, one can show that locally there is a correspondence between them:
+	There is a strong relationship between the pullback of the curvature on the manifold, with values on the Lie algebra, and the induced form on with values on the associated bundle. In particular, choosing a local gauge, one can show that locally there is a correspondence between them:
 	\begin{Prop}\label{God_Prop}
 		Let $(P,M,\pi,G)$ be a principal bundle and $(Ad(P),M,\pi_{Ad},\mathfrak{g})$ be the adjoint associated bundle. Let $A\in \Omega^1(P,\mathfrak{g})$ be a connection on the principal bundle and $F\in\Omega^2_{Ad}(P,\mathfrak{g})$ be its curvature. Then, for any local gauge $s:U\subset M\rightarrow P$w, the pullback $s^*F$ of $F$ and the associated form $F_M\in\Omega^2(M,Ad(P))$ coincide.  
 	\end{Prop}
@@ -2373,7 +2392,7 @@
 		Those were defined in proposition \ref{Prop_3.5.3} and proposition \ref{Prop_6.2.3}. If $F$ is the curvature of $A$, then by theorem \ref{Mus_Iso}, the corresponding form $F_M\in\Omega(M,Ad(P))$ is constructed like:
 		$$F_{M,x}(v_{1,x},v_{2,x})=[s(x),F_{s(x)}(ds(v_{1,x}),ds(v_{2,x}))]$$
 		Where $x\in M$ and $v_{i,x}\in T_xM$.
-		Recall that in the same theorem we proves that this association does not depend on the point in the fiber, nor on the choice of the lifts.
+		Recall that in the same theorem we proved that this association does not depend on the point in the fiber, nor on the choice of the lifts.
 		By applying the local trivialization of the associated bundle we find:
 		$$\varphi\circ F_{M,x}(v_{1,x},v_{2,x})=(x,F_{s(x)}(ds(v_{1,x}),ds(v_{2,x})))=(x,s^*F_{x}(v_{1,x},v_{2,x}))$$
 		Thus, the choice of a local gauge allows us to locally express the form $F_M$ with the pullback of the curvature. This proves the claim.
@@ -2404,25 +2423,25 @@
 		$$\braket{s^*F,s^*F}_\mathfrak{g}=\braket{F_a,F_b}\braket{T^a,T^b}_\mathfrak{g}$$
 	\end{Obs}
 	\begin{comment}
-	\chapter{The Euler-Lagrange equations}
-	In this chapter we will look at how to define the Euler-LAgrange equations on the framework of differential geometry. We will apply the results of this chapter in the study of the general solutions of the Yang-Mills lagrangian. REFERENZA
-	\section{Lagrangians and gauge invariance}
-	In this section we will give the definition of a gauge invariant Lagrangian and look at some properties of it. REFERENZA
-	\begin{Def}
-		Let $(P,M,\pi,G)$ be a principal $G$-bundle and $\rho:G\rightarrow GL(V)$ a representation. We define the space of \textit{1-Jets} as:
-		$$J(P,V)=\{(p,v,T)|p\in P,v\in V, T:T_pP\rightarrow V \hbox{linear}\}$$
-	\end{Def}
-	\begin{Prop}
-		The 1-Jets space is a smooth manifold.
-	\end{Prop}
-	\begin{proof}
-		
-	\end{proof}
+		\chapter{The Euler-Lagrange equations}
+		In this chapter we will look at how to define the Euler-Lagrange equations on the framework of differential geometry. We will apply the results of this chapter in the study of the general solutions of the Yang-Mills Lagrangian. REFERENZA
+		\section{Lagrangians and gauge invariance}
+		In this section we will give the definition of a gauge invariant Lagrangian and look at some properties of it. REFERENZA
+		\begin{Def}
+			Let $(P,M,\pi,G)$ be a principal $G$-bundle and $\rho:G\rightarrow GL(V)$ a representation. We define the space of \textit{1-Jets} as:
+			$$J(P,V)=\{(p,v,T)|p\in P,v\in V, T:T_pP\rightarrow V \hbox{linear}\}$$
+		\end{Def}
+		\begin{Prop}
+			The 1-Jets space is a smooth manifold.
+		\end{Prop}
+		\begin{proof}
+			
+		\end{proof}
 	\end{comment}
 	\chapter{The Yang-Mills Gauge theory}
-	In this chapter we will use the knowledge exposed previously to construct the famous Yang-Mills Lagrangian and look at some of its properties. More informations on this topic can be found in REFERENZA
+	In this chapter we will use the knowledge exposed previously to construct the famous Yang-Mills Lagrangian and look at some of its properties. More information on this topic can be found in REFERENZA
 	\section{The Maxwell's equations}
-	In this section we will see a geometric formulation for the Maxwell's equations. We will first of all analyze them in a void flat space-time configuration. More references can be found in REFERENZA\\
+	In this section we will see a geometric formulation for Maxwell's equations. We will first of all analyze them in a void flat space-time configuration. More references can be found in REFERENZA\\
 	\\
 	We will refer to $\mathbb{R}^n$ equipped with a flat metric $\eta=diag(-,-,...,_,+,+,...,+)$ with signature $(p,q)$, as $\mathbb{R}^{q,p}$. Our starting setting is Minkowski space, so we consider $\mathbb{R}^{1,3}$ as the base manifold. We are working in natural units, so that the speed of light is normalized to $c=1$.\\
 	\\
@@ -2503,9 +2522,11 @@
 	$$dA=dA_\mu\wedge dx^\mu={1\over 2}\partial_\nu A_\mu dx^\nu\wedge dx^\mu$$
 	From this we obtain:
 	$$F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu$$
-	Looking at the Maxwell's equations, $dF=0$ is automatically satisfied. As for $d^*F=0$, we can explicitly compute this in the orthonormal basis:
+	Looking at Maxwell's equations, $dF=0$ is automatically satisfied. We can express this in coordinates like:
+	$$\partial_{[\rho} F_{\mu\nu]}=0$$
+	As for $d^*F=0$, we can explicitly compute this in the orthonormal basis:
 	$$\star F=\star dA={1\over 2}\star(\partial_\mu A_\nu dx^\mu\wedge dx^\nu)={1\over 2}F_{\mu\nu}\star(dx^\mu\wedge dx^\nu)$$
-	From proposition \ref{Prop_1.7.2} we have, for our othonormal basis:
+	From proposition \ref{Prop_1.7.2} we have, for our orthonormal basis:
 	$$\star (dx^\mu\wedge dx^\nu)= [\mu\nu\mu'\nu']\braket{dx^\mu\wedge dx^\nu,dx^\alpha\wedge dx^\beta}dx^{\mu'}\wedge dx^{\nu'}$$
 	With $\mu',\nu'$ complements of $\mu,\nu$ and $\alpha,\beta$ equal to the ordered $\mu,\nu$. Substituting this into the previous formula and expliciting the scalar product of forms as in observation \ref{Obs_1.7.1} one gets:
 	$$\star F=\sum_{\mu<\nu}F_{\mu\nu}[\mu\nu\mu'\nu']\hbox{det}
@@ -2515,15 +2536,15 @@
 	\end{pmatrix} dx^{\mu'}\wedge dx^{\nu'}$$
 	With $\alpha=\mu$ and $\beta=\nu$ since we are considering ordered sets of indices. The result is:
 	$$\star F=\sum_{\mu<\nu}[\mu\nu\mu'\nu']F^{\mu\nu}dx^{\mu'}\wedge dx^{\nu'}$$
-	Applying now the exterior derivative in the above formula we get:
+	Applying now the exterior derivative in the above formula, we get:
 	$$d\star F=\sum_{\mu<\nu}[\mu\nu\mu'\nu']\partial_\rho F^{\mu\nu}dx^\rho\wedge dx^{\mu'}\wedge dx^{\nu'}$$
-	The result is automatically 0 if $\rho=mu'$ or $\rho=\nu'$. Thus:
+	The result is automatically 0 if $\rho=\mu'$ or $\rho=\nu'$. Thus:
 	$$d\star F=0\iff \partial_\mu F^{\mu\nu}=0$$
 	Or equivalently, in terms of the vector potential $A$:
 	$$\partial_\mu(\partial^\mu A^\nu-\partial^\nu A^\mu)=\square A^\nu-\partial^\nu\partial_\mu A^\mu=0$$
 	where $\square=\partial_\mu\partial^\mu$.
 	\section{The Maxwell's equations in curved space-time}
-	In this section we will generalize the results of the previous analysis in a curved space-time. We will assume a background non-flat metric, with Minkowsky signature. We will also keep the assumption of a void space-time. REFERENZA
+	In this section we will generalize the results of the previous analysis in a curved space-time. We will assume a background non-flat metric, with Minkowski signature. We will also keep the assumption of a void space-time. REFERENZA
 	\\\\
 	Let $M$ be a 4-dimensional boundaryless manifold with a generic metric tensor $g$ with signature $(1,3)$. In this setting, in a generic coordinate system $\{x^\mu\}$, the metric tensor will be:
 	$$g=g_{\mu\nu}dx^\mu\wedge dx^\nu$$
@@ -2534,21 +2555,22 @@
 	Assuming our base preserves the orientation of the volume form i.e. $[dx^i]=1$, we can express the above terms in a nicer way:
 	$$\braket{dx^I,dx^J}=\hbox{det}(\braket{dx^i,dx^j}_{i\in I,j\in J})=\hbox{det}(g^{ij}_{\hspace{9pt}i\in I,j\in J})$$
 	The determinant of the metric tensor can be expressed as follows:
-	$$\hbox{det}(g^{ij}_{\hspace{9pt}i\in I,j\in J})=\sum_\nu g^{i_1j_{\nu_1}}...g^{i_kj_{\nu_k}}\varepsilon_{\nu_1,...,\nu_k}$$
-	where $\varepsilon$ is the Levi-Civita symbol. Substituting this into the above expression:
-	$$\star dx^I=\sqrt{|\hbox{det}g|}\sum_{J,\nu} [JJ']g^{i_1j_{\nu_1}}...g^{i_kj_{\nu_k}}\varepsilon_{\nu_1,...,\nu_k}dx^{J'}$$
+	$$\hbox{det}(g^{ij}_{\hspace{9pt}i\in I,j\in J})=\sum_\sigma g^{i_1j_{\sigma_1}}...g^{i_kj_{\sigma_k}}[\sigma_1...\sigma_k]$$
+	where $\sigma$ is a permutation of the indices. Substituting this into the above expression:
+	$$\star dx^I=\sqrt{|\hbox{det}g|}\sum_{J,\sigma} [JJ']g^{i_1j_{\sigma_1}}...g^{i_kj_{\sigma_k}}[\sigma_1,...,\sigma_k]dx^{J'}$$
 	\begin{Prop}
-		In curved space-time, the Maxwell's equations are:
+		In curved space-time, Maxwell's equations are:
 		$$\partial_{[\rho} F_{\mu\nu]}=0\hspace{20 pt} {1\over \sqrt{|\hbox{det}g|}}\partial_\nu (\sqrt{|\hbox{det}g|}F^{\mu\nu})=0$$
 	\end{Prop}
 	\begin{proof}
 		Generalizing the equations: 
 		$$dF=0\hspace{20pt} d^*F=0$$
 		The first one is automatically proved since the exterior derivation does not involve the metric at all; as for the second one, we find the following:
-		$$\star F={1\over 2}F_{\mu\nu}\star( dx^\mu\wedge dx^\nu)=$$
-		$$={1\over 2}F_{\mu\nu}\sqrt{|\hbox{det}g|}\sum_{J,\nu}[JJ']g^{\mu j_{\nu_1}}g^{\nu j_{\nu_2}}\varepsilon_{\nu_1\nu_2} dx^{J'}={1\over 2}\sqrt{|\hbox{det}g|}\sum_{J,\nu}[JJ']F^{j_{\nu_1}j_{\nu_2}}\varepsilon_{\nu_1\nu_2} dx^{J'}$$
-		Taking now the exterior derivative, one clearly sees that the non 0 terms are only the ones like $$\partial_{j_{\nu_1}}F^{j_{\nu_1}j_{\nu_2}}dx^{j_{\nu_1}}\wedge dx^{J'}$$ 
-		Due to $J'$ being the ordered complement of $J$. This means that the second half of the Maxwell's equations is:
+		$$\star F={1\over 2} F_{\mu\nu}\star( dx^\mu\wedge dx^\nu)=$$
+		$$={1\over 2}F_{\mu\nu}\sqrt{|\hbox{det}g|}\sum_{J,\sigma}[JJ']g^{\mu j_{\sigma_1}}g^{\nu j_{\sigma_2}}[\sigma_1\sigma_2] dx^{J'}$$
+		Taking now the exterior derivative, one	gets:
+		$${1\over 2}\partial_\rho \sum_{J,\sigma} [JJ']\sqrt{|\hbox{det}g|}F_{\mu\nu}g^{\mu \sigma_1}g^{\nu \sigma_2}[\sigma_1\sigma_2] dx^\rho\wedge dx^{J'}$$ 
+		Since $J'$ is the ordered complement of $J$, the only non trivially 0 terms are the ones with $\rho \in J$. This means that the second half of Maxwell's equations is:
 		$$\partial_\nu (\sqrt{|\hbox{det}g|}F^{\mu\nu})=0$$
 	\end{proof}
 	\begin{Obs}
@@ -2577,7 +2599,7 @@
 		$$F\wedge \star F={1\over 2}F_{\mu\nu}F^{\mu\nu}dt\wedge dx\wedge dy\wedge dz$$
 		This gives the general well known form of the electromagnetic Lagrangian:
 		$$\mathcal{L}=-{1\over 4}F_{\mu\nu}F^{\mu\nu}$$
-		One can then apply the Euler Lagrange equations to find the equations of motions of the field $A$:
+		One can then apply the Euler Lagrange equations to find the equations of motion of the field $A$:
 		$$\partial_\nu{\partial \mathcal{L}\over \partial_\mu A_\nu}={\partial \mathcal{L}\over \partial A_\mu}$$
 		Re-writing the Lagrangian as:
 		$$\mathcal{L}=-{1\over 2}(\partial_\mu A_\nu\partial^\mu A^\nu-\partial_\mu A_\nu\partial^\nu A^\mu)$$
@@ -2598,11 +2620,11 @@
 		\item Lorentz invariant;
 		\item Gauge invariant.
 	\end{itemize}
-	By gauge invariance we mean that the Lagrangian is invariant under local transformations encoded in a Lie group. In particular, we will assume the existence of an a-priori $G$-principal bundle on our space-time manifold, where $G$ is the symmetry group. In our analysis, we also ask for $G$ to be compact and to have a semisimple Lie algebra. This requirement will ensure, in the $n$-dimensional case, that the group is equipped with a positive definite scalar product: the Cartan-Killing form.
+	By gauge invariance, we mean that the Lagrangian is invariant under local transformations encoded in a Lie group. In particular, we will assume the existence of an a-priori $G$-principal bundle on our space-time manifold, where $G$ is the symmetry group. In our analysis, we also ask for $G$ to be compact and to have a semisimple Lie algebra. This requirement will ensure, in the $n$-dimensional case, that the group is equipped with a positive definite scalar product: the Cartan-Killing form.
 	\\\\
-	We now wish to recover the Maxwell's equations and the electromagnetic Lagrangian of the previpus section in a new differential geometry setting, which will make the gauge symmetry and the Lorentz invariance more manifest. We assume the existence of a principal $G$-bundle $(P,\mathbb{R}^{1,3},\pi,G)$ where $G$ is a Lie group. Given any representation $\rho:G\rightarrow GL(V)$, we can also define an associated bundle $(E,\mathbb{R}^{1,3},\pi_A,G)$ where $E={P\times V\over \sim}$ over the equivalence relation:
+	We now wish to recover Maxwell's equations and the electromagnetic Lagrangian of the previous section in a new differential geometry setting, which will make the gauge symmetry and the Lorentz invariance more manifest. We assume the existence of a principal $G$-bundle $(P,\mathbb{R}^{1,3},\pi,G)$ where $G$ is a Lie group. Given any representation $\rho:G\rightarrow GL(V)$, we can also define an associated bundle $(E,\mathbb{R}^{1,3},\pi_A,G)$ where $E={P\times V\over \sim}$ over the equivalence relation:
 	$$(p,v)\sim(p\cdot g,\rho(g^{-1})v)$$
-	Two points in the space $E$ that belong to the same equivalence class represent the same  physical state. To find an analogue for the vector potential, we take a connection 1-form $A$ on our principal bundle $A\in\Omega^1(P,\mathfrak{g})$.\\
+	Two points in the space $E$ that belong to the same equivalence class represent the same physical state. To find an analogue for the vector potential, we take a connection 1-form $A$ on our principal bundle $A\in\Omega^1(P,\mathfrak{g})$.\\
 	By definition, the connection $1$-form has the following properties:
 	\begin{itemize}
 		\item for every $X\in \mathfrak{g}$ and $p\in P$ it holds $A(\overline{X}_p)=X$ where $\overline{X}$ is the fundamental vector field of $X$.
@@ -2662,10 +2684,10 @@
 		$$s^*F=ds^*A+{1\over 2}[s^*A,s^*A]$$
 		Moreover, the term $[A,A]$ is 0 since in the $U(1)$ case the adjoint representation is trivial. Thus, we find:
 		$$s^*F=-idA_a\otimes T^a$$
-		And in this setting there is only one generator $T$ for the Lie algebra. This means:
-		$$s^*F=-idA_\mu dx^\mu\otimes T=-i\partial_\mu A_\nu dx^\mu\wedge dx^\nu \otimes T$$
+		And in this setting there is only one generator $T$ for the Lie algebra. Choosing $T=-i$:
+		$$s^*F=-idA_\mu dx^\mu=-i\partial_\mu A_\nu dx^\mu\wedge dx^\nu$$
 		By the skew-symmetry of the wedge product, we can re-write the above formula as:
-		$$s^*F=-idA_\mu dx^\mu\otimes T={-i\over 2}[\partial_\mu A_\nu-\partial_\nu A_\mu] dx^\mu\wedge dx^\nu \otimes T$$
+		$$s^*F=-idA_\mu dx^\mu={-i\over 2}[\partial_\mu A_\nu-\partial_\nu A_\mu] dx^\mu\wedge dx^\nu$$
 		This completes the proof.
 	\end{proof}
 	\begin{Prop}\label{Prop_8.4.3}
@@ -2680,7 +2702,7 @@
 		$$A\cdot F(X,Y,Z)={1\over 2}\sum_\sigma sgn(\sigma)\hbox{ad}(A(X))(F(Y,Z))$$
 		In the current case the gauge group is $U(1)$ abelian. This means that the adjoint representation is trivial and so the exterior covariant derivative $D$ simplifies to:
 		$$F=DA=dA+{1\over 2}[A,A]=dA$$
-		Also $DF=dF+[A,F]=0=d(dA)+[A,F]$ which implies $DF=dF=0$. From those identities we can say that, in the abelian setting, the Maxwell's equations are fully recovered in space-time in two different equivalent forms. In fact, choosing $T$ as a generator for $\mathfrak{g}=\mathbb{R}$ and $s$ as a local gauge, we can pullback both $A$ and $F$. Knowing from proposition \ref{Prop_3.5.3} that the pullback commutes both with the exterior derivative and the product of forms:
+		Also $DF=dF+[A,F]=0=d(dA)+[A,F]$ which implies $DF=dF=0$. From those identities we can say that, in the abelian setting, Maxwell's equations are fully recovered in space-time in two different equivalent forms. In fact, choosing $T$ as a generator for $\mathfrak{g}=\mathbb{R}$ and $s$ as a local gauge, we can pullback both $A$ and $F$. Knowing from proposition \ref{Prop_3.5.3} that the pullback commutes both with the exterior derivative and the product of forms:
 		$$s^*F=s^*dA=ds^*A=dA_\mu\otimes T={1\over 2}F_{\mu\nu} dx^\mu\wedge dx^\nu \otimes T$$
 		$$s^*dF=0=ds^*F={1\over 2}dF_{\mu\nu}\wedge dx^\mu\wedge dx^\nu \otimes T=0$$
 	\end{proof}
@@ -2692,17 +2714,18 @@
 	\end{Prop}
 	\begin{proof}
 		We check that this Lagrangian reduces to the same one we had found in proposition \ref{Prop_8.1.2}. Starting from the curvature $F\in \Omega^2_{Ad}(P,\mathfrak{g})$, through theorem \ref{Mus_Iso}, we can construct a $2$-form $F_M\in \Omega^2(M,E)$. Choosing a local frame $\{e_i\}$, we can expand $F_M=F^i_{M}\otimes e_i$, where $F_M^i\in \Omega^2(M)$, and define the product: $$\braket{F_M,F_M}_{Ad}=\braket{F_M^i,F_M^j}\braket{e_i,e_j}_{Ad}$$
-		In the last expansion $\braket{e_i(p),e_j(p)}_{Ad}=\braket{e_i(p),e_j(p)}_{\mathfrak{u}(1)}$ is a non degenerate, positive definite symmetric product on $\mathbb{R}=\mathfrak{u}(1)$. Since the group is abelian, the product is clearly invariant under the adjoint representation. Locally, we can choose an orthonormal frame $e_i$ for this product. Let now $\omega$ be the volume form, then $\braket{F_M^i,F_M^j}\omega=F_M^i\wedge\star F_M^j$ and in our basis the Cartan-Killing form takes the form: $B_{\mathfrak{u}(1)}(e_i,e_j)=-\delta_{ij}$ at any $p$. Thus, we can write:
-		$$\mathcal{L}\omega={1\over 2}F_M^i\wedge \star F_M^i$$
+		In the last expansion $\braket{e_i(p),e_j(p)}_{Ad}=\braket{e_i(p),e_j(p)}_{\mathfrak{u}(1)}$ is a non degenerate, positive definite symmetric product on $\mathbb{R}=\mathfrak{u}(1)$. Since the group is abelian, the product is clearly invariant under the adjoint representation. Locally, we can choose an orthonormal frame $e_i$ for this product. Let now $\omega$ be the volume form, then $\braket{F_M^i,F_M^j}\omega=F_M^i\wedge\star F_M^j$ and in an orthonormal basis the Cartan-Killing form becomes: $$B_{\mathfrak{u}(1)}(e_i,e_j)=-\delta_{ij}$$
+		at any $p$. Thus, we can write:
+		$$\mathcal{L}\omega=-{1\over 2}F_M^i\wedge \star F_M^i$$
 		and since the Lie algebra is $1$ dimensional, the index $i$ has only one possible value:
-		$$\mathcal{L}\omega={1\over 2}F^1_M\wedge \star F^1_M$$
+		$$\mathcal{L}\omega=-{1\over 2}F^1_M\wedge \star F^1_M$$
 		From proposition \ref{Prop_7.2.3} we know that the transformation of the curvature $F_M$ under a gauge transformation $\phi\in \mathcal{G}(P)$ is:
 		$$F_M\rightarrow \phi^{-1}\cdot F_M$$
 		Moreover, the bundle metric $\braket{,}_{Ad}$ is, by construction, invariant under automorphisms of the Lie algebra. This makes the Lagrangian invariant under gauge transformations. This invariance allows us to express the Lagrangian in coordinates, by choosing an arbitrary local gauge $s:U\subset M\rightarrow P$. In particular, from proposition \ref{God_Prop} and observation \ref{Obs_7.3.2}, we have:
 		$$\braket{F_M,F_M}_{Ad}=\braket{s^*F,s^*F}_\mathfrak{g}=\braket{F_a,F_b}\braket{T^a,T^b}_\mathfrak{g}$$
-		In our current case the Lie algebra is 1 dimensional and selecting we choose a normalized generator so that:
-		$$\braket{F_M,F_M}_{Ad}=\braket{F_a,F_a}$$
-		Choosing a local chart $(U,x^i)$ on $M$, we can select a basis $\{\partial_\mu\}$ for the tangent space and a base $\{dx^\mu\}$ for the cotangent space. Those bases are constructed to be orthonormal with respect to the Minkowsky metric. It is now possible to expand with those coordinates the pullback of the curvature:
+		In our current case the Lie algebra is 1 dimensional and so for $T=-i$:
+		$$\braket{F_M,F_M}_{Ad}=-\braket{F_a,F_a}$$
+		Choosing a local chart $(U,x^i)$ on $M$, we can select a basis $\{\partial_\mu\}$ for the tangent space and a base $\{dx^\mu\}$ for the cotangent space. Those bases are constructed to be orthonormal with respect to the Minkowski metric. It is now possible to expand with those coordinates the pullback of the curvature:
 		$$\braket{F_a,F_a}={1\over 4}F_{\mu\nu} F_{\alpha\beta}\braket{dx^\mu\wedge dx^\nu,dx^\alpha\wedge dx^\beta}$$ 
 		Applying the definition of scalar product between forms written in observation \ref{Obs_1.7.1}, we get:
 		$$\braket{dx^\mu\wedge dx^\nu,dx^\alpha\wedge dx^\beta}=det
@@ -2712,22 +2735,22 @@
 		\end{pmatrix}=\eta^{\mu\alpha}\eta^{\nu\beta}-\eta^{\nu\alpha}\eta^{\mu\beta}$$
 		Contracting the indices with $F_{\mu\nu}F_{\alpha\beta}$ one gets:
 		$$\braket{F_a,F_a}={1\over 2}F_{\mu\nu} F^{\mu\nu}$$
-		This is exactly the same form of proposition \ref{Prop_8.1.2}. Now it only remains to show that the solution of this Lagrangian satisfies the Maxwell's equations. \\\\
+		This is exactly the same form of proposition \ref{Prop_8.1.2}. Now it only remains to show that the solution of this Lagrangian satisfies Maxwell's equations. \\\\
 		The first half follows from the properties of $F$. In fact, we already proved $DF=dF+A\cdot F=0$ and through the construction of theorem \ref{Mus_Iso}, it immediately follows that $DF_M=0$.\\
 		\\
-		The remaining part of the Maxwell's equations can be found through the minimization of the action. Define:
+		The remaining part of Maxwell's equations can be found through the minimization of the action. Define:
 		$$S[A]=-{1\over 2}\braket{F_M,F_M}_{Ad,L^2}$$
- 		The equations of motion must satisfy:
- 		$${d\over dt}\bigg|_0S[A+\delta A]=0$$
- 		By proposition \ref{Prop_6.3.5}, we can vary the connection 1-form with a tensorial 1 form $\omega\in\Omega^1_{Ad}(M,Ad(P))$. In particular:
- 		$$F_M\rightarrow F_M+\delta F_M= d(A+t\omega)+{1\over 2}[A+t\omega,A+t\omega]=F_M+t(d\omega+[A,\omega])+O(t^2)$$
- 		Since $\omega$ is a tensorial form of type Ad, we can re-formulate the above equation as:
- 		$$F_M\rightarrow F_M+tD\omega+O(t^2)$$
- 		This gives us the result:
- 		$${d\over dt}\bigg|_0\braket{F_M+\delta F_M,F_M+\delta F_M}_{Ad,L^2}=2\braket{D\omega,F_M}$$
- 		From \ref{Prop_7.3.2} we get:
- 		$$0=\braket{\omega,D^*F_M}$$
- 		Which means that the equations of motion must satisfy $D^*F_M=0$ or $d^*F=0$ in the abelian case.
+		The equations of motion must satisfy:
+		$${d\over dt}\bigg|_0S[A+\delta A]=0$$
+		By proposition \ref{Prop_6.3.5}, we can vary the connection 1-form with a tensorial 1 form $\omega\in\Omega^1_{Ad}(M,Ad(P))$. In particular:
+		$$F_M\rightarrow F_M+\delta F_M= d(A+t\omega)+{1\over 2}[A+t\omega,A+t\omega]=F_M+t(d\omega+[A,\omega])+O(t^2)$$
+		Since $\omega$ is a tensorial form of type Ad, we can re-formulate the above equation as:
+		$$F_M\rightarrow F_M+tD\omega+O(t^2)$$
+		This gives us the result:
+		$${d\over dt}\bigg|_0\braket{F_M+\delta F_M,F_M+\delta F_M}_{Ad,L^2}=2\braket{D\omega,F_M}$$
+		From \ref{Prop_7.3.2} we get:
+		$$0=\braket{\omega,D^*F_M}$$
+		Which means that the equations of motion must satisfy $D^*F_M=0$ or $d^*F=0$ in the abelian case.
 	\end{proof}
 	\section{The SU(n) Yang-Mills theory}
 	In this section we will generalize the construction of the electromagnetic Lagrangian with higher dimensional groups. This will lead us to the QCD gauge boson Lagrangian. More informations on this can be found in REFERENZA\\
@@ -2755,7 +2778,7 @@
 		where $A_a\in\Omega^1(M)$ for every $a$ and $A_{\mu,a}:M\rightarrow\mathbb{R}$ are smooth functions of points in $M$. 
 		If now we expand $g_{ji}(x)=exp(-i\alpha_a(x)T^a)$ through the exponential map, with $\alpha(x)$ being smooth functions of points, we get:
 		$$dg_{ji,x}(X_x)=-iexp(-i\alpha_aT^a)\cdot \partial_\mu \alpha_{a}(x)dx^\mu\otimes T^a$$
-		Thus, the transformation of $A$ becomes explicitly:
+		Thus, the transformation of $A$ becomes:
 		$$A_i=Ad(g_{ji}^{-1})A_j-i\partial_\mu\alpha_a\otimes T^a=e^{i\alpha_aT^a}A_je^{-i\alpha_aT^a}-i\partial_\mu\alpha_a\otimes T^a$$
 	\end{Obs}
 	Looking now at the curvature form $F$, we found in the previous section that it transformed with the adjoint representation:
@@ -2766,11 +2789,11 @@
 	\end{Prop}
 	This means that the pullback of $F$ does not define a global closed form on $M$, since it depends on the local gauge chosen.
 	\begin{Prop}
-		For $G=SU(n)$, the first half of the Maxwell's equations takes the form:
+		For $G=SU(n)$, the first half of Maxwell's equations takes the form:
 		$$DF=0$$
 		with $F=DA$.
 	\end{Prop}
-	This result immediatly follows from observation \ref{Obs_6.3.5}. However, the main difference from the result found in proposition \ref{Prop_8.4.3} is that $F\neq dA$ and $dF\neq 0$. In fact:
+	This result immediately follows from observation \ref{Obs_6.3.5}. However, the main difference from the result found in proposition \ref{Prop_8.4.3} is that $F\neq dA$ and $dF\neq 0$. In fact:
 	$$F=dA+{1\over 2}[A,A]$$
 	and in the case of a non abelian gauge group like $SU(n)$, the second term does not vanish. Looking back at example \ref{Ex_3.5.1}:
 	$$[A,A]=A_a\wedge A_b \otimes [T^a,T^b]$$ 
@@ -2791,15 +2814,13 @@
 		$$=-i\partial_\mu A_{\nu,a}dx^\mu\wedge dx^\nu\otimes T^a-{i\over 2}A_{\mu,a}A_{\nu,b}dx^\mu\wedge dx^\nu \otimes f^{ab}_{\hspace{9pt}c}T^c$$
 		We can now re-write the first term as:
 		$$-i\partial_\mu A_{\nu,a}dx^\mu\wedge dx^\nu\otimes T^a={-i\over 2}[\partial_\mu A_{\nu,a}-\partial_\nu A_{\mu,a}]dx^\mu\wedge dx^\nu\otimes T^a$$
-		By proposition \ref{Prop_2.8.3}, if we choose $\{-iT^a\}$ to be an orthonormal basis for the Cartan-Killing metric, the structure constants $f^{ab}_{\hspace{9pt}c}$ are totally antisymmetric. By permuting the indices and applying the above property one finds:
+		By proposition \ref{Prop_2.8.3}, if we choose $\{-iT^a\}$ to be an orthonormal basis for the Cartan-Killing metric, the structure constants $f^{ab}_{\hspace{9pt}c}$ are totally antisymmetric. By permuting the indices and applying the above property, one finds:
 		$$A_{\mu,a}A_{\nu,b}dx^\mu\wedge dx^\nu \otimes f^{ab}_{\hspace{9pt}c}T^c=f^{bc}_{\hspace{9pt}a}A_{\mu,b}A_{\nu,c}\otimes T^a$$
 		Substituting this into the expression for $F$ one gets:
 		$$s^*F={-i\over 2}F_{\mu\nu,a}dx^\mu\wedge dx^\nu\otimes T^a={-i\over 2}[\partial_{\mu}A_{\nu,a}-\partial_{\nu}A_{\mu,a}+f^{bc}_{\hspace{9pt}a}A_{\mu,b}A_{\nu,c}]dx^\mu\wedge dx^\nu \otimes T^a$$
 	\end{proof}
 	\begin{Obs}
-		We now check how the Lagrangian changes in this generalized non-abbelian theory. We keep the same structure we found in the $U(1)$ and develop it in coordinates.\\
-		\\
-		Let $F\in\Omega^2_{Ad}(P,\mathfrak{su}(n))$ be the curvature. By construction $\mathcal{L}=-{1\over 2}\braket{F_M,F_M}_{Ad}$ where $F_M\in \Omega^2(M,Ad(P))$ is the $2$-form associated to the curvature $F$ by theorem \ref{Mus_Iso}. We immediately see that this lagrangian is invariant under gauge transformations. This is clear since those act on $F_M$ as described in proposition \ref{Prop_7.2.3}, and the scalar product on $\mathfrak{g}=\mathfrak{su}(n)$ is the Cartan-Killing form, which is invariant under automorphisms.\\
+		We now check how the Lagrangian changes in this generalized non-abelian theory. We keep the same structure we found in the $U(1)$ and develop it in coordinates. Let $F\in\Omega^2_{Ad}(P,\mathfrak{su}(n))$ be the curvature. By construction $\mathcal{L}=-{1\over 2}\braket{F_M,F_M}_{Ad}$ where $F_M\in \Omega^2(M,Ad(P))$ is the $2$-form associated to the curvature $F$ by theorem \ref{Mus_Iso}. We immediately see that this Lagrangian is invariant under gauge transformations. This is clear since those act on $F_M$ as described in proposition \ref{Prop_7.2.3}, and the scalar product on $\mathfrak{g}=\mathfrak{su}(n)$ is the Cartan-Killing form, which is invariant under automorphisms.\\
 		Note that, with respect to the $U(1)$ case, $F_M$ is not invariant under gauge transformations, but the Lagrangian is. Choosing a local gauge $s:U\subset M\rightarrow P$, we can express, through \ref{God_Prop}, $F_M$ as $s^*F$. In particular:
 		$$\braket{F_M,F_M}_{Ad}=\braket{s^*F,s^*F}_{\mathfrak{su}(n)}$$
 		Moreover, fixing a chart $(U,x^i)$ with induced bases $\{\partial_\mu\}$, $\{dx^\mu\}$ orthonormal to the Minkowski metric $\eta_{\mu\nu}$, we get:
@@ -2824,7 +2845,7 @@
 		Clearly, the main difference from the abelian case is in the last two terms, which arise due to the non commutativity of the Lie algebra. In fact, in the $U(1)$ case, the structure constants are 0.
 	\end{Obs}
 	\begin{Prop}
-		In the $SU(n)$ case, the second half of the MAxwell's equations has the form:
+		In the $SU(n)$ case, the second half of the Maxwell's equations has the form:
 		$$D^*F=0$$
 	\end{Prop}
 	\begin{proof}
@@ -2836,22 +2857,62 @@
 		$$F_M\rightarrow F_M+t(d\omega+[A,\omega])+O(t^2)$$
 		And since $\omega$ is a tensorial form::
 		$$F_M\rightarrow F_M+tD\omega+O(t^2)$$
-		This gives us the known result result:
+		This gives us the known result:
 		$${d\over dt}\bigg|_0\braket{F_M+\delta F_M,F_M+\delta F_M}_{Ad,L^2}=2\braket{D\omega,F_M}$$
 		From \ref{Prop_7.3.2} we get:
 		$$0=\braket{\omega,D^*F_M}$$
 		Which means that the equations of motion must satisfy $D^*F_M=0$.
 	\end{proof}
-	There is a last step to make to complete the construction: explicit the coupling constant. In observation \ref{Obs_2.9.1} We defined the coupling constant $g$ as the factor which determines the scalar product induced by the Cartan-Killing form. Thus, we operate the re-scaling up to a positive factor:
+	There is a last step to make to complete the construction: specify the coupling constant. In observation \ref{Obs_2.9.1} We defined the coupling constant $g$ as the factor which determines the scalar product induced by the Cartan-Killing form. Thus, we operate the re-scaling up to a positive factor:
 	$$\braket{,}_\mathfrak{g}\rightarrow {1\over g^2}\braket{,}_\mathfrak{g}$$
-	To keep the generators of the Lie algebra orthonormal, we have to also re-scale them like:
+	To keep the generators of the Lie algebra orthonormal, we also have to re-scale them like:
 	$$T^a\rightarrow gT^a$$
 	So that the commutator between them becomes:
 	$$[T^a,T^b]\longrightarrow g^2[T^a,T^b]$$
-	By substituting this into the expression fot the curvature tensor we find:
+	By substituting this into the expression for the curvature tensor we find:
 	$$F_{\mu\nu,a}\rightarrow g(\partial_\mu A_{\nu,a}-\partial_\nu A_{\mu,a})+g^2 f^{bc}_{\hspace{9pt}a}A_{\mu,b}A_{\nu,c}$$
-	And obviously the Lagrangian becomes:
+	And obviously, the Lagrangian becomes:
 	$$\mathcal{L}=-{1\over 2}(\partial_\mu A_{\nu,a}\partial^\mu A^{\nu,a}-\partial_\mu A_{\nu,a}\partial^\nu A^{\mu,a})-gf^{abc}A_{\mu,b}A_{\nu,c}\partial^\mu A^{\nu}_{a}-{1\over 4}g^2 f^{bc}_{\hspace{9pt}a}f^{ade}A_{\mu,b}A_{\nu,c}A^{\mu}_dA^{\nu}_e$$
+	\section{The Yang-Mills theory on the Hopf Bundle}
+	In this section we will construct a concrete example of the Yang-Mills theory on the Hopf bundle. More references on this topic can be found in REFERENZA
+	\\\\
+	Recall that in \ref{Ex_3.1.3} we defined the Hopf bundle in the following way: let
+	$S^1=U(1)$, $S^2=\{(z,x)\in\mathbb{C}\times\mathbb{R}||z|^2+x^2=1\}$ and $S^3=\{(z_1,z_2)\in\mathbb{C}^2||z_1|^2+|z_2|^2=1\}$. The projection is:
+	$$\pi:S^3\rightarrow S^2\hbox{ acting like: }\pi(z_1,z_2)=(2z_1z_2^*,|z_1|^2-|z_2|^2)$$
+	As shown in \ref{Ex_3.7.3}, there is a principal $U(1)$ bundle $(S^3,S^2,\pi,U(1))$ where the action of $U(1)$ on $S^3$ is given by:
+	$$e^{i\alpha}(z_1,z_2)=(e^{i\alpha}z_1,e^{i\alpha} z_2)$$
+	We are now going to explicitly construct a Yang-Mills theory on this principal bundle. Consider the following real coordinate system on $S^3$:
+	$$\begin{cases}
+		z_1=cos(\theta)e^{i\phi}\\
+		z_2=sin(\theta)e^{i\psi}
+	\end{cases}\hbox{ with }\theta\in[0,{\pi\over2}[\hbox{ and }\phi,\psi\in[0,2\pi[$$
+	The projection acts like:
+	$$\pi(cos(\theta)e^{i\phi},sin(\theta)e^{i\psi})=(2sin(\theta)cos(\theta)e^{i(\phi-\psi)},cos^2(\theta)-sin^2(\theta))=$$
+	$$=(sin(2\theta)e^{i(\phi-\psi)},cos(2\theta))$$ 
+	So, each point in $S^3$ is identified with a unique $(\theta,\phi,\psi)$. Now we wish to cosntruct a connection on this principal bundle. By definition, since the Lie algebra of $U(1)$ is $\mathbb{R}$, this will be an element of $\Omega^1(S^3,\mathbb{R})$ which satisfies the properties of \ref{Def_6.6}. A generic $1$-form will be:
+	$$A=A^\theta d\theta+A^\phi d\phi+A^\psi d\psi$$
+	Where $d\theta,d\phi,d\psi$ is the dual base of the coordinates: $(\partial_\theta,\partial_\phi,\partial_\psi)$. By \ref{Def_6.6}, this form must be smooth, this implies that the maps $A^\theta, A^\phi,A^\psi$ must be smooth.
+	Another property is that $A$ must be $U(1)$ equivariant:
+	$$r^*_gA=Ad(g^{-1})A$$
+	Since the group is abelian, the adjoint representation is trivial. This means that the above condition can be re-written as:
+	$$r^*_gA=A$$
+	The action of the group $U(1)$ is the following:
+	$$e^{-i\alpha}(\theta,\phi,\psi)=(\theta,\phi-\alpha,\psi-\alpha)$$
+	Imposing this we get:
+	$$r^*_{e^{-i\alpha}}A_{\theta,\phi-\alpha,\psi-\alpha}(a_{(\theta,\phi,\psi)}\partial_\theta+b_{(\theta,\phi,\psi)}\partial_\phi+c_{(\theta,\phi,\psi)}\partial_\psi)=$$
+	$$=A_{\theta,\phi-\alpha,\psi-\alpha}(dr_{e^{-i\alpha}}(a_{(\theta,\phi,\psi)}\partial_\theta+b_{(\theta,\phi,\psi)}\partial_\phi+c_{(\theta,\phi,\psi)}\partial_\psi))=$$
+	$$=A^\theta a_{(\theta,\phi,\psi)}+A^{(\phi-\alpha)} b_{(\theta,\phi,\psi)}+A^{(\psi-\alpha)} c_{(\theta,\phi,\psi)}=$$
+	$$=A^\theta a_{(\theta,\phi,\psi)}+A^{\phi} b_{(\theta,\phi,\psi)}+A^{\psi} c_{(\theta,\phi,\psi)}$$
+	This implies that the components of $A$ do not depend on $\psi$ and $\phi$.\\\\
+	Lastly, we impose that, for any $X$ element of the Li algebra, we have:
+	$$A(\overline{X})=X$$
+	Where $\overline{X}$ is the fundamental vector field of $X$. Now it is only  amatter to compute the fundamental vector field of a generic element of the Lie algebra $i\alpha$. We have, by definition:
+	$$\overline{-i\alpha}={d\over dt}\bigg|_0 (\theta,\phi,\psi)\cdot e^{-i\alpha t}=
+	{d\over dt}\bigg|_0 (\theta,\phi-t\alpha,\psi-t\alpha)=-\alpha(\partial_\phi+\partial_\psi)$$
+	Now, applying this to our connection:
+	$$A_{(\theta,\phi,\psi)}(\alpha(\partial_\phi+\partial_\psi))=\alpha$$
+	This means that:
+	$$A^\phi+A^\psi=1$$
 	\chapter*{Bibliography}
 	\begin{itemize}
 		\item[$\circ$] [1] Loring W.Tu, An Introduction to Manifolds, Springer, 2011;
