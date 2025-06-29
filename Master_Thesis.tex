@@ -107,7 +107,7 @@
 						% SE NON AVETE UN CORRELATORE CANCELLATE LE PROSSIME 3 RIGHE
 						%
 						\textcolor{black}{
-							\bf Correlatore: 
+							\bf Corelatore: 
 							\vspace{2mm}\\
 							Prof. Fiorenzo Bastianelli\\\\}}
 				}
@@ -135,16 +135,17 @@
 			
 		\end{titlepage}
 	\end{frontespizio}
-	\tableofcontents
-	\newpage
 	\thispagestyle{empty}
 	\mbox{}
 	\newpage
 	\chapter*{Abstract}
-	This master's thesis focuses on the mathematical formalization of gauge theories, with a particular focus on the Yang-Mills theory. Starting from the origins of gauge invariance in classical electrodynamics, the evolution of this concept has deeply set its roots inside physics, in particular within quantum field theory. In recent years gauge theories have found many applications both inside and outside of physics; thus, one of the key challenges for future developments of theoretical physics, pure mathematics and machine learning is the complete understanding and generalization of such concept. The underlying mathematical framework of gauge theories is differential geometry, including smooth manifolds, Lie groups and algebras, fiber bundles, and connections. Special attention is given to principal bundles and their associated bundles, as these provide the language for formulating gauge fields and curvature, interpreted respectively as gauge bosons and field strength tensors in physics. The thesis studies the necessary concepts to construct gauge theories on flat and curved spacetimes and generalizes the Maxwell Lagrangian to non-abelian SU(n) gauge groups. This approach highlights the central role of geometry in modern theoretical physics and the deep connections between mathematics and the fundamental interactions described by the Standard Model. 
+	This master's thesis focuses on the mathematical formalization of gauge theories, with a particular focus on the Yang-Mills theory. %Starting from the origins of gauge invariance in classical electrodynamics, the evolution of this concept has deeply set its roots inside physics, in particular within quantum field theory. In recent years gauge theories have found many applications both inside and outside of physics; thus, one of the key challenges for future developments of theoretical physics, pure mathematics and machine learning is the complete understanding and generalization of such concept. %
+	The underlying framework of gauge theories is differential geometry, including smooth manifolds, Lie groups and algebras, fiber bundles, and connections. Special attention is given to principal bundles and their associated bundles, as these provide the language for formulating gauge fields and curvature, interpreted respectively as gauge bosons and field strength tensors in physics. The thesis studies the necessary concepts to construct gauge theories on flat and curved spacetimes and generalizes the Maxwell Lagrangian to non-abelian SU(n) gauge groups. This approach highlights the central role of geometry in modern theoretical physics and the deep connections between mathematics and the fundamental interactions described by the Standard Model. 
+	\tableofcontents
+	\newpage
 	\chapter*{Introduction}
 	The concept of gauge theory arose for the first time in 1864. In particular, it first appeared in Maxwell's formulation of electrodynamics \textit{A Dynamical Theory of the Electromagnetic Field}. 
-	In 1919, Hermann Weyl proposed the idea of \textit{local scale or gauge invariance} in an attempt to unify electromagnetism and gravity. He introduced the term gauge invariance to describe a rescaling of the metric tensor. Although Weyl's choice was physically incorrect due to its wrong prediction of frequency shifts in atomic spectra, the term \textit{gauge} persisted and evolved in meaning over time, coming to signify local symmetry transformations rather than scale transformations.
+	In 1919, Hermann Weyl proposed the idea of \textit{local scale or gauge invariance} in an attempt to unify electromagnetism and gravity. He introduced the term gauge invariance to describe a rescaling of the metric tensor. Although Weyl's choice was not fully correct due to its prediction of frequency shifts in atomic spectra, the term \textit{gauge} persisted and evolved in meaning over time, coming to signify local symmetry transformations rather than scale transformations.
 	After the development of quantum mechanics, Weyl, Fock, and London modified the previous incorrect gauge choice by replacing the scale factor with a wave phase, applying it successfully to electromagnetism. The first true physical application of gauge symmetries is dated to 1954 by Yang and Mills, in an attempt to describe strong nuclear forces and the conservation of isospin. In their work, \textit{Conservation of Isotopic Spin and Isotopic Gauge Invariance}, Yang and Mills  selected $SU(2)$ as the gauge group for their analysis. Yang's core idea was to look for a conserved quantity, i.e. the isospin, in nuclear physics comparable to electric charge and use it to develop a theory analogue to electrodynamics. During the second half of the 20th century, gauge theories deeply penetrated theoretical physics, particularly after the development of the electroweak theory by Glashow, Weinberg, and Salam, and the formulation of quantum chromodynamics for the strong interaction. This culminated in the unification of the electromagnetic, weak, and strong forces within the framework of non-abelian gauge theories. The modern mathematical formalization of gauge theories has involved many mathematicians such as: Atiyah, Singer, Hitchin and also Donaldson, who was awarded the Fields Medal in 1986 for the construction of invariants in four manifolds.
 	The importance of gauge theories for physics mainly arises from their success in providing a coherent mathematical framework to describe the quantum-mechanical behavior of the electromagnetic, the weak and the strong forces. It is also worth noticing that one of the Millennium Prize problems is the \textit{Yang–Mills existence and mass gap problem} precisely concerns the Yang-Mills gauge theory, which is presented in this thesis. However, gauge theories find applications in many more fields, both inside and outside physics, such as pure mathematics and machine learning. \\
 	\\
@@ -2356,7 +2357,7 @@
 		$$[f(q),w]=[f(p\cdot g),\rho(g^{-1})v]=[f(p)\cdot g,\rho(g^{-1})v]$$
 	\end{proof}
 	\section{Gauge transformations of forms}
-	In this section we compute how the connection $1$-forms and the curvature transform under a change of local gauge. More information on this topic can be found in: [3] chap. 5 pag. 270-285.
+	In this section we compute how the connection $1$-forms and the curvature transform under a change of local gauge. More information on this topic can be found in: [3] chap. 5 pag. 270-285, [2] pag. 326.
 	\begin{Obs}
 		Consider a connection $1$-form $A$ on a principal bundle $(P,M,\pi,G)$. Then, $A$ is an element of $\Omega^1(P,\mathfrak{g})$. For any local gauge $s:U\rightarrow P$, we can define a $\mathfrak{g}$-valued form on the manifold through the pullback:
 		$$A_M=s^*A;\hbox{ so that }A_M\in \Omega^1(U,\mathfrak{g})$$
@@ -2374,12 +2375,15 @@
 		The differential of the action is by definition a map like:
 		$$d\mu_{(p,g)}:T_pP\oplus T_gG\rightarrow T_{p\cdot g}P$$
 		Thus, any element of $T_pP\oplus T_gG$ can be seen as $(X_p,Y_g)$, where $Y_g$ can be related to a specific element of the Lie algebra $\mathfrak{g}$ through the diffeomorphism $d\ell_g$ given by the left translation: $Y_g=d\ell_gA$.
-		By definition of differential:
-		$$d\mu_{(p,g)}(X_p,d\ell_gA)f=(X_p,\ell_gA)(f\circ \mu(p,g))=(X_p(f\circ r_g(p)),\ell_gA(f\circ \ell_p(g)))$$
-		where we have indicated with $\ell_p(g)=p\cdot g$ the left translation with $p$. Clearly, the first term can be rewritten like: $dr_gX_p(f)$. As for the second term instead, by definition of differential:
-		$$d\ell_gA(f\circ \ell_p(g))=d\ell_p\circ d\ell_gA(f)$$
-		However, $d\ell_p\circ d\ell_g=dj_{pg}$ and so we get the result:
-		$$d\mu_{(p,g)}(X_p,\ell_gA)=dr_g(X_p)+\overline{A}_{p\cdot g}$$
+		By linearity of the differential:
+		$$d\mu_{(p,g)}(X_p,d\ell_gA)=d\mu_{(p,g)}(X_p,0)+d\mu_{(p,g)}(0,d\ell_gA)$$
+		The first term can be computed by using the definition of differential:
+		$$d\mu_{(p,g)}(X_p,0)f=(X_p,0)(f\circ \mu(p,g))=(X_p(f\circ r_g(p)),0)=dr_gX_p(f)$$
+		As for the second term, a curve through $(p,g)\in P\times G$ with initial vector $(0,d\ell_g A)$ is $(p,ge^{tA})$, so
+		$$d\mu_{(p,g)}(0,d\ell_gA)={d\over dt}\bigg|_0\mu(p,ge^{tA})=\overline{A}_{p\cdot g}$$
+		This proves the claim:
+		%By definition of differential: $$d\mu_{(p,g)}(X_p,d\ell_gA)f=(X_p,d\ell_gA)(f\circ \mu(p,g))=(X_p(f\circ r_g(p)),d\ell_gA(f\circ \ell_p(g)))$$ where we have indicated with $\ell_p(g)=p\cdot g$ the left translation with $p$. Clearly, the first term can be rewritten like: $dr_gX_p(f)$. As for the second term instead, by definition of differential: $$d\ell_gA(f\circ \ell_p(g))=d\ell_p\circ d\ell_gA(f)$$ However, $d\ell_p\circ d\ell_g=dj_{pg}$ and so we get the result:
+		$$d\mu_{(p,g)}(X_p,d\ell_gA)=dr_g(X_p)+\overline{A}_{p\cdot g}$$%
 	\end{proof}
 	\begin{Theo} \label{Theo_7.2.1}
 		Let $(P,M,\pi,G)$ be a principal $G$-bundle and $A$ a connection on it. Let $s_1,s_2:U\rightarrow P$ be local gauges and $A_{i}=s_i^*A$ the pulled-back connections on the manifold. Then 
@@ -2396,7 +2400,7 @@
 		Now, the mapping $g_{ji}:M\rightarrow G$ has as differential $dg_{ji,x}:T_xM\rightarrow T_{g_{ji}(x)}G$, so that it takes $X_x$ into a tangent vector to $G$ at $g_{ji}(x)$. Thus, since for every $h\in G$ the left action is a diffeomorphism, there exists an element of the Lie algebra, which we will call $T$, such that 
 		$$d\ell_{g_{ji}(x)}(T)=dg_{ji,x}(X_x)$$
 		This in turn implies:
-		$$T=\ell_{g^{-1}_{ji}(x)}\circ dg_{ji,x}(X_x)$$
+		$$T=d\ell_{g^{-1}_{ji}(x)}\circ dg_{ji,x}(X_x)$$
 		Moreover, applying the result obtained in proposition \ref{Prop_7.2.1} we find:
 		$$d\mu_{(s_{j}(x), g_{ji}(x))}(ds_{j,x}(X_x),dg_{ji,x}(X_x))=d\mu_{(s_{j}(x), g_{ji}(x))}(ds_{j,x}(X_x),d\ell_{g_{ji}(x)}(T))=$$
 		$$=dr_{g_{ji}(x)}\circ ds_{j,x}(X_x)+\overline{T}_{s_{j}(x)\cdot g_{ji}(x)}$$
@@ -2416,7 +2420,7 @@
 		By substituting the transformation rules for the connection one gets:
 		$$s_i^*F=F_i=d(\hbox{Ad}(g_{ji}^{-1})A_j)+d\mu_{ji}+{1\over 2}[\hbox{Ad}(g_{ji}^{-1})A_j+\mu_{ji},\hbox{Ad}(g_{ji}^{-1})A_j+\mu_{ji}]=$$
 		$$=dr^*_{g_{ji}}A_j+{1\over 2}[r^*_{g_{ji}}A_j,r^*_{g_{ji}}A_j]+d\mu_{ji}+{1\over 2}[\mu_{ji},\mu_{ji}]$$
-		Using again proposition \ref{Prop_3.4.3} and expressing $\mu_{ji}=g_{ji^*\theta}$ we find:
+		Using again proposition \ref{Prop_3.4.3} and expressing $\mu_{ji}=g_{ji}^*\theta$ we find:
 		$$s_i^*F=F_i=r^*_{g_{ji}}F_j+g_{ji}^*(d\theta+{1\over 2}[\theta,\theta])$$
 		Finally, by example \ref{Ex_3.4.2}, the last term is 0 since it is the curvature induced by the Maurer-Cartan form. From the $G$-equivariance of the curvature found in theorem \ref{Theo_5.5.1}, we thus get:
 		$$F_i=\hbox{Ad}(g_{ji}^{-1})F_j$$
@@ -2431,17 +2435,20 @@
 	$$\Omega^k_\rho(P,V)\simeq \Omega^k(M,E)$$
 	The curvature of a connection is, as proved in proposition \ref{Theo_5.5.1}, $Ad$-equivariant and thus belongs to $\Omega^2_{Ad}(P,\mathfrak{g})$. This implies that once we have a connection on $P$ principal bundle, we can construct a $2$-form on the associated bundle $F_M$.
 	\begin{Prop}\label{Prop_7.2.3}
-		Let $F\in \Omega^2_{Ad}(P,\mathfrak{g})$ be a curvature form on a principal bundle and $F_M\in\Omega^2(M,E)$ be the corresponding $2$-form on the associated bundle. The transformation $\phi\in\mathcal{G}(P)$ on $F_M$ is induced by the one of $F$ and is:
+		Let $F\in \Omega^2_{Ad}(P,\mathfrak{g})$ be a curvature form on a principal bundle and $F_M\in\Omega^2(M,Ad(P))$ be the corresponding $2$-form on the associated bundle. The transformation $\phi\in\mathcal{G}(P)$ on $F_M$ is induced by the one of $F$ and is:
 		$$F_M\rightarrow \phi^{-1}\cdot F_M$$
 	\end{Prop}
 	\begin{proof}
 		Let $s:U\rightarrow P$ be a local gauge. By observation \ref{Obs_7.2.2}, the transformation $\phi\in\mathcal{G}$ on $F$ is:
-		$$F\rightarrow \hbox{Ad}(g^{-1})F$$
+		$$s^*F\rightarrow \hbox{Ad}(g^{-1})s^*F$$
 		where $g\in C^\infty(U,G)$ is the smooth map corresponding to $\phi$ in the isomorphism of proposition \ref{Prop_7.1.2}. The form $F_M$ is constructed through theorem \ref{Mus_Iso} as follows. Let $x\in M,X_x,X_y\in T_xM$, $p\in P_x$ and $\tilde{X}_p,\tilde{Y}_p\in T_pP$ their horizontal lifts. We have:
 		$$F_{M,x}(X_x,Y_x)=[p,F_p(\tilde{X}_p,\tilde{Y}_p)]$$
-		Now, applying $\phi$ we get:
-		$$[p,\hbox{Ad}(g^{-1})F_p(\tilde{X}_p,\tilde{Y}_p)]\sim [p\cdot \sigma^{-1}_\phi(p),F_p(\tilde{X}_p,\tilde{Y}_p)]=[\phi^{-1}(p),F_p(\tilde{X}_p,\tilde{Y}_p)]$$
-		But this is exactly $\phi^{-1}$ on $E$ (see proposition \ref{Prop_7.1.3}). Thus, we get:
+		In \ref{Mus_Iso} we proved that this association is independent of the choice of the horizontal lift and of the point in the fiber. Thus, if $p=s(x)$ and $\tilde{X}_p,=ds(X_x);\tilde{Y}_p=ds(Y_x)$, we have:
+		$$F_{M,x}(X_x,Y_x)=[s(x),F_{s(x)}(ds(X_x),ds(Y_x)]$$
+		Now, applying the gauge transformation $\phi$ we get:
+		$$[p,\hbox{Ad}(g^{-1})F_{s(x)}(ds(X_x),ds(Y_x))]\sim [p\cdot \sigma^{-1}_\phi(p),F_{s(x)}(ds(X_x),ds(Y_x))]=$$
+		$$=[\phi^{-1}(p),F_p(\tilde{X}_p,\tilde{Y}_p)]$$
+		But this is exactly $\phi^{-1}$ on $Ad(P)$ (see proposition \ref{Prop_7.1.3}). Thus, we get:
 		$$F_M\rightarrow \phi^{-1}\cdot F_M$$
 	\end{proof}
 	\section{Products on associated bundles}
@@ -2462,12 +2469,13 @@
 		$$\braket{[p,v],[p,w]}_{Ad}=\braket{v,w}_\mathfrak{g}$$
 		From theorem \ref{Theo_2.8.2} we know that if $\mathfrak{g}$ is compact and semisimple, we can use the Cartan-Killing form as a non degenerate inner product. This induces the following bundle metric:
 		$$\braket{[p,v],[p,w]}_{Ad}=Tr(\hbox{ad}_v\circ\hbox{ad}_w)$$
-		Moreover, the Cartan-Killing form, from proposition \ref{Prop_2.8.2}, is invariant under Lie algebra automorphisms. In particular, it is $Ad$-invariant. This immediately implies by proposition \ref{Prop_7.1.3} that the scalar product induced in the adjoint bundle $\hbox{Ad}(P)$ is invariant under gauge transformations, since they transform with the adjoint representation.
+		Moreover, the Cartan-Killing form, from proposition \ref{Prop_2.8.2}, is invariant under Lie algebra automorphisms. In particular, it is $Ad$-invariant. This immediately implies by proposition \ref{Prop_7.1.3} that the scalar product induced in the adjoint bundle $\hbox{Ad}(P)$ is invariant under gauge transformations.
 	\end{Ex}
 	\begin{Def}
-		Let $(P,M,\pi,G)$ a principal bundle, $\rho:G\rightarrow GL(V)$ a representation of $G$ and $E$ the induced associated bundle $E=P\times_\rho V$. Let $\omega_{1,2}\in \Omega^k_(M,E)$ be two $E$-valued forms on $M$. Then we define an inner product as follows: choose a local frame $\{e_i:M\rightarrow E\}$ of $E$ and expand $\omega_{1,2}=\omega_{1,2}^i\otimes e_i$, and set:
+		Let $(P,M,\pi,G)$ a principal bundle, $\rho:G\rightarrow GL(V)$ a representation of $G$ and $E$ the induced associated bundle $E=P\times_\rho V$. Let $\omega_{1,2}\in \Omega^k(M,E)$ be two $E$-valued forms on $M$. Then we define an inner product as follows: choose a local frame $\{e_i:M\rightarrow E\}$ of $E$ and expand $\omega_{1,2}=\omega_{1,2}^i\otimes e_i$, and set:
 		$$\braket{,}_{E}:\Omega^k(M,E)\times \Omega^k(M,E)\rightarrow C^\infty(M)$$
 		$$\braket{\omega_1,\omega_2}=\braket{\omega_1^i,\omega_2^j}\braket{e_i,e_j}_E$$
+		Where $\braket{\omega_1^i,\omega_2^j}$ is the standard product of k-forms.
 		In the same way we define the $L^2$ product:
 		$$\braket{,}_{E,L^2}:\Omega^k_c(M,E)\times\Omega^k_c(M,E)\rightarrow \mathbb{R}$$
 		$$\braket{\alpha,\beta}_{E,L^2}=\int_M\braket{\alpha,\beta}_E\omega$$
@@ -2500,12 +2508,13 @@
 	\end{proof}
 	There is a strong relationship between the pullback of the curvature on the manifold, with values on the Lie algebra, and the induced form on with values on the associated bundle. In particular, choosing a local gauge, one can show that locally there is a correspondence between them.
 	\begin{Prop}\label{God_Prop}
-		Let $(P,M,\pi,G)$ be a principal bundle and $(\hbox{Ad}(P),M,\pi_{Ad},\mathfrak{g})$ be the adjoint associated bundle. Let $A\in \Omega^1(P,\mathfrak{g})$ be a connection on the principal bundle and $F\in\Omega^2_{Ad}(P,\mathfrak{g})$ be its curvature. Then, for any local gauge $s:U\subset M\rightarrow P$w, the pullback $s^*F$ of $F$ and the associated form $F_M\in\Omega^2(M,\hbox{Ad}(P))$ coincide.  
+		Let $(P,M,\pi,G)$ be a principal bundle and $(\hbox{Ad}(P),M,\pi_{Ad},\mathfrak{g})$ be the adjoint associated bundle. Let $A\in \Omega^1(P,\mathfrak{g})$ be a connection on $P$, $F\in\Omega^2_{Ad}(P,\mathfrak{g})$ be its curvature and $F_M\in\Omega^2(M,\hbox{Ad}(P))$ be the associated form to $F$ through theorem \ref{Mus_Iso}. Let $s:U\subset M\rightarrow P$ be a local gauge and $\varphi$ the induced trivialization of $Ad(P)$ by $s$. Then, it holds: 
+		$$\varphi\circ F_{M}=s^*F$$
 	\end{Prop}
 	\begin{proof}
 		The local gauge $s:U\rightarrow P$ induces a local trivialization both on the principal bundle and on the adjoint bundle, respectively:
 		$$\phi: \pi^{-1}(U)\rightarrow U\times G\hbox{ such that }\phi(s(x)\cdot g)=(x,g)$$
-		$$\varphi: \pi_{Ad}^{-1}(U)\rightarrow U\times \mathfrak{g}\hbox{ such that }\phi([s(x)\cdot g,X])=(x,\rho(g)X)$$
+		$$\varphi: \pi_{Ad}^{-1}(U)\rightarrow U\times \mathfrak{g}\hbox{ such that }\varphi([s(x)\cdot g,X])=(x,\rho(g)X)$$
 		Those were defined in proposition \ref{Prop_3.5.3} and proposition \ref{Prop_6.2.3}. If $F$ is the curvature of $A$, then by theorem \ref{Mus_Iso}, the corresponding form $F_M\in\Omega(M,\hbox{Ad}(P))$ is constructed like:
 		$$F_{M,x}(v_{1,x},v_{2,x})=[s(x),F_{s(x)}(ds(v_{1,x}),ds(v_{2,x}))]$$
 		Where $x\in M$ and $v_{i,x}\in T_xM$.
@@ -2583,7 +2592,7 @@
 		\end{itemize} 
 	\end{multicols}
 	Which can be easily checked by applying proposition \ref{Prop_1.7.2}.
-	Classically, in empty space, the Maxwell's equations are: (see REFERENZA)
+	Classically, in empty space, the Maxwell's equations are: (see [12] chap. 1 pag. 118-121)
 	\begin{equation}\label{M.E.}
 		\nabla \cdot \vec{B} =0 \hspace{20 pt} \nabla \times \vec{B}={\partial \vec{E}\over \partial t}\hspace{20 pt}\nabla \cdot \vec{E} =0 \hspace{20 pt} \nabla \times \vec{E}=-{\partial \vec{B}\over \partial t}
 	\end{equation}
@@ -2603,7 +2612,9 @@
 	Since $F$ is a form, this matrix is skew-symmetric. Moreover, assuming that the fields $\vec{E},\vec{B}$ are smooth, $F$ is clearly smooth as well i.e. $F\in\Omega^2(\mathbb{R}^{1,3})$.
 	\begin{Prop}
 		The Maxwell's equations are given by:
-		$$dF=0\hspace{20 pt} d^*F=0$$
+		\begin{equation}\label{Max-Eq}
+			dF=0\hspace{20 pt} d^*F=0
+		\end{equation}
 	\end{Prop}
 	\begin{proof}
 		This is just a straightforward calculation. The fields are to be intended as functions like:
@@ -2632,33 +2643,35 @@
 		$$+(\partial_y B_1-\partial_x B_2+\partial_t E_3)dt\wedge dx\wedge dy+(\partial_x E_1+\partial_y E_2+\partial_z E_3)dx\wedge dy\wedge dz\bigg]$$
 		Clearly, by the same reasoning above, we recover the last 2 equations. This proves the initial claim.
 	\end{proof}
-	From the previous result we see that the electromagnetic field strength is a closed form i.e. $dF=0$. By the Poincaré lemma, \ref{P.L.} we can say that there exists a $1$-form $A\in\Omega^1(\mathbb{R}^{1,3})$, called \textit{vector potential}, such that $F=dA$. Clearly, this potential is not unique, but it is defined up to an additional term of the form $da$ where $a$ is a smooth function.\\
-	The general form of $A$ and $F$ in the above basis is:
-	$$F={1\over 2}F_{\mu\nu}dx^\mu\wedge dx^\nu\hspace{20 pt} A=A_\mu dx^\mu$$
-	And now, taking the exterior derivative of $A$, we clearly get:
-	$$dA=dA_\mu\wedge dx^\mu={1\over 2}\partial_\nu A_\mu dx^\nu\wedge dx^\mu$$
-	From this we obtain:
-	$$F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu$$
-	Looking at Maxwell's equations, $dF=0$ is automatically satisfied. We can express this in coordinates like:
-	$$\partial_{[\rho} F_{\mu\nu]}=0$$
-	Where the above notation means: $$\partial_{[\rho} F_{\mu\nu]}=\partial_\rho F_{\mu\nu}+\partial_\mu F_{\nu\rho}+\partial_\nu F_{\rho\mu}$$
-	As for $d^*F=0$, we can explicitly compute this in the orthonormal basis:
-	$$\star F=\star dA={1\over 2}\star(\partial_\mu A_\nu dx^\mu\wedge dx^\nu)={1\over 2}F_{\mu\nu}\star(dx^\mu\wedge dx^\nu)$$
-	From proposition \ref{Prop_1.7.2} we have, for our orthonormal basis:
-	$$\star (dx^\mu\wedge dx^\nu)= [\mu\nu\mu'\nu']\braket{dx^\mu\wedge dx^\nu,dx^\alpha\wedge dx^\beta}dx^{\mu'}\wedge dx^{\nu'}$$
-	With $[\mu\nu\mu'\nu']$ the sign of the permutation needed to put the set $\mu\nu\mu'\nu'$ in order, $\mu',\nu'$ complements of $\mu,\nu$ and $\alpha,\beta$ equal to the ordered $\mu,\nu$ (the indices are not summed over). Substituting this into the previous formula and expliciting the scalar product of forms as in observation \ref{Obs_1.7.1} one gets:
-	$$\star F=\sum_{\mu<\nu}F_{\mu\nu}[\mu\nu\mu'\nu']\det
-	\begin{pmatrix}
-		\eta^{\mu\alpha} & \eta^{\mu\beta}\\
-		\eta^{\nu\alpha} & \eta^{\nu\beta}\\
-	\end{pmatrix} dx^{\mu'}\wedge dx^{\nu'}$$
-	With $\alpha=\mu$ and $\beta=\nu$ since we are considering ordered sets of indices. The result is:
-	$$\star F=\sum_{\mu<\nu}[\mu\nu\mu'\nu']F^{\mu\nu}dx^{\mu'}\wedge dx^{\nu'}$$
-	Applying now the exterior derivative in the above formula, we get:
-	$$d\star F=\sum_{\mu<\nu}[\mu\nu\mu'\nu']\partial_\rho F^{\mu\nu}dx^\rho\wedge dx^{\mu'}\wedge dx^{\nu'}$$
-	The result is automatically 0 if $\rho=\mu'$ or $\rho=\nu'$. Thus:
-	$$d\star F=0\iff \partial_\mu F^{\mu\nu}=0$$
-	Those equations can also be expressed in terms of the vector potential $A$.
+	From the previous result \ref{Max-Eq} we see that the electromagnetic field strength is a closed form i.e. $dF=0$. By the Poincaré lemma, \ref{P.L.} we can say that there exists a $1$-form $A\in\Omega^1(\mathbb{R}^{1,3})$, called \textit{vector potential}, such that $F=dA$. Clearly, this potential is not unique, but it is defined up to an additional term of the form $da$ where $a$ is a smooth function.
+	\begin{Obs}
+		We can now look at those equatoions in coordinates: the general form of $A$ and $F$ in the above basis is:
+		$$F={1\over 2}F_{\mu\nu}dx^\mu\wedge dx^\nu\hspace{20 pt} A=A_\mu dx^\mu$$
+		And now, taking the exterior derivative of $A$, we clearly get:
+		$$dA=dA_\mu\wedge dx^\mu={1\over 2}\partial_\nu A_\mu dx^\nu\wedge dx^\mu$$
+		From this we obtain:
+		$$F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu$$
+		Looking at Maxwell's equations, $dF=0$ is automatically satisfied. We can express this in coordinates like:
+		$$\partial_{[\rho} F_{\mu\nu]}=0$$
+		Where the above notation means: $$\partial_{[\rho} F_{\mu\nu]}=\partial_\rho F_{\mu\nu}+\partial_\mu F_{\nu\rho}+\partial_\nu F_{\rho\mu}$$
+		As for $d^*F=0$, we can explicitly compute this in the orthonormal basis:
+		$$\star F=\star dA={1\over 2}\star(\partial_\mu A_\nu dx^\mu\wedge dx^\nu)={1\over 2}F_{\mu\nu}\star(dx^\mu\wedge dx^\nu)$$
+		From proposition \ref{Prop_1.7.2} we have, for our orthonormal basis:
+		$$\star (dx^\mu\wedge dx^\nu)= [\mu\nu\mu'\nu']\braket{dx^\mu\wedge dx^\nu,dx^\alpha\wedge dx^\beta}dx^{\mu'}\wedge dx^{\nu'}$$
+		With $[\mu\nu\mu'\nu']$ the sign of the permutation needed to put the set $\mu\nu\mu'\nu'$ in order, $\mu',\nu'$ complements of $\mu,\nu$ and $\alpha,\beta$ equal to the ordered $\mu,\nu$ (the indices are not summed over). Substituting this into the previous formula and expliciting the scalar product of forms as in observation \ref{Obs_1.7.1} one gets:
+		$$\star F=\sum_{\mu<\nu}F_{\mu\nu}[\mu\nu\mu'\nu']\det
+		\begin{pmatrix}
+			\eta^{\mu\alpha} & \eta^{\mu\beta}\\
+			\eta^{\nu\alpha} & \eta^{\nu\beta}\\
+		\end{pmatrix} dx^{\mu'}\wedge dx^{\nu'}$$
+		With $\alpha=\mu$ and $\beta=\nu$ since we are considering ordered sets of indices. The result is:
+		$$\star F=\sum_{\mu<\nu}[\mu\nu\mu'\nu']F^{\mu\nu}dx^{\mu'}\wedge dx^{\nu'}$$
+		Applying now the exterior derivative in the above formula, we get:
+		$$d\star F=\sum_{\mu<\nu}[\mu\nu\mu'\nu']\partial_\rho F^{\mu\nu}dx^\rho\wedge dx^{\mu'}\wedge dx^{\nu'}$$
+		The result is automatically 0 if $\rho=\mu'$ or $\rho=\nu'$. Thus:
+		$$d\star F=0\iff \partial_\mu F^{\mu\nu}=0$$
+		Those equations can also be expressed in terms of the vector potential $A$.
+	\end{Obs}
 	\begin{Prop}
 		The equations $dF=0$ and $d^*F=0$ can be also written as:
 		$$F_{\mu\nu}=2(\partial_\mu A_\nu-\partial_\nu A_\mu)\hspace{20 pt}
@@ -2670,7 +2683,7 @@
 		$$\partial_\mu(\partial^\mu A^\nu-\partial^\nu A^\mu)=\square A^\nu-\partial^\nu\partial_\mu A^\mu=0$$
 	\end{proof}
 	\section{The Maxwell's equations in curved space-time}
-	In this section we will generalize the results of the previous analysis in a curved space-time. We will assume a background non-flat metric, with Minkowski signature. We will also keep the assumption of a void space-time. [12] chap. 1 pag. 118-122.
+	In this section we will generalize the results of the previous analysis in a curved space-time. We will assume a background non-flat metric, with Minkowski signature. We will also keep the assumption of a void space-time. More information in [12] chap. 1 pag. 118-122.
 	\\\\
 	Let $M$ be a 4-dimensional boundaryless manifold with a generic metric tensor $g$ with signature $(1,3)$. In this setting, in a generic coordinate system $\{x^\mu\}$, the metric tensor will be:
 	$$g=g_{\mu\nu}dx^\mu\wedge dx^\nu$$
@@ -2710,9 +2723,9 @@
 		One easily sees that in the limit $g=\eta$ of flat space, the original Maxwell's equations are fully recovered.
 	\end{Obs}
 	\section{The Electromagnetic Lagrangian}
-	In this section we will explicitly construct the Lagrangian of the electromagnetic field. More references on this topic can be found in [12] chap. 1 pag. 118-122, chap. 2 pag. 361-366.
+	In this section we will explicitly construct the Lagrangian of the electromagnetic field. More information on this topic can be found in [12] chap. 1 pag. 118-122, chap. 2 pag. 361-366.
 	\\\\
-	The Lagrangian is the mathematical object that allows us to describe the laws of the physical system. The aim is to construct a Lorentz-invariant Lagrangian, from which we can recover our equations: $dF=d^*F=0$. For the following analysis, we will assume that spacetime is empty and flat, i.e. the metric tensor is $\eta$ the Minkowski metric. 
+	The Lagrangian is the mathematical object that allows us to describe the laws of the physical system. The aim is to construct from the potential $A$ a Lorentz-invariant Lagrangian, from which we can recover our equations: $d^*F=0$. For the following analysis, we will assume that spacetime is empty and flat, i.e. the metric tensor is $\eta$ the Minkowski metric. 
 	\begin{Prop}\label{Prop_8.1.2}
 		The Lagrangian for the Maxwell's equations is the map $\mathcal{L}:M\rightarrow \mathbb{R}$ such that:
 		$$\mathcal{L}\omega=-{1\over 2}F\wedge \star F$$
@@ -2742,8 +2755,8 @@
 		$$\square A^\mu-\partial^\mu\partial_\nu A^\nu=0$$
 		Where $\square=\partial_\mu\partial^\mu$.
 	\end{proof}
-	\section{The U(1) Yang-Mills theory}
-	In this section we will use the Maxwell's equation to deduce the general form of the Yang-Mills Lagrangian for the $U(1)$ case, i.e. electromagnetism. More references on this topic can be found in: [3] chap. 7 pag. 401-423.
+	\section{The U(1) Yang-Mills theory: electromagnetism}
+	In this section we will use the Maxwell's equation to deduce the general form of the Yang-Mills Lagrangian for the $U(1)$ case, i.e. electromagnetism. More information on this topic can be found in: [3] chap. 7 pag. 401-423.
 	\\\\
 	The Lagrangian is the mathematical object used to describe the dynamics of our fields. A priori there are infinitely many Lagrangians that we could consider. However, we would like to set some restrictions to them. Namely, any Lagrangian considered should have the following qualities:
 	\begin{itemize}
@@ -2837,7 +2850,7 @@
 		$$A\cdot F(X,Y,Z)={1\over 2}\sum_\sigma sgn(\sigma)\hbox{ad}(A(X))(F(Y,Z))$$
 		In the current case the gauge group is $U(1)$ abelian. This means that the adjoint representation is trivial and so the exterior covariant derivative $D$ simplifies to:
 		$$F=DA=dA+{1\over 2}[A,A]=dA$$
-		Also $DF=dF+[A,F]=0=d(dA)+[A,F]$ which implies $DF=dF=0$. From those identities we can say that, in the abelian setting, Maxwell's equations are fully recovered in space-time in two different equivalent forms. In fact, choosing $T$ as a generator for $\mathfrak{g}=\mathbb{R}$ and $s$ as a local gauge, we can pullback both $A$ and $F$. Knowing from proposition \ref{Prop_3.5.3} that the pullback commutes both with the exterior derivative and the product of forms:
+		Also $DF=dF+[A,F]=0=d(dA)+[A,F]$ which implies $DF=dF=0$. From those identities we can say that, in the abelian setting, Maxwell's equations are fully recovered. Choosing $T$ as a generator for $\mathfrak{g}=\mathbb{R}$ and $s$ as a local gauge, we can pullback both $A$ and $F$. Knowing from proposition \ref{Prop_3.5.3} that the pullback commutes both with the exterior derivative and the product of forms:
 		$$s^*F=s^*dA=ds^*A=dA_\mu\otimes T={1\over 2}F_{\mu\nu} dx^\mu\wedge dx^\nu \otimes T$$
 		$$s^*dF=0=ds^*F={1\over 2}dF_{\mu\nu}\wedge dx^\mu\wedge dx^\nu \otimes T=0$$
 	\end{proof}
@@ -2845,12 +2858,11 @@
 	\begin{Prop}
 		The electromagnetic Lagrangian is:
 		$$\mathcal{L}=-{1\over 2}\braket{F_M,F_M}_{Ad}$$
-		where $F_M$ is the induced curvature on $\Omega^2(M,\hbox{Ad}(P))$, $\hbox{Ad}(P)$ is the associated adjoint bundle constructed from the principal bundle $P$ and $\braket{,}_{Ad}$ is the bundle metric induced from the Cartan-Killing form on $U(1)$.
+		where $F_M$ is the induced curvature on $\Omega^2(M,\hbox{Ad}(P))$, $\hbox{Ad}(P)$ is the associated adjoint bundle constructed from the principal bundle $P$ and $\braket{,}_{Ad}$ is the bundle metric induced from any scalar product on $U(1)$.
 	\end{Prop}
 	\begin{proof}
 		We check that this Lagrangian reduces to the same one we had found in proposition \ref{Prop_8.1.2}. Starting from the curvature $F\in \Omega^2_{Ad}(P,\mathfrak{g})$, through theorem \ref{Mus_Iso}, we can construct a $2$-form $F_M\in \Omega^2(M,E)$. Choosing a local frame $\{e_i\}$, we can expand $F_M=F^i_{M}\otimes e_i$, where $F_M^i\in \Omega^2(M)$, and define the product: $$\braket{F_M,F_M}_{Ad}=\braket{F_M^i,F_M^j}\braket{e_i,e_j}_{Ad}$$
-		In the last expansion $\braket{e_i(p),e_j(p)}_{Ad}=\braket{e_i(p),e_j(p)}_{\mathfrak{u}(1)}$ is a non degenerate, positive definite symmetric product on $\mathbb{R}=\mathfrak{u}(1)$. Since the group is abelian, the product is clearly invariant under the adjoint representation. Locally, we can choose an orthonormal frame $e_i$ for this product. Let now $\omega$ be the volume form, then $\braket{F_M^i,F_M^j}\omega=F_M^i\wedge\star F_M^j$ and in an orthonormal basis the Cartan-Killing form becomes: $$B_{\mathfrak{u}(1)}(e_i,e_j)=-\delta_{ij}$$
-		at any $p$. Thus, we can write:
+		In the last expansion $\braket{e_i(p),e_j(p)}_{Ad}=\braket{e_i(p),e_j(p)}_{\mathfrak{u}(1)}$ is a non degenerate, positive definite symmetric product on $\mathbb{R}=\mathfrak{u}(1)$. Since the group is abelian, the product is clearly invariant under the adjoint representation. Locally, we can choose an orthonormal frame $e_i$ for this product. Let now $\omega$ be the volume form, then $\braket{F_M^i,F_M^j}\omega=F_M^i\wedge\star F_M^j$ and in an orthonormal basis for the bove product we can write:
 		$$\mathcal{L}\omega=-{1\over 2}F_M^i\wedge \star F_M^i$$
 		and since the Lie algebra is $1$ dimensional, the index $i$ has only one possible value:
 		$$\mathcal{L}\omega=-{1\over 2}F^1_M\wedge \star F^1_M$$
@@ -2860,7 +2872,8 @@
 		$$\braket{F_M,F_M}_{Ad}=\braket{s^*F,s^*F}_\mathfrak{g}=\braket{F_a,F_b}\braket{T^a,T^b}_\mathfrak{g}$$
 		In our current case the Lie algebra is 1 dimensional and so for $T=-i$:
 		$$\braket{F_M,F_M}_{Ad}=-\braket{F_a,F_a}$$
-		Choosing a local chart $(U,x^i)$ on $M$, we can select a basis $\{\partial_\mu\}$ for the tangent space and a base $\{dx^\mu\}$ for the cotangent space. Those bases are constructed to be orthonormal with respect to the Minkowski metric. It is now possible to expand with those coordinates the pullback of the curvature:
+		Where $s^*F=F_a\otimes T^a$.
+		Choosing a local chart $(U,x^i)$ on $M$, we can select a basis $\{\partial_\mu\}$ for the tangent space another $\{dx^\mu\}$ for the cotangent space. Those bases are constructed to be orthonormal with respect to the Minkowski metric. It is now possible to expand with those coordinates the pullback of the curvature: let $F_a={1\over 2}F_{\mu\nu}dx^\mu dx^\nu$, then
 		$$\braket{F_a,F_a}={1\over 4}F_{\mu\nu} F_{\alpha\beta}\braket{dx^\mu\wedge dx^\nu,dx^\alpha\wedge dx^\beta}$$ 
 		Applying the definition of scalar product between forms written in observation \ref{Obs_1.7.1}, we get:
 		$$\braket{dx^\mu\wedge dx^\nu,dx^\alpha\wedge dx^\beta}=\det 
@@ -2885,7 +2898,7 @@
 		$${d\over dt}\bigg|_0\braket{F_M+\delta F_M,F_M+\delta F_M}_{Ad,L^2}=2\braket{D\omega,F_M}$$
 		From \ref{Prop_7.3.2} we get:
 		$$0=\braket{\omega,D^*F_M}$$
-		Which means that the equations of motion must satisfy $D^*F_M=0$ or $d^*F=0$ in the abelian case.
+		Which means that the equations of motion must satisfy $D^*F_M=0$ or $d^*F_M=0$ in the abelian case.
 	\end{proof}
 	\section{The SU(n) Yang-Mills theory}
 	In this section we will generalize the construction of the electromagnetic Lagrangian with higher dimensional groups. This will lead us to the QCD gauge boson Lagrangian. More information on this can be found in [3] chap. 7 pag. 401-423, [10].
@@ -2910,7 +2923,7 @@
 	\begin{Obs}
 		We can explicitly write the transformation rule once we choose a base $\{T^a\}$ for the Lie algebra $\mathfrak{su}(n)$. In particular, the connection $A$ belongs to $\Omega^1(P,\mathfrak{su}(n))$ and so its pullback can be expanded like:
 		$$s^*A=-iA_a\otimes T^a=-iA_{\mu,a}dx^\mu\otimes T^a$$
-		where $A_a\in\Omega^1(M)$ for every $a$ and $A_{\mu,a}:M\rightarrow\mathbb{R}$ are smooth functions of points in $M$. 
+		where $A_a\in\Omega^1(M)$ for every $a$ and $A_{\mu,a}:M\rightarrow\mathbb{R}$ are smooth functions in $M$. 
 		If now we expand $g_{ji}(x)=exp(-i\alpha_a(x)T^a)$ through the exponential map, with $\alpha(x)$ being smooth functions of points, we get:
 		$$dg_{ji,x}(X_x)=-iexp(-i\alpha_aT^a)\cdot \partial_\mu \alpha_{a}(x)dx^\mu\otimes T^a$$
 		Thus, the transformation of $A$ becomes:
@@ -3008,115 +3021,117 @@
 	$$F_{\mu\nu,a}\rightarrow g(\partial_\mu A_{\nu,a}-\partial_\nu A_{\mu,a})+g^2 f^{bc}_{\hspace{9pt}a}A_{\mu,b}A_{\nu,c}$$
 	And obviously, the Lagrangian becomes:
 	$$\mathcal{L}=-{1\over 2}(\partial_\mu A_{\nu,a}\partial^\mu A^{\nu,a}-\partial_\mu A_{\nu,a}\partial^\nu A^{\mu,a})-gf^{abc}A_{\mu,b}A_{\nu,c}\partial^\mu A^{\nu}_{a}-{1\over 4}g^2 f^{bc}_{\hspace{9pt}a}f^{ade}A_{\mu,b}A_{\nu,c}A^{\mu}_dA^{\nu}_e$$
-	\section{The Yang-Mills theory on the Hopf Bundle}
-	In this section, we will construct a concrete example of the Yang-Mills theory on the Hopf bundle. Since this is a $U(1)$ bundle, it corresponds to regular electromagnetism. More references on this topic can be found in [3] chap. 7 pag. 401-423, [11] chap. 0 pag. 20, chap. 5 pag. 270, [12] chap. 3 pag. 444, 445, 473-475.
-	\\\\
-	Recall that in \ref{Ex_3.1.3} we defined the Hopf bundle in the following way: let
-	$S^1=U(1)$, $S^2=\{(z,x)\in\mathbb{C}\times\mathbb{R}||z|^2+x^2=1\}$ and $S^3=\{(z_1,z_2)\in\mathbb{C}^2||z_1|^2+|z_2|^2=1\}$. The projection is:
-	$$\pi:S^3\rightarrow S^2\hbox{ such that: }\pi(z_1,z_2)=(2z_1z_2^*,|z_1|^2-|z_2|^2)$$
-	As shown in \ref{Ex_3.7.3}, there is a principal $U(1)$ bundle $(S^3,S^2,\pi,U(1))$ where the action of $U(1)$ on $S^3$ is given by:
-	$$e^{i\alpha}(z_1,z_2)=(e^{i\alpha}z_1,e^{i\alpha} z_2)$$
-	We are now going to explicitly construct a Yang-Mills theory on this principal bundle. Consider the following real coordinate system on $S^3$:
-	$$\begin{cases}
-		z_1=\cos(\theta)e^{i\phi}\\
-		z_2=\sin(\theta)e^{i\psi}
-	\end{cases}\hbox{ with }\theta\in[0,{\pi\over2}[\hbox{ and }\phi,\psi\in[0,2\pi[$$
-	This covers the majority of $S^3$. The projection is:
-	$$\pi(\cos(\theta)e^{i\phi},\sin(\theta)e^{i\psi})=(2\sin(\theta)\cos(\theta)e^{i(\phi-\psi)},\cos^2(\theta)-\sin^2(\theta))=$$
-	$$=(\sin(2\theta)e^{i(\phi-\psi)},\cos(2\theta))$$ 
-	So, inside a chart $U_{S^3}$, each point is identified with a unique $(\theta,\phi,\psi)$. Now we wish to construct a connection on this principal bundle. By definition, since the Lie algebra of $U(1)$ is $\mathbb{R}$, this will be an element of $\Omega^1(S^3,\mathbb{R})$ which satisfies the properties of \ref{Def_6.6}. 
-	\begin{Prop}
-		Let the notation be as above. The generic form of a connection on $S^3$ is:
-		$$A=A_\theta d\theta+A_\phi d\phi+(1-A_\phi)d\psi$$
-	\end{Prop}
-	\begin{proof}
-		A generic $1$-form will be:
-		$$A=A_\theta d\theta+A_\phi d\phi+A_\psi d\psi$$
-		Where $d\theta,d\phi,d\psi$ is the dual base of the coordinates: $(\partial_\theta,\partial_\phi,\partial_\psi)$. By \ref{Def_6.6}, this form must be smooth, this implies that the maps $A_\theta, A_\phi,A_\psi$ must be $C^\infty$.
-		Another property is that $A$ must be $U(1)$ equivariant:
-		$$r^*_gA=\hbox{Ad}(g^{-1})A$$
-		Since the group is abelian, the adjoint representation is trivial. This means that the above condition can be re-written as:
-		$$r^*_gA=A$$
-		In our coordinate system, the action of the group $U(1)$ is the following:
-		$$e^{-i\alpha}(\theta,\phi,\psi)=(\theta,\phi-\alpha,\psi-\alpha)$$
-		Imposing this we get that the components $A_\phi$, $A_\psi$ only depend on $\theta$.\\\\
-		Lastly, we impose that, for any $X$ element of the Lie algebra, we have:
-		$$A(\overline{X})=X$$
-		Where $\overline{X}$ is the fundamental vector field of $X$. Now it is only a matter of computing the fundamental vector field of a generic element of the Lie algebra $i\alpha$. We have, by definition:
-		$$\overline{-i\alpha}={d\over dt}\bigg|_0 (\theta,\phi,\psi)\cdot e^{-i\alpha t}=
-		{d\over dt}\bigg|_0 (\theta,\phi-t\alpha,\psi-t\alpha)=-\alpha(\partial_\phi+\partial_\psi)$$
-		Now, applying this to our connection:
-		$$A_{(\theta,\phi,\psi)}(\alpha(\partial_\phi+\partial_\psi))=\alpha$$
-		This means that:
-		$$A_\phi+A_\psi=1$$
-		This restricts the general form of the connection to:
-		$$A=A_\theta d\theta+A_\phi d\phi+(1-A_\phi)d\psi$$
-	\end{proof}
-	We can now choose a local gauge $s:U\subset M\rightarrow S^3$ and pullback this connection on $S^2$:
-	$$A_{s}=s^*A\in\Omega^1(S^2,\mathbb{R})$$
-	\begin{Obs}
-		Recall that $S^2$ can be covered by two charts, each covering the whole sphere but a point. In particular, we can choose the following chart:
-		$$U_N=\{(\alpha,\beta)\in[0,\pi[\times [0,2\pi[\}$$
-		This covers everything except a point, i.e. the south pole.
-	\end{Obs}
-	Given the projection $\pi$, we have a natural choice:
-	$$s(\alpha,\beta)=\bigg({\alpha\over2},\beta,\beta\bigg)$$
-	The pullback of the connection on $S^2$ under this section is:
-	$$A_s={1\over 2}A_\theta\bigg({\alpha\over 2},\beta\bigg)d\alpha+d\beta$$
-	To simplify the notation, we call $A_\alpha={1\over 2}A_\theta\bigg({\alpha\over 2},\beta\bigg)$, so that:
-	$$A_s=A_\alpha d\alpha+ d\beta$$
-	From theorem \ref{Theo_7.2.1}, in the $U(1)$ abelian case, under a change of gauge, we have:
-	$$A_s\rightarrow A_s+da$$
-	where $a$ is a smooth function on the manifold $S^2$. Thus, there will exist a local section $\rho: U\subset S^2\rightarrow S^3$ such that:
-	$$A_\rho=A_\alpha d\alpha$$
-	and $A_\alpha$ is a function of only $\alpha$. As for the curvature, we just take the exterior covariant derivative of the connection. In the abelian case:
-	$$F=DA=dA$$
-	$$F=\partial_\phi A_\theta d\phi\wedge d\theta+\partial_\psi A_\theta d\psi\wedge d\theta+\partial_\theta A_\phi(d\theta\wedge d\phi- d\theta\wedge d\psi)$$
-	Since by \ref{Prop_3.4.3}, the pullback commutes with the exterior derivative, we have:
-	$$s^*F=\partial_\beta A_\alpha d\beta \wedge d\alpha$$
-	Lastly, we wish to find a solution to Maxwell's equations. As usual, the first half $DF=0$ is trivially satisfied by construction. The remaining conditions, $D^*F_{S^2}=0$, are imposed on the form $F_{S^2}\in\Omega^2(S^2, \hbox{Ad}(S^3))$. Since the adjoint representation is trivial, $F_{S^2}$ coincides with the pullback of $F$ on $S^2$ defined above. To define the codifferential, one needs a metric on $S^2$. The standard choice is:
-	$$g=\begin{pmatrix}
-		1 && 0\\
-		0 && sin^2(\alpha)
-	\end{pmatrix}$$
-	In these coordinates the volume form is:
-	$$\omega=\sqrt{|\det (g)|}d\alpha\wedge d\beta$$
-	This means that, by proposition \ref{Prop_1.7.2}:
-	$$\star (d\alpha\wedge d\beta)={1\over \sqrt{|\det (g)|}}sgn(g)$$
-	And in our case $sgn(g)=+$. This implies:
-	$$\star F_{S^2}={\partial_\beta A_\alpha\over \sin(\alpha)}$$
-	Then it is easy to see that the equations $D^*F_{S^2}=0$ become:
-	$$\partial_\alpha\bigg({\partial_\beta A_\alpha\over \sin(\alpha)}\bigg)=0=\partial_\beta\bigg({\partial_\beta A_\alpha\over \sin(\alpha)}\bigg)$$
-	The first equation implies:
-	$$\partial_\beta A_\alpha=f(\beta)\sin(\alpha)$$
-	The second equation implies:
-	$$f(\beta)=k=const$$
-	Thus, the general solution is of the form:
-	$$A_\alpha=k\beta \sin(\alpha)+h(\alpha)$$
-	$$F_{S^2}=-k\sin(\alpha)d\alpha\wedge d\beta$$
-	Finally, we can reduce the degrees of freedom of this form by using the gauge symmetry. In fact, in the $U(1)$ case, we have that the form $s^*A$ is gauge equivalent to any $s'^*A=s^*A+d\Lambda$; where $\Lambda$ is a function of $(\alpha,\beta)$ and $s'$ is a different section. We can choose as a gauge condition the Lorentz gauge:
-	$$\partial^\mu A'_\mu=0$$ 
-	In this case the above condition translates to $\partial_\alpha A'_\alpha+{1\over sin^2(\alpha)}\partial_\beta A'_\beta=0$.
-	Supposing $h(\alpha)=0$, our choice is $\Lambda=k\beta \cos(\alpha)$ so that:
-	$$d\Lambda=-k\beta \sin(\alpha)d\alpha+k\cos(\alpha)d\beta$$
-	This yields:
-	$$s^*A\rightarrow s'^*A=k\cos(\alpha)d\beta$$
-	And again, the curvature is still:
-	$$s'^*F=-k\sin(\alpha)d\alpha\wedge d\beta$$
-	\begin{Obs}
-		First of all, we clearly see that the kinetic energy $-{1\over 4}{F^{\alpha\beta}}F_{\alpha\beta}$ is clearly positive definite.
-		Furthermore, note that the curvature $F$, for $k=-1$, coincides with the volume form $\omega=\sqrt{|\det(g)|}d\alpha\wedge d\beta$. Moreover, by setting  $k=-g$ we get:
-		$$s^*A=-g\cos(\alpha)d\beta$$
-		This is clearly gauge equivalent to the \textit{Dirac monopole} on the northern patch $U_N$, defined as:
-		$$A_{+}=g(1-\cos(\alpha))d\beta$$
-		The corresponding potential on the southern patch $U_S$ is obtained by shifting $\alpha\rightarrow \pi-\alpha$ and $\beta\rightarrow 2\pi-\beta$:
-		$$A_{-}=g(-1-\cos(\alpha))d\beta$$
-		One can then calculate the total magnetic charge with Gauss'theorem. Let $H^{\pm}$ be the two hemispheres of $S^2$, then:
-		$$Q_m=\int_{S^2} F=\int_{H^+} dA_++\int_{H^-} dA_-$$
-		By Stokes'theorem \ref{Stokes}, we get:
-		$$Q_m=\int_{\partial H^+}dA_+-\int_{\partial H^-}dA_-=\int_{S^1} 2g=4\pi g$$
-		We clearly see that we have a non 0 magnetic charge. This is a consequence of the non triviality of the Hopf bundle, i.e, there is no globally defined potential on the Hopf bundle. Even though, from \ref{Prop_7.2.2}, the pullback of the curvature form $F$ is independent from the choice of the section $s$, the gauge potential $A$ isn't, due to the non existence of a global section.
-	\end{Obs}
+	\begin{comment}
+			\section{The Yang-Mills theory on the Hopf Bundle}
+		In this section, we will construct a concrete example of the Yang-Mills theory on the Hopf bundle. Since this is a $U(1)$ bundle, it corresponds to regular electromagnetism. More references on this topic can be found in [3] chap. 7 pag. 401-423, [11] chap. 0 pag. 20, chap. 5 pag. 270, [12] chap. 3 pag. 444, 445, 473-475.
+		\\\\
+		Recall that in \ref{Ex_3.1.3} we defined the Hopf bundle in the following way: let
+		$S^1=U(1)$, $S^2=\{(z,x)\in\mathbb{C}\times\mathbb{R}||z|^2+x^2=1\}$ and $S^3=\{(z_1,z_2)\in\mathbb{C}^2||z_1|^2+|z_2|^2=1\}$. The projection is:
+		$$\pi:S^3\rightarrow S^2\hbox{ such that: }\pi(z_1,z_2)=(2z_1z_2^*,|z_1|^2-|z_2|^2)$$
+		As shown in \ref{Ex_3.7.3}, there is a principal $U(1)$ bundle $(S^3,S^2,\pi,U(1))$ where the action of $U(1)$ on $S^3$ is given by:
+		$$e^{i\alpha}(z_1,z_2)=(e^{i\alpha}z_1,e^{i\alpha} z_2)$$
+		We are now going to explicitly construct a Yang-Mills theory on this principal bundle. Consider the following real coordinate system on $S^3$:
+		$$\begin{cases}
+			z_1=\cos(\theta)e^{i\phi}\\
+			z_2=\sin(\theta)e^{i\psi}
+		\end{cases}\hbox{ with }\theta\in[0,{\pi\over2}[\hbox{ and }\phi,\psi\in[0,2\pi[$$
+		This covers the majority of $S^3$. The projection is:
+		$$\pi(\cos(\theta)e^{i\phi},\sin(\theta)e^{i\psi})=(2\sin(\theta)\cos(\theta)e^{i(\phi-\psi)},\cos^2(\theta)-\sin^2(\theta))=$$
+		$$=(\sin(2\theta)e^{i(\phi-\psi)},\cos(2\theta))$$ 
+		So, inside a chart $U_{S^3}$, each point is identified with a unique $(\theta,\phi,\psi)$. Now we wish to construct a connection on this principal bundle. By definition, since the Lie algebra of $U(1)$ is $\mathbb{R}$, this will be an element of $\Omega^1(S^3,\mathbb{R})$ which satisfies the properties of \ref{Def_6.6}. 
+		\begin{Prop}
+			Let the notation be as above. The generic form of a connection on $S^3$ is:
+			$$A=A_\theta d\theta+A_\phi d\phi+(1-A_\phi)d\psi$$
+		\end{Prop}
+		\begin{proof}
+			A generic $1$-form will be:
+			$$A=A_\theta d\theta+A_\phi d\phi+A_\psi d\psi$$
+			Where $d\theta,d\phi,d\psi$ is the dual base of the coordinates: $(\partial_\theta,\partial_\phi,\partial_\psi)$. By \ref{Def_6.6}, this form must be smooth, this implies that the maps $A_\theta, A_\phi,A_\psi$ must be $C^\infty$.
+			Another property is that $A$ must be $U(1)$ equivariant:
+			$$r^*_gA=\hbox{Ad}(g^{-1})A$$
+			Since the group is abelian, the adjoint representation is trivial. This means that the above condition can be re-written as:
+			$$r^*_gA=A$$
+			In our coordinate system, the action of the group $U(1)$ is the following:
+			$$e^{-i\alpha}(\theta,\phi,\psi)=(\theta,\phi-\alpha,\psi-\alpha)$$
+			Imposing this we get that the components $A_\phi$, $A_\psi$ only depend on $\theta$.\\\\
+			Lastly, we impose that, for any $X$ element of the Lie algebra, we have:
+			$$A(\overline{X})=X$$
+			Where $\overline{X}$ is the fundamental vector field of $X$. Now it is only a matter of computing the fundamental vector field of a generic element of the Lie algebra $i\alpha$. We have, by definition:
+			$$\overline{-i\alpha}={d\over dt}\bigg|_0 (\theta,\phi,\psi)\cdot e^{-i\alpha t}=
+			{d\over dt}\bigg|_0 (\theta,\phi-t\alpha,\psi-t\alpha)=-\alpha(\partial_\phi+\partial_\psi)$$
+			Now, applying this to our connection:
+			$$A_{(\theta,\phi,\psi)}(\alpha(\partial_\phi+\partial_\psi))=\alpha$$
+			This means that:
+			$$A_\phi+A_\psi=1$$
+			This restricts the general form of the connection to:
+			$$A=A_\theta d\theta+A_\phi d\phi+(1-A_\phi)d\psi$$
+		\end{proof}
+		We can now choose a local gauge $s:U\subset M\rightarrow S^3$ and pullback this connection on $S^2$:
+		$$A_{s}=s^*A\in\Omega^1(S^2,\mathbb{R})$$
+		\begin{Obs}
+			Recall that $S^2$ can be covered by two charts, each covering the whole sphere but a point. In particular, we can choose the following chart:
+			$$U_N=\{(\alpha,\beta)\in[0,\pi[\times [0,2\pi[\}$$
+			This covers everything except a point, i.e. the south pole.
+		\end{Obs}
+		Given the projection $\pi$, we have a natural choice:
+		$$s(\alpha,\beta)=\bigg({\alpha\over2},\beta,\beta\bigg)$$
+		The pullback of the connection on $S^2$ under this section is:
+		$$A_s={1\over 2}A_\theta\bigg({\alpha\over 2},\beta\bigg)d\alpha+d\beta$$
+		To simplify the notation, we call $A_\alpha={1\over 2}A_\theta\bigg({\alpha\over 2},\beta\bigg)$, so that:
+		$$A_s=A_\alpha d\alpha+ d\beta$$
+		From theorem \ref{Theo_7.2.1}, in the $U(1)$ abelian case, under a change of gauge, we have:
+		$$A_s\rightarrow A_s+da$$
+		where $a$ is a smooth function on the manifold $S^2$. Thus, there will exist a local section $\rho: U\subset S^2\rightarrow S^3$ such that:
+		$$A_\rho=A_\alpha d\alpha$$
+		and $A_\alpha$ is a function of only $\alpha$. As for the curvature, we just take the exterior covariant derivative of the connection. In the abelian case:
+		$$F=DA=dA$$
+		$$F=\partial_\phi A_\theta d\phi\wedge d\theta+\partial_\psi A_\theta d\psi\wedge d\theta+\partial_\theta A_\phi(d\theta\wedge d\phi- d\theta\wedge d\psi)$$
+		Since by \ref{Prop_3.4.3}, the pullback commutes with the exterior derivative, we have:
+		$$s^*F=\partial_\beta A_\alpha d\beta \wedge d\alpha$$
+		Lastly, we wish to find a solution to Maxwell's equations. As usual, the first half $DF=0$ is trivially satisfied by construction. The remaining conditions, $D^*F_{S^2}=0$, are imposed on the form $F_{S^2}\in\Omega^2(S^2, \hbox{Ad}(S^3))$. Since the adjoint representation is trivial, $F_{S^2}$ coincides with the pullback of $F$ on $S^2$ defined above. To define the codifferential, one needs a metric on $S^2$. The standard choice is:
+		$$g=\begin{pmatrix}
+			1 && 0\\
+			0 && sin^2(\alpha)
+		\end{pmatrix}$$
+		In these coordinates the volume form is:
+		$$\omega=\sqrt{|\det (g)|}d\alpha\wedge d\beta$$
+		This means that, by proposition \ref{Prop_1.7.2}:
+		$$\star (d\alpha\wedge d\beta)={1\over \sqrt{|\det (g)|}}sgn(g)$$
+		And in our case $sgn(g)=+$. This implies:
+		$$\star F_{S^2}={\partial_\beta A_\alpha\over \sin(\alpha)}$$
+		Then it is easy to see that the equations $D^*F_{S^2}=0$ become:
+		$$\partial_\alpha\bigg({\partial_\beta A_\alpha\over \sin(\alpha)}\bigg)=0=\partial_\beta\bigg({\partial_\beta A_\alpha\over \sin(\alpha)}\bigg)$$
+		The first equation implies:
+		$$\partial_\beta A_\alpha=f(\beta)\sin(\alpha)$$
+		The second equation implies:
+		$$f(\beta)=k=const$$
+		Thus, the general solution is of the form:
+		$$A_\alpha=k\beta \sin(\alpha)+h(\alpha)$$
+		$$F_{S^2}=-k\sin(\alpha)d\alpha\wedge d\beta$$
+		Finally, we can reduce the degrees of freedom of this form by using the gauge symmetry. In fact, in the $U(1)$ case, we have that the form $s^*A$ is gauge equivalent to any $s'^*A=s^*A+d\Lambda$; where $\Lambda$ is a function of $(\alpha,\beta)$ and $s'$ is a different section. We can choose as a gauge condition the Lorentz gauge:
+		$$\partial^\mu A'_\mu=0$$ 
+		In this case the above condition translates to $\partial_\alpha A'_\alpha+{1\over sin^2(\alpha)}\partial_\beta A'_\beta=0$.
+		Supposing $h(\alpha)=0$, our choice is $\Lambda=k\beta \cos(\alpha)$ so that:
+		$$d\Lambda=-k\beta \sin(\alpha)d\alpha+k\cos(\alpha)d\beta$$
+		This yields:
+		$$s^*A\rightarrow s'^*A=k\cos(\alpha)d\beta$$
+		And again, the curvature is still:
+		$$s'^*F=-k\sin(\alpha)d\alpha\wedge d\beta$$
+		\begin{Obs}
+			First of all, we clearly see that the kinetic energy $-{1\over 4}{F^{\alpha\beta}}F_{\alpha\beta}$ is clearly positive definite.
+			Furthermore, note that the curvature $F$, for $k=-1$, coincides with the volume form $\omega=\sqrt{|\det(g)|}d\alpha\wedge d\beta$. Moreover, by setting  $k=-g$ we get:
+			$$s^*A=-g\cos(\alpha)d\beta$$
+			This is clearly gauge equivalent to the \textit{Dirac monopole} on the northern patch $U_N$, defined as:
+			$$A_{+}=g(1-\cos(\alpha))d\beta$$
+			The corresponding potential on the southern patch $U_S$ is obtained by shifting $\alpha\rightarrow \pi-\alpha$ and $\beta\rightarrow 2\pi-\beta$:
+			$$A_{-}=g(-1-\cos(\alpha))d\beta$$
+			One can then calculate the total magnetic charge with Gauss'theorem. Let $H^{\pm}$ be the two hemispheres of $S^2$, then:
+			$$Q_m=\int_{S^2} F=\int_{H^+} dA_++\int_{H^-} dA_-$$
+			By Stokes'theorem \ref{Stokes}, we get:
+			$$Q_m=\int_{\partial H^+}dA_+-\int_{\partial H^-}dA_-=\int_{S^1} 2g=4\pi g$$
+			We clearly see that we have a non 0 magnetic charge. This is a consequence of the non triviality of the Hopf bundle, i.e, there is no globally defined potential on the Hopf bundle. Even though, from \ref{Prop_7.2.2}, the pullback of the curvature form $F$ is independent from the choice of the section $s$, the gauge potential $A$ isn't, due to the non existence of a global section.
+		\end{Obs}
+	\end{comment}
 	\chapter*{Bibliography}
 	\begin{itemize}
 		\item[$\circ$] [1] Loring W.Tu, An Introduction to Manifolds, Springer, 2011;
