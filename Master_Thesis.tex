@@ -155,7 +155,7 @@
 	\\
 	The third chapter focuses on bundles: we introduce the notion of fiber bundle, vector bundle and principal bundle. Some important examples are discussed, such as the Hopf fibration and the frame bundle.\\
 	\\
-	The fourth and fifth chapters focus on connections and their properties. These chapters are of great importance since, in the Yang-Mills theory, gauge bosons are mathematically described by connections on an underlying principal bundles. In the fifth chapter we also introduce the concept of curvature of a connection and look at some of its properties. This will also be fundamental as the field strength tensor $F$ of the Yang-Mills theory corresponds to the curvature of the connection.\\
+	The fourth and fifth chapters focus on connections and their properties. These chapters are of great importance since, in the Yang-Mills theory, gauge bosons are mathematically described by connections on an underlying principal bundle. In the fifth chapter we also introduce the concept of curvature of a connection and look at some of its properties. This will also be fundamental as the field strength tensor $F$ of the Yang-Mills theory corresponds to the curvature of the connection.\\
 	\\
 	The sixth chapter introduces the notion of associated bundle of a principal bundle and the covariant derivative. This operation will allow us to generalize Maxwell's equations to a non abelian SU(n) setting.\\
 	\\
@@ -167,7 +167,7 @@
 	\section{Smooth manifolds}
 	In this section we introduce the notion of smooth manifold, tangent spaces and vector fields; with some examples. More details can be found in [1] chap. 1 pag. 48-57.
 	\begin{Def}
-		A \textit{topological manifold} $M$ of dimension $n$ is a T2, second countable, locally euclidean topological space of dimension $n$. With locally euclidean we mean that for every point $p\in M$ there exists an open subset $U\subset M$ containing $p$ and an homeomorphism $\phi:U\rightarrow\mathbb{R}^n$. The pair $(U,\phi)$ is called \textit{chart}. 
+		A \textit{topological manifold} $M$ of dimension $n$ is a T2, second countable, locally euclidean topological space of dimension $n$. With locally euclidean we mean that for every point $p\in M$ there exists an open subset $U\subset M$ containing $p$ and a homeomorphism $\phi:U\rightarrow\mathbb{R}^n$. The pair $(U,\phi)$ is called \textit{chart}. 
 	\end{Def}
 	\begin{Ex}
 		The space $\mathbb{R}^n$ with $(\mathbb{R}^n, id)$ where $id:\mathbb{R}^n\rightarrow \mathbb{R}^n$ is the identity map, is a topological manifold. 
@@ -177,7 +177,7 @@
 		$\phi\circ\varphi^{-1}:\varphi(U_1\cap U_2)\rightarrow \phi(U_1\cap U_2)$ and $\varphi\circ\phi^{-1}:\phi(U_1\cap U_2)\rightarrow \varphi(U_1\cap U_2)$ are $C^\infty$.\\
 		A collection of compatible charts $\mathcal{A}=\{(U_i,\phi_{i})\}$ on $M$ such that $M=\bigcup_i U_i$ is called \textit{atlas}. A topological manifold endowed with a maximal atlas is called \textit{smooth manifold}.
 	\end{Def}
-	It is possible to show that if two charts are compatible with some other charts of a given atlas, then they are also compatible with one another. For more details see [1] (pag. 51, cap. 2).
+	It is possible to show that if two charts are compatible with some other charts of a given atlas, then they are also compatible with one another. For more details see [1] (pag. 51, chap. 2).
 	\begin{Obs}\label{Obs:1.1.1}
 		Every open subset of a smooth manifold is still a smooth manifold. In fact if $\{(U_i,\phi_i)\}$ is an atlas for $M$, considering an open set $A\subset M$ the collection $\{(U_i\cap A,\phi_i|_{U_i\cap A})\}$ is an atlas for $A$.
 	\end{Obs}
@@ -186,7 +186,7 @@
 		The set $\mathbb{R}^n$ with the chart $(\mathbb{R}^n,\phi)$, where $\phi=(r^1,...,r^n)$ and $r^i$ are the standard coordinate of $\mathbb{R}^n$, is a smooth manifold.
 	\end{Ex}
 	\begin{Ex}\label{Ex 1.1}
-		The set $GL_n(\mathbb{R})=\{A\in M_{n\times n}|\det(A)\neq0\}$ si a smooth manifold. One can see this by considering the map $\det:\mathbb{R}^{n^2}\rightarrow \mathbb{R}$, by definition $GL_n(\mathbb{R})=\det^{-1}(\mathbb{R}-\{0\})$. Since the determinant is continuous, the pre-images of open sets are open as well, thus $GL_n(\mathbb{R})$ is an open subset of $\mathbb{R}^{n^2}$. By observation \ref{Obs:1.1.1}, $GL_n(\mathbb{R})$ is a smooth manifold.
+		The set $GL(n,\mathbb{R})=\{A\in M_{n\times n}|\det(A)\neq0\}$ is a smooth manifold. One can see this by considering the map $\det:\mathbb{R}^{n^2}\rightarrow \mathbb{R}$, by definition $GL(n,\mathbb{R})=\det^{-1}(\mathbb{R}-\{0\})$. Since the determinant is continuous, the pre-images of open sets are open as well, thus $GL(n,\mathbb{R})$ is an open subset of $\mathbb{R}^{n^2}$. By observation \ref{Obs:1.1.1}, $GL(n,\mathbb{R})$ is a smooth manifold.
 	\end{Ex}
 	\begin{Ex}
 		Consider the unit circle $S^1=\{x^2+y^2=1\}\subset \mathbb{R}^2$. Consider two charts: $$(U_1=\{x^2+y^2=1;y>0\},\phi_1) \, and \,  (U_2=\{x^2+y^2=1;y<0\},\phi_2)$$ like in figure \ref{figura 1}, where the coordinate maps are defined like: $\phi_1(x,y)=x$ e $\phi_2(x,y)=x$.
@@ -220,7 +220,7 @@
 		In the definition of regular submanifold, the dimension of $S$ can coincide with the one of $M$. In this case $U\cap S=U$. By observation \ref{Obs:1.1.1}, every open subset $S$ of $M$ is a regular smooth submanifold of dimension equal to $M$.
 	\end{Obs}
 	\section{Differentiable maps}
-	In this section we define smooth maps between smooth manifolds and describe some important properties they enjoy. More details can be found in [1] cap. 2 pag. 59-70.
+	In this section we define smooth maps between smooth manifolds and describe some important properties they enjoy. More details can be found in [1] chap. 2 pag. 59-70.
 	\begin{Def}
 		Let $M$ be a smooth manifold and $f:M\rightarrow\mathbb{R}$ a map. Then $f$ is said to be \textit{smooth} or $C^\infty$ in $p\in M$ if there exists a chart $(U,\phi)$ centered in $p$ such that $f\circ \phi^{-1}$ is $C^\infty$. The map $f:M\rightarrow \mathbb{R}$ is said to be $C^\infty$ on $M$ if it is $C^\infty$ on every $p\in M$.
 	\end{Def}
@@ -228,17 +228,17 @@
 		The definition of smoothness we gave does not depend on the choice of the chart. In fact if $(U,\phi)$ and $(V,\psi)$ are two charts of $M$ and $f\circ\phi^{-1}$ is $C^\infty$, then $$f\circ\psi^{-1}=(f\circ\phi^{-1})\circ(\phi\circ\psi^{-1})$$ which is still $C^\infty$.
 	\end{Obs}
 	\begin{Obs}
-		If $f:M\rightarrow \mathbb{R}$ is $C^\infty$ then it is continuous. One can in fact write $f=(f\circ\phi^{-1})\circ \phi$ where $\phi$ and $f\circ\phi^{-1}$ are continuous: $f\circ\phi^{-1}$ is $C^\infty$ and $\phi$ is an homeomorphism. It follows that, by composition of continuous maps, that $f$ is continuous.\\
+		If $f:M\rightarrow \mathbb{R}$ is $C^\infty$ then it is continuous. One can in fact write $f=(f\circ\phi^{-1})\circ \phi$ where $\phi$ and $f\circ\phi^{-1}$ are continuous: $f\circ\phi^{-1}$ is $C^\infty$ and $\phi$ is a homeomorphism. It follows that, by composition of continuous maps, that $f$ is continuous.\\
 	\end{Obs}
 	\begin{Def}
 		Let $N$ and $M$ be smooth manifolds of dimensions $n$ and $m$. A continuous map $f:N\rightarrow M$ is said to be $C^\infty$ in $p\in N$ if there are two charts $(U,\phi)$ centered in $p\in N$ and $(V,\psi)$ centered in $f(p)\in M$ such that $\psi\circ f\circ \phi$ is $C^\infty$.
 	\end{Def}
 	The composition has as domain $\phi(f^{-1}(V))\cap U$ subset of $\mathbb{R}^n$. $$\psi\circ f\circ \phi:\phi(f^{-1}(V)\cap U)\rightarrow \mathbb{R}^m$$
-	The continuity of $f$ is requested to ensure that the pre-image of $f^{-1}(V)$ is an open subset of $N$. It is also possible to show that the composition of $C^\infty$ maps between smooth manifolds is still $C^\infty$. The proof can be found in [1] (pag. 62 cap.2). 
+	The continuity of $f$ is requested to ensure that the pre-image of $f^{-1}(V)$ is an open subset of $N$. It is also possible to show that the composition of $C^\infty$ maps between smooth manifolds is still $C^\infty$. The proof can be found in [1] (pag. 62 chap.2). 
 	\begin{Def}
 		A map $f:M\rightarrow N$ between two smooth manifolds is called \textit{diffeomorphism} if it is bijective, $C^\infty$ and with a $C^\infty$ inverse.
 	\end{Def}
-	It is also possible to show that all coordinate maps of any given chart $(U,\phi)$ of a smooth manifold are diffeomorphisms. The proof can be found in [1] pag. 63 cap. 2.
+	It is also possible to show that all coordinate maps of any given chart $(U,\phi)$ of a smooth manifold are diffeomorphisms. The proof can be found in [1] pag. 63 chap. 2.
 	\section{Tangent space and vector fields}\label{Sec_1.3}
 	In this section we define the notions tangent space and vector fields. From now on we will indicate with $M$ a generic smooth manifold of dimension $n$. More information can be found in [1] chap. 3 pag. 86-98.
 	\begin{Def}
@@ -258,7 +258,7 @@
 	An important result is the following: considering the tangent space $T_pM$ and a chart $(U,\phi)$ centered in $p$, then the vectors $\partial\over \partial x^i$ form a basis for $T_pM$. This comes from the fact that the tangent vectors $\partial\over \partial r^i$ are a basis for the tangent space in $x_0\in\mathbb{R}^n$, which has the same dimensions as $M$. Thus, once we choose a chart, a generic tangent vector can be expressed as a linear combination: $$\vec{v}=\sum_{i=1}^{n}c_i{\partial\over \partial x^i}$$ 
 	From now on, we will also refer to $\partial\over \partial x^i$ with $\partial_i$.
 	\begin{Obs} \label{Obs 1.1.3}
-		Looking at the open subset $GL_n(\mathbb{R})$ of $M_{n\times n}$, by the previous observations \ref{Obs:1.1.1} and \ref{Obs:1.1.2}, $GL_n(\mathbb{R})$ is a smooth submanifold of $M_{n\times n}$ and its dimension is $n^2$, equal to the one of $M_{n\times n}$. However, the tangent space at the identity $T_\mathbb{I}M_{n\times n}$ has itself dimension $n^2$. From this we have $T_\mathbb{I}GL_n(\mathbb{R})\simeq T_\mathbb{I}M_{n\times n}$.
+		Looking at the open subset $GL(n,\mathbb{R})$ of $M_{n\times n}$, by the previous observations \ref{Obs:1.1.1} and \ref{Obs:1.1.2}, $GL(n,\mathbb{R})$ is a smooth submanifold of $M_{n\times n}$ and its dimension is $n^2$, equal to the one of $M_{n\times n}$. However, the tangent space at the identity $T_\mathbb{I}M_{n\times n}$ has itself dimension $n^2$. From this we have $T_\mathbb{I}GL(n,\mathbb{R})\simeq T_\mathbb{I}M_{n\times n}$.
 	\end{Obs}
 	\begin{Def}
 		Given a $C^\infty$ map between smooth manifolds like $F:N\rightarrow M$, we call \textit{differential} of $F$ in a point $p\in N$ the map $dF_p:T_pN\rightarrow T_{F(p)}M$ such that for any vector $X_p\in T_pN$ and for any map $f\in C_{F(p)}^\infty(M)$, it holds $dF_p(X_p)f=X_p(f\circ F)\in\mathbb{R}$.
@@ -293,14 +293,14 @@
 		\begin{Def}
 			A curve $c_p:]-\epsilon,\epsilon[\rightarrow M$ is said to be an \textit{integral curve} of a vector field $X$ on $M$ passing through $p\in M$ if $c_p(0)=p$ and $c_p'(0)=X_p$.
 		\end{Def}
-		From the theory of differential equations, given any point $p\in M$ and a vector field $X$ defined in a neighborhood of $p$, there always exists a unique integral curve of $X$ passing through $p$. The reader can find more details about this part in [1] pag. 154 cap.3.\\
+		From the theory of differential equations, given any point $p\in M$ and a vector field $X$ defined in a neighborhood of $p$, there always exists a unique integral curve of $X$ passing through $p$. The reader can find more details about this part in [1] pag. 154 chap.3.\\
 		\\
 		It is useful to define the concept of \textit{flow} of a vector field $X$ as the map $\Phi_X:\mathbb{R}\times M\rightarrow\mathbb{M}$ such that $\Phi_X(0,p)=p$; $\Phi_X(t,p)=c_p(t)$ is the integral curve of $X$.\\
 		\\
-		More details on the flux of a vector field can be found in [1] pag. 155, 156 cap. 3.
+		More details on the flux of a vector field can be found in [1] pag. 155, 156 chap. 3.
 	\end{Def}
 	\section{Riemannian manifolds}
-	In this section we briefly define the concept of Riemannian manifolds and look at some of their properties. More information can ba found in [2] cahp. 1 pag. 1-7.
+	In this section we briefly define the concept of Riemannian manifolds and look at some of their properties. More information can be found in [2] cahp. 1 pag. 1-7.
 	\begin{Def}
 		A \textit{metric} on a manifold $M$ is a smooth assignment to any point $p\in M$ of an inner product $\braket{,}_p:T_pM\times T_pM\rightarrow \mathbb{R}$:
 		We also refer to any manifold $M$ endowed with a Riemannian metric with the name \textit{Riemannian manifold} and the notation $(M,g)$.
@@ -349,7 +349,7 @@
 		Now it only remains to show that the composition $\Phi_1\circ \Phi_2^{-1}$ is a diffeomorphism.\\
 		By definition:
 		$$\Phi_1\circ \Phi_2^{-1}:\phi_2(U_2\cap U_1)\times \mathbb{R}^n\rightarrow \phi_1(U_2\cap U_1)\times \mathbb{R}^n$$
-		This map, being a composition of homeomorphisms, is still an homeomorphism. Now, taking a point $p\in U_2\cap U_1$ and a tangent vector $v_p$ we write:
+		This map, being a composition of homeomorphisms, is still a homeomorphism. Now, taking a point $p\in U_2\cap U_1$ and a tangent vector $v_p$ we write:
 		$$\Phi_1\circ \Phi_2^{-1}(x^i_p,a^i_p)=(y^j_p,b^j_p)$$
 		where we have shortened the notation:
 		$$(x^i,a^i)=(x^1_p,...,x^n_p,a^1_p,...,a^n_p)$$
@@ -755,7 +755,7 @@
 	\\
 	Since any smooth manifold is locally homeomorphic to $\mathbb{R}^n$, it means that, at least locally, every closed form can be expressed as an exact form.
 	\chapter{Lie groups and Lie algebras}
-	In this chapter we introduce the concepts of Lie group and Lie algebra, with some important examples. We will also study representations of those mathematical structures. In the framework of gauge theories, Lie groups are a fundamental object since they will represent the symmetry groups of our system. More information on these topics can be found in:
+	In this chapter we introduce the concepts of Lie group and Lie algebra, with some important examples. We also study simple and semisimple Lie algebras and representation theory. In the framework of gauge theories, Lie groups are a fundamental object since they will represent the symmetry groups of our system. More information on these topics can be found in:
 	[1] chap. 4; [3] chap. 2, 3; [5] chap. 2, 3; [6] chap. 1, 2; [7] part 1, 2.
 	\section{Topological groups}
 	In this section we introduce topological groups, group actions and quotients, with some examples. More information can be found in [1] chap. 1 pag. 66, [4] chap. 5 pag. 35,36,37. 
@@ -795,7 +795,7 @@
 	\end{Obs}
 	We now define the concepts of orbit and stabilizer of a G set.
 	\begin{Def}
-		Let $X$ be a $G$ set and $x\in X$. the set $O_x=\{a(g,x); \, \forall g\in G\}$ is called \textit{orbit} of $x\in X$. We define the $\textit{stabilizer}$ of $x\in X$ the set $G_x=\{g\in G|a(g,x)=x\}$. Sometimes we refer to the stabilizer of a point $x$ also with $Stab_x$.
+		Let $X$ be a $G$ set and $x\in X$. the set $O_x=\{a(g,x); \, \forall g\in G\}$ is called \textit{orbit} of $x\in X$. We define the $\textit{stabilizer}$ of $x\in X$ the set $G_x=\{g\in G|a(g,x)=x\}$. Sometimes we refer to the stabilizer of a point $x$ also with $Stab(x)$.
 	\end{Def}
 	\begin{Obs} \label{Obs: 2.1}
 		One can easily verify that two orbits are either equal or disjoint. To see this, take $O_x$ and $O_y$ two orbits, and a point $z\in O_x\cap O_y$, we can write:
@@ -814,21 +814,21 @@
 	In this section we give the definition of Lie groups and subgroups, with some important results. More information can be found in [1] pag. 164-174 chap. 4.
 	\begin{Def}
 		A \textit{Lie group} $G$ is a smooth manifold with a group structure, such that the operations $\cdot:G\times G\rightarrow G$ and inversion $i:G\rightarrow G$ are $C^\infty$.
-		A \textit{subgroup} $H$ of a Lie group $G$ is an immersed submanifold of $G$ which is still a group under the induced operations from $G$.
+		A \textit{Lie subgroup} $H$ of a Lie group $G$ is an immersed submanifold of $G$ which is still a group under the induced operations from $G$.
 	\end{Def}
 	\begin{Ex}
-		Consider $GL_n(\mathbb{R})$, this is a smooth manifold (see \ref{Ex 1.1}). Given the row-column multiplication and the inverse $i$ which associates to a matrix its inverse, we have that $GL_n(\mathbb{R})$ is a group. Those operations are also $C^\infty$ and so $GL_n(\mathbb{R})$ is a Lie group. To see the full proof consult [1] chap. 1 pag. 66.
+		Consider $GL(n,\mathbb{R})$, this is a smooth manifold (see \ref{Ex 1.1}). Given the row-column multiplication and the inverse $i$ which associates to a matrix its inverse, we have that $GL(n,\mathbb{R})$ is a group. Those operations are also $C^\infty$ and so $GL(n,\mathbb{R})$ is a Lie group. To see the full proof consult [1] chap. 1 pag. 66.
 	\end{Ex}
 	\begin{Ex}
-		Consider $SL_n(\mathbb{R})=\{A\in M_{n\times n}| \det(A)=1\}$. Since those elements are given by polynomials, $SL_n(\mathbb{R})$ is a closed subgroup of $GL_n(\mathbb{R})$. It is also possible to show that ([1] pag. 105 cap. 3, Theorem 9.9) $SL_n(\mathbb{R})$ is a regular submanifold $GL_n(\mathbb{R})$ of dimension $n^2-1$. Since the operations of multiplication and inversion are still $C^\infty$ on $SL_n(\mathbb{R})$, we have that this is a Lie subgroup of $GL_n(\mathbb{R})$.\\
+		Consider $SL(n,\mathbb{R})=\{A\in M_{n\times n}| \det(A)=1\}$. Since those elements are given by polynomials, $SL(n,\mathbb{R})$ is a closed subgroup of $GL(n,\mathbb{R})$. It is also possible to show that ([1] pag. 105 chap. 3, Theorem 9.9) $SL(n,\mathbb{R})$ is a regular submanifold $GL(n,\mathbb{R})$ of dimension $n^2-1$. Since the operations of multiplication and inversion are still $C^\infty$ on $SL(n,\mathbb{R})$, we have that this is a Lie subgroup of $GL(n,\mathbb{R})$.\\
 		\\
-		To find more information on this example the reader can see [1] 105-107, 125, 165 chap. 3 and 4.\\
+		To find more information on this example the reader can see [1] pag. 105-107, 125, 165 chap. 3 and 4.\\
 		\\
-		It is possible to show that (indicating with $^\dagger$ the adjoint and with $T$ the transposition):\\\\
-		$O_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^TA=AA^T=\mathbb{I}\};$\\\\
-		$SO_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^TA=AA^T=\mathbb{I};\, \det(A)=1\};$\\\\
-		$U_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^\dagger A=AA^\dagger=\mathbb{I}\};$\\\\
-		$SU_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^\dagger A=AA^\dagger=\mathbb{I};\,\det(A)=1\};$\\\\
+		It is possible to show that (indicating with $\dagger$ the adjoint and with $T$ the transposition):\\\\
+		$O(n,\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^TA=AA^T=\mathbb{I}\};$\\\\
+		$SO(n,\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^TA=AA^T=\mathbb{I};\, \det(A)=1\};$\\\\
+		$U(n,\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^\dagger A=AA^\dagger=\mathbb{I}\};$\\\\
+		$SU(n,\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^\dagger A=AA^\dagger=\mathbb{I};\,\det(A)=1\};$\\\\
 		are all real Lie groups. 
 		For the full proofs the reader is advised to check [5] pag. 41-51 chap. 2.
 	\end{Ex}
@@ -858,19 +858,19 @@
 		Let $V$ be a generic real vector space. If we define $[,]:V\times V\rightarrow V$ like $[x,y]=0$, $V$ clearly becomes a Lie algebra, called \textit{trivial}.
 	\end{Ex}
 	\section{Lie algebras of Lie groups}
-	In this section we define the concept of Lie algebra of a Lie group. We are going to see that it is possible to identify the Lie algebra of any Lie group with its tangent space at the identity. For more details the reader is advised to see [1] pag 178-182 cap. 4, [6] cap. 1 e [7] part 1 cap.3.
+	In this section we define the concept of Lie algebra of a Lie group. We are going to see that it is possible to identify the Lie algebra of any Lie group with its tangent space at the identity. For more details the reader is advised to see [1] pag 178-182 chap. 4, [6] chap. 1 e [7] part 1 chap. 3.
 	\begin{Def}
 		A vector field $X$ on a Lie group $G$ is called \textit{left invariant} if $d\ell_g(X)=X$ for all $g\in G$.
 	\end{Def}
 	A vector field is left invariant if $d\ell_g(X_h)=X_{gh}$ for all $g,h\in G$.
-	It follows that $X_g=d\ell_g(X_e)$, this means that a left invariant vector field is completely determined by its value at the identity. It is also possible to show that any left invariant vector field is smooth; ([1] pag. 181 cap.4).
+	It follows that $X_g=d\ell_g(X_e)$, this means that a left invariant vector field is completely determined by its value at the identity. It is also possible to show that any left invariant vector field is smooth; ([1] pag. 181 chap.4).
 	\begin{Obs} \label{Obs: 2.2}
-		Given a Lie group $G$ and a vector $A\in T_eG$ tangent to the identity, we can define a vector field $X^A:G\rightarrow T_eG$ by setting $X^A_g=d\ell_g(A)$. This field is left-invariant since $$d\ell_g(X^A_h)=d\ell_g(d\ell_h(X^A_e))=\ell_{gh}(X^A_e)=d\ell_{gh}(A)=X^A_{gh}$$
+		Given a Lie group $G$ and a vector $A\in T_eG$ tangent to the identity, we can define a vector field $X^A:G\rightarrow T_eG$ by setting $X^A_g=d\ell_g(A)$. This field is left-invariant since $$d\ell_g(X^A_h)=d\ell_g(d\ell_h(X^A_e))=d\ell_{gh}(X^A_e)=d\ell_{gh}(A)=X^A_{gh}$$
 		We say that $X^A$ is generated by $A\in T_eG$ and call $Lie(G)$ the set of all $X^A$ generated from vectors tangent to the identity of $G$.	
 	\end{Obs}
 	Given two vector fields $X$ and $Y$, we define their Lie bracket in a point $p$ as:
 	$$[X,Y]_pf=(X_pY-Y_pX)f$$
-	It is possible to show that if $X$ and $Y$ are smooth vector fields on $M$, then also $[X,Y]$ is smooth on $M$. More details on the proof can be found in [1] pag. 157 cap. 4. The following result also holds:
+	It is possible to show that if $X$ and $Y$ are smooth vector fields on $M$, then also $[X,Y]$ is smooth on $M$. More details on the proof can be found in [1] pag. 157 chap. 4. The following result also holds:
 	\begin{Prop}
 		If $X$ and $Y$ are left invariant, then also $[X,Y]$, $cX$ and $X+Y$ are. Moreover, $[X,Y]$ respects the Jacobi identity. Thus, $Lie(G)$ is a Lie algebra.
 	\end{Prop}
@@ -886,23 +886,23 @@
 	\end{proof}
 	\begin{Obs}\label{Obs: bracket T}
 		We can define a product $[,]$ on the tangent space at the identity in the following way: given two vectors $A,B\in T_eG$, we set $[A,B]=[X^A,X^B]_e$, where $X^A$ and $X^B$ are the left-invariant vector fields generated by the chosen vectors. It is possible to prove that $X^{[A,B]}=[X^A,X^B]$. 
-		For the full proof see [1] pag. $183$ chap. $4$.
+		For the full proof see [1] pag. 183 chap. 4.
 	\end{Obs}
 	\begin{Def}
 		We say that a Lie algebra $\mathfrak{g}$ is \textit{compact} if it is the Lie algebra of a compact Lie group.
 	\end{Def}
 	We now give some examples of tangent spaces to the identity for matrix groups, recalling that we can identify these spaces with the Lie algebra of the group itself.
 	\begin{Ex}
-		We call $\mathfrak{gl_n(\mathbb{R})}$ the Lie algebra of $GL_n(\mathbb{R})$.
-		By observation \ref{Obs 1.1.3}, we have $T_\mathbb{I}GL_n(\mathbb{R})=T_\mathbb{I}M_{n\times n}=M_{n\times n}$. From this, $$\mathfrak{gl_n(\mathbb{R})}\cong M_{n\times n}= T_\mathbb{I}GL_n(\mathbb{R})$$
+		We call $\mathfrak{gl(n,\mathbb{R})}$ the Lie algebra of $GL(n,\mathbb{R})$.
+		By observation \ref{Obs 1.1.3}, we have $T_\mathbb{I}GL(n,\mathbb{R})=T_\mathbb{I}M_{n\times n}=M_{n\times n}$. From this, $$\mathfrak{gl(n,\mathbb{R})}\cong M_{n\times n}= T_\mathbb{I}GL(n,\mathbb{R})$$
 		It is also possible to prove that the bracket defined in observation \ref{Obs: bracket Mnn} coincides with the one of observation \ref{Obs: bracket T}.
 	\end{Ex}
 	\begin{Ex}
-		We call $\mathfrak{sl_n(\mathbb{R})}$ the Lie algebra of $SL_n(\mathbb{R})=\{A\in M_{n\times n}|\det(A)=1\}$.
-		Consider a curve $\gamma:]-\epsilon,\epsilon[\rightarrow M_{n\times n}$ such that $\gamma(t)=\mathbb{I}+tB+O(t^2)$, it is necessary that $\det(\mathbb{I}+tB+O(t^2))=1$. However, $\det(\mathbb{I}+tB+O(t^2))=1+\hbox{tr}(B)+O(t^2)$ from which it follows: $$T_\mathbb{I}SL_n(\mathbb{R})\cong \mathfrak{sl_n(\mathbb{R})}=\{A\in M_{n\times n}|\hbox{tr}A=0\}$$ 
+		We call $\mathfrak{sl(n,\mathbb{R})}$ the Lie algebra of $SL(n,\mathbb{R})=\{A\in M_{n\times n}|\det(A)=1\}$.
+		Consider a curve $\gamma:]-\epsilon,\epsilon[\rightarrow M_{n\times n}$ such that $\gamma(t)=\mathbb{I}+tB+O(t^2)$, it is necessary that $\det(\mathbb{I}+tB+O(t^2))=1$. However, $\det(\mathbb{I}+tB+O(t^2))=1+\hbox{tr}(B)+O(t^2)$ from which it follows: $$T_\mathbb{I}SL(n,\mathbb{R})\cong \mathfrak{sl(n,\mathbb{R})}=\{A\in M_{n\times n}|\hbox{tr}A=0\}$$ 
 	\end{Ex}
 	\begin{Ex}
-		Let $GL(V)=\{f:V\rightarrow V|\, \textnormal{$f$\,  is \, linear \, and \, invertible}\}$ where $V$ is a finite dimensional vector space. We indicate with $\mathfrak{gl}(V)$ the Lie algebra of $GL(V)$.  Then, having fixed a basis for $V$, we have the identification $GL(V)\cong GL_n(\mathbb{R})$. The tangent space to $GL_n(\mathbb{R})$ was proven to be $M_{n\times n}(\mathbb{R})\cong End(V)=\{f:V\rightarrow V|\textnormal{\, $f$\, is \, linear}\}$. From this follows that: 
+		Let $GL(V)=\{f:V\rightarrow V|\, \textnormal{$f$\,  is \, linear \, and \, invertible}\}$ where $V$ is a finite dimensional vector space. We indicate with $\mathfrak{gl}(V)$ the Lie algebra of $GL(V)$.  Then, having fixed a basis for $V$, we have the identification $GL(V)\cong GL(n,\mathbb{R})$. The tangent space to $GL(n,\mathbb{R})$ was proven to be $M_{n\times n}(\mathbb{R})\cong End(V)=\{f:V\rightarrow V|\textnormal{\, $f$\, is \, linear}\}$. From this follows that: 
 		$$\mathfrak{gl}(V)\cong T_{id}GL(V)\cong End(V)$$ 
 	\end{Ex}
 	\begin{Obs}
@@ -980,14 +980,14 @@
 		If $G$ is a Lie group, we define a \textit{representation} as a homomorphism between Lie groups $\rho:G\rightarrow GL(V)$. With \textit{dimension of the representation} we refer to the dimension of the vector space $V$.
 	\end{Def}Let us now see some easy examples:
 	\begin{Ex}
-		Let $G$ be a matrix Lie group. We define $\rho: G\rightarrow GL_n(\mathbb{C})$ such that $\rho(X)=I$, then $\rho$ is a representation, called \textit{trivial}. 
+		Let $G$ be a matrix Lie group. We define $\rho: G\rightarrow GL(n,\mathbb{C})$ such that $\rho(X)=I$, then $\rho$ is a representation, called \textit{trivial}. 
 	\end{Ex}
 	\begin{Ex}
 		Let $G$ be a matrix Lie group. By definition $G\subset GL_n(\mathbb{C})$. We define $\rho: G\rightarrow GL_n(\mathbb{C})$ as $\rho(X)=X$, then $\rho$ is a representation, called \textit{standard}. 
 	\end{Ex}
 	\begin{Def}
 		Given a Lie group representation $\rho$ on $V$, a subspace $W\subset V$ is called \textit{invariant} if $\rho(g)w\in W$ for all $w\in W$.
-		A representation in which all the invariant subspaces are trivial: $\{0\}$ and $V$; is called \textit{irreducible}.
+		A representation in which all the invariant subspaces are trivial, i.e. $\{0\}$ and $V$; is called \textit{irreducible}.
 	\end{Def}
 	Let us now look at the definition of Lie algebra representation. Later on, we shall see that the representation of a Lie group are strictly related to the ones of its Lie algebra.
 	\begin{Def}
@@ -999,7 +999,7 @@
 		Moreover: $d\rho(AXA^{-1})=\rho(A)d\rho(X)\rho(A)^{-1}$.	
 	\end{Theo}
 	\begin{proof} [Idea of proof]
-		After fixing a basis, we can identify $GL(V)$ with $GL_n(\mathbb{C})$ (or $\mathbb{R}$), then, if we assume the hypothesis of the theorem, $\rho$ becomes a homomorphism between matrix Lie groups. By proposition \ref{Prop: 2.4.1} there exists a unique map $\varphi:\mathfrak{g}\rightarrow End(V)$ which coincides with $d\rho$ and respects all of the needed properties.
+		After fixing a basis, we can identify $GL(V)$ with $GL(n,\mathbb{C})$ (or $\mathbb{R}$), then, if we assume the hypothesis of the theorem, $\rho$ becomes a homomorphism between matrix Lie groups. By proposition \ref{Prop: 2.4.1} there exists a unique map $\varphi:\mathfrak{g}\rightarrow End(V)$ which coincides with $d\rho$ and respects all of the needed properties.
 	\end{proof}
 	\begin{Theo}\label{Theo: 3.1}
 		Let $G$ a connected matrix Lie group, $\mathfrak{g}$ its Lie algebra, $\rho:G\rightarrow GL(V)$ a representation of $G$ and $d\rho:\mathfrak{g}\rightarrow \mathfrak{gl}(V)$ the induced representation. Then $\rho$ is irreducible if and only if $d\rho$ is.
@@ -1008,7 +1008,7 @@
 	\\
 	Thus, given a connected matrix Lie group and a representation, not only it is always possible to find a representation of its Lie algebra, but the irreducibility of one implies the irreducibility of the other.
 	\begin{Obs}
-		In general, we have seen that, given a Lie group representation $\rho:G\rightarrow GL(V)$, we can always construct a representation of its Lie algebra by taking its differential at the identity $d\rho_\textbf{1}:\mathfrak{g}\rightarrow \mathfrak{gl}(V)$. One can show that, for a simply connected Lie group, there exists a bijection between representations of the group and of the associated algebra. More details in [7] pag. 106 cap. 4. If the group is connected but not simply connected, from the Lie algebra representation one can obtain a representation of the universal covering of the group.
+		In general, we have seen that, given a Lie group representation $\rho:G\rightarrow GL(V)$, we can always construct a representation of its Lie algebra by taking its differential at the identity $d\rho_\textbf{1}:\mathfrak{g}\rightarrow \mathfrak{gl}(V)$. One can show that, for a simply connected Lie group, there exists a bijection between representations of the group and of the associated algebra. More details in [7] pag. 106 chap. 4. If the group is connected but not simply connected, from the Lie algebra representation one can obtain a representation of the universal covering of the group.
 	\end{Obs}
 	We now construct a very important representation: the adjoint representation. This will be the used very frequently in gauge theories since it controls the transformations of the gauge bosons.
 	\begin{Def}
@@ -1030,7 +1030,7 @@
 		Obviously, the adjoint representation of a Lie group of dimension $n$ is a representation of dimension $n$.
 	\end{Obs}
 	\section{Simple and semisimple Lie algebras}
-	In this section we will introduce the notions of simple and semisimple Lie algebras. We will also look at some properties and a criterion to establish if a Lie algebra is simple. Semisimple Lie algebras will be extremely important for the construction of the Lagrangians since they will allow us to use a positive definite scalar product. The reader can find more information on this topic on [3] chap. 2, [5] chap. 3 and 4, [7] part 1 pag. 60,61, part 2 pag. 167-172.
+	In this section we will introduce the notions of simple and semisimple Lie algebras. We will also look at some of their properties and at a criterion to establish if a Lie algebra is simple. Semisimple Lie algebras will be extremely important for the construction of the Lagrangians since they will allow us to use a positive definite scalar product. The reader can find more information on this topic on [3] chap. 2, [5] chap. 3 and 4, [7] part 1 pag. 60,61, part 2 pag. 167-172.
 	\begin{Def}
 		Let $\mathfrak{g}$ be a Lie algebra. We call \textit{ideal} of $\mathfrak{g}$ a subspace $\mathfrak{h}$ such that 
 		$$[\mathfrak{g},\mathfrak{h}]\subset\mathfrak{h}$$
@@ -1085,7 +1085,7 @@
 	In this section we introduce the concept of Cartan-Killing form. Our aim is to find an inner product on $\mathfrak{g}$ which is non degenerate and positive definite. We will see that those requirements will be satisfied by the Cartan-Killing form of some Lie algebras. This product, once found, will be used to define the Lagrangian. More information can be found in [3] chap. 2.
 	\begin{Def}
 		Let $\mathfrak{g}$ be a finite dimensional Lie algebra on $\mathbb{K}=\mathbb{R},\mathbb{C}$. We define the \textit{Cartan-Killing form} of $\mathfrak{g}$ as the map:
-		$$B_\mathfrak{g}:\mathfrak{g}\times \mathfrak{g}\rightarrow\mathbb{K}\hbox{ such that } B_\mathfrak{g}(X,Y)=tr(\hbox{ad}_X\circ \hbox{ad}_Y)$$
+		$$B_\mathfrak{g}:\mathfrak{g}\times \mathfrak{g}\rightarrow\mathbb{K}\hbox{ such that } B_\mathfrak{g}(X,Y)=\hbox{Tr}(\hbox{ad}_X\circ \hbox{ad}_Y)$$
 	\end{Def}
 	\begin{Obs}
 		By definition, this map is clearly bilinear and symmetric. Note that in the case $\mathbb{K}=\mathbb{C}$ the Cartan-Killing form is still symmetric and not hermitian. Form now on, we will only work with real Lie algebras.
@@ -1107,11 +1107,11 @@
 	\end{Prop}
 	\begin{proof}
 		It is known that:
-		$$\hbox{ad}_{\hbox{ad}_X}(Y)=\hbox{ad}_X\circ \hbox{ad}_Y-\hbox{ad}_y\circ \hbox{ad}_X$$
+		$$\hbox{ad}_{\hbox{ad}_X(Y)}=\hbox{ad}_X\circ \hbox{ad}_Y-\hbox{ad}_Y\circ \hbox{ad}_X$$
 		From this property it directly follows that:
-		$$B_\mathfrak{g}(\hbox{ad}_X(Y),Z)=\hbox{tr}(\hbox{ad}_{\hbox{ad}_X(Y)}\circ \hbox{ad}_Z)=\hbox{tr}(\hbox{ad}_X\circ \hbox{ad}_Y\circ \hbox{ad}_Z-\hbox{ad}_Y\circ\hbox{ad}_X\circ \hbox{ad}_Z)$$
+		$$B_\mathfrak{g}(\hbox{ad}_X(Y),Z)=\hbox{Tr}(\hbox{ad}_{\hbox{ad}_X(Y)}\circ \hbox{ad}_Z)=\hbox{Tr}(\hbox{ad}_X\circ \hbox{ad}_Y\circ \hbox{ad}_Z-\hbox{ad}_Y\circ\hbox{ad}_X\circ \hbox{ad}_Z)$$
 		By linearity and cyclicity of the trace we find:
-		$$B_\mathfrak{g}(\hbox{ad}_X(Y),Z)=\hbox{tr}(\hbox{ad}_Y\circ \hbox{ad}_Z\circ \hbox{ad}_X-\hbox{ad}_Y\circ\hbox{ad}_X\circ \hbox{ad}_Z)=-B_\mathfrak{g}(Y,\hbox{ad}_X(Z))$$
+		$$B_\mathfrak{g}(\hbox{ad}_X(Y),Z)=\hbox{Tr}(\hbox{ad}_Y\circ \hbox{ad}_Z\circ \hbox{ad}_X-\hbox{ad}_Y\circ\hbox{ad}_X\circ \hbox{ad}_Z)=-B_\mathfrak{g}(Y,\hbox{ad}_X(Z))$$
 	\end{proof}
 	We now state a key result.
 	\begin{Theo}\label{Theo_2.8.2}
@@ -1155,7 +1155,7 @@
 		The above results imply that if $\mathfrak{g}$ is a compact semisimple Lie algebra then there is a natural choice for a scalar product on $\mathfrak{g}$: the Cartan-Killing form. Futhermore, if $\mathfrak{g}$ is simple, this is the unique $\hbox{Ad}$ invariant scalar product up to a constant. In the next section we will show how to use this product to construct a metric on a Lie group.
 	\end{Obs}
 	\section{Metrics on Lie groups}
-	In this section we will briefly study scalar products on Lie algebras, which will be fundamental in the further analysis on Gauge theories. For further references see [3] chap. 2.
+	In this section we will briefly study scalar products on Lie algebras and metric on Lie groups, which will be fundamental in the further analysis on gauge theories. For further references see [3] chap. 2.
 	\begin{Def}
 		Let $\braket{,}$ be a metric on a Lie group $G$. We say that the metric is:
 		\begin{itemize}
@@ -1405,7 +1405,7 @@
 		It is clear that at each point $p$ this map reduces to a linear isomorphism.
 	\end{proof}
 	\begin{Ex}
-		Consider the smooth manifold $\mathbb{R}^2$ and its tangent bundle $T\mathbb{R}^2$. At any point $(x,y)\in\mathbb{R}^2$ we can find a frame: $\partial_x,\partial_y$. This is a global smooth frame. By proposition $\label{prop_2.3.1}$, the tangent bundle of $\mathbb{R}^2$ is thus trivial.
+		Consider the smooth manifold $\mathbb{R}^2$ and its tangent bundle $T\mathbb{R}^2$. At any point $(x,y)\in\mathbb{R}^2$ we can find a frame: $\partial_x,\partial_y$. This is a global smooth frame. By proposition \ref{Prop_2.3.1}, the tangent bundle of $\mathbb{R}^2$ is thus trivial.
 	\end{Ex}
 	\begin{Ex}
 		Consider a generic Lie group $G$. We can find a frame for the vector fields at the identity by choosing a basis for the Lie algebra $\{T^a\}$ and considering the corresponding left-invariant vector fields $\{\tilde{T^a}\}$. Consider then the left-multiplication $\ell_g:G\rightarrow G$ on $G$. This is a diffeomorphism and so it induces an isomorphism of tangent spaces:
@@ -1639,7 +1639,7 @@
 		\end{pmatrix}$$
 		We also note that the stabilizer of any $\vec{e}\in Fr(V)$ is just $\mathbb{I}_n\in GL(n,\mathbb{R})$, so that the group acts freely on $Fr(V)$. Moreover, the orbit of any element is the whole space: 
 		$$O(\vec{e}\in Fr(V))=Fr(V)$$
-		This last result is obvious: given any two basis one can always find one as a linear combination of the other and so the two will be related by a matrix of $GL(n\mathbb{R})$.
+		This last result is obvious: given any two basis one can always find one as a linear combination of the other and so the two will be related by a matrix of $GL(n,\mathbb{R})$.
 		Now, by the orbit-stabilizer theorem, having fixed an element $\vec{e}\in Fr(V)$, we have a bijection:
 		$$\phi_{\vec{e}}:{GL(n,\mathbb{R})\over Stab(\vec{e})}=GL(n,\mathbb{R})\rightarrow O(\vec{e})=Fr(V);\hbox{ such that } \phi_{\vec{e}}([A])=\vec{e}A$$
 		The idea now is to put a manifold structure on $Fr(V)$ such that the above map becomes a diffeomorphism. Note also that the stabilizer of any element is just the identity group. Thus, not only the image, but also the domain of $\phi_{\vec{e}}$ will be independent of the choice of $\vec{e}$.
@@ -1655,7 +1655,7 @@
 		It remains to make $Fr(V)$ locally Euclidean. Consider any chart $(V,\Phi)$ on $GL(n,\mathbb{R})$. This induces a chart on $Fr(V)$ like follows:
 		$$(\phi_{\vec{e}}(V),\Phi\circ\phi^{-1}_{\vec{e}})$$
 		This completes the proof.
-		Note also that if we were to choose any other element of $Fr(V)$ like $\vec{f}=\vec{e}A$, the map would still be still an homeomorphism since:
+		Note also that if we were to choose any other element of $Fr(V)$ like $\vec{f}=\vec{e}A$, the map would still be still a homeomorphism since:
 		$$\phi_{\vec{f}}(B)=\vec{f}B=\vec{e}AB=\phi_{\vec{e}}\circ \ell_A(B)$$
 		And the left translation is a diffeomorphism.
 	\end{proof}
@@ -2564,7 +2564,7 @@
 	\chapter{The Yang-Mills Gauge theory}
 	In this chapter we will use the knowledge exposed previously to construct the famous Yang-Mills Lagrangian and look at some of its properties. More information on this topic can be found in [3] chap. 5, chap. 7, [10].
 	\section{The Maxwell's equations}
-	In this section we will develop a geometric formulation for Maxwell's equations. We will first of all analyze them in a empty flat space-time configuration. More information can be found in [3] chap. 7 pag 419, [12] chap. 1 pag 118-122.\\
+	In this section we will develop a geometric formulation for Maxwell's equations. We will first of all analyze them in an empty flat space-time configuration. More information can be found in [3] chap. 7 pag 419, [12] chap. 1 pag 118-122.\\
 	\\
 	We will refer to $\mathbb{R}^n$ equipped with a flat metric $\eta=diag(-,-,...,_,+,+,...,+)$ with signature $(p,q)$, as $\mathbb{R}^{q,p}$. Our starting setting is Minkowski space, so we consider $\mathbb{R}^{1,3}$ as the base manifold. We are working in natural units, so that the speed of light is normalized to $c=1$.\\
 	\\
@@ -2656,17 +2656,17 @@
 		From proposition \ref{Prop_1.7.2} we have
 		$$\star dx^I=[dx^i]\sqrt{|\det(g)|}\sum_J[JJ']\braket{dx^I,dx^J}dx^{J'}$$
 		where now $[dx^i]=(+)$, $I=\{\mu,\nu\}$, $J=\{\alpha,\beta\}$ is any possible ordered set of indices of length 2, $J'$ is the ordered complement of $J$ and $[JJ']$ is the sign of the permutation to put in order the set $[JJ']$. For our orthonormal basis, the scalar product inside the sum vanishes except for $\alpha,\beta$ equal to the ordered $\mu,\nu$. Thus, we obtain:
-		$$\star (dx^\mu\wedge dx^\nu)= [\mu\nu\mu'\nu']\braket{dx^\mu\wedge dx^\nu,dx^\alpha\wedge dx^\beta}dx^{\mu'}\wedge dx^{\nu'}$$
-		With $[\mu\nu\mu'\nu']$ the sign of the permutation needed to put the set $\mu\nu\mu'\nu'$ in order, $\alpha,\beta$ equal to the ordered $\mu,\nu$ set of indices, and $\mu',\nu'$ ordered complements of $\alpha,\beta$ (the indices are not summed over). Substituting this into the previous formula and expliciting the scalar product of forms as in observation \ref{Obs_1.7.1} one gets:
-		$$\star F=\sum_{\mu<\nu}F_{\mu\nu}[\mu\nu\mu'\nu']\det
+		$$\star (dx^\mu\wedge dx^\nu)= [\alpha\beta\mu'\nu']\braket{dx^\mu\wedge dx^\nu,dx^\alpha\wedge dx^\beta}dx^{\mu'}\wedge dx^{\nu'}$$
+		With $[\alpha\beta\mu'\nu']$ the sign of the permutation needed to put the set $\alpha\beta\mu'\nu'$ in order, $\alpha,\beta$ equal to the ordered $\mu,\nu$ set of indices, and $\mu',\nu'$ ordered complements of $\alpha,\beta$ (the indices are not summed over). Substituting this into the previous formula and expliciting the scalar product of forms as in observation \ref{Obs_1.7.1} one gets:
+		$$\star F=\sum_{\mu<\nu}F_{\mu\nu}[\alpha\beta\mu'\nu']\det
 		\begin{pmatrix}
 			\eta^{\mu\alpha} & \eta^{\mu\beta}\\
 			\eta^{\nu\alpha} & \eta^{\nu\beta}\\
 		\end{pmatrix} dx^{\mu'}\wedge dx^{\nu'}$$
 		With $\alpha=\mu$ and $\beta=\nu$ since we are considering ordered sets of indices. The result is:
-		$$\star F=\sum_{\mu<\nu}[\mu\nu\mu'\nu']F^{\mu\nu}dx^{\mu'}\wedge dx^{\nu'}$$
+		$$\star F=\sum_{\mu<\nu}[\alpha\beta\mu'\nu']F^{\mu\nu}dx^{\mu'}\wedge dx^{\nu'}$$
 		Applying now the exterior derivative in the above formula, we get:
-		$$d\star F=\sum_{\mu<\nu}[\mu\nu\mu'\nu']\partial_\rho F^{\mu\nu}dx^\rho\wedge dx^{\mu'}\wedge dx^{\nu'}$$
+		$$d\star F=\sum_{\mu<\nu}[\alpha\beta\mu'\nu']\partial_\rho F^{\mu\nu}dx^\rho\wedge dx^{\mu'}\wedge dx^{\nu'}$$
 		The result is automatically 0 if $\rho=\mu'$ or $\rho=\nu'$. Thus:
 		$$d\star F=0\iff \partial_\mu F^{\mu\nu}=0$$
 		Those equations can also be expressed in terms of the vector potential $A$.
@@ -2775,7 +2775,7 @@
 		\item Lorentz invariant;
 		\item Gauge invariant.
 	\end{itemize}
-	By gauge invariance, we mean that the Lagrangian is invariant under local transformations encoded in a Lie group. In particular, we will assume the existence of an a-priori $G$-principal bundle on our space-time manifold, where $G$ is the symmetry group. In our analysis, we also ask for $G$ to be compact and to have a semisimple Lie algebra. This requirement will ensure, in the $n$-dimensional case, that the group is equipped with a positive definite scalar product: the Cartan-Killing form.
+	By gauge invariance, we mean that the Lagrangian is invariant under local transformations encoded in a Lie group. In particular, we will assume the existence of an a-priori $G$-principal bundle on our space-time manifold, where $G$ is the symmetry group. In our analysis, we also ask for $G$ to be compact and to have a (semi)simple Lie algebra. This requirement will ensure, in the $n$-dimensional case, that the group is equipped with a positive definite scalar product: the Cartan-Killing form.
 	\\\\
 	We now wish to recover Maxwell's equations and the electromagnetic Lagrangian of the previous section in a new differential geometry setting, which will make the gauge symmetry and the Lorentz invariance more manifest. We assume the existence of a principal $G$-bundle $(P,\mathbb{R}^{1,3},\pi,G)$ where $G$ is a Lie group. Given any representation $\rho:G\rightarrow GL(V)$, we can also define an associated bundle $(E,\mathbb{R}^{1,3},\pi_A,G)$ where $E={P\times V\over \sim}$ over the equivalence relation:
 	$$(p,v)\sim(p\cdot g,\rho(g^{-1})v)$$
@@ -2912,7 +2912,7 @@
 	\section{The SU(n) Yang-Mills theory}
 	In this section we will generalize the construction of the electromagnetic Lagrangian with higher dimensional groups. This will lead us to the QCD gauge boson Lagrangian. More information on this can be found in [3] chap. 7 pag. 401-423, [10].
 	\\\\
-	The idea is to keep the same framework of the $U(1)$ case and generalize the setting to a higher dimensional Lie algebra. Thus, following the approach of the previous section, we start from the assumption of a $G$-principal bundle on a flat, empty $\mathbb{R}^{1,3}$ endowed with a connection $A\in \Omega^1(P,\mathfrak{g})$. However, we now take $\mathfrak{g}$ to be an $n$-dimensional Lie algebra. We are going to refer to $A$ with the name \textit{gauge field}. Moreover, we want our group $G$ to have a compact and semisimple Lie algebra, in order to have a negative definite non degenerate Cartan-Killing form to induce a bundle metric on the adjoint associated bundle $\hbox{Ad}(P)$. To satisfy this requirement coherently with the previous section, we generalize the group $G$ from $U(1)$ to $SU(n)$, since $\mathfrak{su}(n)$ is compact and semisimple. Thus, our principal bundle will be a principal $SU(n)$-bundle $(P,\mathbb{R}^{1,3},\pi,SU(n))$.
+	The idea is to keep the same framework of the $U(1)$ case and generalize the setting to a higher dimensional Lie algebra. Thus, following the approach of the previous section, we start from the assumption of a $G$-principal bundle on a flat, empty $\mathbb{R}^{1,3}$ endowed with a connection $A\in \Omega^1(P,\mathfrak{g})$. However, we now take $\mathfrak{g}$ to be an $n$-dimensional Lie algebra. We are going to refer to $A$ with the name \textit{gauge field}. Moreover, we want our group $G$ to have a compact and simple Lie algebra, in order to have a negative definite non degenerate Cartan-Killing form to induce a natural unique bundle metric on the adjoint associated bundle $\hbox{Ad}(P)$. To satisfy this requirement coherently with the previous section, we generalize the group $G$ from $U(1)$ to $SU(n)$, since $\mathfrak{su}(n)$ is compact and simple. Thus, our principal bundle will be a principal $SU(n)$-bundle $(P,\mathbb{R}^{1,3},\pi,SU(n))$.
 	\begin{Obs}
 		In our analysis we will take $\mathfrak{su}(n)$ to be the real vector space of \textit{traceless hermitian} matrices. However, in example \ref{Ex_2.5.1} the Lie algebra of $U(n)$ was found to be composed of skew-hermitian matrices. If instead of a set of generators $\{T^a\}$ we take $\{-iT^a\}$, the generators $T^a$ become hermitian. Basically, we are rescaling the generators of a factor $-i$.
 		With this convention, the commutation relations become:
@@ -2920,7 +2920,7 @@
 	\end{Obs}
 	\begin{Prop}
 		The transformation rule of the pullback of the gauge field $A$ under a gauge transformation induced by $SU(n)$ is:
-		$$s_i^*A=A_i=\hbox{Ad}(g_{ji}^{-1})A_i+g^{-1}_{ji}dg_{ji}$$ 
+		$$s_i^*A=A_i=\hbox{Ad}(g_{ji}^{-1})A_j+g^{-1}_{ji}dg_{ji}$$ 
 	\end{Prop}
 	\begin{proof}
 		This is an immediate consequence of theorem \ref{Theo_7.2.1}. In particular, for a matrix Lie group like $SU(n)$, the form $\mu_{ji}=g_{ji}^*\theta$ is:
