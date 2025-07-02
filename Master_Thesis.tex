@@ -163,7 +163,7 @@
 	\\
 	Finally, the last chapter is devoted to the actual construction of the Yang-Mills theory with some examples. We first recover classical electromagnetism in an abelian setting, both in flat and curved spacetime. Then, we generalize the results to a non abelian higher dimensional case in a flat spacetime.
 	\chapter{Preliminaries on differential geometry}
-	In this chapter we will introduce the topic of fiber bundles vector bundles and some basic notions that will be used afterwards. These concepts will be fundamental for the study of Gauge Theories. In what follows, we will assume that the reader has familiarity with basic notions of smooth manifold and Lie groups. For these concepts, the reader is advised to consult [1] chap. 1, 2, 3, 4 and [2] chap. 1,2.
+	In this chapter we introduce the topic of smooth manifolds, tangent space and some other notions that will be used afterwards. These concepts will be fundamental for the study of gauge theories. For these concepts, the reader is advised to consult [1] chap. 1, 2, 3, 4 and [2] chap. 1,2.
 	\section{Smooth manifolds}
 	In this section we introduce the notion of smooth manifold, tangent spaces and vector fields; with some examples. More details can be found in [1] chap. 1 pag. 48-57.
 	\begin{Def}
@@ -175,7 +175,7 @@
 	\begin{Def}
 		Two charts $(U_1,\phi:U_1\rightarrow\mathbb{R}^n)$ and $(U_2,\varphi:U_2\rightarrow\mathbb{R}^n)$ on the same topological manifold $M$ are said to be \textit{compatible} if
 		$\phi\circ\varphi^{-1}:\varphi(U_1\cap U_2)\rightarrow \phi(U_1\cap U_2)$ and $\varphi\circ\phi^{-1}:\phi(U_1\cap U_2)\rightarrow \varphi(U_1\cap U_2)$ are $C^\infty$.\\
-		A collection of compatible charts $\mathbb{U}=\{(U_i,\phi_{i})\}$ on $M$ such that $M=\bigcup_i U_i$ is called \textit{atlas}. A topological manifold endowed with a maximal atlas is called \textit{smooth manifold}.
+		A collection of compatible charts $\mathcal{A}=\{(U_i,\phi_{i})\}$ on $M$ such that $M=\bigcup_i U_i$ is called \textit{atlas}. A topological manifold endowed with a maximal atlas is called \textit{smooth manifold}.
 	\end{Def}
 	It is possible to show that if two charts are compatible with some other charts of a given atlas, then they are also compatible with one another. For more details see [1] (pag. 51, cap. 2).
 	\begin{Obs}\label{Obs:1.1.1}
@@ -186,7 +186,7 @@
 		The set $\mathbb{R}^n$ with the chart $(\mathbb{R}^n,\phi)$, where $\phi=(r^1,...,r^n)$ and $r^i$ are the standard coordinate of $\mathbb{R}^n$, is a smooth manifold.
 	\end{Ex}
 	\begin{Ex}\label{Ex 1.1}
-		The set $GL_n(\mathbb{R})=\{A\in M_{n\times n}|\det(A)\neq0\}$ si a smooth manifold. One can see this by considering the map $\det:\mathbb{R}^{n^2}\rightarrow \mathbb{R}$, by definition $GL_n(\mathbb{R})=\det^{-1}(\mathbb{R}-\{0\})$. Since the map $\det$ is continuous, the pre-images of open sets are open as well, thus $GL_n(\mathbb{R})$ is an open subset of $\mathbb{R}^{n^2}$. By observation \ref{Obs:1.1.1}, $GL_n(\mathbb{R})$ is a smooth manifold.
+		The set $GL_n(\mathbb{R})=\{A\in M_{n\times n}|\det(A)\neq0\}$ si a smooth manifold. One can see this by considering the map $\det:\mathbb{R}^{n^2}\rightarrow \mathbb{R}$, by definition $GL_n(\mathbb{R})=\det^{-1}(\mathbb{R}-\{0\})$. Since the determinant is continuous, the pre-images of open sets are open as well, thus $GL_n(\mathbb{R})$ is an open subset of $\mathbb{R}^{n^2}$. By observation \ref{Obs:1.1.1}, $GL_n(\mathbb{R})$ is a smooth manifold.
 	\end{Ex}
 	\begin{Ex}
 		Consider the unit circle $S^1=\{x^2+y^2=1\}\subset \mathbb{R}^2$. Consider two charts: $$(U_1=\{x^2+y^2=1;y>0\},\phi_1) \, and \,  (U_2=\{x^2+y^2=1;y<0\},\phi_2)$$ like in figure \ref{figura 1}, where the coordinate maps are defined like: $\phi_1(x,y)=x$ e $\phi_2(x,y)=x$.
@@ -300,7 +300,7 @@
 		More details on the flux of a vector field can be found in [1] pag. 155, 156 cap. 3.
 	\end{Def}
 	\section{Riemannian manifolds}
-	In this section we briefly define the concept of Riemannian manifold and look at some properties of it. More information can ba found in [2] cahp. 1 pag. 1-7.
+	In this section we briefly define the concept of Riemannian manifolds and look at some of their properties. More information can ba found in [2] cahp. 1 pag. 1-7.
 	\begin{Def}
 		A \textit{metric} on a manifold $M$ is a smooth assignment to any point $p\in M$ of an inner product $\braket{,}_p:T_pM\times T_pM\rightarrow \mathbb{R}$:
 		We also refer to any manifold $M$ endowed with a Riemannian metric with the name \textit{Riemannian manifold} and the notation $(M,g)$.
@@ -327,7 +327,7 @@
 	Let $(U,\phi)$ be a chart on $M$ with $\phi:U\rightarrow \mathbb{R}^n$. Then, any vector in $p\in U$ can be written in local coordinates: $v_p=v^i_p\partial_i|_p$. Now we construct the following mapping:
 	$$\Phi:TU\rightarrow \phi(U)\times \mathbb{R}^n; \hbox{ like: }
 	\Phi(p,v_p)=(x^i_pe_i,v^i_p\partial_i|_p)$$
-	This mapping is 1-1 and surjective so it is a bijection. Moreover, it is continuous. Thus, it is a homeomorphism.
+	This mapping is clearly a homeomorphism.
 	\begin{Theo} \label{Theo_1.1}
 		The tangent bundle $TM$ has a second countable and Hausdorff topology
 	\end{Theo}
@@ -339,8 +339,7 @@
 		$TM$ is a smooth manifold.
 	\end{Theo}
 	\begin{proof}
-		Consider an Atlas $\mathfrak{A}_M=\{U_\alpha,\phi_\alpha\}$ for the manifold $M$. We want to show that the induced collection $\mathfrak{A}_{TM}=\{TU_\alpha,\Phi_\alpha\}$ is an atlas on $TM$, knowing that $TM=\bigcup TU_\alpha$ and $\Phi_\alpha:TU_\alpha\rightarrow U_\alpha\times \mathbb{R}^n$ is the map constructed in the previous section.\\
-		\\
+		Consider an Atlas $\mathfrak{A}_M=\{U_\alpha,\phi_\alpha\}$ for the manifold $M$. We want to show that the induced collection $\mathfrak{A}_{TM}=\{TU_\alpha,\Phi_\alpha\}$ is an atlas on $TM$, knowing that $TM=\bigcup TU_\alpha$ and $\Phi_\alpha:TU_\alpha\rightarrow U_\alpha\times \mathbb{R}^n$ is the map constructed in the previous section.
 		As we have said previously, the maps $\Phi_\alpha$ are homeomorphisms between open sets of $TM$ and $\mathbb{R}^{2n}$. This makes $TM$ locally Euclidean. It remains to check the compatibility between two overlapping charts.\\
 		\\
 		Consider two overlapping charts $\Phi_1,\Phi_2$ on $TU_1,TU_2$ open sets of the tangent bundle, with $TU_1\cap TU_2\neq \emptyset$. Then on the two corresponding charts $(U_1,\phi_1)$, $(U_2,\phi_2)$ on $M$, we can express tangent vectors in two different coordinate bases:
@@ -383,10 +382,7 @@
 		Let $f$ be a $C^\infty$ function on $M$. Then its differential is a 1-form.
 	\end{Prop}
 	\begin{proof}
-		By definition of differential, if $X$ is a vector field, at any $p$ we can write:
-		$$df_p(X_p)=X_pf$$
-		This is clearly a map that assigns to any point a co-vector. Namely:
-		$$df(p)(X)=X_pf$$
+		This follows immediately from the definition of differential.
 	\end{proof}
 	\begin{Obs}
 		Clearly, the differential of a coordinate function corresponds exactly to the dual basis:
@@ -551,12 +547,12 @@
 		$$\int_U\omega=\pm\int_VT^*\omega$$
 	\end{Prop}
 	\begin{proof}
-		Let $\omega=f(x)dx^1\wedge...\wedge dx^n\in\Omega^n_c(U\subset \mathbb{R}^n)$ in a coordinate frame $x^i$ on $U$. Let $V\subset \mathbb{R}^n$ be an open set wit coordiantes $y^i$. Let $T:V\subset \mathbb{R}^n\rightarrow U$ be a diffeomorphism. Then, indicating with $T^i=x^i\circ T$ the $i^{th}$ component of $T$:
+		Let $\omega=f(x)dx^1\wedge...\wedge dx^n\in\Omega^n_c(U\subset \mathbb{R}^n)$ in a coordinate frame $x^i$ on $U$. Let $V\subset \mathbb{R}^n$ be an open set wit coordiantes $y^i$. Let $T:V\rightarrow U$ be a diffeomorphism. Then, indicating with $T^i=x^i\circ T$ the $i^{th}$ component of $T$:
 		$$dT^1\wedge...\wedge dT^n=\det( J(T))dy^1\wedge...\wedge dy^n$$
 		Where $J(T)$ is the Jacobian matrix of the change of coordinates. Clearly, applying the change of variable rules from differential calculus:
-		$$\int_U\omega=\int_Uf dx^1...dx^n=\int_V T\circ f |\det(J(T))|dy^1...dy^n=\pm\int_V T\circ f \det(J(T))dy^1...dy^n=$$
-		$$=\pm\int_V T\circ f \det(J(T))dy^1\wedge...\wedge dy^n=\pm\int_V T\circ f dT^1\wedge...\wedge dT^n=$$
-		$$=\pm\int_V(T^*f)T^*dx^1\wedge...\wedge dx^n=\pm\int_V T^*\omega$$
+		$$\int_U\omega=\int_Uf dx^1...dx^n=\int_V f\circ T |\det(J(T))|dy^1...dy^n=\pm\int_V f\circ T \det(J(T))dy^1...dy^n=$$
+		$$=\pm\int_V f\circ T \det(J(T))dy^1\wedge...\wedge dy^n=\pm\int_V f\circ T dT^1\wedge...\wedge dT^n=$$
+		$$=\pm\int_V(T^*f)T^*dx^1\wedge...\wedge T^*dx^n=\pm\int_V T^*\omega$$
 	\end{proof}
 	We can now extend the previous definitions to our differential geometry framework, since any smooth manifold is locally Euclidean.
 	\begin{Def}
@@ -568,13 +564,6 @@
 		$$\int_{\phi(U)}\phi^{-1*}\omega=\int_{\psi(U)}(\phi\circ\psi)^*\phi^{-1*}\omega=\int_{\psi(U)}\psi^{-1*}\omega$$
 		Moreover, if $\omega$ is with compact support then $\phi^{-1*}\omega$ is a $n$-form with compact support on $\phi(U)\subset\mathbb{R}^n$, due to $\phi$ being a diffeomorphism. 
 	\end{Obs}
-	\begin{Theo}[\textbf{Stokes}]\label{Stokes}
-		Let $M$ be an orientable manifold with boundary $\partial M$. For any $(n-1)$-form $\omega$ with compact support on $\partial M$, it holds:
-		$$\int_M d\omega=\int_{\partial M}\omega$$ 
-	\end{Theo}
-	\begin{proof}
-		The proof of this statement can be found in [1] chap. 6 pag. 269-271.
-	\end{proof}
 	\section{The exterior derivative}\label{Sec_1.7}
 	In this section we will introduce the notion of exterior derivative and Hodge operator. More information on those topic can be found in [3] chap. 7 pag 401-413.
 	\begin{Def}
@@ -637,7 +626,7 @@
 		$$d\omega=da_I\wedge dx^I$$
 	\end{Obs}
 	\begin{Def}
-		A $k$-form $\omega$ is said to be \textit{closed} if $d\omega=0$ and \textit{exact} of $\omega=d\alpha$ for $\alpha\in\Omega^{k-1}(M)$.
+		A $k$-form $\omega$ is said to be \textit{closed} if $d\omega=0$ and \textit{exact} if $\omega=d\alpha$ for $\alpha\in\Omega^{k-1}(M)$.
 	\end{Def}
 	\begin{Obs}
 		It is clear that any exact form is closed. However, in general, not all closed forms are exact.
@@ -649,6 +638,14 @@
 	\end{Prop}
 	\begin{proof}
 		The proof can be found in [1] chap.5 pag. 214.
+	\end{proof}
+	Now we give an extremely important result, known as the Stokes' theorem.
+	\begin{Theo}[\textbf{Stokes}]\label{Stokes}
+		Let $M$ be an orientable manifold with boundary $\partial M$. For any $(n-1)$-form $\omega$ with compact support on $\partial M$, it holds:
+		$$\int_M d\omega=\int_{\partial M}\omega$$ 
+	\end{Theo}
+	\begin{proof}
+		The proof of this statement can be found in [1] chap. 6 pag. 269-271.
 	\end{proof}
 	\section{The Hodge Operator}
 	In this section we define the Hodge operator and see some properties of it. This operator will be useful in writing the Maxwell equations from a differential geometry point of view. More reference on this topic can be found in [3] chap. 7 pag. 406-413, [10] chap. 6 pag. 345-356 pag. 386-399.\\
@@ -664,7 +661,7 @@
 	\begin{Obs}\label{Obs_1.7.1}
 		The inner product on $M$ induces an inner product on forms. Namely, at any point $p\in M$ we have:
 		$$\braket{\alpha^1_p\wedge...\wedge \alpha^k_p,\beta^1_p\wedge...\wedge\beta^k_p}=\det(\braket{\alpha^i_p,\beta^j_p}_{i,j\in[1,k]})$$
-		In particular, at any $p\in M$, we have a smooth inner product of vectors. Since $g$ is a bilinear, symmetric and non degenerate, it induces an isomorphism on the cotangent space at any point. The inner product of 1-forms is defined as being equal to the inner product of the corresponding vectors. More on this construction will be said in section \ref{Sec_3.3}.
+		In particular, at any $p\in M$, we have a smooth inner product of vectors. Since $g$ is a bilinear, symmetric and non degenerate, it induces an isomorphism on the cotangent space at any point. The inner product of 1-forms is defined through the inverse metric tensor. More on this construction will be said in section \ref{Sec_3.3}.
 		The extension of this product to $k$-forms is clearly symmetric. The bilinearity follows from the multilinearity of the determinant for sums of rows and columns. As for the non degeneracy, it is a consequence of the non degeneracy of $\braket{,}$. Lastly, since $\braket{,}$ is smooth, this induced product is also smooth.
 	\end{Obs}
 	\begin{Def}
@@ -686,7 +683,6 @@
 		\end{itemize}
 	\end{Prop}
 	\begin{proof}
-		In this proof we will omit the subscript $p$ specifying the point to simplify the notation. 
 		By definition of the Hodge operator:
 		$$\alpha_p\wedge(\star\alpha_p)=\braket{\alpha_p,\alpha_p}\omega_p$$
 		From this, the first property is proved since: $\braket{1,1}=1$.\\
