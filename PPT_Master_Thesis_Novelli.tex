@@ -1,0 +1,259 @@
+\documentclass{beamer}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+\usepackage{newlfont}
+\usepackage{color}
+\usepackage{multicol}
+\usepackage{float}
+\usepackage{frontespizio}
+\usepackage{amsmath,amssymb}
+\usepackage{amsthm}
+\usepackage{geometry}
+\usepackage{tikz}
+\usepackage{biblatex}
+\usepackage{csquotes}
+\usepackage{pgfplots}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{comment}
+\usepackage[compat=1.0.0]{tikz-feynman}
+\usepackage{tikz-cd}
+\usepackage{mathtools}
+\usepackage{braket}
+
+\usetheme{Madrid}
+
+\colorlet{beamer@blendedblue}{green!40!black}
+
+\definecolor{NormalBlue}{RGB}{50,100,250}
+\setbeamercolor{block title}{bg=NormalBlue}
+
+\title{The geometry of the Yang-Mills theory}
+\author{Novelli Gabriele}
+\begin{document}
+\begin{frame}[plain]
+    \maketitle
+\end{frame}
+\begin{frame}{Introduction to Y-M}
+	The Y-M fields are usually introduced by imposing a local $SU(N)$ symmetry on fermionic fields:
+	$$\mathcal{L}_f=-\overline{\psi}(\gamma^\mu\partial_\mu+m)\psi$$
+	where $\psi:M\rightarrow V^N\otimes \mathbb{C}^4$. By imposing $SU(N)$ local invariance one needs to promote $\partial_\mu\rightarrow D_\mu=\partial_\mu+A_\mu$.
+	The kinetic part of the new field $A_\mu$ is calculated with $[D_\mu,D_\nu]=F_{\mu\nu}$.
+	$$\mathcal{L}_{tot}=\mathcal{L}_f-{1\over 2}Tr(F_{\mu\nu} F^{\mu\nu})$$
+\end{frame}
+\begin{frame}{Introduction to Y-M}
+	This works introduces Y-M theory like follows:
+	\begin{itemize}
+		\item Start from Maxwell in empty 
+		$\mathbb{R}^{1,3}$;
+		\item Recover Maxwell's theory as a Y-M $U(1)$ theory;
+		\item Generalize the process to higher dimensional groups. 
+	\end{itemize}
+\end{frame}
+\begin{frame}{Fiber bundles}
+	\begin{exampleblock}{Def: fiber bundle}
+		Let $M, E$ and $F$ be manifolds. Let $\pi: E\rightarrow M$ be a map such that:
+		\begin{itemize}
+			\item $\pi$ is smooth, surjective and continuous;
+			\item given any open set $U\subset M$ we can find a diffeomorphism $\varphi: \pi^{-1}(U)\rightarrow U\times F$ called \textit{local trivialization} such that $\pi=Proj\circ \varphi$.
+		\end{itemize}
+		Where $Proj: U\times F\rightarrow U$ is the standard projection. $Proj(x_M,x_F)=x_M$.\\
+		We call $(E,M,\pi,F)$ a \textit{fiber bundle}
+	\end{exampleblock}
+\end{frame}
+\begin{frame}{Principal bundles}
+	\begin{exampleblock}{Def: principal bundle}
+		Let $(E,M,\pi,G)$ be a fiber bundle, where $G$ is a Lie group and $M$ and $E$ are manifolds. Let $\pi$ be smooth and the trivializations diffeomorphic; let $G$ be acting on $E$ such that:
+		\begin{itemize}
+			\item $Stab(E)=\{e\in G\}$;
+			\item Trivializations are equivariant: $\phi(p)\cdot g=\phi(p)\cdot g$ where $(x,h)\cdot g=(x,hg)$.
+		\end{itemize} 
+		Then we say that this fiber bundle is a \textit{principal $G$-bundle}.
+	\end{exampleblock}
+	\begin{block}{Idea}
+		The local symmetry of gauge theories will be described by a principal $SU(n)$ bundle: a manifold that locally looks like $M\times SU(n)$.
+	\end{block}
+\end{frame}
+\begin{frame}{Sections}
+	\begin{exampleblock}{Def: section}
+			Let $(E,M,\pi,\mathbb{R}^n)$ be a vector bundle. We say that a map \\$s:U\subset M\rightarrow E$ is a \textit{section} if $\pi\circ s=\mathbb{I}_d$. A section of a principal bundle is called \textit{local/global gauge}.
+	\end{exampleblock}
+	\begin{block}{Result}
+		Two gauges defined on the same open set are related by a smooth map $g_{21}:U\rightarrow G$ like: $s_1(x)=s_2(x)\cdot g_{21}(x)$
+	\end{block}
+	\begin{alertblock}{Key concept}
+		Gauge transformations$\Longrightarrow$change of sections.
+	\end{alertblock}
+\end{frame}
+\begin{frame}{Fundamental vector fields}
+	
+\end{frame}
+\begin{frame}{Distributions}
+	\begin{exampleblock}{Def: distribution}
+			A \textit{distribution} on a manifold $M$ is an assignment $M\ni p\rightarrow \mathcal{D}_p\subset T_pM$.
+			\begin{itemize}
+				\item canonical vertical distribution on a principal bundle: $\mathcal{V}=Ker(d\pi)$.
+			\end{itemize}
+	\end{exampleblock}
+	\begin{alertblock}{Note}
+		There is no canonical horizontal distribution $TE=\mathcal{V}\oplus\mathcal{H}$.
+	\end{alertblock}
+\end{frame}
+\begin{frame}{Connection}
+	\begin{exampleblock}{Def: connection}
+			We call an \textit{Ehresmann connection on a principal bundle} a 1-form $\omega:TE\rightarrow \mathfrak{g}$ such that:
+		\begin{itemize}
+			\item $\forall A\in\mathfrak{g}, x\in E$ we have $\omega_{x}(\bar{A}_{x})=A$;
+			\item $\forall g\in G$ we have $r^*_g\omega=\hbox{Ad}(g^{-1})\omega$;
+			\item $\omega$ is $C^\infty$.
+		\end{itemize}
+	\end{exampleblock}
+	\begin{alertblock}{Theorem}
+		If $\omega$ is a connection then $Ker(\omega)=\mathcal{H}$ is an horizontal distribution. If instead $\mathcal{H}$ is an horizontal distribution then $\omega=dj^{-1}\circ \nu$ is a connection.
+	\end{alertblock}
+\end{frame}
+\begin{frame}{Curvature}
+	\begin{exampleblock}{Def: curvature}
+		Let $(E,M,\pi,G)$ be a principal bundle and $\omega$ an Ehresmann connection. The \textit{curvature} of $\omega$ is:
+		$$\Omega=d\omega+{1\over 2}[\omega,\omega]$$
+		Where $[\omega,\omega]=\omega^i\wedge\omega^j[T_i,T_j]$.
+	\end{exampleblock}
+	\begin{block}{Result}
+		$d\Omega=[\Omega,\omega]$; $\Omega$ is horizontal;$r^*_g\Omega=Ad(g^{-1})\Omega$.
+	\end{block}		
+	\begin{alertblock}{Note}
+		If $G$ is abelian then $Ad$ is trivial and $\Omega=d\omega$.
+	\end{alertblock}
+\end{frame}
+\begin{frame}{Associated bundles}
+	If $\rho:G\rightarrow GL(V)$ is a representation and $(P,M,\pi,G)$ a principal bundle, define the quotient $E=P\times_\rho V$
+	under the relation:
+	$$(p,v)\sim(p\cdot g, \rho(g^{-1})v)$$
+	\begin{exampleblock}{Def: associated bundle}
+			Let $E=P\times_\rho V$, $\pi_E([p,g])=\pi(x)$. Then  $(E,M,\pi_E,V)$ is called associated bundle.
+	\end{exampleblock}
+		We indicate the associated bundle induced by the adjoint representation as $Ad(P)$.
+		$$(Ad(P),M,\pi_{Ad},\mathfrak{g})$$
+\end{frame}
+\begin{frame}{Tensorial forms}
+	\begin{exampleblock}{Def: tensorial forms}
+		Let $(P,M,\pi,G)$ be a principal bundle, $\rho$ a representation of $G$. Then any $\omega\in\Omega^k(P,V)$ is said to be:
+		\begin{itemize}
+			\item \textit{right-equivariant of type $\rho$} if:
+			$r^*_g\omega=\rho(g^{-1})\omega$
+			\item \textit{horizontal} if it vanishes whenever one of its arguments is a vertical vector. 
+		\end{itemize} If a form is both right-equivariant of type $\rho$ and horizontal it is called \textit{tensorial of type $\rho$}. We label the space of all smooth tensorial $k$-forms of type $\rho$ with $\Omega^k_\rho(P,V)$.
+	\end{exampleblock}
+	\begin{block}{Result}
+		The curvature $\Omega$ of a connection $\omega$ is tensorial of type $Ad$.
+	\end{block}
+\end{frame}
+\begin{frame}{Musical Isomorphism}
+	\begin{alertblock}{Musical Isomorphism}
+		$$\Omega^k_\rho(P,V)\simeq\Omega^k(M,E)$$
+	\end{alertblock}
+	To any tensorial form on $P$ we can associate a form on $M$ with values on $E$.
+	Let $F\in\Omega^k(P,V)$, $x\in M$, $p\in P_x$, $\{v_i\}\in T_xM$ and $\{u_i\}\in T_pP$ lifts, i.e. $d\pi(u_i)=v_i$. Then:
+	$$F^\flat_x(v_1,...,v_k)=[p,F_p(u_1,...,u_k)]$$
+	\begin{alertblock}{Key idea}
+		If $F\in\Omega^2_{Ad}(P,\mathfrak{g})$ is the curvature of $A$, there is $F_M\in\Omega^2(M,Ad(P))$.
+	\end{alertblock}
+\end{frame}
+\begin{frame}{Covariant derivative}
+	\begin{block}{Obs}
+		The exterior derivative preserves the right equivariance, but not the horizontality.
+	\end{block}
+	\begin{exampleblock}{Def: horizontal component of a form}
+		$$(F_p)^h(u_1,..,u_k)=F_p(\hbox{Hor}(v_1),...,\hbox{Hor}(v_k))$$
+	\end{exampleblock}
+	\begin{exampleblock}{Def: covariant derivative}
+		If $F\in\Omega^k_\rho(P,V)$, define the covariant derivative as $DF:=(dF)^h$.
+	\end{exampleblock}
+	\begin{alertblock}{Prop}
+		$$D:\Omega^k_\rho(P,V)\rightarrow \Omega^{k+1}_\rho(P,V)$$
+	\end{alertblock}
+\end{frame}
+\begin{frame}{Covariant derivative}
+	\begin{block}{Result}
+		It is possible topo show that if $A$ is a connection and $F$ is it's curvaure then $F=DA$.
+	\end{block}
+	\begin{alertblock}{Theorem}
+		Let $A$ be a connection. For tensorial forms it holds:
+		$$D\omega=d\omega+A\cdot\omega $$
+		where in general:
+		$$\omega\cdot \tau(v_1,...,v_{k+l})={1\over k!l!}\sum_\sigma sgn(\sigma)d\rho(\omega(v_{\sigma(1)},...,v_{\sigma(k)}))\tau(v_{\sigma(k+1),...,v_{\sigma(k+l)}})$$
+	\end{alertblock}
+\end{frame}
+\begin{frame}{Covariant derivative}
+	\begin{exampleblock}{Obs}
+		If $F$ is the curvature of a connection $A$. We found $dF=[F,A]$ so that:
+		$$DF=dF+[A,F]=0$$
+	\end{exampleblock}
+	\begin{exampleblock}{Obs}
+		Since $F\in\Omega^k_{Ad}(P,\mathfrak{g})$ can be associated to $F_M\in\Omega^k(M,Ad(P))$, the covariant derivative extends to:
+		$$D:\Omega^k(M,Ad(P))\rightarrow \Omega^{k+1}(M,Ad(P))$$
+	\end{exampleblock}
+	Note that in general $D^2\neq 0$.
+\end{frame}
+\begin{frame}{Gauge transformations}
+	\begin{exampleblock}{Def: Gauge transformation}
+		Let $(P,M,\pi,G)$ be a principal $G$-bundle. We call a \textit{gauge transformation} any bundle automorphism, i.e a diffeomorphism $f:P\rightarrow P$ such that:
+		\begin{itemize}
+			\item $f$ is fiber preserving: $\pi\circ f=\pi$;
+			\item $f$ is $G$-equivariant: $f(p\cdot g)=f(p)\cdot g$ for any $p\in P, g\in G$.
+		\end{itemize}
+		The set of all gauge transformations is called $\mathcal{G}(P)$.
+	\end{exampleblock}
+	\begin{alertblock}{Theorem}
+		Let $C^\infty(P,G)^G=\{\sigma:P\rightarrow G|\hbox{ }\sigma\hbox{ is smooth },\sigma\circ r_g=c_{g^{-1}}\circ \sigma\}$.
+		Then there is an isomorphism:
+		$$\mathcal{G}(P)\longrightarrow C^\infty(P,G)^G\hbox{ like }f\rightarrow \sigma_f\hbox{, where } f(p)=p\cdot \sigma_f(p)$$
+	\end{alertblock}
+\end{frame}
+\begin{frame}{Gauge transformations}
+	\begin{alertblock}{Theorem}
+		Let $(P,M,\pi,G)$ be a principal bundle and $s:U\rightarrow P$ a smooth local gauge. Then there is an isomorphism:
+		$$C^\infty(P|_U,G)^G\longrightarrow C^\infty(U,G)\hbox{ such that: }\sigma\rightarrow \sigma\circ s$$
+	\end{alertblock}
+	\begin{block}{Result}
+		Recall that if $s_{1,2}$ are two gauges defined on the same open set then: $s_1(x)=s_2(x)\cdot g_{21}(x)$, with $g_{21}\in C^\infty(U,G)$.
+	\end{block}
+	\begin{alertblock}{Key result}
+		Gauge transformations correspond to changes in local gauges.
+	\end{alertblock}
+\end{frame}
+\begin{frame}{Recovering Maxwell}
+	\begin{exampleblock}{Obs}
+		The Maxwell (empty-flat) theory can be recovered as a $U(1)$ Yang-Mills theory with the following assumptions:
+		\begin{itemize}
+			\item Spacetime is $\mathbb{R}^{1,3}$;
+			\item There is a principal bundle $(P,\mathbb{R}^{1,3},\pi,U(1))$;
+		\end{itemize}
+	\end{exampleblock}
+	Any connection $A$ is a possible vector potential, as it transforms like:
+	$$s^*A\rightarrow s^*A+da$$
+	\begin{alertblock}{Note:}
+		The vector potential lives in $\Omega^1(P,\mathfrak{g})$.
+	\end{alertblock}
+\end{frame}
+\begin{frame}{Recovering Maxwell}
+	$Ad$ is trivial$\Longrightarrow$ 
+	$\begin{cases}
+		Ad(P)\hbox{ is trivial;}\Longrightarrow F_M\in\Omega^2(\mathbb{R}^{1,3},\mathbb{R})\\ 
+		DF=dF=0;\\ 
+		F \hbox{ is gauge invariant;}\\
+	\end{cases}$
+\end{frame}
+\begin{frame}{Generalizing Maxwell}
+	Usually, the Y-M theory is introduced by promoting a $SU(N)$ symmetry from global to local.\\
+	This work instead rigorously generalizes the electromagnetic setting, by changing the symmetry group$\Longrightarrow$no fermion fields involved. 
+	\begin{exampleblock}{Assumptions}
+	We make the following assumptions:
+	\begin{itemize}
+		\item Spacetime is $\mathbb{R}^{1,3}$;
+		\item There is a principal bundle $(P,\mathbb{R}^{1,3},\pi,SU(N))$;
+	\end{itemize}
+	In general the theory works well with any simple/semisimple compact Lie algebra.
+\end{exampleblock}
+\end{frame}
+\end{document}
