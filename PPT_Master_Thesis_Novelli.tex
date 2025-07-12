@@ -50,6 +50,30 @@
 		\item Generalize the process to higher dimensional groups. 
 	\end{itemize}
 \end{frame}
+\begin{frame}{The Cartan-Killing form}
+	\begin{exampleblock}{Def: Cartan-Killing form}
+		If $\mathfrak{g}$ is a Lie algebra, define:
+		$$B_\mathfrak{g}(X,Y)=\hbox{Tr}(\hbox{ad}_X\circ \hbox{ad}_Y)$$
+	\end{exampleblock}
+	\begin{exampleblock}{Def: simple-semisimple Lie algebras}
+		Let $\mathfrak{g}$ be a Lie algebra and $\mathfrak{h}\subset \mathfrak{g}$ a subspace. We say $\mathfrak{h}$ is an ideal if $[\mathfrak{g},\mathfrak{h}]\subset\mathfrak{h}$. \\
+		We say $\mathfrak{g}$ is:
+		\begin{itemize}
+			\item \textit{simple} if it is not abelian and has no non trivial ideals;
+			\item \textit{semisimple} if it has no non 0 abelina ideals.
+		\end{itemize}
+	\end{exampleblock}
+\end{frame}
+\begin{frame}{The Cartan-Killing form}
+	\begin{block}{Result}
+		\begin{itemize}
+			\item The C-K form is invariant under automorphisms: $$B_\mathfrak{g}(X,Y)=B_\mathfrak{g}(\sigma X,\sigma Y)$$
+			\item The C-K form of a compact semisimple $\mathfrak{g}$ is negative definite;
+			\item If $\mathfrak{g}$ is simple and compact, $B_\mathfrak{g}$ is the only invariant negative definite product (up to a re-scaling).
+			
+		\end{itemize}
+	\end{block}
+\end{frame}
 \begin{frame}{Fiber bundles}
 	\begin{exampleblock}{Def: fiber bundle}
 		Let $M, E$ and $F$ be manifolds. Let $\pi: E\rightarrow M$ be a map such that:
@@ -58,12 +82,12 @@
 			\item given any open set $U\subset M$ we can find a diffeomorphism $\varphi: \pi^{-1}(U)\rightarrow U\times F$ called \textit{local trivialization} such that $\pi=Proj\circ \varphi$.
 		\end{itemize}
 		Where $Proj: U\times F\rightarrow U$ is the standard projection. $Proj(x_M,x_F)=x_M$.\\
-		We call $(E,M,\pi,F)$ a \textit{fiber bundle}
+		We call $(E,M,\pi,F)$ a \textit{fiber bundle}.
 	\end{exampleblock}
 \end{frame}
 \begin{frame}{Principal bundles}
 	\begin{exampleblock}{Def: principal bundle}
-		Let $(E,M,\pi,G)$ be a fiber bundle, where $G$ is a Lie group and $M$ and $E$ are manifolds. Let $\pi$ be smooth and the trivializations diffeomorphic; let $G$ be acting on $E$ such that:
+		Let $(E,M,\pi,G)$ be a fiber bundle, where $G$ is a Lie group. Let $\pi$ be smooth and the trivializations diffeomorphic; let $G$ be acting on $E$ such that:
 		\begin{itemize}
 			\item $Stab(E)=\{e\in G\}$;
 			\item Trivializations are equivariant: $\phi(p)\cdot g=\phi(p)\cdot g$ where $(x,h)\cdot g=(x,hg)$.
@@ -86,7 +110,13 @@
 	\end{alertblock}
 \end{frame}
 \begin{frame}{Fundamental vector fields}
-	
+	\begin{exampleblock}{Def: fundamental vector field}
+		Let $G$ be acting on $M$ and $A\in\mathfrak{g}$, define the \textit{fundamental vector field associated to} $A$:
+		$$\overline{A}_p={d\over dt}\bigg|_0 \mu(p,e^{tA})$$
+	\end{exampleblock}
+	\begin{block}{Result}
+		If $j_p(g)=p\cdot g$, then $dj_p(A)=\overline{A}_p$
+	\end{block}
 \end{frame}
 \begin{frame}{Distributions}
 	\begin{exampleblock}{Def: distribution}
@@ -98,6 +128,9 @@
 	\begin{alertblock}{Note}
 		There is no canonical horizontal distribution $TE=\mathcal{V}\oplus\mathcal{H}$.
 	\end{alertblock}
+	\begin{block}{Result}
+		$(dj_p)_e:\mathfrak{g}\rightarrow \mathcal{V}_p$ is an isomorphism.
+	\end{block}
 \end{frame}
 \begin{frame}{Connection}
 	\begin{exampleblock}{Def: connection}
@@ -130,7 +163,7 @@
 	under the relation:
 	$$(p,v)\sim(p\cdot g, \rho(g^{-1})v)$$
 	\begin{exampleblock}{Def: associated bundle}
-			Let $E=P\times_\rho V$, $\pi_E([p,g])=\pi(x)$. Then  $(E,M,\pi_E,V)$ is called associated bundle.
+			Let $E=P\times_\rho V$, $\pi_E([p,g])=\pi(p)$. Then  $(E,M,\pi_E,V)$ is called associated bundle.
 	\end{exampleblock}
 		We indicate the associated bundle induced by the adjoint representation as $Ad(P)$.
 		$$(Ad(P),M,\pi_{Ad},\mathfrak{g})$$
@@ -222,6 +255,95 @@
 		Gauge transformations correspond to changes in local gauges.
 	\end{alertblock}
 \end{frame}
+\begin{frame}{Gauge transformations}
+	One can look at how gauge transformations act on the associated bundle:
+	\begin{alertblock}{Prop}
+		There is a natural action of gauge transformations on the associated bundle:
+		$$\mathcal{G}(P)\times E\rightarrow E$$
+		$$(f,[p,v])\rightarrow [f(p),v]$$
+	\end{alertblock}
+\end{frame}
+\begin{frame}{Gauge transformations}
+	Given a form $\omega\in\Omega^k(P,V)$ and a local gauge $s:U\rightarrow P$, we can pull back the form on the manifold: $s^*\omega \in\Omega(U,P)$
+	$$s^*\omega(X)=\omega(ds(X))$$
+	\begin{block}{Result}
+		If $s_{i,j}$ are two sections and $A$ is a connection, then:
+		$$s_i^*A=Ad(g_{ji}^{-1})s^*_jA+\mu_{ji} \hbox{ with } \mu_{ji}=g^*_{ji}\theta$$
+	\end{block}
+	Can be shown using the differential of the group action:
+	$$s_i=s_j\cdot g_{ji}=\mu(s_j,g_{ji})$$
+	$$d\mu_{p,g}(X_p,d\ell_gA)=r_g^*X_p+\overline{A}_{p\cdot g}$$
+\end{frame}
+\begin{frame}{Gauge transformations}
+	\begin{alertblock}{Note}
+		For a matrix lie group $\mu_{ji}=g_{ji}^{-1}dg_{ji}$
+	\end{alertblock}
+	\begin{block}{Result}
+		The gauge transformation of the curvature is:
+		$$s_i^*F\rightarrow Ad(g_{ji}^{-1})s_j^*F$$
+	\end{block}
+	\begin{exampleblock}{Obs}
+		If $G$ is abelian, $Ad$ is trivial and so $F$ is gauge invariant i.e. it does not depend on the choice of the section.
+	\end{exampleblock}
+\end{frame}
+\begin{frame}{Gauge transformations}
+	Recall that there is an associated form $F_M\in\Omega^2(M,Ad(P))$.
+	\begin{block}{Result}
+		Under a gauge transformation $F_M\rightarrow \phi^{-1}\cdot F_M$.
+		\\\vspace{9 pt}
+		Let $s:U\rightarrow P$ be a local gauge and $\phi\in \mathcal{G}(P)$ and $g\in C^\infty(U,G)$ the corresponding smooth function. Since $F_{M,x}(X_x,Y_x)=[s(x),F_{s(x)}(dx(X_x),dx(Y_x))]$, from this it follows:
+		$$\phi^{-1}\cdot F_{M,x}(X_x,Y_x)=[s(x)\cdot g^{-1},F_{s(x)}(dx(X_x),dx(Y_x))]=$$$$[s(x)\cdot ,Ad(g^{-1})F_{s(x)}(dx(X_x),dx(Y_x))]$$
+	\end{block}
+\end{frame}
+\begin{frame}{Bundle metrics}
+	We wish for a metric on the associated bundle $E$ induced by $\rho:G\rightarrow GL(V)$.
+	\begin{exampleblock}{Obs}
+		If $V$ has a $G$ invariant product $\braket{,}_V$, then we define:
+		$$\braket{[p,v],[q,w]}_{E_x}=\braket{v,w}_V$$
+	\end{exampleblock}
+	\begin{alertblock}{Note}
+		In the case of a compact and semisimple Lie algebra $\mathfrak{g}$, the scalar product on $Ad(P)$ is the Cartan-Killing form, which is automatically gauge invariant.
+		$$\braket{[p,v],[p,w]}_{Ad}=-Tr(\hbox{ad}_v\circ \hbox{ad}_w)$$
+	\end{alertblock}
+\end{frame}
+\begin{frame}{Bundle metrics}
+	\begin{block}{Result}
+		Let $s:U\rightarrow P$ be a local gauge, $F$ be the curvature of $A$. Then if the bundle metric is gauge invariant:
+		$$\braket{F_M,F_M}_{Ad}=\braket{s^*F,s^*F}_\mathfrak{g}$$
+	\end{block}
+	By gauge invaraince, the choice of the section does not matter!
+	\\
+	$$\braket{F_M,F_M}_{Ad}=\braket{[s,s^*F],[s,s^*F]}_{Ad}=\braket{s^*F,s^*F}_\mathfrak{g}$$
+\end{frame}
+\begin{frame}{Bundle metrics}
+	\begin{block}{Result}
+		If $s:U\rightarrow P$ is a gauge and $\varphi:\pi_{Ad}^{-1}(U)\rightarrow U\times V$ is the induced local trivialization, then:
+		$$F_{M,x}=\varphi^{-1}(x,s^*F_{s(x)})$$
+	\end{block}
+	By construction $\varphi^{-1}(x,v)=[s(x),v]$ so that:
+	$$\varphi^{-1}(x,s^*F_{s(x)})=[s(x),s^*F_{s(x)}]=F_{M,x}$$
+\end{frame}
+\begin{frame}{Bundle metrics}
+	\begin{exampleblock}{Def: Hodge operator}
+		Let $\omega\in\Omega^k(M,E)$ a form with values on an associated bundle and $\{e_i\}$ a basis of sections. Define $\star$ like:
+		$$\star\omega=\star\omega^i\otimes e_i$$
+	\end{exampleblock}
+	\begin{exampleblock}{Def: co-differential}
+		If $D:\Omega^k(M,E)\rightarrow\Omega^{k+1}(M,E)$ is the covariant derivative on the associated bundle, we define the co-differential as:
+		$$D^*=(-)^{k(n-k)}sgn(\braket{,}_E)\star\circ D\circ\star$$
+	\end{exampleblock}
+\end{frame}
+\begin{frame}{Maxwell's equations}
+	\begin{exampleblock}{Obs}
+		In empty $\mathbb{R}^{1,3}$ Maxwell's equations are:
+		$$dF=0\hspace{20 pt} d^*F=0$$ 
+		$F\in\Omega^2(\mathbb{R}^{1,3},\mathbb{R})$ is called \textit{field strength}.
+		$$\hbox{Poincaré Lemma}\Longrightarrow F=dA$$
+	\end{exampleblock}
+	\begin{block}{In local coordinates}
+		$$\partial_{[\rho} F_{\mu\nu]}=0\hspace{20 pt} \nabla_\mu F^{\mu\nu}=0$$
+	\end{block}
+\end{frame}
 \begin{frame}{Recovering Maxwell}
 	\begin{exampleblock}{Obs}
 		The Maxwell (empty-flat) theory can be recovered as a $U(1)$ Yang-Mills theory with the following assumptions:
@@ -230,23 +352,49 @@
 			\item There is a principal bundle $(P,\mathbb{R}^{1,3},\pi,U(1))$;
 		\end{itemize}
 	\end{exampleblock}
-	Any connection $A$ is a possible vector potential, as it transforms like:
-	$$s^*A\rightarrow s^*A+da$$
-	\begin{alertblock}{Note:}
-		The vector potential lives in $\Omega^1(P,\mathfrak{g})$.
+	In local coordinates: $$s^*A=A_{\mu}dx^\mu\otimes T$$
+	where $\{T\}$ is the generator of $\mathfrak{u}(1)$, usually $T=-i$.
+\end{frame}
+\begin{frame}
+	\begin{block}{Result}
+		The connection $A$ plays the role of the vector potential, as it transforms like:
+		$$s^*A\rightarrow s^*A+d\alpha$$
+	\end{block}
+	To see this recall:
+	$$s^*A\rightarrow Ad(g^{-1})s^*A+g^{-1}dg$$
+	$g(x)=e^{\alpha(x) T}$ implies $g^{-1}dg=\partial_\mu \alpha(x)dx^\mu\otimes T$.
+	\begin{alertblock}{Note}
+		$d(exp)_X=\sum_{n=0}^{\infty}{(-1)^n\over (n+1)!}(\hbox{ad}_X)^n$ in the general non abelian case.
 	\end{alertblock}
 \end{frame}
 \begin{frame}{Recovering Maxwell}
-	$Ad$ is trivial$\Longrightarrow$ 
-	$\begin{cases}
-		Ad(P)\hbox{ is trivial;}\Longrightarrow F_M\in\Omega^2(\mathbb{R}^{1,3},\mathbb{R})\\ 
-		DF=dF=0;\\ 
-		F \hbox{ is gauge invariant;}\\
-	\end{cases}$
+	\begin{exampleblock}{Obs}
+		The curvature is $F=DA=dA+{1\over 2}[A,A]$ and it holds $DF=0;$\\
+		$Ad$ is trivial$\Longrightarrow$ 
+		$\begin{cases}
+			DA=dA;\\
+			DF=dF=0;\\
+			Ad(P)\hbox{ is trivial;}\\  
+			F \hbox{ is gauge invariant.}\\
+		\end{cases}$
+	\end{exampleblock}
+	\begin{block}{In local coordinates}
+		$$s^*F={1\over 2}F_{\mu\nu}dx^\mu\wedge dx^\nu\otimes T\hspace{20 pt} F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu$$
+	\end{block}
+	We can also construct $F_M\in\Omega^2(\mathbb{R}^{1,3},Ad(P))$, from which we will define the lagrangian.
+\end{frame}
+\begin{frame}{Recovering Maxwell}
+	\begin{block}{Product}
+		The Lie algebra of $U(1)$ is 1 dimensional. Suppose $\braket{,}_{\mathfrak{u}(1)}$ is a scalar product on it.
+	\end{block}
+	\begin{exampleblock}{Def}
+		$$\mathcal{L}=-{1\over 2}\braket{F_M,F_M}_{Ad}$$
+	\end{exampleblock}
+	Choosing any gauge $s:U\rightarrow P$ we get in local coordinates:
+	$$\mathcal{L}=-{1\over 2}\braket{s^*F,s^*F}_{\mathfrak{u}(1)}=-{1\over 4}F_{\mu\nu}F^{\mu\nu}$$
+	This is clearly gauge invariant.
 \end{frame}
 \begin{frame}{Generalizing Maxwell}
-	Usually, the Y-M theory is introduced by promoting a $SU(N)$ symmetry from global to local.\\
-	This work instead rigorously generalizes the electromagnetic setting, by changing the symmetry group$\Longrightarrow$no fermion fields involved. 
 	\begin{exampleblock}{Assumptions}
 	We make the following assumptions:
 	\begin{itemize}
@@ -255,5 +403,33 @@
 	\end{itemize}
 	In general the theory works well with any simple/semisimple compact Lie algebra.
 \end{exampleblock}
+Let $A$ be a connection, then, if $s:U\rightarrow P$ is a local guage, in local coordinates:
+$$s^*A=-iA_{\mu,a} dx^\mu\otimes T^a$$
+Where $\{-iT^a\}$ are the generators of $\mathfrak{su}(n)$ like: $$[T^a,T^b]=if^{ab}_{\hspace{9pt}c}T^c$$
+\end{frame}
+\begin{frame}{Generalizing Maxwell}
+	\begin{block}{Result}
+		The gauge transformation of the connection in the $SU(n)$ case is:
+		$$s^*A\rightarrow Ad(g^{-1})s^*A+g^{-1}dg$$
+	\end{block}
+	\begin{block}{Result}
+		The gauge transformation of the curvature in the $SU(n)$ case is:
+		$$s^*F\rightarrow Ad(g^{-1})s^*F$$
+	\end{block}
+	\begin{exampleblock}{Obs}
+		$F=dA+{1\over 2}[A,A]$ and since $Ad$ is not trivial, new term arise:
+		$$s^*F={-i\over 2}[\partial_{\mu}A_{\nu,a}-\partial_{\nu}A_{\mu,a}+f^{bc}_{\hspace{9pt}a}A_{\mu,b}A_{\nu,c}]dx^\mu\wedge dx^\nu \otimes T^a$$
+	\end{exampleblock}
+\end{frame}
+\begin{frame}{Generalizing Maxwell}
+	\begin{exampleblock}{Obs}
+		By generalizing the previous lagrangian:
+		$$\mathcal{L}=-{1\over 2}\braket{F_M,F_M}_{Ad}$$
+	\end{exampleblock}
+	In an orthonormal base for the C-K form:
+	$$\mathcal{L}=-{1\over 4}F_{\mu\nu,a}F^{\mu\nu,a}$$
+	\begin{block}{Result}
+		$$DF_M=0\hspace{20 pt} D^*F_M=0$$
+	\end{block}
 \end{frame}
 \end{document}
