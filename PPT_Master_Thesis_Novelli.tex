@@ -29,17 +29,13 @@
 \setbeamercolor{block title}{bg=NormalBlue}
 
 \title{The geometry of the Yang-Mills theory}
-\author{Novelli Gabriele}
+\date{}
+\author{Gabriele Novelli \and Prof. Rita fioresi \and Prof. Fiorenzo Bastianelli}
+% Affiliations
+\institute{University of Bologna}
 \begin{document}
 \begin{frame}[plain]
     \maketitle
-\end{frame}
-\begin{frame}{Introduction to Y-M}
-	The Y-M fields are usually introduced by imposing a local $SU(N)$ symmetry on fermionic fields:
-	$$\mathcal{L}_f=-\overline{\psi}(\gamma^\mu\partial_\mu+m)\psi$$
-	where $\psi:M\rightarrow V^N\otimes \mathbb{C}^4$. By imposing $SU(N)$ local invariance one needs to promote $\partial_\mu\rightarrow D_\mu=\partial_\mu+A_\mu$.
-	The kinetic part of the new field $A_\mu$ is calculated with $[D_\mu,D_\nu]=F_{\mu\nu}$.
-	$$\mathcal{L}_{tot}=\mathcal{L}_f-{1\over 2}Tr(F_{\mu\nu} F^{\mu\nu})$$
 \end{frame}
 \begin{frame}{Introduction to Y-M}
 	This works introduces Y-M theory like follows:
@@ -87,9 +83,9 @@
 \end{frame}
 \begin{frame}{Principal bundles}
 	\begin{exampleblock}{Def: principal bundle}
-		Let $(E,M,\pi,G)$ be a fiber bundle, where $G$ is a Lie group. Let $\pi$ be smooth and the trivializations diffeomorphic; let $G$ be acting on $E$ such that:
+		Let $(P,M,\pi,G)$ be a fiber bundle, where $G$ is a Lie group. Let $\pi$ be smooth and the trivializations diffeomorphic; let $G$ be acting on $P$ such that:
 		\begin{itemize}
-			\item $Stab(E)=\{e\in G\}$;
+			\item $Stab(P)=\{e\in G\}$;
 			\item Trivializations are equivariant: $\phi(p)\cdot g=\phi(p)\cdot g$ where $(x,h)\cdot g=(x,hg)$.
 		\end{itemize} 
 		Then we say that this fiber bundle is a \textit{principal $G$-bundle}.
@@ -100,7 +96,7 @@
 \end{frame}
 \begin{frame}{Sections}
 	\begin{exampleblock}{Def: section}
-			Let $(E,M,\pi,\mathbb{R}^n)$ be a vector bundle. We say that a map \\$s:U\subset M\rightarrow E$ is a \textit{section} if $\pi\circ s=\mathbb{I}_d$. A section of a principal bundle is called \textit{local/global gauge}.
+			Let $(P,M,\pi,G)$ be a principal bundle. We say that a map \\$s:U\subset M\rightarrow P$ is a \textit{section} if $\pi\circ s=\mathbb{I}_d$. A section of a principal bundle is also called \textit{local/global gauge}.
 	\end{exampleblock}
 	\begin{block}{Result}
 		Two gauges defined on the same open set are related by a smooth map $g_{21}:U\rightarrow G$ like: $s_1(x)=s_2(x)\cdot g_{21}(x)$
@@ -109,45 +105,38 @@
 		Gauge transformations$\Longrightarrow$change of sections.
 	\end{alertblock}
 \end{frame}
-\begin{frame}{Fundamental vector fields}
+\begin{frame}{Fundamental vector fields and distributions}
 	\begin{exampleblock}{Def: fundamental vector field}
 		Let $G$ be acting on $M$ and $A\in\mathfrak{g}$, define the \textit{fundamental vector field associated to} $A$:
 		$$\overline{A}_p={d\over dt}\bigg|_0 \mu(p,e^{tA})$$
+		where $\mu:G\times M\rightarrow M$ is the group action.
 	\end{exampleblock}
-	\begin{block}{Result}
-		If $j_p(g)=p\cdot g$, then $dj_p(A)=\overline{A}_p$
-	\end{block}
-\end{frame}
-\begin{frame}{Distributions}
 	\begin{exampleblock}{Def: distribution}
-			A \textit{distribution} on a manifold $M$ is an assignment $M\ni p\rightarrow \mathcal{D}_p\subset T_pM$.
-			\begin{itemize}
-				\item canonical vertical distribution on a principal bundle: $\mathcal{V}=Ker(d\pi)$.
-			\end{itemize}
+		A \textit{distribution} on a manifold $M$ is an assignment $M\ni p\rightarrow \mathcal{D}_p\subset T_pM$.
+		\begin{itemize}
+			\item canonical vertical distribution on a principal bundle: $\mathcal{V}=Ker(d\pi)$.
+		\end{itemize}
 	\end{exampleblock}
 	\begin{alertblock}{Note}
-		There is no canonical horizontal distribution $TE=\mathcal{V}\oplus\mathcal{H}$.
+		There is no canonical horizontal distribution $TP=\mathcal{V}\oplus\mathcal{H}$.
 	\end{alertblock}
-	\begin{block}{Result}
-		$(dj_p)_e:\mathfrak{g}\rightarrow \mathcal{V}_p$ is an isomorphism.
-	\end{block}
 \end{frame}
 \begin{frame}{Connection}
 	\begin{exampleblock}{Def: connection}
-			We call an \textit{Ehresmann connection on a principal bundle} a 1-form $\omega:TE\rightarrow \mathfrak{g}$ such that:
+			We call an \textit{Ehresmann connection on a principal bundle} a 1-form $\omega:TP\rightarrow \mathfrak{g}$ such that:
 		\begin{itemize}
-			\item $\forall A\in\mathfrak{g}, x\in E$ we have $\omega_{x}(\bar{A}_{x})=A$;
+			\item $\forall A\in\mathfrak{g}, p\in P$ we have $\omega_{p}(\bar{A}_{p})=A$;
 			\item $\forall g\in G$ we have $r^*_g\omega=\hbox{Ad}(g^{-1})\omega$;
 			\item $\omega$ is $C^\infty$.
 		\end{itemize}
 	\end{exampleblock}
 	\begin{alertblock}{Theorem}
-		If $\omega$ is a connection then $Ker(\omega)=\mathcal{H}$ is an horizontal distribution. If instead $\mathcal{H}$ is an horizontal distribution then $\omega=dj^{-1}\circ \nu$ is a connection.
+		Connection $\omega\Longleftrightarrow$ Horizontal distribution $\mathcal{H}$.
 	\end{alertblock}
 \end{frame}
 \begin{frame}{Curvature}
 	\begin{exampleblock}{Def: curvature}
-		Let $(E,M,\pi,G)$ be a principal bundle and $\omega$ an Ehresmann connection. The \textit{curvature} of $\omega$ is:
+		Let $(P,M,\pi,G)$ be a principal bundle and $\omega$ an Ehresmann connection. The \textit{curvature} of $\omega$ is:
 		$$\Omega=d\omega+{1\over 2}[\omega,\omega]$$
 		Where $[\omega,\omega]=\omega^i\wedge\omega^j[T_i,T_j]$.
 	\end{exampleblock}
@@ -185,9 +174,6 @@
 	\begin{alertblock}{Musical Isomorphism}
 		$$\Omega^k_\rho(P,V)\simeq\Omega^k(M,E)$$
 	\end{alertblock}
-	To any tensorial form on $P$ we can associate a form on $M$ with values on $E$.
-	Let $F\in\Omega^k(P,V)$, $x\in M$, $p\in P_x$, $\{v_i\}\in T_xM$ and $\{u_i\}\in T_pP$ lifts, i.e. $d\pi(u_i)=v_i$. Then:
-	$$F^\flat_x(v_1,...,v_k)=[p,F_p(u_1,...,u_k)]$$
 	\begin{alertblock}{Key idea}
 		If $F\in\Omega^2_{Ad}(P,\mathfrak{g})$ is the curvature of $A$, there is $F_M\in\Omega^2(M,Ad(P))$.
 	\end{alertblock}
@@ -197,7 +183,7 @@
 		The exterior derivative preserves the right equivariance, but not the horizontality.
 	\end{block}
 	\begin{exampleblock}{Def: horizontal component of a form}
-		$$(F_p)^h(u_1,..,u_k)=F_p(\hbox{Hor}(v_1),...,\hbox{Hor}(v_k))$$
+		$$(F_p)^h(u_1,..,u_k)=F_p(\hbox{Hor}(u_1),...,\hbox{Hor}(u_k))$$
 	\end{exampleblock}
 	\begin{exampleblock}{Def: covariant derivative}
 		If $F\in\Omega^k_\rho(P,V)$, define the covariant derivative as $DF:=(dF)^h$.
@@ -208,7 +194,7 @@
 \end{frame}
 \begin{frame}{Covariant derivative}
 	\begin{block}{Result}
-		It is possible topo show that if $A$ is a connection and $F$ is it's curvaure then $F=DA$.
+		It is possible to show that if $A$ is a connection and $F$ is it's curvaure then $F=DA$.
 	\end{block}
 	\begin{alertblock}{Theorem}
 		Let $A$ be a connection. For tensorial forms it holds:
@@ -237,17 +223,12 @@
 		\end{itemize}
 		The set of all gauge transformations is called $\mathcal{G}(P)$.
 	\end{exampleblock}
-	\begin{alertblock}{Theorem}
-		Let $C^\infty(P,G)^G=\{\sigma:P\rightarrow G|\hbox{ }\sigma\hbox{ is smooth },\sigma\circ r_g=c_{g^{-1}}\circ \sigma\}$.
-		Then there is an isomorphism:
-		$$\mathcal{G}(P)\longrightarrow C^\infty(P,G)^G\hbox{ like }f\rightarrow \sigma_f\hbox{, where } f(p)=p\cdot \sigma_f(p)$$
+		\begin{alertblock}{Theorem}
+		For any $s:U\rightarrow P$ smooth local gauge, there is an isomorphism:
+		$$\mathcal{G}(P)\longrightarrow C^\infty(U,G)$$
 	\end{alertblock}
 \end{frame}
 \begin{frame}{Gauge transformations}
-	\begin{alertblock}{Theorem}
-		Let $(P,M,\pi,G)$ be a principal bundle and $s:U\rightarrow P$ a smooth local gauge. Then there is an isomorphism:
-		$$C^\infty(P|_U,G)^G\longrightarrow C^\infty(U,G)\hbox{ such that: }\sigma\rightarrow \sigma\circ s$$
-	\end{alertblock}
 	\begin{block}{Result}
 		Recall that if $s_{1,2}$ are two gauges defined on the same open set then: $s_1(x)=s_2(x)\cdot g_{21}(x)$, with $g_{21}\in C^\infty(U,G)$.
 	\end{block}
@@ -256,28 +237,18 @@
 	\end{alertblock}
 \end{frame}
 \begin{frame}{Gauge transformations}
-	One can look at how gauge transformations act on the associated bundle:
-	\begin{alertblock}{Prop}
-		There is a natural action of gauge transformations on the associated bundle:
-		$$\mathcal{G}(P)\times E\rightarrow E$$
-		$$(f,[p,v])\rightarrow [f(p),v]$$
-	\end{alertblock}
-\end{frame}
-\begin{frame}{Gauge transformations}
-	Given a form $\omega\in\Omega^k(P,V)$ and a local gauge $s:U\rightarrow P$, we can pull back the form on the manifold: $s^*\omega \in\Omega(U,P)$
+	Given a form $\omega\in\Omega^k(P,V)$ and a local gauge $s:U\rightarrow P$, we can pull back the form on the manifold: $s^*\omega \in\Omega(U,V)$
 	$$s^*\omega(X)=\omega(ds(X))$$
 	\begin{block}{Result}
 		If $s_{i,j}$ are two sections and $A$ is a connection, then:
 		$$s_i^*A=Ad(g_{ji}^{-1})s^*_jA+\mu_{ji} \hbox{ with } \mu_{ji}=g^*_{ji}\theta$$
+		where $\theta_g(X_g)=d\ell_{g^{-1}}X_g$ is the Maurer-Cartan form.
 	\end{block}
-	Can be shown using the differential of the group action:
-	$$s_i=s_j\cdot g_{ji}=\mu(s_j,g_{ji})$$
-	$$d\mu_{p,g}(X_p,d\ell_gA)=r_g^*X_p+\overline{A}_{p\cdot g}$$
-\end{frame}
-\begin{frame}{Gauge transformations}
 	\begin{alertblock}{Note}
 		For a matrix lie group $\mu_{ji}=g_{ji}^{-1}dg_{ji}$
 	\end{alertblock}
+\end{frame}
+\begin{frame}{Gauge transformations}
 	\begin{block}{Result}
 		The gauge transformation of the curvature is:
 		$$s_i^*F\rightarrow Ad(g_{ji}^{-1})s_j^*F$$
@@ -286,20 +257,24 @@
 		If $G$ is abelian, $Ad$ is trivial and so $F$ is gauge invariant i.e. it does not depend on the choice of the section.
 	\end{exampleblock}
 \end{frame}
-\begin{frame}{Gauge transformations}
-	Recall that there is an associated form $F_M\in\Omega^2(M,Ad(P))$.
-	\begin{block}{Result}
-		Under a gauge transformation $F_M\rightarrow \phi^{-1}\cdot F_M$.
-		\\\vspace{9 pt}
-		Let $s:U\rightarrow P$ be a local gauge and $\phi\in \mathcal{G}(P)$ and $g\in C^\infty(U,G)$ the corresponding smooth function. Since $F_{M,x}(X_x,Y_x)=[s(x),F_{s(x)}(dx(X_x),dx(Y_x))]$, from this it follows:
-		$$\phi^{-1}\cdot F_{M,x}(X_x,Y_x)=[s(x)\cdot g^{-1},F_{s(x)}(dx(X_x),dx(Y_x))]=$$$$[s(x)\cdot ,Ad(g^{-1})F_{s(x)}(dx(X_x),dx(Y_x))]$$
-	\end{block}
-\end{frame}
+\begin{comment}
+	\begin{frame}{Gauge transformations}
+		One can look at gauge transformations on the associated bundle:
+		\begin{alertblock}{Prop}
+			$$\mathcal{G}(P)\times E\rightarrow E$$
+			$$(f,[p,v])\rightarrow [f(p),v]$$
+		\end{alertblock}
+		Recall that there is an associated form $F_M\in\Omega^2(M,Ad(P))$.
+		\begin{block}{Result}
+			Under a gauge transformation $F_M\rightarrow \phi^{-1}\cdot F_M$.
+		\end{block}
+	\end{frame}
+\end{comment}
 \begin{frame}{Bundle metrics}
 	We wish for a metric on the associated bundle $E$ induced by $\rho:G\rightarrow GL(V)$.
 	\begin{exampleblock}{Obs}
 		If $V$ has a $G$ invariant product $\braket{,}_V$, then we define:
-		$$\braket{[p,v],[q,w]}_{E_x}=\braket{v,w}_V$$
+		$$\braket{[p,v],[p,w]}_{E_x}=\braket{v,w}_V$$
 	\end{exampleblock}
 	\begin{alertblock}{Note}
 		In the case of a compact and semisimple Lie algebra $\mathfrak{g}$, the scalar product on $Ad(P)$ is the Cartan-Killing form, which is automatically gauge invariant.
@@ -311,17 +286,10 @@
 		Let $s:U\rightarrow P$ be a local gauge, $F$ be the curvature of $A$. Then if the bundle metric is gauge invariant:
 		$$\braket{F_M,F_M}_{Ad}=\braket{s^*F,s^*F}_\mathfrak{g}$$
 	\end{block}
-	By gauge invaraince, the choice of the section does not matter!
-	\\
-	$$\braket{F_M,F_M}_{Ad}=\braket{[s,s^*F],[s,s^*F]}_{Ad}=\braket{s^*F,s^*F}_\mathfrak{g}$$
-\end{frame}
-\begin{frame}{Bundle metrics}
 	\begin{block}{Result}
 		If $s:U\rightarrow P$ is a gauge and $\varphi:\pi_{Ad}^{-1}(U)\rightarrow U\times V$ is the induced local trivialization, then:
 		$$F_{M,x}=\varphi^{-1}(x,s^*F_{s(x)})$$
 	\end{block}
-	By construction $\varphi^{-1}(x,v)=[s(x),v]$ so that:
-	$$\varphi^{-1}(x,s^*F_{s(x)})=[s(x),s^*F_{s(x)}]=F_{M,x}$$
 \end{frame}
 \begin{frame}{Bundle metrics}
 	\begin{exampleblock}{Def: Hodge operator}
@@ -352,10 +320,10 @@
 			\item There is a principal bundle $(P,\mathbb{R}^{1,3},\pi,U(1))$;
 		\end{itemize}
 	\end{exampleblock}
-	In local coordinates: $$s^*A=A_{\mu}dx^\mu\otimes T$$
+	Let $A$ be a connection. In local coordinates: $$s^*A=A_{\mu}dx^\mu\otimes T$$
 	where $\{T\}$ is the generator of $\mathfrak{u}(1)$, usually $T=-i$.
 \end{frame}
-\begin{frame}
+\begin{frame}{Recovering Maxwell}
 	\begin{block}{Result}
 		The connection $A$ plays the role of the vector potential, as it transforms like:
 		$$s^*A\rightarrow s^*A+d\alpha$$
