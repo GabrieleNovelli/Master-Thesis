@@ -1,0 +1,511 @@
+\documentclass[12pt,a4paper]{report}
+
+\usepackage[english]{babel}
+\usepackage{newlfont}
+\usepackage{color}
+\usepackage{multicol}
+\usepackage{float}
+\usepackage{frontespizio}
+\usepackage{amsmath,amssymb}
+\usepackage{amsthm}
+\usepackage{geometry}
+\usepackage{tikz}
+\usepackage{biblatex}
+\usepackage{csquotes}
+\usepackage{pgfplots}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{comment}
+\usepackage[compat=1.0.0]{tikz-feynman}
+\usepackage{tikz-cd}
+\usepackage{mathtools}
+\usepackage{braket}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+	pdftitle={Overleaf Example},
+	pdfpagemode=FullScreen,
+}
+
+\textwidth=450pt\oddsidemargin=0pt
+\geometry{a4paper, top=3cm, bottom=3cm, left=3cm, right=3cm, % heightrounded, bindingoffset=5mm 
+}
+\theoremstyle{definition}
+\newtheorem{Def}{Definition}[chapter]
+
+\theoremstyle{Theorem}
+\newtheorem{Theo}[Def]{Theorem}
+\newtheorem{Prop}[Def]{Proposition}
+
+\newtheorem{Lm}[Def]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{Ex}[Def]{Example}
+
+\theoremstyle{definition}
+\newtheorem{Obs}[Def]{Observation}
+
+\title{A rigorous approach to magnetic monopoles}
+
+\begin{document}
+	\chapter{Cohomology}
+	\section{De Rham Cohomology}
+	In this section we give the definition of the De Rham Cohomology and prove some important results concerning this theory.
+	\begin{Def}
+		Let $M$ be a smooth manifold. We define the \textit{De Rham Cohomology of degree $p$} in $M$ as the quotient set:
+		$$H_{dR}^p(M)={Ker(d:\Omega^p(M)\rightarrow \Omega^{p+1}(M))\over Im(d:\Omega^{p-1}(M)\rightarrow \Omega^{p}(M))}={\hbox{exact forms }\over \hbox{closed forms}}$$ 
+	\end{Def}
+	Elements of $H_{dR}^p(M)$ are equivalence classes, whoose elements differ by a closed form.
+	\begin{Obs}
+		$H_{dR}^p(M)$ is clearly a vector space under addition of forms. Moreover, since $\Omega^p(M)=0$ for $p>dim(M)$ we have that:
+		$$H^p_{dR}(M)=0\hbox{ for }p<0,p>dim(M)$$
+	\end{Obs}
+	Now we look at some properties of the De Rham Cohomology.
+	\begin{Prop}
+		If $F.N\rightarrow M$ is a smooth map between manifolds, there is a linear map $F^*:H^p_{dR}(N)\rightarrow H^p_{dR}(N)$.
+	\end{Prop}
+	\begin{proof}
+		The pullback $F^*$ of a form commutes with the exterior derivative, so that:
+		\begin{itemize}
+			\item if $\omega$ is closed then $dF^*\omega=F^*d\omega=0$ is closed;
+			\item if $\omega$ is exact then $F^*\omega=F^*d\eta=dF^*\eta$ is exact.
+		\end{itemize}
+		By abuse of notation, define:
+		$$F^*:H^p_{dR}(N)\rightarrow H^p_{dR}(N) \hbox{ like }F^*[\omega]=[F^*\omega]$$
+		This is clearly well defined.
+	\end{proof}
+	There is an immediate important consequence to this result:
+	\begin{Theo}
+		If two manifolds are diffeomorphic then their De Rahm Cohomologies are isomorphic.
+	\end{Theo}
+	\begin{Prop}
+		If $M$ is a connected smooth manifold then the $H^0_{dR}(M)$ is one dimensional and equal to the space of constant functions.
+	\end{Prop}
+	\begin{proof}
+		Clearly, by definition $H^0_{dR}(M)=Ker(d:\Omega^0(M)\rightarrow\Omega^1(M))$ which is the space of constant functions $df=0$.
+	\end{proof}
+	There is another extremely important result:
+	\begin{Theo}
+		The De Rahm Cohomology spaces are topological invariants.
+	\end{Theo}
+	This can be seen as a corollary of the following proposition:
+	\begin{Prop}
+		The De Rahm Cohomology spaces are homotopy invariants.
+	\end{Prop}
+	\begin{proof}
+		Let $F:M\rightarrow N$ be an homotopy with inverse $F^{-1}$. By the Whitney approximation theorem, there exist $\tilde{F}:M\rightarrow N,\tilde{F}^{-1}N\rightarrow M$ smooth and homotopic to $F,F^{-1}$. By REFERENZA, the theorem is proved.
+	\end{proof}
+	\section{The De Rham Theorem}	
+	\chapter{Characteristic classes}
+	\section{Characteristic classes of Vector Bundles}
+	In this section we will look at the construction of topological invariants for vector bundles.
+	\begin{Def}
+		Let $V$ be a $n$-dimensional vector space. We call \textit{polynomial} of degree $k$ on $V$ any element $f\in Sym^k(V^*)$.
+	\end{Def}
+	\begin{Def}
+		If $\mathfrak{g}$ is the Lie algebra of $G$ and $f:\mathfrak{g}\rightarrow \mathbb{R}$ is a polynomial of degree $k$, then $f$ is said to be $\rho$-invariant if
+		$$f(\rho(g)X)=f(X)$$
+		for all $g\in G$ and $X\in \mathfrak{g}$.
+	\end{Def}
+	\begin{Theo}[Chern-Weyl]
+		Let $(E,M,\pi,\mathbb{R}^r)$ be a vector bundle, $\nabla$ a connection and $\Omega$ its curvature. If $f$ is an $Ad$-invariant homogeneous polynomial on $\mathfrak{gl}(n,\mathbb{R})$ then:
+		\begin{itemize}
+			\item[i)] $f(\Omega)$ is closed;
+			\item[ii)] The cohomology class $[f(\Omega)]$ is independent of the connection $\nabla$.
+		\end{itemize}
+	\end{Theo}
+	\begin{proof}
+		It is sufficient to prove this for the trace polynomial, as it can be proven that the trac epolynomial generates every other polynomial in $\mathfrak{gl}(n,\mathbb{R})$.\\
+		\begin{itemize}
+			\item[i)] Clearly $dtr(\Omega)=tr(d\Omega)=0$ by symmetry.
+			\item[ii)] Consider two connections $\nabla,\nabla'$ and define:
+			$$\nabla_t=\nabla+t(\nabla'-\nabla )=\nabla+t\xi\hbox{ with } t\in[0,1]$$
+			Clearly, the connection matrics follow the same rule:
+			$$\omega_t=\omega+t(\omega'-\omega)=\omega+t\omega_\xi$$
+			Let $\Omega_t$ be the curvature of $\nabla_t$. Now, consider the following calculations:
+			$${d\over dt}Tr(\Omega_t,...,\Omega_t)=kTr({d\over dt}\Omega_t,...,\Omega_t)$$
+			Now, $\Omega_t=d\omega_t+\omega_t\wedge\omega_t$. This immediately implies:
+			$${d\over dt}\Omega_t=d\dot{\omega}_t+\dot{\omega}_t\wedge \omega_t+\omega_t\wedge\dot{\omega}_t$$
+			Now, feeding this into the trace polynomial, we find:
+			$$Tr({d\over dt}\Omega_t,...,\Omega_t)=Tr(d\dot{\omega}_t+\dot{\omega}_t\wedge \omega_t+\omega_t\wedge\dot{\omega}_t ,\Omega_t...,\Omega_t)=$$
+			$$=Tr(d\dot{\omega}_t\wedge \Omega_t^{k-1}+\dot{\omega}_t\wedge \omega_t\wedge \Omega_t^{k-1}+\omega_t\wedge\dot{\omega}_t\wedge \Omega_t^{k-1})=$$
+			$$Tr(d\dot{\omega}_t\wedge \Omega_t^{k-1}+\dot{\omega}_t\wedge \omega_t\wedge \Omega_t^{k-1}-\dot{\omega}_t\wedge \Omega_t^{k-1}\wedge \omega_t)=Tr(d(\dot{\omega}\wedge \Omega^{k-1}))=$$
+			$$dTr(\dot{\omega}\wedge \Omega^{k-1})$$
+			Finally, by integrating:
+			$$\int_0^1dt kdTr(\dot{\omega}\wedge \Omega^{k-1})=\int_0^1dt {d\over dt}Tr(\Omega^k)=Tr(\Omega^{k'})-Tr(\Omega^{k})=d\tau$$
+		\end{itemize}
+	\end{proof}
+	\subsection{The Chern Class}
+	In this subsection we will construct the Chern classes for vector bundles.
+	\begin{Def}
+		Let $E$ be a vector bundle with structure group $GL(r,\mathbb{C})$ and a curvature $\Omega$. Then we defne the \textit{total Chern Class} as:
+		$$c(\Omega)=det\bigg(\mathbb{I}-{i\over 2\pi}\Omega\bigg)$$ 
+	\end{Def}
+	\begin{Obs}
+		One can show that all invariant polynomials on $\mathfrak{gl}(r,\mathbb{C})$ are generated by the coefficients $f_k$ in the expansion:
+		$$det(\lambda\mathbb{I}-X)=\sum_{k=0}^r f_k(X)\lambda^{r-k}$$
+		This implies that all invariant polynomials of $\Omega$ are generated by the elements of the Chern class expansion.
+	\end{Obs}
+	\begin{Obs}
+		Since $\Omega$ is a $2$-form, $c(\Omega)$ is the sum of even degrees term:
+		$$c(\Omega)=1+c_1(\Omega)+c_2(\Omega)+...$$
+		where $$c_n(\Omega)\in\Omega^{2n}(M)$$
+		is called the \textit{$n^th$ Chern Class}.\\
+		Moreover, since each element is an invariant polynomial, $c_j(\Omega)$ correspond to an element $[\Gamma_j]\in H^{2j}(M)$. It immediately follows that for $j>dim(M)$ and $2j>n$ the Chern class vanishes 
+		$$c_{j>m/2}(\Omega)=0,\hspace{20 pt}c_{j>n}(\Omega)=0$$
+		Lastly, the finishing term is $c_{j=m}(\Omega)=det({i\over 2\pi}\Omega)$.
+	\end{Obs}
+	\begin{Obs}
+		It is possible to prove that for the Lie algebra $\mathfrak{su}(n)$, all invariant polynomials are generated by the Chern Polynomial. However, from the requirement $Tr(X)=0$, we have $c_1(F)=0$.
+	\end{Obs}
+	\begin{Prop}
+		If $E\oplus F$ is a sum of complex vector bundles with structure groups $GL(r_{1,2},\mathbb{C})$ and $c(E),c(F)$ are the total Chern classes of them, then:
+		$$c(E\oplus F)=c(E)\wedge c(F)$$
+	\end{Prop}
+	\begin{proof}
+		This is a clear consequence of the fact that if $\Omega_E,\Omega_F$ are the curvatures of the bundles, then $$\Omega_{E\oplus F}=\begin{pmatrix}
+		\Omega_E && 0\\
+		0&& \Omega_F
+		\end{pmatrix}$$
+		Clearly, the determinant function splits accoardingly.
+	\end{proof}
+	\subsection{Chern Characters}
+	\begin{Def}
+		We define the \textit{total Chern character} as:
+		$$ch(\Omega)=Tr\bigg({i\over 2\pi}\Omega\bigg)=\sum_j {1\over j!}Tr\bigg({i\over 2\pi}\Omega\bigg)^j$$
+		We call $ch_j(\Omega)={1\over j!}Tr\bigg({i\over 2\pi}\Omega\bigg)^j$ the $j^{th}$ \textit{Chern character}.
+	\end{Def}
+	The Chern characters behave in a nicer way with respect to the splitting principle. Consider the following:
+	\begin{Prop}
+		Let $E,F$ be vector bundles over $M$ with structure group $GL(n,\mathbb{C})$. Then:
+		\begin{itemize}
+			\item $ch(E\oplus F)=ch(E)\oplus ch(F)$;
+			\item $ch(E\otimes F)=ch(E)\otimes ch(F)$.
+		\end{itemize}
+	\end{Prop}
+	\begin{proof}
+		Recall that by definition:
+		$$ch(\Omega)=\sum_j {1\over j!}Tr\bigg({i\over 2\pi}\Omega\bigg)^j$$
+		This immediately proves the first result:
+		$$Tr(A\oplus B)^j=Tr(A^j)+Tr(B^j)$$
+		As for the second equality instead, if $A=B\otimes C=B\otimes \mathbb{I}+\mathbb{I}\otimes C$ then:
+		$$Tr(B\otimes \mathbb{I}+\mathbb{I}\otimes C)^j=\sum_{m=1}^j {j \choose m}Tr(B^m)Tr(C^{j-m})$$
+		So that we find:
+		$$ch(B\otimes C)=\sum_j {1\over j!}{i\over 2\pi}\sum_{m=1}^j {j \choose m}Tr(B^m)Tr(C^{j-m})={i\over 2\pi}\sum_j {1\over j!}Tr(B^m)\sum_{m}{1\over m!}Tr(C^{m})$$
+	\end{proof}
+	\subsection{The Pontrjagin Class}
+		\begin{Def}
+			Let $E$ be a vecotr bundle over $M$. We define the \textit{Pontrjagin class} of $E$ as:
+			$$p(E)=det\bigg(\mathbb{I}+{1\over 2\pi}\Omega\bigg)$$
+		\end{Def}
+		\begin{Prop}
+			If $f$ is an invariant polynomial on $\mathfrak{gl}(n,\mathbb{R})$, then $[f(\Omega)]$ is 0 in $H^{2k}(M)$.
+		\end{Prop}
+		\begin{proof}
+			Put a Riemannian metric on $M$ and consider a curvature compatible with the metric. THis is skew-symmetric. Since $f$ is a linear combination of $Tr$ of odd degree, the final result is 0.
+		\end{proof}
+		\begin{Obs}
+			By the previous result REFERENZA, since $\Omega$ is a $2$-form, we will have only the even-degree terms in the expansion:
+			$$det\bigg(\mathbb{I}+{1\over 2\pi}\Omega\bigg)=1+f_2({1\over 2\pi}\Omega)+f_4({1\over 2\pi}\Omega)+...$$
+			Clearly, $f_n)({1\over 2\pi}\Omega)\in\Omega^{4n}(M)$.
+		\end{Obs}
+		\begin{Def}
+			We define the $k^{th}$ Pontjagin class as:
+			$$p_k(\Omega)=[f_{2k}({1\over 2\pi}\Omega)]\in H^{4k}(M)$$
+		\end{Def}
+		\begin{Prop}
+			If $E$ is a vector bundle on $M$ and $E_\mathbb{C}=E\otimes \mathbb{C}$ is the complexified bundle, then there is a correspondence:
+			$$p_k(E)=(-)^kc_{2k}(E_\mathbb{C})$$
+		\end{Prop}
+		\begin{Prop}
+			If $\Omega$ is the curvature of $E$, then clearly this induces a curvature on $E_\mathbb{C}$ like:
+			$$\Omega_\mathbb{C}=\Omega\otimes\mathbb{I}_\mathbb{C}$$
+			Now, a skewsymmetric matrix can be diagonalized over the complex numbers, and its eigenvalues will come in complex pairs $\pm ix_j$, so that:
+			$$det(\mathbb{I}+iA)=det\begin{pmatrix}
+				1+x_1 && 0 && ... &&... && ...\\
+				0 && 1-x_1 && 0 && ... && ...  \\
+				0 && 0 && 1+x_2 && 0 &&...  \\
+				0 && 0 && 0 && 1-x_2 &&...  \\
+				0 && 0 && 0 && 0 &&... 
+			\end{pmatrix}=\prod (1-x_i)^2=$$
+			while
+			$$det(\mathbb{I}+A)=\prod (1+x_i)^2$$
+			This proves the Proposition.
+		\end{Prop}
+		As a corollary of this statement:
+		\begin{Prop}
+			$$P(E\oplus F)=p(E)\wedge p(F)$$
+		\end{Prop}
+		\section{Characteristic classes of Principal Bundles}
+		In this section we will look at the construction of topological invariants for principal bundles.
+		\begin{Def}
+			Let $V$ be a $n$-dimensional vector space. We call \textit{polynomial} of degree $k$ on $V$ any element $f\in Sym^k(V^*)$.
+		\end{Def}
+		\begin{Def}
+			If $\mathfrak{g}$ is the Lie algebra of $G$ and $f:\mathfrak{g}\rightarrow \mathbb{R}$ is a polynomial of degree $k$, then $f$ is said to be $\rho$-invariant if
+			$$f(\rho(g)X)=f(X)$$
+			for all $g\in G$ and $X\in \mathfrak{g}$.
+		\end{Def}
+		We are interested in construction $Ad$-invariant polynomials, starting from the curvature form.
+		\begin{Theo}[Chern-Weyl]
+			Let $(P,M,\pi,G)$ be a principal bundle, $A$ a connection and $F$ its curvature. If $f$ is an $Ad$-invariant polynomial then:
+			\begin{itemize}
+				\item[i)] $f(F)$ is basic i.e. $f(F)=\pi^*\Gamma$;
+				\item[ii)] $d\Gamma=0$ is closed;
+				\item[iii)] The cohomology class $[\Gamma]$ is independent of the connection $A$.
+			\end{itemize}
+		\end{Theo}
+		\begin{proof}
+			We proceed with order:
+			\begin{itemize}
+				\item[i)] We need to show right-invariance and horizontality. In general, $$f(F)=a_IF^{i_1}\wedge ...\wedge F^{i_k}$$
+				By horizontality of the curvature form, $f(F)$ is also horizontal. Moreover, by taking the right action:
+				$$r_g^*f(F)=a_IAd(g^{-1})F^{i_1}\wedge ...\wedge Ad(g^{-1})F^{i_k}=f(Ad(g^{-1})F)=f(F)$$
+				This proves that $f(F)$ is basic.
+				\item[ii)]
+				$$df(F)=d\pi^*\Gamma=\pi^*d\Gamma=0$$
+				This is a consequence of $a_I$ being constant and $Df(F)=df(F)$.
+				\item [iii)]
+				Consider a curve that interpoles any two connections, like:
+				$$A_t=A+t(A'-A)=A+t\alpha; \hbox{ with }t\in[0,1] $$
+				Then, if $F_t=D_tA_t$ we can evalue:
+				$${d\over dt} F_t={d\over dt}(dA_t+{1\over 2}[A_t,A_t]+t[\alpha,\alpha])=d\alpha+{1\over 2}[A_t,\alpha]+antisymm=D_t\alpha+antisymm$$
+				Now, feeding this into the symmetric polynomial $f$, the last term dies off and so we find:
+				$$D_tf(\alpha,F_t,...,F_t)=f(D_t\alpha,F_t,...,F_t)=f({d\over dt}F_t,F_t,...,F_t)$$
+				Moreover, since $D_t\alpha=d\alpha+{1\over 2}[A_t,\alpha]$ and the second term is antisymmetric, the polynomial kills it so that:
+				$$f(D_t\alpha,F_t,...,F_t)=f(d\alpha,F_t,...,F_t)=df(\alpha,F_t,...,F_t)$$
+				Where the last equality used the fact that the covariant derivative of $f$ is equal to the exterior derivative of $f$, and $F_t$ is covariantly closed.
+				By multilinearity of the polynomial, we can write:
+				$$df(\alpha,F_t,...,F_t)=k{d\over dt}f(F_t,F_t,...,F_t)$$
+				Finally, integrating:
+				$$k\int_0^1 dt {d\over dt}f(F_t,F_t,...,F_t)=f(F)-f(F')=d\bigg(\int_0^1 dt f(\alpha,F_t,...,F_t)\bigg)$$
+				This completes the proof.
+			\end{itemize}
+		\end{proof}
+		\begin{Obs}
+			The last theorem basically tells us that if we have a principal bundle and we choose any connection, and thus any curvature, we can find a unique cohomology class $[\Gamma]$ on the base manifold. In particular, $\Gamma\in\Omega^k(M,\mathbb{R})$. In fact, since $f:\mathfrak{g}^k\rightarrow \mathbb{R}$ is a polynomial with real values, by feeding to it the curvature we obtain a form of degree $2k$ which has values in $\mathbb{R}$. The cohomology class of $\Gamma$ is called \textit{characteristic class} of $P$ associated to $f$.
+		\end{Obs}
+		\begin{Prop}
+			If two principal bundles are isomorphic then they have same characteristic class.
+		\end{Prop}
+		\begin{proof}
+			Let $P,P'$ be two principal bundles over $M$, suche that there is a bundle isomorphism:
+			$$\chi:P\rightarrow P'\hbox{ such that }\pi=\pi'\circ \chi$$
+			Suppose you have a basic form $\omega'$ on $P'$. Then $\omega'=\pi'^*\Gamma$ and $\phi^*\omega=\phi^*\pi'^*\Gamma=(\pi'\circ \phi)^*\Gamma=\pi^*\Gamma$. So the basic form on $P'$ gets pulledback isomorphically to a basic form on $P$ corresponding to the same cohomology class.
+		\end{proof}
+		\begin{Obs}
+			This analysis provides a tool for understanding if two principal bundles are not isomorphic: we check if the characteristic classes differ. 
+		\end{Obs}
+		\subsection{The Chern Class}
+			In this subsection we will construct the Chern classes for a particular class of principal bundles.\\
+			\\
+			\begin{Def}
+				Let $P$ be a principal $GL(r,\mathbb{C})$ bundle with a curvature $F$. Then we defne the \textit{total Chern Class} as:
+				$$c(F)=det\bigg(\mathbb{I}-{i\over 2\pi}F\bigg)$$ 
+			\end{Def}
+			\begin{Obs}
+				One can show that all invariant polynomials on $\mathfrak{gl}(r,\mathbb{C})$ are generated by the coefficients $f_k$ in the expansion:
+				$$det(\lambda\mathbb{I}-X)=\sum_{k=0}^r f_k(X)\lambda^{r-k}$$
+				This implies that all invariant polynomials of $F$ are generated by the elements of the Chern class expansion.
+			\end{Obs}
+			\begin{Obs}
+				Since $F$ is a $2$-form, $c(F)$ is the sum of even degrees term:
+				$$c(F)=1+c_1(F)+c_2(F)+...$$
+				where $$c_n(F)\in\Omega^{2n}(P,\mathbb{R})\simeq\Omega^{2n}(M,\mathbb{R})$$
+				is a basic form called the \textit{$n^th$ Chern Class}.\\
+				Moreover, since each element is an invariant polynomial, $c_j(F)$ correspond to an element $[\Gamma_j]\in H^{2j}(M)$. It immediately follows that for $j>dim(M)$ and $2j>n$ the Chern class vanishes 
+				$$c_{j>m/2}(F)=0,\hspace{20 pt}c_{j>n}(F)=0$$
+				Lastly, the finishing term is $c_{j=m}(F)=det({i\over 2\pi}F)$.
+			\end{Obs}
+			\begin{Obs}
+				It is possible to prove that for the Lie algebra $\mathfrak{su}(n)$, all invariant polynomials are generated by the Chern Polynomial. However, from the requirement $Tr(X)=0$, we have $c_1(F)=0$.
+			\end{Obs}
+			\begin{Ex}
+				Consider the Hopf bundle $(S^3,S^2,\pi,U(1))$. This is a non trivial bundle. We immediately know that:
+				$$c_0(F)=1,c_1(F)=0,c_{j>2}(F)=0$$
+			\end{Ex}
+			The Chern classes of a principal bundle correspond to the Chern classes of the adjoint bundle, since $F\rightarrow F_M\in\Omega^2(M,Ad(P))$ by the musical isomorphism REFERENZA.\\
+			This immediately implies that all of the other properties of the Chern Classes exposed in REFERENZA also hold.
+			\subsection{The Pontrjagin Class}
+		\chapter{The Cartan Construction}
+		In this chapter we will introduce the Cartan construction regarding principal bundles. We will see how to describe General Relativity in an alternative way.
+		\section{The Cartan connection}
+		\begin{Def}
+			Let $G$ be a Lie group, $H\subset G$ a closed Lie subgroup and $(P,M,\pi,H)$ be a principal bundle. We call $\omega\in\Omega^1(P,\mathfrak{g})$ a \textit{Cartan connection} if:
+			\begin{itemize}
+				\item for all $p\in P$, $\omega_p:T_pP\rightarrow \mathfrak{g}$ is an isomorphism;
+				\item $r_h^*\omega=Ad(h^{-1})\omega$ for all $h\in H$;
+				\item $\omega(\overline{X})=X$ for all $X\in \mathfrak{h}$;
+				\item $\omega$ is smooth.
+			\end{itemize}
+			We call the couple $((P,M,\pi,H),\omega)$ a Cartan Geometry.
+		\end{Def}
+		\begin{Obs}
+			Clearly, $\omega$ is very similar to an Ehresmann connection on $\mathfrak{h}$. However, there are some slight differences. First of all, $\omega$ takes values in all of $\mathfrak{g}=Lie(G)$. Second of all, it is required that at any point $p\in P$, the Cartan form provides an isomorphism between the tangent space of $P$ and $Lie(G)$.
+		\end{Obs}
+		\begin{Def}
+			If $G$ is a Lie group, $H\subset G$ a closed Lie subgroup, we say that $G/H$ is a \textit{reductive homogeneous space} if $\mathfrak{g}=\mathfrak{h}\oplus\mathfrak{m}$ and:
+			$$Ad(H)\mathfrak{m}\subset \mathfrak{m}$$ 
+		\end{Def}
+		\begin{Obs}
+			In general, the complement $\mathfrak{m}$ is not unique. However, any complement is isomorphic to $\mathfrak{g/h}$ as a vector space.
+		\end{Obs}
+		\begin{Def}
+			We define the \textit{Cartan curvature of a Cartan connection} as:
+			$$\Omega=d\omega+[\omega\wedge \omega]$$
+		\end{Def}
+		\begin{Ex}
+			We saw that, given a Lie group $G$ and a closed Lie subgroup $H$ of it, there is a principal $H$ bundle like:
+			$$(G,G/H,\pi,H); \hbox{ where }\pi(g)=[g]$$
+			If we take the right Maurer-Cartan form $\theta\in\Omega^1(G,\mathfrak{g})$ as acting like:
+			$$\theta_g(X_g)=dr_{g^{-1}}X_g$$
+			we see that this is a Cartan connection. In particular, $\theta$ is clearly smooth, by REFERENZA it transforms with the adjoint, it is clearly an isomorphism (since $dr$ is a diffeomorphism at all points) and lastly:
+			$\theta_g(dj_{pg}(X))=dr_{g^{-1}}dj_{pg}(X)=X$. Clearly, by REFERENZA, the curvature of the Maurer-Cartan connection is 0.
+		\end{Ex}
+	\begin{Obs}
+		just like for principal connections REFERENZA, the principal bundle structure of any Cartan Geometry uniquely idenitfies a vertical distribution:
+		$$\mathcal{V}=Ker(d\pi)$$
+		As usual, the choice of a connection implies the choice of a distribution, since $\mathfrak{h}\simeq T_pP$ at any point. However, the Cartan connection amounts to something more: since the Lie algebra $\mathfrak{g}$ can always be decomposed (regardless of reducibility) to $\mathfrak{g}=\mathfrak{h}\oplus\mathfrak{g/h}$, $\omega$ models the horizontal tangent space as $\mathfrak{g/h}$, since at any point we have an isomorphism:
+		$$T_pP\xlongrightarrow{\omega_p}\mathfrak{h}\oplus\mathfrak{g/h}$$
+		Clearly $\mathfrak{h}\simeq\mathcal{V}_p$ by REFERENZA.
+	\end{Obs}
+	\begin{Obs}
+		Consider a reductive Cartan Geometry. Then, since $\mathfrak{g/h}$ is $Ad(H)$ invariant, we can split the Cartan connection into two pieces:
+		$$\omega_p(v)=A_p(v)+e_p(v)$$
+		where $A\in\Omega^1(P,\mathfrak{h}),e\in\Omega^1(P,\mathfrak{g/h})$. We will call $A$ the \textit{Cartan form} and $e$ the \textit{solder form}. In particular, this splitting is only possible due to the invariance of $\mathfrak{g/h}$. Namely, it follows from $\omega_p(v)\in\mathfrak{g}=\mathfrak{h}\oplus\mathfrak{g/h}$ and $Ad(h^{-1})\omega_p(v)\in \mathfrak{h}\oplus Ad(h^{-1})\mathfrak{g/h}=\mathfrak{h}\oplus \mathfrak{g/h}$.\\ 
+		To be more precise:
+		\begin{itemize}
+			\item $A$ is an Ehresmann connection on $P$.\\
+			\\
+			This follows immediately from the property $\omega(\overline{X})=X$ and the fact that $A$ takes values in $\mathfrak{h}$;
+			\item $e$ is smooth, right-equivariant and horizontal.\\
+			\\
+			The horizontality follows from the fact that $A$ is an Ehresmann connection. Then, we must have that for any $X\in\mathfrak{h}$, $e(\overline{X})=0$. The right equivariance is obvious by reducibility.
+		\end{itemize}
+		There is one last important property of $e$: it descends to an isomorphism on $TM$. We are now going to show this.
+	\end{Obs}
+	\begin{Def}
+		Let $(\mathfrak{g},\mathfrak{h})$ be a reductive homogeneous space on a Cartan gometry $[(P,M,\pi,H),\omega]$. Then, we define the \textit{soldering bundle} as the associated vector bundle:
+		$$P\times_{H}\mathfrak{m}$$
+	\end{Def}
+	This is a well defined associated bundle since we have a representation $$\rho:H\rightarrow GL(dim(\mathfrak{m}))\hbox{ like }\rho(h)=Ad(h)|_\mathfrak{m}$$
+	from REFERENZA, we get the following vector bundle:
+	$$(P\times_{H}\mathfrak{m},M,\pi_{\mathfrak{m}},\mathfrak{m})$$
+	This is an associated bundle and $e$ is clearly a tensorial form under $\rho$. By the Musical Isomorphism REFERENZA we can send:
+	$$e\rightarrow e_M\in\Omega^1(M,P\times_{H}\mathfrak{m})$$
+	\begin{Prop}
+		For a reductive homogeneous space $(\mathfrak{g},\mathfrak{h})$ there is an isomorphsim:
+		$$TM\simeq P\times_{H}\mathfrak{m}$$
+	\end{Prop}
+	\begin{proof}
+		Since $\omega$ is an isomorphism at any point and the space is reductive, we can split $\omega$ into two isomorphisms:
+		$$A_p:\mathcal{V}_p\rightarrow \mathfrak{h}\hspace{ 20 pt }e_p:\mathcal{H}_p\rightarrow \mathfrak{m}$$
+		This implies, by the Musical Isomorphism REFERENZA that there is another isomorphism at any point:
+		$$e_{M,x}:T_xM\rightarrow \mathfrak{m}$$
+		Thus $TM\simeq P\times_{H}\mathfrak{m}$.
+	\end{proof}
+	\section{Gauge transformations in Cartan geometries}
+	In this section we will use previous result to introduce the notion of gauge transofmration on a Cartan geometry. We will see that the implications are very similar to the gauge transformations discussed for principal bundles.
+	\begin{Obs}
+		A Cartan geometry is constructed on a principal bundle. Thus, it is natural to define gauge transformations like we did for arbitrary principal bundles REFERENZA: as automorphisms from $P$ to $H$.
+	\end{Obs}
+	Recall that by REFERENZA we have the following results:
+	\begin{itemize}
+		\item $$\mathcal{G}(P)\simeq C^\infty(P,H)^H \hbox{ canonically }$$
+		\item Given a section $s:U\rightarrow P$ of the principal bundle, we have:
+		$$C^\infty(P|_U,H)^H\simeq C^\infty(U,H)$$
+	\end{itemize}
+	It is also clear that for any section $s:U\rightarrow P$ we can pullback the Cartan connection and curvature like:
+	$$s^*\omega:TU\rightarrow \mathfrak{g}\hspace{20 pt} s^*\Omega:TU\otimes TU\rightarrow \mathfrak{g}$$
+		\begin{Theo}[\textbf{Passive interpretation of diffeomorphisms}]
+		Let $(P,M,\pi,H)$ be a principal $H$-bundle and $\omega$ a Cartan connection on it. Let $s_1,s_2:U\rightarrow P$ be local gauges and $\omega_{i}=s_i^*\omega$ the pulled-back connections on the manifold. Then 
+		$$\omega_i=\hbox{Ad}(g_{ji}^{-1})\omega_j+\mu_{ji}$$
+		Where $g_{ji}$ is the transition function between the local trivializations $s_i,s_j$ while $\mu_{ji}=g_{ji}^*\theta$ with $\theta$ the Maurer-Cartan form.
+	\end{Theo}
+	\begin{proof}
+		By construction, $\omega_i=s_i^*\omega$ so that for any vector field $X\in \Gamma(U)$, we have:
+		$$s^*\omega(X)=\omega(ds(X))$$
+		The two sections induce trivializations by proposition REFERENZA. Furthermore, by observation REFERENZA, we know that the relation between the two sections at any point $x\in U$ is:
+		$$s_i(x)=s_j(x)\cdot g_{ji}(x)=\mu(s_j(x),g_{ji}(x))$$
+		By taking the differential:
+		$$ds_{i,x}(X_x)=d\mu_{(s_{j}(x), g_{ji}(x))}(ds_{j,x}(X_x),dg_{ji,x}(X_x))$$
+		Now, the mapping $g_{ji}:U\rightarrow H$ has as differential $dg_{ji,x}:T_xM\rightarrow T_{g_{ji}(x)}H$, so that it takes $X_x$ into a tangent vector to $H$ at $g_{ji}(x)$. Thus, since for every $h\in H$ the left action is a diffeomorphism, there exists an element of the Lie algebra, which we will call $T$, such that 
+		$$d\ell_{g_{ji}(x)}(T)=dg_{ji,x}(X_x)$$
+		This in turn implies:
+		$$T=d\ell_{g^{-1}_{ji}(x)}\circ dg_{ji,x}(X_x)$$
+		Moreover, applying the result obtained in proposition REFERENZA we find:
+		$$d\mu_{(s_{j}(x), g_{ji}(x))}(ds_{j,x}(X_x),dg_{ji,x}(X_x))=d\mu_{(s_{j}(x), g_{ji}(x))}(ds_{j,x}(X_x),d\ell_{g_{ji}(x)}(T))=$$
+		$$=dr_{g_{ji}(x)}\circ ds_{j,x}(X_x)+\overline{T}_{s_{j}(x)\cdot g_{ji}(x)}$$
+		Finally, feeding this to $A$, we get:
+		$$\omega_{s_i(x)}(ds_i(X_x))=\omega_{s_i(x)}(dr_{g_{ji}(x)}\circ ds_{j,x}(X_x)+\overline{T}_{s_{j}(x)\cdot g_{ji}(x)})=$$$$=r^*_{g_{ji}(x)}\omega_{{s_i(x)}}(ds_{j,x}(X_x))+T$$
+		Where in the last line we have applied the defining properties of the connection $1$-forms. Substituting back the expression for $T$ we get:
+		$$r^*_{g_{ji}(x)}\omega_{{s_i(x)}}(ds_{j,x}(X_x))+d\ell_{g^{-1}_{ji}(x)}\circ dg_{ji,x}(X_x)=r^*_{g_{ji}(x)}\omega_{{s_i(x)}}(ds_{j,x}(X_x))+(g^*_{ji}\theta)_x(X_x)$$
+		By once again applying the defining properties of the connection:
+		$$\omega_i=\hbox{Ad}(g_{ji}^{-1})\omega_j+\mu_{ji}$$
+		This completes the proof.
+	\end{proof}
+	\begin{Obs}[\textbf{Passive interpretation of diffeomorphisms}]
+		Recall that the curvature of a connection is defined as:
+		$$\Omega=d\omega+{1\over 2}[\omega,\omega]$$
+		Knowing the transformation rule for the pullback connection, we can find the analogue for the curvature: let $s_{i,j}:U\rightarrow P$ be two local gauges, then: $\Omega_{i,j}=s_{i,j}^*\Omega$ and we get, by applying the results found in proposition REFERENZA:
+		$$s^*\Omega=ds^*\omega+{1\over 2}[s^*\omega,s^*\omega]$$
+		By substituting the transformation rules for the connection one gets:
+		$$s_i^*\Omega=\Omega_i=d(\hbox{Ad}(g_{ji}^{-1})\omega_j)+d\mu_{ji}+{1\over 2}[\hbox{Ad}(g_{ji}^{-1})\omega_j+\mu_{ji},\hbox{Ad}(g_{ji}^{-1})\omega_j+\mu_{ji}]=$$
+		$$=d(r^*_{g_{ji}}\omega_j)+{1\over 2}[r^*_{g_{ji}}\omega_j,r^*_{g_{ji}}\omega_j]+d\mu_{ji}+{1\over 2}[\mu_{ji},\mu_{ji}]$$
+		Using again proposition REFERENZA and expressing $\mu_{ji}=g_{ji}^*\theta$ we find:
+		$$s_i^*\Omega=\Omega_i=r^*_{g_{ji}}\Omega_j+g_{ji}^*(d\theta+{1\over 2}[\theta,\theta])$$
+		Finally, by example REFERENZA, the last term is 0 since it is the curvature induced by the Maurer-Cartan form. From the $H$-equivariance of the curvature found in theorem REFERENZA, we thus get:
+		$$\Omega_i=\hbox{Ad}(g_{ji}^{-1})\Omega_j$$
+	\end{Obs}
+	\begin{Prop}
+		Let $(P,M,\pi,H)$ be a principal $H$-bundle and $H$ an abelian Lie group. Then, given a Cartan connection $\omega$ on $P$, the pullback of its curvature $\Omega$ is independent of the choice of the local gauge.
+	\end{Prop}
+	\begin{proof}
+		If $H$ is abelian, $\Omega$ is gauge invariant. This means that for any change of local section, the pullback of $\Omega$ remains invariant and so $\Omega$ is defined globally as a closed 2-form on $M$: $\Omega\in \Omega^2(M,\mathfrak{g})$.
+	\end{proof}
+	Finally, we would like to understand how the curvature transforms from the point of view of the associated bundle. Recall that proposition \ref{Mus_Iso} gave us the following isomorphism:
+	$$\Omega^k_\rho(P,V)\simeq \Omega^k(M,E)$$
+	The curvature of a connection is, as proved in proposition REFERENZA, $Ad$-equivariant and thus belongs to $\Omega^2_{Ad}(P,\mathfrak{g})$. This implies that once we have a connection on $P$ principal bundle, we can construct a $2$-form on the associated bundle $\Omega_M$.
+	\begin{Prop} [\textbf{Active interpretation of diffeomorphisms}]
+		Let $\Omega\in \Omega^2_{Ad}(P,\mathfrak{g})$ be a curvature form on a principal bundle and $\Omega_M\in\Omega^2(M,P\times_{H}\mathfrak{m})$ be the corresponding $2$-form with values on the associated bundle. The transformation $\phi\in\mathcal{G}(P)$ on $\Omega_M$ is induced by the one of $\Omega$ and is:
+		$$\Omega_M\rightarrow \phi^{-1}\cdot \Omega_M$$
+	\end{Prop}
+	\begin{proof}
+		Let $s:U\rightarrow P$ be a local gauge. By observation REFERENZA, the transformation $\phi\in\mathcal{G}$ on $\Omega$ is:
+		$$s^*\Omega\rightarrow \hbox{Ad}(g^{-1})s^*\Omega$$
+		where $g\in C^\infty(U,H)$ is the smooth map corresponding to $\phi$ in the isomorphism of proposition REFERENZA. The form $\Omega_M$ is constructed through theorem REFERENZAa as follows. Let $x\in M,X_x,X_y\in T_xM$, $p\in P_x$ and $\tilde{X}_p,\tilde{Y}_p\in T_pP$ their horizontal lifts. We have:
+		$$\Omega_{M,x}(X_x,Y_x)=[p,\Omega_p(\tilde{X}_p,\tilde{Y}_p)]$$
+		In REFERENZA we proved that this association is independent of the choice of the horizontal lift and of the point in the fiber. Thus, if $p=s(x)$ and $\tilde{X}_p,=ds(X_x);\tilde{Y}_p=ds(Y_x)$, we have:
+		$$\Omega_{M,x}(X_x,Y_x)=[s(x),\Omega_{s(x)}(ds(X_x),ds(Y_x)]$$
+		Now, applying the gauge transformation $\phi$ we get:
+		$$[p,\hbox{Ad}(g^{-1})\Omega_{s(x)}(ds(X_x),ds(Y_x))]\sim [p\cdot \sigma^{-1}_\phi(p),\Omega_{s(x)}(ds(X_x),ds(Y_x))]=$$
+		$$=[\phi^{-1}(p),\Omega_p(\tilde{X}_p,\tilde{Y}_p)]$$
+		But this is exactly $\phi^{-1}$ on $Ad(P)$ (see proposition REFERENZA). Thus, we get:
+		$$\Omega_M\rightarrow \phi^{-1}\cdot \Omega_M$$
+	\end{proof}
+	\begin{Prop} [\textbf{Active interpretation of diffeomorphisms}]
+		Let $\omega\in (P,\mathfrak{g})$ be a Cartan connection on a principal bundle. The transformation $f\in\mathcal{G}(P)$ on $\omega$ is induced by the one of $\Omega$ and is:
+		$$\omega\rightarrow f^{-1}\cdot \omega+\sigma_f^*\theta$$
+		where $\theta$.
+	\end{Prop}
+	\begin{proof}
+		Let $f:P\rightarrow P$ be a gauge transformation and $\sigma_f:P\rightarrow G$ be the associated map from REFERENZA. Then for $v_p\in T_pP$ we have:
+		$$f^*\omega_p(v_p)=\omega(df(v_p))$$
+		Recall that $f(p)=\mu(p,\sigma_f(p))$ where $\mu$ is the action of the group $H$. Thus, by REFERENZA: 
+		$$df_p(v)=d\mu(v,d\sigma_f(v))$$
+		$$f^*\omega(v)=\omega(df(v))=Ad(\sigma_f^{-1})\omega+\sigma_f^*\theta$$
+	\end{proof}
+	\begin{Obs}
+		For a reductive Cartan geometry, we have a splitting:
+		$$\omega=A+e$$
+		Since $A$ is an Ehressmann connection, it will transform like $\omega$, following REFERENZA. This implies that the transformation rule for the soldering form $e$ is:
+		$$e\longrightarrow Ad(g^{-1})e\hbox{ \textbf{[Active] }}$$
+		so it transforms just like the curvature (indeed it is a tensorial form). By setting two local gauges, we get:
+		$$s_i^*e= Ad(g_{ji}^{-1})s_j^*e\hbox{ \textbf{[Passive] }}$$
+	\end{Obs}
+	\section{Gravitation in Cartan Geometry}
+	In this section we will look at General relativity as a gauge theory, through the scope of the Cartan construction.
+	\end{document}
